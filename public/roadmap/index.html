@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reading Roadmap — Universal Collapse Theory</title>
+<meta name="description" content="Where should I start? Reading paths by audience for the UCT library.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-deep: #08090c;
+  --bg-surface: #0e1017;
+  --bg-elevated: #161820;
+  --text-primary: #e8e6e1;
+  --text-secondary: #9b978f;
+  --text-tertiary: #5e5b54;
+  --accent: #c9a96e;
+  --accent-dim: #8a7245;
+  --rule: rgba(201, 169, 110, 0.12);
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: var(--bg-deep); color: var(--text-primary);
+  font-family: 'Outfit', sans-serif; font-weight: 300;
+  line-height: 1.7; -webkit-font-smoothing: antialiased;
+}
+body::before {
+  content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none; z-index: 9999;
+}
+a { color: inherit; text-decoration: none; }
+.wrap { max-width: 860px; margin: 0 auto; padding: 0 40px; }
+.label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; font-weight: 500; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--accent);
+}
+h1, h2, h3 { font-family: 'EB Garamond', serif; font-weight: 400; line-height: 1.15; }
+.divider { height: 1px; background: linear-gradient(90deg, transparent, var(--rule), transparent); max-width: 860px; margin: 0 auto; }
+.sec { padding: 80px 0; }
+.sec h2 { font-size: clamp(28px, 3.5vw, 36px); margin: 20px 0 24px; }
+.sec p { font-size: 17px; color: var(--text-secondary); margin-bottom: 16px; }
+
+/* Nav bar */
+.nav {
+  padding: 20px 0; display: flex; justify-content: space-between; align-items: center;
+  border-bottom: 1px solid var(--rule);
+}
+.nav a {
+  font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500;
+  letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent);
+  transition: opacity 0.2s;
+}
+.nav a:hover { opacity: 0.7; }
+.nav span { font-size: 11px; color: var(--text-tertiary); letter-spacing: 0.12em; text-transform: uppercase; }
+
+/* Hero */
+.rh { padding: 100px 0 80px; }
+.rh h1 { font-size: clamp(32px, 4.5vw, 48px); margin: 24px 0; max-width: 640px; }
+.rh p { font-size: 19px; color: var(--text-secondary); max-width: 600px; }
+
+/* Start here callout */
+.callout {
+  padding: 28px 32px; background: var(--bg-surface); border-radius: 8px;
+  border: 1px solid rgba(201,169,110,0.15); position: relative; overflow: hidden;
+}
+.callout::before {
+  content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 100%;
+  background: var(--accent); opacity: 0.45;
+}
+.callout h3 { font-size: 21px; margin-bottom: 10px; }
+.callout p { font-size: 15px; line-height: 1.65; margin-bottom: 14px; }
+.callout a.cta {
+  font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent);
+}
+.book-note { font-size: 14px; color: var(--text-tertiary); margin-top: 18px; font-style: italic; }
+.book-note a { color: var(--text-secondary); border-bottom: 1px solid var(--text-tertiary); }
+
+/* Path cards — reuse tier pattern */
+.pg { margin-bottom: 2px; }
+.ph {
+  padding: 24px 0; cursor: pointer; border-bottom: 1px solid var(--rule);
+  position: relative; transition: background 0.2s;
+}
+.ph:hover { background: rgba(201,169,110,0.03); }
+.ph .sw { position: absolute; top: 0; left: 0; height: 1px; width: 0; background: var(--accent); opacity: 0.35; transition: width 0.4s ease; }
+.ph:hover .sw, .pg.open .ph .sw { width: 100%; }
+.ph-inner { display: flex; align-items: baseline; justify-content: space-between; }
+.ph-title { font-family: 'EB Garamond', serif; font-size: 24px; font-weight: 400; margin-bottom: 4px; }
+.ph-sub { font-size: 13px; color: var(--text-secondary); font-style: italic; }
+.ph-arrow { color: var(--accent); font-size: 16px; opacity: 0.5; transition: transform 0.3s ease; }
+.pg.open .ph-arrow { transform: rotate(90deg); }
+.pg.open .ph { border-bottom: none; }
+.pb { display: none; padding-bottom: 24px; border-bottom: 1px solid var(--rule); }
+.pg.open .pb { display: block; }
+.pb > p { font-size: 15px; color: var(--text-secondary); margin-bottom: 24px; }
+
+/* Step cards */
+.step {
+  display: flex; align-items: flex-start; gap: 16px;
+  padding: 14px 18px; margin-bottom: 8px;
+  background: var(--bg-surface); border-radius: 6px;
+  border: 1px solid rgba(201,169,110,0.1);
+}
+a.step:hover { border-color: rgba(201,169,110,0.25); }
+.step.dim { opacity: 0.45; }
+.step-num {
+  min-width: 26px; height: 26px; border-radius: 50%;
+  border: 1px solid rgba(201,169,110,0.3);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; color: var(--accent); font-weight: 500; flex-shrink: 0;
+}
+.step-body { flex: 1; }
+.step-title { font-family: 'EB Garamond', serif; font-size: 16px; font-weight: 400; margin-bottom: 3px; line-height: 1.3; }
+.step-note { font-size: 13px; color: var(--text-secondary); font-weight: 300; line-height: 1.45; }
+.step-arrow { color: var(--accent); font-size: 15px; opacity: 0.35; padding-top: 4px; }
+
+/* Tier cards */
+.tier-card {
+  display: flex; gap: 18px; padding: 16px 20px; margin-bottom: 10px;
+  background: var(--bg-surface); border-radius: 6px;
+  border: 1px solid rgba(201,169,110,0.1); align-items: flex-start;
+}
+.tier-label {
+  min-width: 58px;
+  font-family: 'JetBrains Mono', monospace; font-size: 11px;
+  letter-spacing: 0.1em; font-weight: 500; color: var(--accent); padding-top: 3px;
+}
+.tier-info h3 { font-family: 'EB Garamond', serif; font-size: 17px; font-weight: 400; margin-bottom: 4px; }
+.tier-info p { font-size: 13px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 4px; }
+.tier-info .docs { font-size: 11px; color: var(--text-tertiary); font-style: italic; }
+
+/* Footer */
+.foot { padding: 24px 0; text-align: center; border-top: 1px solid var(--rule); max-width: 860px; margin: 0 auto; }
+.foot p { font-size: 12px; color: var(--text-tertiary); letter-spacing: 0.1em; margin-bottom: 6px; }
+.foot .sm { font-size: 11px; letter-spacing: 0; }
+
+@media (max-width: 640px) {
+  .wrap { padding: 0 24px; }
+  .rh { padding: 60px 0; }
+  .callout { padding: 20px 22px; }
+  .step { gap: 12px; padding: 12px 14px; }
+  .tier-card { gap: 12px; padding: 14px 16px; }
+  .tier-label { min-width: 48px; font-size: 10px; }
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="nav">
+    <a href="/">← universalcollapse.com</a>
+    <span>Reading Roadmap</span>
+  </div>
+</div>
+
+<div class="wrap">
+  <section class="rh">
+    <span class="label">Reading Roadmap</span>
+    <h1>Where should I start?</h1>
+    <p>The UCT library is not linear. Each reader enters through a different surface depending on what they care about. The underlying kernel connects everything, but no reader needs to traverse the full library. The paths below are recommendations, not requirements.</p>
+  </section>
+</div>
+
+<div class="divider"></div>
+
+<div class="wrap">
+  <section class="sec">
+    <span class="label">If you only read one thing</span>
+    <h2>Start here</h2>
+    <div class="callout">
+      <h3>We Are Never Having a Mathematical Experience</h3>
+      <p>The Schrödinger paper is the fastest way to see what this framework does. It takes a problem everyone recognizes — why is the cat alive and dead? — and shows that the paradox dissolves once you stop treating a property of the model as a property of the world. No formalism required. No prior UCT exposure needed. If this paper doesn't land, the framework probably isn't for you. If it does, everything else opens from here.</p>
+      <a class="cta" href="https://philarchive.org/rec/JONWAN" target="_blank" rel="noopener">Read on PhilArchive →</a>
+    </div>
+    <p class="book-note">For a book-length introduction, start with <a href="https://www.amazon.com/dp/B0DLB3LMQ2" target="_blank" rel="noopener">Universal Collapse Theory</a> (2025).</p>
+  </section>
+</div>
+
+<div class="divider"></div>
+
+<div class="wrap">
+  <section class="sec">
+    <span class="label">By Audience</span>
+    <h2>Reading Paths</h2>
+    <p style="margin-bottom:40px;">Each path is a curated sequence. Published papers link out; forthcoming papers are marked. Click an audience to see their recommended path.</p>
+
+    <!-- General Reader -->
+    <div class="pg"><div class="ph" onclick="toggle(this)"><div class="sw"></div><div class="ph-inner"><div><div class="ph-title">General Reader</div><div class="ph-sub">Curious, no academic prerequisites</div></div><span class="ph-arrow">→</span></div></div><div class="pb">
+      <p>You want to understand the framework without formalism. Start with the accessible material and work toward the papers if you want depth.</p>
+      <a class="step" href="https://www.amazon.com/dp/B0DLB3LMQ2" target="_blank"><div class="step-num">1</div><div class="step-body"><div class="step-title">Universal Collapse Theory</div><div class="step-note">The book — the complete framework in narrative form</div></div><span class="step-arrow">→</span></a>
+      <div class="step dim"><div class="step-num">2</div><div class="step-body"><div class="step-title">Human Interface Laws <span class="ft">forthcoming</span></div><div class="step-note">Eight laws of cognition under constraint. No notation. Experiential.</div></div></div>
+      <div class="step dim"><div class="step-num">3</div><div class="step-body"><div class="step-title">Starting Trust <span class="ft">forthcoming</span></div><div class="step-note">Practical guide to seeing and shifting your own starting constraints</div></div></div>
+      <a class="step" href="https://philarchive.org/rec/JONUCT-2" target="_blank"><div class="step-num">4</div><div class="step-body"><div class="step-title">WP01 — Foundations of Collapse</div><div class="step-note">The formal entry, if you want to go deeper</div></div><span class="step-arrow">→</span></a>
+    </div></div>
+
+    <!-- Physicist -->
+    <div class="pg"><div class="ph" onclick="toggle(this)"><div class="sw"></div><div class="ph-inner"><div><div class="ph-title">Physicist</div><div class="ph-sub">Foundations, quantum measurement, cosmology</div></div><span class="ph-arrow">→</span></div></div><div class="pb">
+      <p>You want to see what this framework does to measurement, decoherence, and entropy — and whether the structural claims survive contact with real physics.</p>
+      <a class="step" href="https://philarchive.org/rec/JONWAN" target="_blank"><div class="step-num">1</div><div class="step-body"><div class="step-title">We Are Never Having a Mathematical Experience</div><div class="step-note">The Schrödinger confusion dissolved. Start here — it's the pinpoint.</div></div><span class="step-arrow">→</span></a>
+      <a class="step" href="https://philarchive.org/rec/JONCR" target="_blank"><div class="step-num">2</div><div class="step-body"><div class="step-title">Collapse Reframed</div><div class="step-note">Kernel specification and signature-mapped predictions. Physics entry ramp.</div></div><span class="step-arrow">→</span></a>
+      <a class="step" href="https://philarchive.org/rec/JONUCT" target="_blank"><div class="step-num">3</div><div class="step-body"><div class="step-title">WP02 — Collapse in Physics</div><div class="step-note">Full physics treatment — cosmology, measurement, records, entropy, decoherence.</div></div><span class="step-arrow">→</span></a>
+      <a class="step" href="https://philarchive.org/rec/JONUCT-2" target="_blank"><div class="step-num">4</div><div class="step-body"><div class="step-title">WP01 — Foundations of Collapse</div><div class="step-note">The kernel formalism. Understand what generates the physics claims.</div></div><span class="step-arrow">→</span></a>
+      <div class="step dim"><div class="step-num">5</div><div class="step-body"><div class="step-title">Structural Physics <span class="ft">forthcoming</span></div><div class="step-note">Tier 2 companion. Domain deepening with operating manual.</div></div></div>
+    </div></div>
+
+    <!-- Biologist -->
+    <div class="pg"><div class="ph" onclick="toggle(this)"><div class="sw"></div><div class="ph-inner"><div><div class="ph-title">Biologist</div><div class="ph-sub">Evolution, abiogenesis, major transitions</div></div><span class="ph-arrow">→</span></div></div><div class="pb">
+      <p>You want to know what collapse under constraint means for life — and whether it says anything beyond what existing evolutionary theory already handles.</p>
+      <div class="step dim"><div class="step-num">1</div><div class="step-body"><div class="step-title">WP03 — Biological Collapse <span class="ft">forthcoming</span></div><div class="step-note">Life as a phase of constraint-guided collapse. The front door.</div></div></div>
+      <div class="step dim"><div class="step-num">2</div><div class="step-body"><div class="step-title">Structural Biology <span class="ft">forthcoming</span></div><div class="step-note">Tier 2 companion. Depth treatment with operating manual.</div></div></div>
+      <a class="step" href="https://philarchive.org/rec/JONUCT-2" target="_blank"><div class="step-num">3</div><div class="step-body"><div class="step-title">WP01 — Foundations of Collapse</div><div class="step-note">The kernel. Optional but recommended for full structural context.</div></div><span class="step-arrow">→</span></a>
+    </div></div>
+
+    <!-- Cognitive Scientist -->
+    <div class="pg"><div class="ph" onclick="toggle(this)"><div class="sw"></div><div class="ph-inner"><div><div class="ph-title">Cognitive Scientist</div><div class="ph-sub">Perception, belief, decision, consciousness</div></div><span class="ph-arrow">→</span></div></div><div class="pb">
+      <p>You want to see how FRLB maps to predictive processing, how the gate of perception works, and what this framework adds to existing theories of mind.</p>
+      <div class="step dim"><div class="step-num">1</div><div class="step-body"><div class="step-title">Human Interface Laws <span class="ft">forthcoming</span></div><div class="step-note">Eight laws. Experiential entry. No formalism required.</div></div></div>
+      <div class="step dim"><div class="step-num">2</div><div class="step-body"><div class="step-title">How Minds Resolve <span class="ft">forthcoming</span></div><div class="step-note">Accessible introduction to FRLB — faith, reason, logic, belief.</div></div></div>
+      <div class="step dim"><div class="step-num">3</div><div class="step-body"><div class="step-title">WP04 — Conscious Collapse <span class="ft">forthcoming</span></div><div class="step-note">The formal mind paper. Perception, decision, FRLB, conscious resolution.</div></div></div>
+      <div class="step dim"><div class="step-num">4</div><div class="step-body"><div class="step-title">Structural Mind <span class="ft">forthcoming</span></div><div class="step-note">Tier 2 companion. Depth treatment with operating manual.</div></div></div>
+      <a class="step" href="https://philarchive.org/rec/JONUCT-2" target="_blank"><div class="step-num">5</div><div class="step-body"><div class="step-title">WP01 — Foundations of Collapse</div><div class="step-note">The kernel. Connects mind to the cross-domain architecture.</div></div><span class="step-arrow">→</span></a>
+    </div></div>
+
+    <!-- Philosopher -->
+    <div class="pg"><div class="ph" onclick="toggle(this)"><div class="sw"></div><div class="ph-inner"><div><div class="ph-title">Philosopher</div><div class="ph-sub">Metaphysics, epistemology, philosophy of science</div></div><span class="ph-arrow">→</span></div></div><div class="pb">
+      <p>You want to evaluate the structural claims, the relationship to structural realism, and whether the epistemological architecture holds up.</p>
+      <a class="step" href="https://philarchive.org/rec/JONUCT-2" target="_blank"><div class="step-num">1</div><div class="step-body"><div class="step-title">WP01 — Foundations of Collapse</div><div class="step-note">Start with the kernel. Evaluate the formal architecture.</div></div><span class="step-arrow">→</span></a>
+      <div class="step dim"><div class="step-num">2</div><div class="step-body"><div class="step-title">Primes 0–4 <span class="ft">forthcoming</span></div><div class="step-note">Ground-clearing. Coherence, randomness, chaos, intelligence, nothingness.</div></div></div>
+      <div class="step dim"><div class="step-num">3</div><div class="step-body"><div class="step-title">WP05 — Collapse as Law <span class="ft">forthcoming</span></div><div class="step-note">The capstone. Law of Coherence formally stated and assessed.</div></div></div>
+      <div class="step dim"><div class="step-num">4</div><div class="step-body"><div class="step-title">Structuralization of Empiricism <span class="ft">forthcoming</span></div><div class="step-note">Framework-agnostic epistemology. Strongest standalone paper.</div></div></div>
+      <div class="step dim"><div class="step-num">5</div><div class="step-body"><div class="step-title">Human Interface Laws <span class="ft">forthcoming</span></div><div class="step-note">Applied epistemology — what the architecture means for minds.</div></div></div>
+    </div></div>
+
+    <!-- Methodology -->
+    <div class="pg"><div class="ph" onclick="toggle(this)"><div class="sw"></div><div class="ph-inner"><div><div class="ph-title">Methodology / Standards</div><div class="ph-sub">Science reform, update hygiene, AI alignment</div></div><span class="ph-arrow">→</span></div></div><div class="pb">
+      <p>You don't care about the physics claims. You want the update standards, the reporting framework, and the tools for better epistemic practice.</p>
+      <div class="step dim"><div class="step-num">1</div><div class="step-body"><div class="step-title">Structuralization of Empiricism <span class="ft">forthcoming</span></div><div class="step-note">Standalone. Does not require UCT exposure. Pure epistemology.</div></div></div>
+      <div class="step dim"><div class="step-num">2</div><div class="step-body"><div class="step-title">Update Integrity Standard <span class="ft">forthcoming</span></div><div class="step-note">Companion standard. Corruptors, testing criteria, update discipline.</div></div></div>
+      <div class="step dim"><div class="step-num">3</div><div class="step-body"><div class="step-title">Records Across the Stack <span class="ft">forthcoming</span></div><div class="step-note">Cross-domain record structure. Empirical demonstration.</div></div></div>
+    </div></div>
+
+  </section>
+</div>
+
+<div class="divider"></div>
+
+<div class="wrap">
+  <section class="sec">
+    <span class="label">Architecture</span>
+    <h2>How the library is organized</h2>
+    <p style="margin-bottom:32px;">Every document in the library is classified by tier. The tiers govern placement, audience, and relationship to the spine. Readers move down layers, not laterally.</p>
+    <div class="tier-card"><div class="tier-label">Tier 1</div><div class="tier-info"><h3>White Papers</h3><p>The spine. Five sequential papers building the formal argument from kernel to capstone.</p><div class="docs">WP01–WP05</div></div></div>
+    <div class="tier-card"><div class="tier-label">Tier 1.5</div><div class="tier-info"><h3>Interpretive Bridges</h3><p>Entry ramps. Each reaches a specific audience. No WP dependency required.</p><div class="docs">Collapse Reframed, Schrödinger, How Minds Resolve, Human Interface Laws</div></div></div>
+    <div class="tier-card"><div class="tier-label">Tier 1.6</div><div class="tier-info"><h3>Empirical Demonstrations</h3><p>Narrow proofs with discriminators. Can succeed or fail independently.</p><div class="docs">Entropy as Record, Records Across the Stack</div></div></div>
+    <div class="tier-card"><div class="tier-label">Tier 2</div><div class="tier-info"><h3>Structural Companions</h3><p>Domain deepening. Serious treatment with nested operating manuals.</p><div class="docs">Structural Physics, Structural Biology, Structural Mind</div></div></div>
+    <div class="tier-card"><div class="tier-label">Tier 3</div><div class="tier-info"><h3>Primes</h3><p>Ground-clearing. Conceptual hygiene for overloaded terms.</p><div class="docs">Coherence, Randomness, Chaos, Intelligence, Nothingness</div></div></div>
+    <div class="tier-card"><div class="tier-label">—</div><div class="tier-info"><h3>Standards</h3><p>Framework-agnostic governance. Useful even if you reject UCT entirely.</p><div class="docs">Structuralization of Empiricism, Update Integrity Standard</div></div></div>
+  </section>
+</div>
+
+<div class="divider"></div>
+
+<div class="wrap">
+  <section class="sec" style="padding-bottom:100px;">
+    <span class="label">About This Project</span>
+    <h2>The Project</h2>
+    <p>Universal Collapse Theory is an independent research program developed by Jeremy C. Jones through HoldingLight LLC. It is a coherence-first framework for understanding how structured reality emerges and stabilizes across physics, biology, cognition, and culture.</p>
+    <p>Rather than a single text, the project is a layered body of work: formal white papers, interpretive bridge papers, domain companions, and empirical demonstrations. Together, these pieces develop a shared structural grammar centered on collapse, constraint, records, and recursive update.</p>
+    <p>The work began with a philosophical question about altered states and abstract thought, and has since expanded into a broader interdisciplinary research program.</p>
+    <p>This is open, living scholarship. The framework is still developing, and thoughtful critique, collaboration, and serious engagement are welcome.</p>
+  </section>
+</div>
+
+<div class="foot">
+  <p>© 2025–2026 HoldingLight LLC — All rights reserved</p>
+  <p class="sm">Jeremy C. Jones · ORCID 0009-0007-2515-3774 · contact@universalcollapse.com</p>
+</div>
+
+<script>
+function toggle(h){var g=h.closest('.pg'),o=g.classList.contains('open');document.querySelectorAll('.pg').forEach(function(t){t.classList.remove('open')});if(!o)g.classList.add('open');}
+</script>
+</body>
+</html>
