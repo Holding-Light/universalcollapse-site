@@ -1,0 +1,8 @@
+# universalcollapse.com
+# Open to all crawlers, including AI search and AI assistant bots.
+# This site welcomes indexing, discovery, and surfacing in answers.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://universalcollapse.com/sitemap.xml

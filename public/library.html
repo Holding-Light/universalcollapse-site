@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Library — Universal Collapse Theory</title>
+  <meta name="description" content="The complete library of Universal Collapse Theory — white papers, interpretive bridges, empirical demonstrations, methods, standards, and structural companions. Open-access on PhilArchive and OSF.">
+  <link rel="canonical" href="https://universalcollapse.com/library.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@300;400&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg-deep: #08090c;
+      --bg-surface: #0e1017;
+      --bg-elevated: #161820;
+      --text-primary: #e8e6e1;
+      --text-secondary: #9b978f;
+      --text-tertiary: #5e5b54;
+      --accent: #c9a96e;
+      --accent-dim: #8a7245;
+      --rule: rgba(201, 169, 110, 0.12);
+      --serif: 'EB Garamond', Georgia, serif;
+      --sans: 'Outfit', system-ui, sans-serif;
+      --mono: 'JetBrains Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      background: var(--bg-deep);
+      color: var(--text-primary);
+      font-family: var(--sans);
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Grain overlay */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    .container { max-width: 820px; margin: 0 auto; padding: 0 2rem; }
+
+    /* Top bar */
+    .topbar { padding: 2rem 0 0; }
+    .home-link {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--accent);
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 0.3rem;
+      transition: border-color 0.3s ease, color 0.3s ease;
+    }
+    .home-link:hover { border-color: var(--accent); color: var(--text-primary); }
+
+    /* Header */
+    .lib-header { padding: 3rem 0 1rem; }
+    .lib-label {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      font-weight: 300;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--accent-dim);
+      margin-bottom: 1.25rem;
+    }
+    .lib-title {
+      font-family: var(--serif);
+      font-size: clamp(2.4rem, 5vw, 3.4rem);
+      font-weight: 400;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.5rem;
+    }
+    .lib-title em { font-style: italic; color: var(--accent); }
+    .lib-intro {
+      font-size: 1.05rem;
+      line-height: 1.85;
+      color: var(--text-secondary);
+      max-width: 640px;
+    }
+    .lib-intro + .lib-intro { margin-top: 1.25rem; }
+
+    /* Sections */
+    section { padding: 3.5rem 0 0; }
+    .section-rule { width: 100%; height: 1px; background: var(--rule); border: none; margin-top: 3.5rem; }
+    .section-label {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      font-weight: 300;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--accent-dim);
+      margin-bottom: 0.75rem;
+    }
+    .section-heading {
+      font-family: var(--serif);
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 400;
+      line-height: 1.3;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Paper grid */
+    .papers-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      background: var(--rule);
+    }
+    .paper-card {
+      background: var(--bg-deep);
+      padding: 1.75rem 0;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: start;
+      gap: 1.5rem;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+    .paper-card:hover { background: var(--bg-surface); }
+    .paper-number {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      font-weight: 300;
+      color: var(--accent-dim);
+      padding-top: 0.3rem;
+      letter-spacing: 0.05em;
+      min-width: 5rem;
+    }
+    .paper-info { display: flex; flex-direction: column; gap: 0.4rem; }
+    .paper-title {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      line-height: 1.4;
+      transition: color 0.3s ease;
+    }
+    .paper-card:hover .paper-title { color: var(--accent); }
+    .paper-desc { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; }
+    .paper-venue {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      margin-top: 0.35rem;
+    }
+    .paper-arrow {
+      font-size: 1.2rem;
+      color: var(--text-tertiary);
+      transition: color 0.3s ease, transform 0.3s ease;
+      padding-top: 0.25rem;
+    }
+    .paper-card:hover .paper-arrow { color: var(--accent); transform: translateX(4px); }
+
+    /* Footer */
+    footer { padding: 4rem 0 3rem; text-align: center; }
+    .footer-text { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.15em; color: var(--text-tertiary); }
+
+    @media (max-width: 640px) {
+      .container { padding: 0 1.25rem; }
+      .paper-card { grid-template-columns: 1fr; gap: 0.5rem; padding: 1.5rem 0; }
+      .paper-number, .paper-arrow { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="topbar">
+      <a class="home-link" href="/">&larr; Universal Collapse Theory</a>
+    </div>
+  </div>
+
+  <header class="lib-header">
+    <div class="container">
+      <div class="lib-label">Complete Library</div>
+      <h1 class="lib-title">The <em>Library</em></h1>
+      <p class="lib-intro">
+        The full body of Universal Collapse Theory — a layered research program developed by Jeremy C. Jones through HoldingLight LLC. White papers establish the kernel; interpretive bridges carry it into specific debates; empirical demonstrations test it; methods and standards make it auditable.
+      </p>
+      <p class="lib-intro">
+        Every item below is open-access. Reading copies are on PhilArchive where available; the reproducibility material, data, and persistent identifiers live on OSF.
+      </p>
+    </div>
+  </header>
+
+  <!-- White Papers -->
+  <section>
+    <div class="container">
+      <div class="section-label">Tier 1 — White Papers</div>
+      <h2 class="section-heading">The Spine</h2>
+      <div class="papers-grid">
+
+        <a href="https://philarchive.org/rec/JONUCT-2" target="_blank" rel="noopener" class="paper-card">
+          <span class="paper-number">WP01</span>
+          <div class="paper-info">
+            <span class="paper-title">Universal Collapse Theory: Foundations</span>
+            <span class="paper-desc">The foundational paper — introducing the Law of Coherence, the kernel notation, and the regime architecture grounding how collapse operates across physics, biology, and mind.</span>
+            <span class="paper-venue">PhilArchive</span>
+          </div>
+          <span class="paper-arrow">&rarr;</span>
+        </a>
+
+        <a href="https://philarchive.org/rec/JONUCT-3" target="_blank" rel="noopener" class="paper-card">
+          <span class="paper-number">WP02</span>
+          <div class="paper-info">
+            <span class="paper-title">Universal Collapse Theory: Physics</span>
+            <span class="paper-desc">Applying the framework to foundational physics — reinterpreting measurement, decoherence, and the quantum–classical boundary through structural coherence.</span>
+            <span class="paper-venue">PhilArchive</span>
+          </div>
+          <span class="paper-arrow">&rarr;</span>
+        </a>
+
+        <a href="https://philarchive.org/rec/JONUCT-4" target="_blank" rel="noopener" class="paper-card">
+          <span class="paper-number">WP03</span>
+          <div class="paper-info">
+            <span class="paper-title">Universal Collapse Theory: Biology</span>
+            <span class="paper-desc">Life as a phase of matter's collapse behavior. Genomes function as both record and constraint; evolution, development, and ecosystems emerge as nested collapse sequences under sustained gradients.</span>
+            <span class="paper-venue">PhilArchive</span>
+          </div>
+          <span class="paper-arrow">&rarr;</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="container"><hr class="section-rule"></div>
+
+  <!-- Interpretive Bridges -->
+  <section>
+    <div class="container">
+      <div class="section-label">Tier 1.5 — Interpretive Bridges</div>
+      <h2 class="section-heading">Into the Debates</h2>
+      <div class="papers-grid">
+
+        <a href="https://philarchive.org/rec/JONCMA-5" target="_blank" rel="noopener" class="paper-card">
+          <span class="paper-number">CIM</span>
+          <div class="paper-info">
+            <span class="paper-title">Consciousness-Induced Material: A Foundational Account</span>
+            <span class="paper-desc">Externalized cognition as a constituent phase of mind rather than an auxiliary to it — the foundational treatment of CIM.</span>
+            <span class="paper-venue">PhilArchive</span>
+          </div>
+          <span class="paper-arrow">&rarr;</span>
+        </a>
+
+        <a href="https://philarchive.org/rec/JONCRF" target="_blank" rel="noopener" class="paper-card">
+          <span class="paper-number">T1.5</span>
+          <div class="paper-info">
+            <span class="paper-title">Collapse Reframed</span>
+            <span class="paper-desc">An accessible entry point to UCT's reinterpretation of quantum collapse — bridging philosophy of physics with the structural grammar of coherence.</span>
+            <span class="paper-venue">PhilArchive</span>
+          </div>
+          <span class="paper-arrow">&rarr;</span>
+        </a>
+
+        <a href="https://philarchive.org/rec/JONWAN" target="_blank" rel="noopener" class="paper-card">
+          <span class="paper-number">T1.5</span>
+          <div class="paper-info">
+            <span class="paper-title">We Are Never Having a Mathematical Experience</span>
+            <span class="paper-desc">Resolving the Schrödinger confusion. The measurement paradox arises from a category error — mistaking a property of our representational layer for a property of the macroscopic world.</span>
+            <span class="paper-venue">PhilArchive</span>
+          </div>
+          <span class="paper-arrow">&rarr;</span>
+        </a>
+
+        <a href="https://philarchive.org/rec/JONBFS" target="_blank" rel="noopener" class="paper-card">
+          <span class="paper-number">T1.5</span>
+          <div class="paper-info">
+            <span class="paper-title">Biological Faith Systems</span>
+            <span class="paper-desc">How living systems commit before certainty — the distributed, pre-symbolic mechanisms by which organisms bias action toward viability, bridging autopoiesis and active inference toward proto-intent.</span>
+            <span class="paper-venue">PhilArchive</span>
+          </div>
+          <span class="paper-arrow">&rarr;</span>
+        </a>
+
+        <a href="https://philarchive.org/rec/JONTST-4" target="_blank" rel="noopener" class="paper-card">
+          <span class="paper-number">T1.5</span>
+          <div class="paper-info">
+            <span class="paper-title">The Self the Ego Did Not Build</span>
+            <span class="paper-desc">What decides before you decide. A structural account of the two-layer self — the accumulated self beneath the ego — and of perception as the directional channel between them.</span>
+            <span class="paper-venue">PhilArchive</span>
+          </div>
+          <span class="paper-arrow">&rarr;</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="container"><hr class="section-rule"></div>
+
+  <!-- Empirical Demonstrations -->
+  <section>
+    <div class="container">
+      <div class="section-label">Tier 1.6 — Empirical Demonstrations</div>
+      <h2 class="section-heading">Putting It to the Test</h2>
+      <div class="papers-grid">
+
+        <a href="https://doi.org/10.17605/OSF.IO/KZ8TP" target="_blank" rel="noopener" class="paper-card">
+          <span class="paper-number">T1.6</span>
+          <div class="paper-info">
+            <span class="paper-title">Biological Constraint Sweep (Rice Hysteresis)</span>
+            <span class="paper-desc">A reproducibility package demonstrating record-dependent hysteresis under a swept biological constraint — a portable empirical signature of the kernel.</span>
+            <span class="paper-venue">OSF &middot; DOI 10.17605/OSF.IO/KZ8TP</span>
+          </div>
+          <span class="paper-arrow">&rarr;</span>
+        </a>
+
+        <a href="https://doi.org/10.17605/OSF.IO/MXYU2" target="_blank" rel="noopener" class="paper-card">
+          <span class="paper-number">T1.6</span>
+          <div class="paper-info">
+            <span class="paper-title">Constraint-Dependent Perceptual Resolution (COGITATE)</span>
+            <span class="paper-desc">A demonstration that perceptual resolution tracks constraint structure — applying the framework's resolution signature to perceptual data.</span>
+            <span class="paper-venue">OSF &middot; DOI 10.17605/OSF.IO/MXYU2</span>
+          </div>
+          <span class="paper-arrow">&rarr;</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="container"><hr class="section-rule"></div>
+
+  <!-- Methods & Theoretical Notes -->
+  <section>
+    <div class="container">
+      <div class="section-label">Methods &amp; Theoretical Notes</div>
+      <h2 class="section-heading">The Auditing Layer</h2>
+      <div class="papers-grid">
+
+        <a href="https://doi.org/10.17605/OSF.IO/7U8SK" target="_blank" rel="noopener" class="paper-card">
+          <span class="paper-number">METHODS S1</span>
+          <div class="paper-info">
+            <span class="paper-title">Auditing Independence in Multi-Channel Measurement</span>
+            <span class="paper-desc">A procedure for testing whether measurement channels are genuinely independent — the first portable empirical signature.</span>
+            <span class="paper-venue">OSF &middot; DOI 10.17605/OSF.IO/7U8SK</span>
+          </div>
+          <span class="paper-arrow">&rarr;</span>
+        </a>
+
+        <a href="https://doi.org/10.17605/OSF.IO/HRKWT" target="_blank" rel="noopener" class="paper-card">
+          <span class="paper-number">METHODS S2</span>
+          <div class="paper-info">
+            <span class="paper-title">Auditing Constraint Asymmetry in Latency-Based Resolution Tests</span>
+            <span class="paper-desc">A procedure for detecting constraint asymmetry through resolution latency — the second portable signature.</span>
+            <span class="paper-venue">OSF &middot; DOI 10.17605/OSF.IO/HRKWT</span>
+          </div>
+          <span class="paper-arrow">&rarr;</span>
+        </a>
+
+        <a href="https://doi.org/10.17605/OSF.IO/CQGTD" target="_blank" rel="noopener" class="paper-card">
+          <span class="paper-number">METHODS S3</span>
+          <div class="paper-info">
+            <span class="paper-title">Auditing Record State in Constraint-Sweep Hysteresis Tests</span>
+            <span class="paper-desc">A procedure for reading record state from hysteresis in a swept constraint — the third portable signature.</span>
+            <span class="paper-venue">OSF &middot; DOI 10.17605/OSF.IO/CQGTD</span>
+          </div>
+          <span class="paper-arrow">&rarr;</span>
+        </a>
+
+        <a href="https://doi.org/10.17605/OSF.IO/6M7N3" target="_blank" rel="noopener" class="paper-card">
+          <span class="paper-number">NOTE S1</span>
+          <div class="paper-info">
+            <span class="paper-title">Objectivity from Records: An Exponential Consensus Bound</span>
+            <span class="paper-desc">A formal bound on how records drive independent observers toward shared agreement.</span>
+            <span class="paper-venue">OSF &middot; DOI 10.17605/OSF.IO/6M7N3</span>
+          </div>
+          <span class="paper-arrow">&rarr;</span>
+        </a>
+
+        <a href="https://doi.org/10.17605/OSF.IO/6WRQV" target="_blank" rel="noopener" class="paper-card">
+          <span class="paper-number">NOTE S2</span>
+          <div class="paper-info">
+            <span class="paper-title">Neutrality Delays Resolution: An Expected Resolution-Time Bound</span>
+            <span class="paper-desc">A formal bound showing how a neutral constraint lengthens expected time to resolution.</span>
+            <span class="paper-venue">OSF &middot; DOI 10.17605/OSF.IO/6WRQV</span>
+          </div>
+          <span class="paper-arrow">&rarr;</span>
+        </a>
+
+        <a href="https://doi.org/10.17605/OSF.IO/QJMSZ" target="_blank" rel="noopener" class="paper-card">
+          <span class="paper-number">NOTE S3</span>
+          <div class="paper-info">
+            <span class="paper-title">Records Amplify Hysteresis: A Loop-Area Lemma</span>
+            <span class="paper-desc">A lemma relating record persistence to the area of the hysteresis loop in a swept constraint.</span>
+            <span class="paper-venue">OSF &middot; DOI 10.17605/OSF.IO/QJMSZ</span>
+          </div>
+          <span class="paper-arrow">&rarr;</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="container"><hr class="section-rule"></div>
+
+  <!-- Structural Companions -->
+  <section>
+    <div class="container">
+      <div class="section-label">Tier 2 — Structural Companions</div>
+      <h2 class="section-heading">Domain Manuals</h2>
+      <div class="papers-grid">
+
+        <a href="https://doi.org/10.17605/OSF.IO/CPKNX" target="_blank" rel="noopener" class="paper-card">
+          <span class="paper-number">SBOM</span>
+          <div class="paper-info">
+            <span class="paper-title">Structural Biology Operating Manual</span>
+            <span class="paper-desc">A working manual translating the kernel into the practice and vocabulary of biology — a domain-native companion to WP03.</span>
+            <span class="paper-venue">OSF &middot; DOI 10.17605/OSF.IO/CPKNX</span>
+          </div>
+          <span class="paper-arrow">&rarr;</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="container"><hr class="section-rule"></div>
+
+  <!-- Standards -->
+  <section>
+    <div class="container">
+      <div class="section-label">Standards — Framework-Agnostic Governance</div>
+      <h2 class="section-heading">The Governance Layer</h2>
+      <div class="papers-grid">
+
+        <a href="https://philarchive.org/rec/JONRAN-2" target="_blank" rel="noopener" class="paper-card">
+          <span class="paper-number">RECORDS</span>
+          <div class="paper-info">
+            <span class="paper-title">Records Across Nature, Life, and Mind</span>
+            <span class="paper-desc">The persistence layer of collapse. Durable, informative, non-destructively readable traces — records — convert isolated resolutions into cumulative history across physics, biology, and mind.</span>
+            <span class="paper-venue">PhilArchive</span>
+          </div>
+          <span class="paper-arrow">&rarr;</span>
+        </a>
+
+        <a href="https://philarchive.org/rec/JONTSO-28" target="_blank" rel="noopener" class="paper-card">
+          <span class="paper-number">EMPIRICISM</span>
+          <div class="paper-info">
+            <span class="paper-title">The Structuralization of Empiricism</span>
+            <span class="paper-desc">Independence, calibration, replication, and falsifiability recast as structural safeguards that keep the constraint–record–update loop corrigible rather than self-sealing.</span>
+            <span class="paper-venue">PhilArchive</span>
+          </div>
+          <span class="paper-arrow">&rarr;</span>
+        </a>
+
+        <a href="https://doi.org/10.17605/OSF.IO/DWM29" target="_blank" rel="noopener" class="paper-card">
+          <span class="paper-number">UIS</span>
+          <div class="paper-info">
+            <span class="paper-title">Update Integrity Standard</span>
+            <span class="paper-desc">Specifies how update loops in record-bearing systems stay corrigible — through record discipline, independence audit, and symmetric standards — so they revise rather than freeze, drift, or self-seal.</span>
+            <span class="paper-venue">OSF &middot; DOI 10.17605/OSF.IO/DWM29</span>
+          </div>
+          <span class="paper-arrow">&rarr;</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="container"><hr class="section-rule"></div>
+
+  <!-- Starter Packs -->
+  <section>
+    <div class="container">
+      <div class="section-label">Starter Packs</div>
+      <h2 class="section-heading">Ways In</h2>
+      <div class="papers-grid">
+
+        <a href="https://doi.org/10.17605/OSF.IO/UWRS3" target="_blank" rel="noopener" class="paper-card">
+          <span class="paper-number">BUNDLE</span>
+          <div class="paper-info">
+            <span class="paper-title">Starter Pack — Full Bundle</span>
+            <span class="paper-desc">A curated on-ramp into the framework, gathering the core entry materials in one place.</span>
+            <span class="paper-venue">OSF &middot; DOI 10.17605/OSF.IO/UWRS3</span>
+          </div>
+          <span class="paper-arrow">&rarr;</span>
+        </a>
+
+        <a href="https://doi.org/10.17605/OSF.IO/XRE7B" target="_blank" rel="noopener" class="paper-card">
+          <span class="paper-number">PHYSICS</span>
+          <div class="paper-info">
+            <span class="paper-title">Physics Starter Pack</span>
+            <span class="paper-desc">An entry route into UCT for readers coming from physics.</span>
+            <span class="paper-venue">OSF &middot; DOI 10.17605/OSF.IO/XRE7B</span>
+          </div>
+          <span class="paper-arrow">&rarr;</span>
+        </a>
+
+        <a href="https://doi.org/10.17605/OSF.IO/M8S39" target="_blank" rel="noopener" class="paper-card">
+          <span class="paper-number">BIOLOGY</span>
+          <div class="paper-info">
+            <span class="paper-title">Biology Starter Pack</span>
+            <span class="paper-desc">An entry route into UCT for readers coming from the life sciences.</span>
+            <span class="paper-venue">OSF &middot; DOI 10.17605/OSF.IO/M8S39</span>
+          </div>
+          <span class="paper-arrow">&rarr;</span>
+        </a>
+
+        <a href="https://doi.org/10.17605/OSF.IO/QCWN8" target="_blank" rel="noopener" class="paper-card">
+          <span class="paper-number">MIND</span>
+          <div class="paper-info">
+            <span class="paper-title">Mind Starter Pack</span>
+            <span class="paper-desc">An entry route into UCT for readers coming from cognitive science and philosophy of mind.</span>
+            <span class="paper-venue">OSF &middot; DOI 10.17605/OSF.IO/QCWN8</span>
+          </div>
+          <span class="paper-arrow">&rarr;</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="container"><hr class="section-rule"></div>
+
+  <!-- Book -->
+  <section>
+    <div class="container">
+      <div class="section-label">Book</div>
+      <h2 class="section-heading">The Long Form</h2>
+      <div class="papers-grid">
+
+        <a href="https://www.amazon.com/Universal-Collapse-Jeremy-C-Jones-ebook/dp/B0FJLY71PV" target="_blank" rel="noopener" class="paper-card">
+          <span class="paper-number">BOOK</span>
+          <div class="paper-info">
+            <span class="paper-title">Universal Collapse</span>
+            <span class="paper-desc">The original book-length treatment — the complete philosophical framework in a single volume.</span>
+            <span class="paper-venue">Amazon</span>
+          </div>
+          <span class="paper-arrow">&rarr;</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p class="footer-text">© 2025–2026 HoldingLight LLC — All rights reserved</p>
+    </div>
+  </footer>
+
+</body>
+</html>
