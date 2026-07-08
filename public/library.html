@@ -728,5 +728,18 @@
     </div>
   </footer>
 
+<script>/*backlink-nav*/
+(function(){
+  var ref=document.referrer; if(!ref) return;
+  var a=document.querySelector('.home-link'); if(!a) return;
+  try{
+    var u=new URL(ref), h=u.hostname, p=u.pathname;
+    if(h!=='universalcollapse.com' && h!=='www.universalcollapse.com') return;
+    if(p==='/'||p==='/index.html'){a.href='/';a.innerHTML='&larr; Home';}
+    else if(p.slice(0,8)==='/roadmap'){a.href='/roadmap/';a.innerHTML='&larr; Reading Roadmap';}
+    else if(p.slice(0,8)==='/library'){a.href='/library.html';a.innerHTML='&larr; The Library';}
+  }catch(e){}
+})();
+</script>
 </body>
 </html>
