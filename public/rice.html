@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bio Constraint Sweep — Universal Collapse Theory</title>
+  <meta name="description" content="The biology-side empirical — hysteresis under a swept constraint in rice transcriptome states.">
+  <link rel="canonical" href="https://universalcollapse.com/rice.html">
+
+  <!-- Highwire / Google Scholar bibliographic tags -->
+  <meta name="citation_title" content="Constraint-Sweep Hysteresis in Rice Transcriptome State During Heat Stress and Recovery">
+  <meta name="citation_author" content="Jones, Jeremy C.">
+  <meta name="citation_publication_date" content="2026">
+  <meta name="citation_doi" content="10.17605/OSF.IO/KZ8TP">
+  <meta name="citation_public_url" content="https://universalcollapse.com/rice.html">
+  <meta name="citation_technical_report_institution" content="HoldingLight LLC">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Bio Constraint Sweep — Universal Collapse Theory">
+  <meta property="og:description" content="The biology-side empirical — hysteresis under a swept constraint in rice transcriptome states.">
+  <meta property="og:url" content="https://universalcollapse.com/rice.html">
+  <meta property="og:site_name" content="Universal Collapse Theory">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@300;400&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg-deep: #08090c; --bg-surface: #0e1017; --bg-elevated: #161820;
+      --text-primary: #e8e6e1; --text-secondary: #9b978f; --text-tertiary: #5e5b54;
+      --accent: #c9a96e; --accent-dim: #8a7245; --rule: rgba(201, 169, 110, 0.12);
+      --serif: 'EB Garamond', Georgia, serif; --sans: 'Outfit', system-ui, sans-serif;
+      --mono: 'JetBrains Mono', monospace;
+    }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { background: var(--bg-deep); color: var(--text-primary); font-family: var(--sans);
+      font-weight: 300; line-height: 1.7; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+    body::after { content: ''; position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 9999; }
+    .container { max-width: 820px; margin: 0 auto; padding: 0 2rem; }
+    a:focus-visible, .cta:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+    .topbar { padding: 2rem 0 0; }
+    .home-link { font-family: var(--mono); font-size: 0.7rem; font-weight: 400; letter-spacing: 0.12em;
+      text-transform: uppercase; text-decoration: none; color: var(--accent);
+      border-bottom: 1px solid var(--rule); padding-bottom: 0.3rem;
+      transition: border-color 0.3s ease, color 0.3s ease; }
+    .home-link:hover { border-color: var(--accent); color: var(--text-primary); }
+    .paper-header { padding: 3rem 0 1rem; }
+    .paper-eyebrow { font-family: var(--mono); font-size: 0.7rem; font-weight: 300; letter-spacing: 0.25em;
+      text-transform: uppercase; color: var(--accent-dim); margin-bottom: 1.25rem; }
+    .paper-h1 { font-family: var(--serif); font-size: clamp(2.4rem, 5vw, 3.4rem); font-weight: 400;
+      line-height: 1.12; letter-spacing: -0.01em; margin-bottom: 0.9rem; }
+    .paper-h1 em { font-style: italic; color: var(--accent); }
+    .paper-sub { font-family: var(--serif); font-size: 1.2rem; font-style: italic; color: var(--text-secondary);
+      line-height: 1.5; max-width: 640px; margin-bottom: 1.75rem; }
+    .paper-meta { font-family: var(--mono); font-size: 0.68rem; font-weight: 300; letter-spacing: 0.08em;
+      color: var(--text-tertiary); line-height: 1.9; margin-bottom: 2rem; }
+    .cta-row { display: flex; gap: 0.9rem; flex-wrap: wrap; }
+    .cta { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--mono);
+      font-size: 0.72rem; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase;
+      text-decoration: none; padding: 0.85rem 1.4rem; border: 1px solid transparent;
+      transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease; }
+    .cta-primary { color: var(--bg-deep); background: var(--accent); border-color: var(--accent); }
+    .cta-primary:hover { background: var(--accent-dim); border-color: var(--accent-dim); }
+    section { padding: 3.5rem 0 0; }
+    .section-rule { width: 100%; height: 1px; background: var(--rule); border: none; margin-top: 3.5rem; }
+    .section-label { font-family: var(--mono); font-size: 0.65rem; font-weight: 300; letter-spacing: 0.3em;
+      text-transform: uppercase; color: var(--accent-dim); margin-bottom: 0.75rem; }
+    .section-heading { font-family: var(--serif); font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 400;
+      line-height: 1.3; margin-bottom: 1.5rem; }
+    .prose { font-size: 1.05rem; line-height: 1.85; color: var(--text-secondary); max-width: 660px; }
+    .prose p + p { margin-top: 1.1rem; }
+    .prose sub, .prose sup { font-size: 0.72em; }
+    .cite-box { background: var(--bg-surface); border: 1px solid var(--rule); padding: 1.5rem 1.6rem; margin-top: 0.5rem; }
+    .cite-text { font-family: var(--serif); font-size: 0.98rem; line-height: 1.75; color: var(--text-secondary); }
+    .cite-text em { font-style: italic; color: var(--text-primary); }
+    .cite-doi { font-family: var(--mono); font-size: 0.78rem; color: var(--accent); word-break: break-all;
+      text-decoration: none; border-bottom: 1px solid var(--rule); }
+    .cite-doi:hover { border-color: var(--accent); }
+    .papers-grid { display: flex; flex-direction: column; gap: 1px; background: var(--rule); }
+    .paper-card { background: var(--bg-deep); padding: 1.75rem 0; display: grid;
+      grid-template-columns: auto 1fr auto; align-items: start; gap: 1.5rem; text-decoration: none;
+      transition: background 0.3s ease; }
+    .paper-card:hover { background: var(--bg-surface); }
+    .paper-number { font-family: var(--mono); font-size: 0.7rem; font-weight: 300; color: var(--accent-dim);
+      padding-top: 0.3rem; letter-spacing: 0.05em; min-width: 5rem; }
+    .paper-info { display: flex; flex-direction: column; gap: 0.4rem; }
+    .paper-title { font-family: var(--serif); font-size: 1.3rem; font-weight: 500; color: var(--text-primary);
+      line-height: 1.4; transition: color 0.3s ease; }
+    .paper-card:hover .paper-title { color: var(--accent); }
+    .paper-desc { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; }
+    .paper-venue { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--text-tertiary); margin-top: 0.35rem; }
+    .paper-arrow { font-size: 1.2rem; color: var(--text-tertiary);
+      transition: color 0.3s ease, transform 0.3s ease; padding-top: 0.25rem; }
+    .paper-card:hover .paper-arrow { color: var(--accent); transform: translateX(4px); }
+    footer { padding: 4rem 0 3rem; text-align: center; }
+    .footer-text { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.15em; color: var(--text-tertiary); }
+    @media (max-width: 640px) {
+      .container { padding: 0 1.25rem; }
+      .paper-card { grid-template-columns: 1fr; gap: 0.5rem; padding: 1.5rem 0; }
+      .paper-number, .paper-arrow { display: none; }
+      .cta { flex: 1 1 auto; justify-content: center; }
+    }
+</style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="topbar">
+      <a class="home-link" href="/library.html">&larr; The Library</a>
+    </div>
+  </div>
+
+  <header class="paper-header">
+    <div class="container">
+      <div class="paper-eyebrow">Universal Collapse Theory &middot; Tier 1.6 · Empirical</div>
+      <h1 class="paper-h1">Bio Constraint <em>Sweep</em></h1>
+      <p class="paper-sub">A reproducible, theory-neutral test on GEO GSE74793</p>
+      <div class="paper-meta">
+        Jeremy C. Jones &nbsp;&middot;&nbsp; HoldingLight LLC<br>
+        Version 1.0 &nbsp;&middot;&nbsp; 2026 &nbsp;&middot;&nbsp; CC BY 4.0 &nbsp;&middot;&nbsp; DOI 10.17605/OSF.IO/KZ8TP
+      </div>
+      <div class="cta-row">
+        <a class="cta cta-primary" href="https://doi.org/10.17605/OSF.IO/KZ8TP" target="_blank" rel="noopener">Read the full paper &rarr;</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="container"><hr class="section-rule"></div>
+
+  <section>
+    <div class="container">
+      <div class="section-label">Abstract</div>
+      <div class="prose">
+        <p>Biological responses to stress often exhibit path dependence: the trajectory during recovery may not retrace the trajectory during onset, even when the control parameter returns toward baseline. We operationalize this idea as a constraint-sweep hysteresis test on transcriptomic time series. Using GEO Series GSE74793 (rice leaf RNA-seq under heat and drought stress with recovery; Wilkins et al., 2016), we define a low-assumption “state” as PC1 of the submitter-provided processed expression matrix (DESeq2-normalized, variance-stabilized) and quantify hysteresis as the integral of the absolute separation between onset and recovery curves over their shared time window. A permutation null is constructed by shuffling phase labels within time bins, preserving temporal structure. In genotype-stratified analyses across four cultivars, heat stress exhibits strong hysteresis for Azucena and Pandan Wangi (permutation p = 1/20,001 ≈ 5.0×10⁻⁵, permutation floor, at 20,000 permutations), while drought serves as a negative comparator and does not show comparable signal. All code, inputs, and outputs are packaged as a one-command reproducible outsider packet (a self-contained archive designed for independent replication without prior project context).</p>
+        <p>**Keywords: **hysteresis; path dependence; time series; transcriptomics; stress response; permutation test; reproducibility; rice</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="container"><hr class="section-rule"></div>
+
+  <section>
+    <div class="container">
+      <div class="section-label">Cite</div>
+      <div class="cite-box">
+        <p class="cite-text">Jones, Jeremy C. (2026). <em>Constraint-Sweep Hysteresis in Rice Transcriptome State During Heat Stress and Recovery</em> (v1.0). HoldingLight LLC.<br>
+        <a class="cite-doi" href="https://doi.org/10.17605/OSF.IO/KZ8TP" target="_blank" rel="noopener">https://doi.org/10.17605/OSF.IO/KZ8TP</a></p>
+      </div>
+    </div>
+  </section>
+
+  <div class="container"><hr class="section-rule"></div>
+
+  <section>
+    <div class="container">
+      <div class="section-label">Continue</div>
+      <h2 class="section-heading">Related in the program</h2>
+      <div class="papers-grid">
+
+        <a href="/cogitate.html" class="paper-card">
+          <span class="paper-number">TIER 1.6</span>
+          <div class="paper-info">
+            <span class="paper-title">Constraint-Dependent Perceptual Resolution</span>
+            <span class="paper-desc">A COGITATE reanalysis testing the perceptual gate — treated as actual empirical research.</span>
+            <span class="paper-venue">universalcollapse.com</span>
+          </div>
+          <span class="paper-arrow">&rarr;</span>
+        </a>
+
+        <a href="/ai_sig_deployed.html" class="paper-card">
+          <span class="paper-number">TIER 1.6</span>
+          <div class="paper-info">
+            <span class="paper-title">Structural Signatures in Deployed AI</span>
+            <span class="paper-desc">An empirical test for S1, S2, and S3 across deployed AI systems, with the research/application firewall explicit.</span>
+            <span class="paper-venue">universalcollapse.com</span>
+          </div>
+          <span class="paper-arrow">&rarr;</span>
+        </a>
+
+        <a href="/architecture.html" class="paper-card">
+          <span class="paper-number">MAP</span>
+          <div class="paper-info">
+            <span class="paper-title">The Architecture Map</span>
+            <span class="paper-desc">How every wing of the program fits together — physics, biology, perception, mind, and the standards layer.</span>
+            <span class="paper-venue">Interactive · universalcollapse.com</span>
+          </div>
+          <span class="paper-arrow">&rarr;</span>
+        </a>
+
+        <a href="/library.html" class="paper-card">
+          <span class="paper-number">LIBRARY</span>
+          <div class="paper-info">
+            <span class="paper-title">The Complete Library</span>
+            <span class="paper-desc">The full corpus — white papers, bridges, empirical demonstrations, methods, and standards.</span>
+            <span class="paper-venue">universalcollapse.com</span>
+          </div>
+          <span class="paper-arrow">&rarr;</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p class="footer-text">© 2025–2026 HoldingLight LLC — All rights reserved</p>
+    </div>
+  </footer>
+
+</body>
+</html>
