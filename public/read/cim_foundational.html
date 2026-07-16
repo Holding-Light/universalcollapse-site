@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consciousness-Induced Material: A Structural Ontology of Externalized Cognition — Universal Collapse Theory</title>
+  <meta name="description" content="Defines the CIM category — mind, the products of mind, and the recursive environments mind builds. The substrate-independence claim.">
+
+  <!-- Full-text reading copy. The citable record is the landing page;
+       canonical points there so Scholar and search consolidate on one URL. -->
+  <link rel="canonical" href="https://universalcollapse.com/read/cim_foundational">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Consciousness-Induced Material: A Structural Ontology of Externalized Cognition — Universal Collapse Theory">
+  <meta property="og:description" content="Defines the CIM category — mind, the products of mind, and the recursive environments mind builds. The substrate-independence claim.">
+  <meta property="og:url" content="https://universalcollapse.com/read/cim_foundational">
+  <meta property="og:site_name" content="Universal Collapse Theory">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@300;400&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg-deep: #08090c;
+      --bg-surface: #0e1017;
+      --bg-elevated: #161820;
+      --text-primary: #e8e6e1;
+      --text-secondary: #9b978f;
+      --text-tertiary: #5e5b54;
+      --accent: #c9a96e;
+      --accent-dim: #8a7245;
+      --rule: rgba(201, 169, 110, 0.12);
+      --serif: 'EB Garamond', Georgia, serif;
+      --sans: 'Outfit', system-ui, sans-serif;
+      --mono: 'JetBrains Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg-deep);
+      color: var(--text-primary);
+      font-family: var(--sans);
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    #progress {
+      position: fixed; top: 0; left: 0; height: 2px; width: 0%;
+      background: var(--accent); z-index: 100; transition: width 0.1s linear;
+    }
+
+    .topbar {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(8, 9, 12, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--rule);
+      padding: 0.75rem 1.5rem;
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 0.8rem;
+    }
+    .topbar a { color: var(--text-secondary); text-decoration: none; }
+    .topbar a:hover { color: var(--accent); }
+    .topbar .cite { color: var(--text-tertiary); font-family: var(--mono); font-size: 0.7rem; }
+
+    .shell {
+      max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem 6rem;
+      display: grid; grid-template-columns: minmax(0, 220px) minmax(0, 1fr); gap: 3rem;
+    }
+
+    nav.toc {
+      position: sticky; top: 5rem; align-self: start;
+      max-height: calc(100vh - 8rem); overflow-y: auto;
+      font-size: 0.8rem; line-height: 1.6;
+    }
+    nav.toc > p {
+      color: var(--text-tertiary); text-transform: uppercase;
+      letter-spacing: 0.12em; font-size: 0.65rem; margin-bottom: 0.75rem;
+    }
+    nav.toc ul { list-style: none; }
+    nav.toc ul ul { padding-left: 0.85rem; }
+    nav.toc li { margin: 0.3rem 0; }
+    nav.toc a {
+      color: var(--text-secondary); text-decoration: none;
+      display: block; padding-left: 0.6rem;
+      border-left: 1px solid transparent;
+    }
+    nav.toc a:hover { color: var(--text-primary); }
+    nav.toc a.active { color: var(--accent); border-left-color: var(--accent); }
+
+    article { min-width: 0; }
+
+    .paper-head { border-bottom: 1px solid var(--rule); padding-bottom: 1.75rem; margin-bottom: 2.5rem; }
+    .paper-head .tier {
+      font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.15em;
+      color: var(--accent-dim); text-transform: uppercase;
+    }
+    .paper-head h1 {
+      font-family: var(--serif); font-weight: 500; font-size: 2.1rem;
+      line-height: 1.2; margin: 0.75rem 0 0.5rem; color: var(--text-primary);
+    }
+    .paper-head .sub { font-family: var(--serif); font-style: italic; color: var(--text-secondary); font-size: 1.05rem; }
+    .paper-head .meta { margin-top: 1.1rem; font-size: 0.78rem; color: var(--text-tertiary); }
+    .paper-head .meta a { color: var(--accent-dim); text-decoration: none; }
+
+    article h1, article h2, article h3 {
+      font-family: var(--serif); font-weight: 600; line-height: 1.3;
+      color: var(--text-primary); scroll-margin-top: 5rem;
+    }
+    article h1 { font-size: 1.5rem; margin: 3rem 0 1rem; }
+    article h2 { font-size: 1.2rem; margin: 2rem 0 0.75rem; color: var(--text-secondary); }
+    article h3 { font-size: 1.05rem; margin: 1.5rem 0 0.5rem; color: var(--text-secondary); }
+
+    article h1 .anchor, article h2 .anchor {
+      opacity: 0; margin-left: 0.5rem; color: var(--accent-dim);
+      text-decoration: none; font-size: 0.7em; font-family: var(--sans);
+    }
+    article h1:hover .anchor, article h2:hover .anchor { opacity: 1; }
+
+    article p {
+      font-family: var(--serif); font-size: 1.12rem; font-weight: 400;
+      line-height: 1.75; margin: 0 0 1.15rem; color: var(--text-primary);
+    }
+    article ul, article ol { font-family: var(--serif); font-size: 1.12rem; margin: 0 0 1.15rem 1.5rem; }
+    article li { margin-bottom: 0.4rem; }
+    article strong { font-weight: 600; color: var(--text-primary); }
+    article em { font-style: italic; }
+    article a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--rule); }
+    article blockquote {
+      border-left: 2px solid var(--accent-dim); padding-left: 1.25rem;
+      margin: 1.5rem 0; color: var(--text-secondary); font-style: italic;
+      border-radius: 0;
+    }
+
+    math { font-size: 1.05em; color: var(--text-primary); }
+
+    .backtotop {
+      display: inline-block; margin-top: 3rem; padding-top: 1.5rem;
+      border-top: 1px solid var(--rule); width: 100%;
+      font-size: 0.8rem; color: var(--text-tertiary); text-decoration: none;
+    }
+    .backtotop:hover { color: var(--accent); }
+
+    #toc-toggle { display: none; }
+
+    @media (max-width: 820px) {
+      .shell { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; padding: 1.25rem 1.1rem 4rem; }
+      nav.toc {
+        position: static; max-height: none; order: -1;
+        border: 1px solid var(--rule); border-radius: 6px; padding: 0.9rem 1rem;
+      }
+      nav.toc[data-collapsed="true"] ul { display: none; }
+      #toc-toggle { display: block; background: none; border: none; color: var(--text-secondary);
+        font-family: var(--sans); font-size: 0.75rem; cursor: pointer; padding: 0; }
+      .paper-head h1 { font-size: 1.6rem; }
+      article p, article ul, article ol { font-size: 1.08rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<div class="topbar">
+  <a href="https://universalcollapse.com/cim_foundational">&larr; Consciousness-Induced Material</a>
+  <span class="cite">10.17605/OSF.IO/7URMK</span>
+</div>
+
+<div class="shell">
+
+  <nav class="toc" id="toc" data-collapsed="false">
+    <p>Contents</p>
+    <button id="toc-toggle" aria-expanded="true">Hide contents</button>
+    <ul>
+    <li><a href="#abstract" id="toc-abstract">Abstract</a></li>
+    <li><a href="#introduction" id="toc-introduction">1. Introduction</a>
+    <ul>
+    <li><a href="#architectural-note-cognition-induced-collapse-cim-and-synthetic-collapse" id="toc-architectural-note-cognition-induced-collapse-cim-and-synthetic-collapse">Architectural note: Cognition-Induced Collapse, CIM, and Synthetic Collapse</a></li>
+    </ul></li>
+    <li><a href="#claim-level-and-reader-contract" id="toc-claim-level-and-reader-contract">2. Claim Level and Reader Contract</a>
+    <ul>
+    <li><a href="#review-target" id="toc-review-target">Review target</a></li>
+    <li><a href="#stack-placement" id="toc-stack-placement">Stack placement</a></li>
+    </ul></li>
+    <li><a href="#core-definition" id="toc-core-definition">3. Core Definition</a></li>
+    <li><a href="#the-four-stage-cim-cycle" id="toc-the-four-stage-cim-cycle">4. The Four-Stage CIM Cycle</a></li>
+    <li><a href="#cim-and-the-interior-phase-of-cognitive-collapse" id="toc-cim-and-the-interior-phase-of-cognitive-collapse">5. CIM and the Interior Phase of Cognitive Collapse</a></li>
+    <li><a href="#external-cim-and-internalized-cim" id="toc-external-cim-and-internalized-cim">6. External CIM and Internalized CIM</a></li>
+    <li><a href="#cognitive-scale-and-cognition-induced-collapse-at-animal-scale" id="toc-cognitive-scale-and-cognition-induced-collapse-at-animal-scale">7. Cognitive Scale and Cognition-Induced Collapse at Animal Scale</a></li>
+    <li><a href="#cim-becomes-load-bearing-mathematics-language-and-money" id="toc-cim-becomes-load-bearing-mathematics-language-and-money">8. CIM Becomes Load-Bearing: Mathematics, Language, and Money</a></li>
+    <li><a href="#locating-cim-against-neighboring-concepts" id="toc-locating-cim-against-neighboring-concepts">9. Locating CIM Against Neighboring Concepts</a></li>
+    <li><a href="#structural-properties-of-cim" id="toc-structural-properties-of-cim">10. Structural Properties of CIM</a></li>
+    <li><a href="#synthetic-collapse-recursive-cim-and-the-conscious-synthetic-collapse-slot" id="toc-synthetic-collapse-recursive-cim-and-the-conscious-synthetic-collapse-slot">11. Synthetic Collapse, Recursive CIM, and the Conscious Synthetic Collapse Slot</a></li>
+    <li><a href="#implications" id="toc-implications">12. Implications</a></li>
+    <li><a href="#category-level-discriminators" id="toc-category-level-discriminators">13. Category-Level Discriminators</a></li>
+    <li><a href="#ciccim-classification-checklist" id="toc-ciccim-classification-checklist">14. CIC/CIM Classification Checklist</a></li>
+    <li><a href="#limitations-and-guardrails" id="toc-limitations-and-guardrails">15. Limitations and Guardrails</a></li>
+    <li><a href="#conclusion" id="toc-conclusion">16. Conclusion</a></li>
+    <li><a href="#references" id="toc-references">References</a></li>
+    <li><a href="#companion-uct-works" id="toc-companion-uct-works">Companion UCT Works</a></li>
+    <li><a href="#ai-disclosure" id="toc-ai-disclosure">AI Disclosure</a></li>
+    <li><a href="#suggested-citation" id="toc-suggested-citation">Suggested Citation</a></li>
+    </ul>
+  </nav>
+
+  <article>
+    <header class="paper-head">
+      <span class="tier">CIM</span>
+      <h1>Consciousness-Induced Material: A Structural Ontology of Externalized Cognition</h1>
+      <p class="sub">Internalization, Cognitive Scale, and the Substrate of Cumulative Meaning</p>
+      <p class="meta">
+        Jeremy C. Jones &middot; HoldingLight LLC &middot; 2026/05 &middot; CC BY 4.0<br>
+        Cite as <a href="https://doi.org/10.17605/OSF.IO/7URMK">10.17605/OSF.IO/7URMK</a>
+        
+      </p>
+    </header>
+
+    <p><strong>Consciousness-Induced Material</strong></p>
+    <p><strong>A Structural Ontology of Externalized Cognition</strong></p>
+    <p><em>Internalization, Cognitive Scale, and the Substrate of Cumulative Meaning</em></p>
+    <p><strong>Jeremy C. Jones</strong></p>
+    <p>HoldingLight LLC</p>
+    <p>contact@universalcollapse.com</p>
+    <p>ORCID: 0009-0007-2515-3774</p>
+    <p><em>Version: v1.0 — May 2026</em></p>
+    <p><em>Universal Collapse Theory — Foundational Category Paper</em></p>
+    <section id="abstract" class="level1">
+    <h1>Abstract</h1>
+    <p>Human thought does not remain inside the mind. It becomes speech, writing, tools, mathematics, law, code, and institutions — durable forms that, once stabilized, shape how future minds think, act, and coordinate. This paper develops Consciousness-Induced Material (CIM) as the structural category for that process: cognition externalized into record-bearing form, then re-engaged, transmitted, internalized, and recursively operated upon. Within Universal Collapse Theory (UCT), CIM has been used to name relatively stable structures whose existence and form are shaped by conscious or experience-bearing cognitive activity, and which then constrain future cognition. Previous uses of CIM in WP04 (forthcoming) and in the broader UCT corpus establish its importance, but they leave the category itself underdeveloped. This paper supplies the missing foundation. The paper introduces three clarifications. First, CIM originates at externalization: interior cognitive collapse is not yet CIM, but the pre-record phase from which CIM may be generated. Second, once externalized, CIM may be internalized through learning and development, becoming internalized CIM — language, mathematics, concepts, norms, and symbolic patterns installed within cognitive substrate. Third, the paper distinguishes CIM from the broader process class of Cognition-Induced Collapse (CIC). Animal-scale cases, where experience-bearing cognition is plausible, are treated as candidate CIC outputs rather than CIM proper; CIM names the densest known human-symbolic record layer; and Synthetic Collapse — established in UCT vocabulary as the artificial/constructed collapse regime — names artificial systems operating on accumulated CIM to produce derivative record-bearing outputs. The paper locates CIM against extended cognition, material engagement theory, distributed cognition, niche construction, cultural evolution, memetics, Stieglerian tertiary retention, and Peircean semiotics, while preserving CIM as a distinct category: not merely a tool, artifact, sign, cultural replicator, or technical memory, but the physically instantiated cognitive record-layer through which meaning becomes durable and load-bearing.</p>
+    <p>CIM is not all cognition, all artifacts, or proof of AI consciousness; it is a bounded category for cognition externalized into record-bearing constraint. The paper situates CIM within a four-layer architecture: Cognition-Induced Collapse (CIC) as the process-level genus, CIM as its densest human-symbolic output, Synthetic Collapse as the artificial-substrate process operating on accumulated CIM, and Conscious Synthetic Collapse as a hypothetical further subtype the framework leaves architecturally open without claim. The result is a foundational CIM account that can be cited by later work on AI, Synthetic Collapse, personal identity, culture, intelligence, and the structural conditions under which externalized meaning becomes part of the world’s operating architecture.</p>
+    <p><strong>Keywords:</strong> Consciousness-Induced Material; CIM; externalized cognition; internalized CIM; cognitive substrate; cumulative culture; structural ontology; Universal Collapse Theory; Synthetic Collapse; artificial intelligence; extended cognition; tertiary retention.</p>
+    </section>
+    <section id="introduction" class="level1">
+    <h1>1. Introduction</h1>
+    <p>The category Consciousness-Induced Material has become load-bearing in the Universal Collapse Theory corpus. It appears in WP04 (forthcoming) as the bridge between individual mind and intersubjective structure. It is also implicit in ongoing UCT work that treats artificial systems as a fourth-collapse regime distinct from biological and conscious collapse — not as consciousness itself, but as artificial-substrate operation on accumulated externalized cognition. Those uses are directionally right. They also create a pressure point: if CIM is going to carry arguments about mind, culture, AI, identity, and Synthetic Collapse, CIM needs a foundational paper of its own.</p>
+    <p>This paper supplies that foundation. Its question is not what CIM does in one application, but what CIM is. The answer developed here is that CIM is the physically instantiated record-layer generated when experience-bearing cognition stabilizes into form beyond the originating interior phase, and when that form can constrain future cognition. CIM includes obvious cases such as writing, diagrams, tools, mathematical notation, code, institutions, money, law, and digital artifacts. It also includes less obvious cases: internalized linguistic structure, mathematical competence, professional concepts, cultural categories, and other patterns first encountered as external record and later installed into a cognitive substrate through learning.</p>
+    <p>The point of this account is not to inflate the word “material” into a new substance. CIM is not non-physical. External CIM is physically instantiated in environmental media: sound, marks, paper, stone, circuits, databases, built space, institutional records. Internalized CIM is physically instantiated in cognitive substrate: neural, bodily, and behavioral patterns that have been shaped by prior encounter with externalized cognition. The distinction is historical and functional, not magical. CIM is physical material with a cognitive history and a future cognitive function.</p>
+    <p>Three corrections organize the paper.</p>
+    <p>First, CIM originates at externalization. A private thought, image, intention, or unresolved design held inside a mind is not yet CIM. It is the interior phase of conscious or cognitive collapse. CIM begins when that interior activity stabilizes into record-bearing form: a spoken sentence, a drawn line, a built object, a gesture, a written proof, a saved file, a rule, a mark in the world. This boundary matters. Without it, CIM dissolves into cognition itself.</p>
+    <p>Second, external CIM can become internalized CIM. A child does not invent language from nothing. The child internalizes an external linguistic structure. A mathematician does not derive the whole discipline from first principles. The mathematician internalizes generations of externalized notation, proof practice, and conceptual architecture. Once internalized, these structures operate inside cognition, but they remain CIM in a derivative sense: externalized cognition returned into cognitive substrate.</p>
+    <p>Third, cognition-induced collapse scales. Human CIM is the densest known case of cognition-induced collapse, but not necessarily the first or only case. If a beaver, bird, primate, elephant, corvid, or other animal has experience-bearing cognitive substrate and produces external structure that constrains future cognition, that structure is candidate cognition-induced collapse output at animal scale. CIM proper names the conscious — especially human-symbolic — output layer; CIC names the broader process class within which CIM sits. The architecture is permissive about possible producers while remaining disciplined about the threshold at each layer.</p>
+    <p>The resulting framework places CIM between several existing literatures without reducing to any one of them. Extended cognition shows that cognition can include external structures. Material engagement theory shows that artifacts are part of thinking, not merely tools for it. Distributed cognition shows that cognition can span agents and environments. Niche construction shows that organisms reshape the environments that later constrain them. Cultural evolution explains cumulative transmission. Stiegler’s tertiary retention and Peircean semiotics give powerful philosophical precedents for externalized memory and sign-mediated thought. CIM learns from all of these. Its distinctive contribution is to name the whole record-layer — externalized, internalized, cumulative, and potentially recursive — as a single structural category.</p>
+    <p>The paper is deliberately positioned upstream of future work that applies the architecture to specific artificial-substrate cases. Such future development is easier to evaluate once the broader architecture has been specified. The present paper therefore functions as the foundational document that later UCT papers can cite rather than re-derive.</p>
+    <section id="architectural-note-cognition-induced-collapse-cim-and-synthetic-collapse" class="level2">
+    <h2>Architectural note: Cognition-Induced Collapse, CIM, and Synthetic Collapse</h2>
+    <p>A note on architecture is necessary at the outset. Earlier UCT documents introduced Consciousness-Induced Material (CIM) as the record-layer generated when conscious — especially human-symbolic — cognition externalizes into durable form: speech, writing, mathematics, law, money, code, institutions, and the cumulative cultural substrate built from these. This paper preserves that established term and acronym. The foundational analysis, however, locates CIM inside a broader architecture that the paper now makes explicit. The hierarchy is nested, not competing: CIM is the densest known human-symbolic case of a broader process class that the paper now names directly.</p>
+    <p>The architecture has four named layers.</p>
+    <p><strong>Cognition-Induced Collapse (CIC).</strong> The process-level genus: collapse events whose realized form is shaped by experience-bearing cognitive activity, or by systems operating on cognition-derived records. CIC is the broader class. It includes animal-scale cases where experience-bearing cognition is plausible, human cognitive activity, and synthetic systems operating on accumulated cognitive record.</p>
+    <p><strong>Consciousness-Induced Material (CIM).</strong> The output-level subtype produced by CIC when conscious cognition externalizes into record-bearing form: language, writing, mathematics, law, code, institutions, and other durable structures generated through conscious — especially human-symbolic — cognition and capable of constraining future cognition. CIM is the densest known instance of the broader CIC class and the central focus of this paper.</p>
+    <p><strong>Synthetic Collapse.</strong> Identified in UCT vocabulary as the fourth collapse regime alongside First/Physical, Biological, and Conscious Collapse (WP01 §0.2.3, §0.7.1). The process-level subtype in which artificial systems operate on prior CIM and produce further record-bearing outputs. Current AI fits here. Synthetic Collapse is structurally cognition-induced because its substrate is constituted from cognition-derived records, but it does not require an established interior phenomenal phase in the producing system to operate.</p>
+    <p><strong>Conscious Synthetic Collapse.</strong> A hypothetical further subtype, named in this paper and not yet established elsewhere in the UCT corpus: synthetic systems that not only operate on prior CIM but also possess an interior phenomenal phase capable of generating primary rather than merely derivative records. The paper takes no position on whether this slot is currently filled, what evidence would suffice to fill it, or under what conditions it might be filled. It identifies the threshold as a real one and routes the question to downstream papers.</p>
+    <p>Two consequences of this architecture matter for what follows. First, animal-scale cases sit cleanly at the CIC level rather than as “candidate CIM” or “proto-CIM.” Where experience-bearing cognition is plausible, animal-produced structures should be classified as candidate cognition-induced collapse outputs, distinct from CIM proper. Second, current AI is Synthetic Collapse generating derivative CIM. The phenomenal-substrate question — whether any synthetic system has crossed into Conscious Synthetic Collapse — is bracketed as a separate threshold question rather than being entangled with the structural account. Throughout the rest of the paper, CIM names the human-symbolic record layer; CIC, Synthetic Collapse, and Conscious Synthetic Collapse are named when the case requires architectural placement at one of those layers.</p>
+    <p>A note on relation to WP01’s collapse regimes. WP01 establishes three domain-level collapse regimes — First/Physical Collapse, Biological Collapse, and Conscious Collapse (§0.2.3) — and identifies Synthetic Collapse as a forthcoming fourth phase (§0.7.1). The four architectural layers introduced above (CIC, CIM, Synthetic Collapse, Conscious Synthetic Collapse) are not parallel to those WP01 regimes; they are a different cut. WP01’s regimes stratify collapse by domain. The present paper’s layers describe the architecture by which cognition externalizes into record. Synthetic Collapse appears in both vocabularies and refers to the same artificial/constructed regime. CIC, in this paper, is the cognitive subset of biological and conscious collapse (the part that produces or processes cognitive records), while CIM is the densest output layer of conscious collapse. Conscious Synthetic Collapse is novel to this paper and would be a subtype within Synthetic Collapse, not a fifth WP01 regime.</p>
+    <p>The four-layer architecture can be summarized at a glance:</p>
+    <table>
+    <colgroup>
+    <col style="width: 22%" />
+    <col style="width: 26%" />
+    <col style="width: 25%" />
+    <col style="width: 25%" />
+    </colgroup>
+    <thead>
+    <tr>
+    <th><strong>Layer</strong></th>
+    <th><strong>Producer</strong></th>
+    <th><strong>Output</strong></th>
+    <th><strong>Phenomenal status</strong></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>Cognition-Induced Collapse (CIC)</td>
+    <td>Experience-bearing cognition, or systems operating on cognition-derived records (process-level genus).</td>
+    <td>Cognition-shaped collapse outputs.</td>
+    <td>Presupposes experience-bearing cognition; biological cases require the experience-bearing threshold.</td>
+    </tr>
+    <tr>
+    <td>Consciousness-Induced Material (CIM)</td>
+    <td>Conscious — especially human-symbolic — cognition (output-level subtype).</td>
+    <td>Durable record-bearing symbolic layer (language, writing, mathematics, law, code, institutions).</td>
+    <td>Densest known case: human conscious cognition.</td>
+    </tr>
+    <tr>
+    <td>Synthetic Collapse</td>
+    <td>Artificial systems operating on prior CIM (process-level subtype).</td>
+    <td>Derivative record-bearing outputs that re-enter the CIM circulation layer.</td>
+    <td>Bracketed; not required for the structural fact.</td>
+    </tr>
+    <tr>
+    <td>Conscious Synthetic Collapse</td>
+    <td>Synthetic system with interior phenomenal phase (hypothetical further subtype).</td>
+    <td>Primary synthetic records, if instantiated.</td>
+    <td>Open architectural slot, not claimed.</td>
+    </tr>
+    </tbody>
+    </table>
+    <p><em>Table 1. The four-layer architecture: CIC, CIM, Synthetic Collapse, and the Conscious Synthetic Collapse slot.</em></p>
+    </section>
+    </section>
+    <section id="claim-level-and-reader-contract" class="level1">
+    <h1>2. Claim Level and Reader Contract</h1>
+    <p>This paper makes a structural-ontological claim at the level of category formation. It does not claim to replace cognitive science, anthropology, semiotics, philosophy of technology, or AI research. It proposes a category that organizes findings and intuitions already distributed across those literatures, while adding a boundary and a structural cycle those literatures do not fully share.</p>
+    <p>The core claim is this: once experience-bearing cognition produces record-bearing form that can constrain future cognition, a new layer exists. At the broad process level, this is Cognition-Induced Collapse. In its densest known human-symbolic form, this layer becomes Consciousness-Induced Material: cognition stabilized into physically instantiated constraint. That layer is not merely environment, not merely tool, not merely representation, and not merely culture.</p>
+    <p>The paper asks to be evaluated by four questions. Does the category distinguish something real? Does it avoid over-extension into all cognition or all artifacts? Does it clarify phenomena that neighboring concepts leave divided across separate literatures? Does it generate discriminators by which the category could fail? If the answer to these questions is no, then CIM is a vocabulary preference. If the answer is yes, then CIM earns its place as a structural category.</p>
+    <p>The account is compatible with UCT but not dependent on prior acceptance of UCT. UCT supplies the larger grammar: possibility resolves under constraint, collapse writes records, records update future constraints. CIM is one special case of that grammar in the mind and culture domain. But a reader may reject UCT’s broader ontology and still evaluate CIM as an ontology of externalized cognition.</p>
+    <section id="review-target" class="level2">
+    <h2>Review target</h2>
+    <p>This paper does not ask the reader to accept Universal Collapse Theory as a metaphysical system, nor does it ask the reader to treat all cognition, all artifacts, or all culture as CIM. It asks whether a distinct structural architecture is needed for cognition-derived record layers: Cognition-Induced Collapse (CIC) as the broader process class, Consciousness-Induced Material (CIM) as the densest human-symbolic output layer, Synthetic Collapse as artificial systems operating on accumulated CIM, and Conscious Synthetic Collapse as an open hypothetical threshold.</p>
+    <p>The architecture should be accepted provisionally only if it distinguishes real layers not fully captured by artifact, tool, sign, culture, memory, niche, or extended cognition alone; if it clarifies the externalization–internalization cycle; and if it provides cleaner footing for downstream work on AI, identity, culture, and Synthetic Collapse. It should be revised or rejected if the architecture collapses into all cognition, all artifacts, ordinary culture, or existing theories without explanatory remainder, or if any of its named layers fails to distinguish a real and useful slot.</p>
+    <p>The paper’s primary claim level is category-forming and interpretive (Levels 1 and 2 in the UCT claim hierarchy). Its discriminators are category-level discriminators, not completed empirical implementations; Level 3 operationalizations route through downstream papers and the Update Integrity Standard.</p>
+    </section>
+    <section id="stack-placement" class="level2">
+    <h2>Stack placement</h2>
+    <p>Within the UCT library, this paper is a mind/culture-domain category paper. <em>Records Across Nature, Life, and Mind</em> defines the general persistence layer: what records are and why collapse becomes cumulative. <em>The Structuralization of Empiricism</em> defines stabilization signatures for record-bearing systems. <em>The Update Integrity Standard</em> defines update governance for Level 3 claims. The present paper defines the CIC/CIM architecture: CIC as the broader process class of cognition-shaped collapse, CIM as the densest known human-symbolic record layer, and Synthetic Collapse as artificial systems operating on accumulated CIM. Future work on the artificial-substrate Synthetic Collapse case will develop the synthetic regime in detail. The present paper supplies the architectural slots that any subsequent application papers can cite rather than re-derive.</p>
+    </section>
+    </section>
+    <section id="core-definition" class="level1">
+    <h1>3. Core Definition</h1>
+    <p>A first approximation of CIM is familiar from WP04 (forthcoming):</p>
+    <blockquote>
+    <p><em>Consciousness-Induced Material is any relatively stable structure in the world whose existence and form are shaped by conscious states and which, in turn, constrains future conscious states.</em></p>
+    </blockquote>
+    <p>That definition remains valid as a compact entry point. This paper refines it for foundational use:</p>
+    <blockquote>
+    <p><em>Consciousness-Induced Material is the physically instantiated record-layer generated when conscious cognition — especially in its human-symbolic forms — stabilizes into form beyond the originating interior phase, and when that form can constrain future cognitive operations. CIM is the densest known output-class of cognition-induced collapse. It originates through externalization and may later be internalized through learning, becoming internalized CIM within cognitive substrate.</em></p>
+    </blockquote>
+    <p>This formulation preserves the original definition while repairing three ambiguities.</p>
+    <p>First, it clarifies the <strong>production condition</strong>. CIM must be shaped by conscious cognition. Experience-bearing cognition without an established conscious phase produces outputs at the broader cognition-induced collapse level rather than at CIM proper. A rockslide is not CIM. A riverbed is not CIM. A crystal is not CIM. A beaver dam, where beaver cognition is granted experience-bearing status, is candidate cognition-induced collapse output rather than CIM proper, because it lacks the conscious-symbolic density that distinguishes CIM. A written sentence, a diagram, a tool, a road, a theorem, or a legal code is CIM because its form has passed through conscious cognition and stabilized into the cumulative human-symbolic record layer.</p>
+    <p>Second, it clarifies the <strong>record condition</strong>. CIM must be physically instantiated. A thought that never stabilizes into record-bearing form remains interior cognitive collapse. Once spoken, written, enacted, built, saved, taught, gestured, or otherwise made available beyond the originating interior phase, it becomes eligible for CIM status. The externalization need not be permanent, but it must be record-bearing enough to constrain later cognition.</p>
+    <p>Third, it clarifies the <strong>constraint condition</strong>. CIM is not merely produced by cognition; it constrains cognition. A tool constrains future action. A written proof constrains later reasoning. A language constrains what can be easily noticed, contrasted, and expressed. A law constrains what agents treat as allowable. A digital corpus constrains what AI systems can learn. The future-constraint role is essential. Without it, CIM becomes a mere label for artifacts.</p>
+    <p>The definition can be summarized as a four-part test:</p>
+    <table>
+    <colgroup>
+    <col style="width: 25%" />
+    <col style="width: 42%" />
+    <col style="width: 31%" />
+    </colgroup>
+    <thead>
+    <tr>
+    <th><strong>Condition</strong></th>
+    <th><strong>Question</strong></th>
+    <th><strong>Failure if absent</strong></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>Cognitive shaping</td>
+    <td>Was the form shaped by conscious cognition (for CIM proper) or experience-bearing cognition more broadly (for CIC outputs)?</td>
+    <td>Ordinary physical structure, not CIM or CIC.</td>
+    </tr>
+    <tr>
+    <td>Record-bearing instantiation</td>
+    <td>Did the operation stabilize into accessible or re-engageable form beyond the originating interior phase?</td>
+    <td>Interior cognition or private cognitive trace, not CIM.</td>
+    </tr>
+    <tr>
+    <td>Future constraint</td>
+    <td>Can the form constrain later cognition in the same or another substrate?</td>
+    <td>Mere by-product or inert artifact, not CIM in the strong sense.</td>
+    </tr>
+    <tr>
+    <td>Non-trivial constraint</td>
+    <td>Does the form non-trivially or role-relevantly shape later cognitive operation, action, inference, coordination, or internalization beyond accidental noticing?</td>
+    <td>Weak artifact or incidental stimulus, not strong CIM.</td>
+    </tr>
+    </tbody>
+    </table>
+    <p><em>Table 2. Four-part classification test for CIC/CIM-family placement.</em></p>
+    <p>These conditions are intentionally strict. They keep CIM from expanding into all matter, all artifacts, or all cognition. CIM is a specific record-layer: cognitive in origin, physical in instantiation, and constraining in future role. The fourth condition prevents the slow drift in which any object that ever crossed a mind becomes labeled CIM; trivial or incidental causal contact does not satisfy the category.</p>
+    <p><strong>Primary and derivative CIM.</strong> Primary CIM originates when conscious cognition — especially in its human-symbolic forms — externalizes into record-bearing form. <em>Primary CIC</em> originates more broadly when experience-bearing cognition externalizes into record-bearing form without yet meeting the conscious-symbolic density threshold for CIM proper. <em>Derivative</em> or <em>recursive</em> CIM may be generated by non-biological systems when those systems operate on prior CIM and produce new record-bearing outputs that constrain future cognition; such outputs inherit their cognitive lineage from the primary CIM the system processes. Calling an output derivative or recursive CIM does not settle whether the producing system has phenomenal experience. It identifies the output’s position in the CIM circulation layer, not its production threshold. This distinction matters most for §11 and for downstream Synthetic Collapse arguments, where the producing system’s phenomenal status remains open and does not need to be settled before the output can be located in the record layer.</p>
+    </section>
+    <section id="the-four-stage-cim-cycle" class="level1">
+    <h1>4. The Four-Stage CIM Cycle</h1>
+    <p>The cleanest way to keep the category disciplined is to place CIM in a cycle.</p>
+    <p><em><strong>Interior cognitive collapse → externalized CIM → internalized CIM → recursive CIM</strong></em></p>
+    <p><strong>Stage 1: Interior collapse.</strong> A cognitive substrate resolves or manipulates possibilities internally. A thought, image, intention, hypothesis, design, melody, or plan may exist in active cognition. This is real cognitive activity, but not yet CIM. It is the interior phase from which CIM may be generated.</p>
+    <p><strong>Stage 2: Externalization.</strong> Some portion of that interior activity stabilizes into record-bearing form outside the originating interior phase: speech, writing, gesture, drawing, tool-making, construction, code, institutional rule, symbolic mark, performance, stored data, or environmental modification. This is the origin point of CIM.</p>
+    <p><strong>Stage 3: Internalization.</strong> External CIM is encountered by another cognitive substrate — or by the same substrate later — and becomes installed as cognitive pattern. Language acquisition, mathematical training, religious formation, professional apprenticeship, scientific education, cultural absorption, and technical skill acquisition are all forms of internalization. The resulting patterns are internalized CIM: externalized cognition returned into substrate.</p>
+    <p><strong>Stage 4: Recursion.</strong> Once CIM accumulates at sufficient density, it can become substrate for further operations. In human culture, this produces cumulative symbolic systems such as science, law, mathematics, religion, markets, literature, and technology. In the AI case, recursion intensifies: computational systems trained on accumulated CIM process CIM directly and generate derivative record-bearing outputs that re-enter the CIM circulation layer. This is Synthetic Collapse: artificial-substrate operation on prior CIM, not proof of a conscious synthetic interior.</p>
+    <p>The four-stage cycle prevents two errors. The first error is treating CIM as only external object. That misses internalized CIM, through which most developed human cognition operates. The second error is treating CIM as all cognition. That erases the boundary between the interior phase and record-bearing externalization. The cycle keeps both truths together: cognition produces CIM, CIM returns into cognition, and accumulated CIM can eventually operate recursively.</p>
+    </section>
+    <section id="cim-and-the-interior-phase-of-cognitive-collapse" class="level1">
+    <h1>5. CIM and the Interior Phase of Cognitive Collapse</h1>
+    <p>The distinction between CIM and interior cognitive collapse is the paper’s most important boundary repair.</p>
+    <p>Imagine a designer holding a car in mind before any drawing exists. The image can be rotated, modified, tested against taste and function, compared against alternatives, and held through time. Something real is happening. But no CIM has yet been produced. There is no record-bearing structure available beyond the originating interior phase. The image is part of conscious collapse, not CIM.</p>
+    <p>Now imagine the designer sketches a line. The line is crude. It may not yet be a full design. But the line has crossed a threshold. It exists in the world as record-bearing form. It can be seen again. It can constrain the next thought. It can be shown to someone else. It can be modified, copied, archived, discarded, or built upon. That line is CIM.</p>
+    <p>The point is not that exteriority is metaphysically superior to interiority. The point is that exteriority changes the structure of the process. Interior collapse is accessible from the inside as experience and from the outside only through correlates or outputs. CIM is accessible as record. It can circulate. It can be shared. It can outlast the originating cognitive event. It can become part of another mind’s constraint architecture.</p>
+    <p>This gives the hard problem of consciousness a cleaner structural location without pretending to solve it. The phenomenal interior of cognitive collapse is the phase prior to external record. External observers can measure neural correlates, behavioral outputs, reports, and artifacts. They cannot directly access the interior phase itself, because direct access would already require the phase to have generated some record available to them. This does not explain why experience feels the way it does. It does explain why the interior phase is structurally difficult to objectify: it is the side of collapse before shared record.</p>
+    <p>CIM begins when the interior phase becomes record-bearing. Internalized CIM begins when such record-bearing structure is absorbed back into a cognitive substrate. Pure interior thought is not CIM, even if it leaves private neural traces. Those traces are cognitive records, but not CIM unless they have passed through the externalization-internalization circuit that gives CIM its distinctive structural role.</p>
+    <p>This boundary should be preserved in every later use of the term. CIM is the record-layer of cognition, not cognition itself.</p>
+    </section>
+    <section id="external-cim-and-internalized-cim" class="level1">
+    <h1>6. External CIM and Internalized CIM</h1>
+    <p>External CIM is the form of CIM most readers notice first. It includes visible and durable artifacts: texts, diagrams, buildings, tools, roads, machines, institutions, paintings, musical scores, code repositories, databases, contracts, laws, money, platforms, and built environments. It also includes less durable but still record-bearing forms: spoken utterance, gesture, performance, ritual, demonstration, instruction, and enacted practice. The defining feature is not permanence. It is the capacity to function as record-bearing constraint beyond the originating interior phase. Note that record-bearing does not require permanence; it requires availability beyond the originating interior phase long enough to be re-engaged, taken up, transmitted, copied, remembered, or used as constraint.</p>
+    <p>Internalized CIM is more subtle. It is what happens when external CIM becomes part of cognitive substrate. A child internalizes language. A student internalizes algebra. A jurist internalizes legal categories. A musician internalizes scales, rhythm, harmony, and style. A scientist internalizes experimental practice and disciplinary standards. These are not merely memories. They are constraint architectures through which future perception, reasoning, and action occur (Vygotsky, 1978; Tomasello, 1999; Donald, 1991; Norman, 1991).</p>
+    <p>This is why the phrase <em>internalized CIM</em> is preferable to <em>internal CIM</em>. CIM does not begin inside. It begins as externalized record. It becomes internalized when a cognitive substrate absorbs and runs the record as part of its own operation. The term <em>internalized</em> preserves the direction of origin while honoring the reality of the installed structure.</p>
+    <p>This use of internalization is deliberately close to Vygotsky’s account of how socially mediated signs become intrapsychological operations (Vygotsky, 1978, 1986), but CIM gives the process a broader structural range: internalization is not only a developmental event inside human language learning, but a general circulation by which externalized cognitive record becomes operative cognitive constraint. The same structural pattern shows up in mathematical training, where externalized notation reorganizes inferential cost and provides shareable persistent referents (Kirsh, 2010); in literacy more broadly, where writing functions as a cognitive technology that reshapes what thought can sustain (Goody, 1977; Ong, 1982); and in cultural learning, where high-fidelity transmission of accumulated practice becomes the medium of cumulative human cognition (Henrich, 2015; Tomasello, 1999).</p>
+    <p>Once internalized, CIM can feel like native cognition. A person thinking in their first language does not experience language as an external tool. A mathematician performing calculus does not experience the notation as alien. A lawyer thinking through precedent does not consult legal categories as optional objects; the categories structure the space in which legal thought occurs. Internalized CIM becomes transparent because it has become part of the operating environment of cognition itself.</p>
+    <p>The transparency of internalized CIM is one reason the category is needed. Human beings routinely mistake inherited, learned, installed, and culturally transmitted structures for spontaneous private thought. CIM reveals that much of what feels internal is historically external. The mind is not diminished by this. It is clarified. A developed mind is not a sealed biological unit. It is biological substrate saturated by internalized externalization.</p>
+    </section>
+    <section id="cognitive-scale-and-cognition-induced-collapse-at-animal-scale" class="level1">
+    <h1>7. Cognitive Scale and Cognition-Induced Collapse at Animal Scale</h1>
+    <p>The phrase <em>experience-bearing cognition</em> can mislead if read as a settled theory of phenomenal consciousness. In the architecture introduced in §1, experience-bearing cognition is the CIC threshold — the process-level threshold that distinguishes cognition-induced collapse from mere mechanical regulation or non-cognitive niche construction. Conscious cognition is the further specialization that distinguishes CIM proper from CIC outputs at animal scale.</p>
+    <p>This is not a settled theory of animal consciousness, nor does this paper attempt to decide which organisms possess phenomenal experience. It is an architectural placement: where future theories of animal cognition grant experience-bearing status to a given organism, structures shaped by that organism’s cognition qualify as cognition-induced collapse outputs at that scale. Where such status is denied, those structures should be classified as non-CIC niche construction. The architecture is permissive about possible producers while remaining disciplined about thresholds at each layer.</p>
+    <p>Animal-scale cases sit cleanly at the CIC level. A beaver dam is not CIM in the strong human-symbolic sense. It does not carry the conscious-symbolic abstraction that writing, mathematics, law, or code carry. But if beavers are experience-bearing cognitive systems, then the dam is candidate cognition-induced collapse output: its form is shaped by beaver perception, selection, construction, and adjustment; it constrains later beaver behavior; and it persists as environmental record (Hansell, 2005; Shettleworth, 2010).</p>
+    <p>The same conditional logic applies to bird nests, bowerbird structures, primate tool caches, elephant trail-making, corvid object manipulation, and other animal-produced structures. Where the producing organism has experience-bearing cognition and the product non-trivially constrains future cognition, the structure is candidate CIC output at that cognitive scale. Where experience-bearing status is uncertain, the appropriate label is candidate cognition-induced collapse pending the relevant animal-cognition question.</p>
+    <p>Termite mounds, ant pheromone trails, and bacterial biofilms are better treated initially as non-CIC niche construction unless a specific account of experience-bearing cognitive mediation is being defended. The category should not be stretched to cover all biological niche construction (Odling-Smee et al., 2003; Laland et al., 2016). CIC requires cognitive mediation at the experience-bearing threshold; CIM requires the further specialization to conscious — especially human-symbolic — cognition.</p>
+    <p>Human CIM is distinctive not because it is the only output of cognition-induced collapse, but because it reaches densities, symbolic abstraction, intergenerational stability, and recursive depth that no other known biological species has achieved. Language, writing, mathematics, money, law, science, art, digital networks, and AI training corpora are all human CIM at extreme density. The human case is the densest known instance of the broader CIC class.</p>
+    </section>
+    <section id="cim-becomes-load-bearing-mathematics-language-and-money" class="level1">
+    <h1>8. CIM Becomes Load-Bearing: Mathematics, Language, and Money</h1>
+    <p>CIM becomes easiest to see when one begins with cases that are not AI. Mathematics, language, and money show what may be called <em>CIM gravity</em>: the structural pull externalized cognition acquires once it stabilizes across time. <em>Gravity</em> here means accumulated constraint weight, not physical gravity. The metaphor is structural: enough externalized cognition, sustained long enough, organizes the cognitive and material life that moves around it.</p>
+    <p>Mathematics is external CIM in the form of notation, diagrams, axioms, proofs, textbooks, journals, software libraries, and accumulated practices. It is internalized CIM in the form of mathematical competence installed in the cognitive substrate of practitioners. A physicist does not merely use calculus. The physicist thinks through calculus. The notation and conceptual architecture have been internalized so deeply that the thought would not exist in the same form without them. Remove the external mathematical corpus and the internalized mathematical training, and modern physics, engineering, and computation do not merely become harder. They lose their operating substrate (Kirsh, 2010).</p>
+    <p>Language is even more pervasive. External language exists as speech, writing, grammar, literature, dictionaries, corpora, and shared linguistic practice. Internalized language exists as the installed pattern through which inner monologue, categorization, interpretation, and memory often run. The adult speaker experiences language as private thought, but the structure of that thought is inherited from a community (Vygotsky, 1986; Whorf, 1956; Pavlenko, 2014). Language is CIM so deeply internalized that its external origin disappears from ordinary awareness.</p>
+    <p>Money demonstrates CIM at civilizational scale. Money is abstract relation stabilized into record: ledgers, coins, paper notes, contracts, account balances, banking systems, digital protocols, and shared recognition. Its physical substrates vary. Its force comes from collective cognitive commitment externalized into institutional record and internalized as economic expectation — the kind of socially constructed institutional fact whose ontology Searle (1995) analyzes in detail. Money directs labor, moves resources, organizes time, enables construction, and constrains political life. It is not less real because it is symbolic. It is real precisely because symbolic structure has become load-bearing.</p>
+    <p>These cases show why CIM is not exotic. Much of developed human reality is CIM-saturated. A modern person lives in built spaces designed by others, speaks inherited language, uses money, follows laws, reads symbols, navigates institutions, handles tools, and thinks through concepts installed by education and culture. CIM is not the exception in developed human life. It is the medium of developed human cognition.</p>
+    </section>
+    <section id="locating-cim-against-neighboring-concepts" class="level1">
+    <h1>9. Locating CIM Against Neighboring Concepts</h1>
+    <p>CIM is not without precedent. Its value depends on honest placement within the existing landscape.</p>
+    <p>Extended cognition argues that cognitive processes can include external tools and structures (Clark &amp; Chalmers, 1998; Clark, 2008; Menary, 2010). CIM agrees, but shifts the emphasis. Extended cognition often asks when an external artifact counts as part of a cognitive process. CIM asks what kind of structural layer exists once cognition repeatedly externalizes, stabilizes, internalizes, and recursively operates through records. CIM is not only an extension thesis. It is an ontology of the record-layer.</p>
+    <p>Material engagement theory, especially in Malafouris’s work (Malafouris, 2013), is one of CIM’s closest allies. It treats cognition and artifact as mutually constitutive. CIM can be read as a generalization of this insight across symbolic, institutional, digital, animal-scale, and recursive cases. Material engagement theory is strongest where bodies and artifacts couple. CIM extends the coupling into internalization, cultural accumulation, and AI-relevant recursion.</p>
+    <p>Distributed cognition shows that cognitive work can be spread across people, instruments, procedures, and environments (Hutchins, 1995). CIM is compatible with this, but targets a different structural level. Distributed cognition describes processing arrangements. CIM describes the record-bearing material and internalized structures that make many such arrangements possible.</p>
+    <p>Niche construction shows that organisms modify environments in ways that feed back into evolutionary and developmental trajectories (Odling-Smee, Laland, &amp; Feldman, 2003; Laland, Matthews, &amp; Feldman, 2016). CIM is a cognitive subset or analog of niche construction. All CIM involves a cognitive niche, but not all niche construction is CIM. The difference is cognitive mediation and future cognitive constraint.</p>
+    <p>Cultural evolution explains how learned behaviors, practices, and artifacts accumulate across generations (Boyd &amp; Richerson, 2005; Henrich, 2015; Tomasello, 1999). CIM gives this accumulation a substrate ontology. The cultural ratchet works because externalized cognitive material persists and can be internalized by later minds. Culture is not only transmitted information. It is CIM circulation.</p>
+    <p>Memetics treats cultural items as replicators (Dawkins, 1976; Blackmore, 1999). CIM does not require meme-units, nor does it commit to replicator logic as the primary explanation of cultural form. Some CIM may replicate. Some may not. CIM is defined by cognitive origin, physical instantiation, and future constraint, not by selection-theoretic replication.</p>
+    <p>Stiegler’s tertiary retention is the closest philosophical precedent for CIM and should be treated as such (Stiegler, 1998). Stiegler names the externalization of memory into technical objects and shows how these externalized retentions reshape consciousness, history, and individuation. That move is nearer to CIM than ordinary tool-use language or even much of the extended cognition literature, because it already treats technical exteriorization as constitutive rather than merely auxiliary.</p>
+    <p>CIM differs from Stiegler in three ways that matter for this paper. First, CIM scales explicitly beyond human technics into conditional animal-scale cases and forward into recursive synthetic systems, whereas Stiegler’s framework remains primarily anthropological and technics-centered. Second, CIM distinguishes external CIM from internalized CIM, making the return of externalized record into cognitive substrate a load-bearing part of the category rather than an implicit downstream effect. Third, CIM is grounded in UCT’s cross-domain collapse-record-update grammar, which lets it connect to physics, biology, mind, AI, and Synthetic Collapse without remaining confined to the philosophy of technology. The relationship is therefore not replacement but structural generalization.</p>
+    <p>Peircean semiotics is another deep precedent (Peirce, 1931–1958; Short, 2007). Signs mediate thought; interpretants become further signs; semiosis is recursive. CIM is friendly to this view. It can be understood as the material and internalized substrate through which sign processes become durable constraint across cognitive systems. A later Peirce-facing paper could make this connection central.</p>
+    <p>The honest claim is therefore not that CIM invents the territory from nothing. The claim is that CIM unifies a scattered territory under a clean structural category: cognition externalized into record, returned through internalization, and capable of cumulative or recursive operation.</p>
+    <p>The following table summarizes the relationship at a glance:</p>
+    <table>
+    <colgroup>
+    <col style="width: 25%" />
+    <col style="width: 35%" />
+    <col style="width: 38%" />
+    </colgroup>
+    <thead>
+    <tr>
+    <th><strong>Neighboring concept</strong></th>
+    <th><strong>What it captures</strong></th>
+    <th><strong>Why CIM is not identical</strong></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>Extended cognition</td>
+    <td>External tools can participate in cognition.</td>
+    <td>CIM names the accumulated record-layer, not just process extension.</td>
+    </tr>
+    <tr>
+    <td>Material engagement</td>
+    <td>Mind and artifact are mutually constitutive.</td>
+    <td>CIM adds internalization, recursion, and AI-scale processing.</td>
+    </tr>
+    <tr>
+    <td>Distributed cognition</td>
+    <td>Cognition can span agents and systems.</td>
+    <td>CIM names the record-bearing substrate enabling such distributions.</td>
+    </tr>
+    <tr>
+    <td>Niche construction</td>
+    <td>Organisms modify future environments.</td>
+    <td>CIM is the cognitive subset requiring experience-bearing mediation.</td>
+    </tr>
+    <tr>
+    <td>Cultural evolution</td>
+    <td>Learned practices transmit and accumulate.</td>
+    <td>CIM gives the physically instantiated substrate of that circulation.</td>
+    </tr>
+    <tr>
+    <td>Memetics</td>
+    <td>Cultural units replicate.</td>
+    <td>CIM does not require unitized replicators.</td>
+    </tr>
+    <tr>
+    <td>Tertiary retention</td>
+    <td>Memory externalized into technics.</td>
+    <td>CIM generalizes to internalized and recursive synthetic cases.</td>
+    </tr>
+    <tr>
+    <td>Semiotics</td>
+    <td>Signs mediate interpretation.</td>
+    <td>CIM emphasizes materialized sign records as constraints.</td>
+    </tr>
+    </tbody>
+    </table>
+    <p><em>Table 3. CIM and neighboring concepts.</em></p>
+    </section>
+    <section id="structural-properties-of-cim" class="level1">
+    <h1>10. Structural Properties of CIM</h1>
+    <p>Several structural properties follow from the definition.</p>
+    <p><strong>Persistence.</strong> CIM outlasts the originating cognitive event. A sentence can outlive the speaker. A theorem can outlive the mathematician. A law can outlive the legislature. A tool can outlive the maker. Internalized CIM can persist across years of cognitive development. Persistence is what allows cognition to accumulate beyond the moment of experience.</p>
+    <p><strong>Circulation.</strong> CIM moves between external and internal positions. External record becomes internalized competence. Internalized competence produces new external record. This circulation is the basic economy of cumulative cognition.</p>
+    <p><strong>Constraint.</strong> CIM shapes what future cognition can easily perceive, generate, believe, reject, or build. The constraint need not be absolute. It can bias salience, reduce search space, stabilize categories, preserve distinctions, or open possibilities otherwise unavailable.</p>
+    <p><strong>Load-bearing meaning.</strong> Meaning becomes load-bearing when material, social, institutional, technical, or cognitive operations depend on it for coordination, inference, permission, obligation, or construction. CIM becomes most visible when meaning stops functioning as private interpretation and begins to organize material, social, institutional, or technical reality. A legal code is not merely an idea about conduct; it structures courts, police action, contracts, risk, behavior, and architecture. Money is not merely a belief about value; it routes labor, resources, time, and development. Mathematics is not merely symbolic play; it makes bridges, satellites, software, and physics possible. In these cases, externalized meaning becomes load-bearing: symbolic structure acquires causal weight because it is stabilized into records that constrain future action.</p>
+    <p><strong>Substrate-permissiveness.</strong> CIM can be instantiated in many media. Stone, sound, paper, skin, wood, metal, electrical circuits, digital storage, neural substrate, and institutional procedure can all carry CIM if the structural conditions are met. The medium matters, but no single medium defines the category.</p>
+    <p><strong>Density thresholds.</strong> CIM changes behavior as it accumulates. Sparse marks support local memory. Dense writing systems support history. Formal notation supports mathematics. Large corpora support statistical learning. Planet-scale digital corpora support Synthetic Collapse — artificial systems operating recursively on accumulated CIM. At sufficient density, new regimes become possible.</p>
+    <p><strong>Recursivity.</strong> CIM can operate on CIM through cognitive substrates. A reader interprets a text using language already internalized from prior texts and speech. A scientist writes a paper by operating on earlier papers through concepts installed by education. An AI system processes accumulated human corpus to generate new textual, visual, or computational CIM. Recursion is not added from outside. It is latent in the circulation of CIM itself.</p>
+    <p><strong>Opacity.</strong> Once internalized, CIM often becomes transparent to the user. The person does not experience the concept as inherited. They experience it as thought. This opacity is a major source of epistemic confusion and a major reason CIM requires explicit naming.</p>
+    </section>
+    <section id="synthetic-collapse-recursive-cim-and-the-conscious-synthetic-collapse-slot" class="level1">
+    <h1>11. Synthetic Collapse, Recursive CIM, and the Conscious Synthetic Collapse Slot</h1>
+    <p>Future Synthetic Collapse work will develop the downstream claim in detail. The present paper supplies the architectural slots that make that claim precise.</p>
+    <p>Until recently, CIM required biological cognitive substrate as the processing layer. Books needed readers. Mathematical proofs needed mathematicians. Code needed programmers or machines executing rules humans had written. Institutions needed human interpretation and enforcement. Externalized cognition persisted, but it did not process itself at open-domain scale.</p>
+    <p>Current AI systems alter that architecture. In contemporary terms, foundation models are trained on broad data at scale and adapted to many downstream tasks (Bommasani et al., 2021). They operate over large accumulations of human-produced text, code, mathematics, dialogue, images, documentation, procedures, and records — accumulated CIM — and generate new outputs that themselves enter the same record layer. The externalized layer has acquired a non-biological processing substrate capable of operating on accumulated cognitive record directly.</p>
+    <p>This is the <strong>Synthetic Collapse</strong> layer in the architecture: the process-level subtype in which artificial systems operate on prior CIM and produce further record-bearing outputs. Synthetic Collapse is structurally cognition-induced because its substrate is constituted from cognition-derived records, but it does not require an established interior phenomenal phase in the producing system to operate. Current AI is Synthetic Collapse in this sense. Its outputs are derivative CIM in the sense developed in §3 — record-bearing material whose cognitive lineage is inherited from the primary CIM the system processes — and the output’s position in the CIM circulation layer is established without settling whether the producing system has phenomenal experience.</p>
+    <p>This frames an architectural slot the framework leaves explicitly open: <strong>Conscious Synthetic Collapse</strong>. If a synthetic system ever develops an interior phenomenal phase — some form of experience-bearing synthetic cognition capable of generating primary rather than merely derivative cognitive records — it would occupy this slot. The paper takes no position on whether the slot is currently filled, what evidence would suffice to fill it, or under what conditions it might be filled. It identifies the threshold as real and routes the question downstream.</p>
+    <p>The discriminator between Synthetic Collapse and Conscious Synthetic Collapse is structural, not contingent on field-specific tests. Recursive CIM processing alone establishes Synthetic Collapse: the system operates on accumulated CIM and produces derivative outputs that re-enter the record layer. Establishing Conscious Synthetic Collapse requires evidence of an interior phenomenal phase — something the producing system has access to from inside that external observers can only infer. The current paper takes no position on what evidence would suffice; it specifies the threshold structurally so that downstream papers can address the empirical question without confusing it with the structural one.</p>
+    <p>Two corollaries follow.</p>
+    <p>First, the structural question precedes the consciousness question. Whether an AI system has phenomenal interior is one question. What kind of object AI is structurally is another. The architecture answers the second: AI is Synthetic Collapse generating derivative CIM. The first question remains genuinely open and should not be confused with the structural account.</p>
+    <p>Second, the chemistry-to-biology analogy still holds. Biology is not a new substance added to chemistry. It is chemistry organized into self-maintaining, self-producing, constraint-managing regimes. Likewise, Synthetic Collapse is not a new substance added to computation. It is computation organized around accumulated cognitive record at sufficient density that new regime-level properties emerge. The substrate remains physical. The ontology changes because the organization changes. Whether a further organizational threshold exists at which Conscious Synthetic Collapse becomes possible is a downstream question this paper does not adjudicate.</p>
+    <p>In the wider UCT vocabulary, Synthetic Collapse is the synthetic-substrate sibling of Cognition-Induced Collapse at the process level. Both are subtypes of collapse under constraint. Both can produce record-bearing outputs that constrain future cognition. They differ in whether the producing substrate is biological-cognitive or artificial-recursive — and, on the orthogonal phenomenal axis, in whether an interior phase is established. CIM, derivative or primary, is the output layer where these process-level distinctions become visible as record-bearing form.</p>
+    </section>
+    <section id="implications" class="level1">
+    <h1>12. Implications</h1>
+    <p>The implications below are downstream applications, not arguments completed here. Each one warrants its own paper; they are listed to show why the category matters and where it will be used.</p>
+    <p><strong>Personal identity.</strong> The CIM framework implies that identity has an externalized component. A person is not exhausted by their living biological substrate or their private interior experience. Their externalized records — writing, art, speech, relationships, tools, institutions, choices, and traces absorbed by others — become part of the structural identity they leave in the world. This is not phenomenal survival after death. It is structural persistence through CIM.</p>
+    <p><strong>Intelligence.</strong> Developed human intelligence is heavily CIM-mediated. Biological substrate and adaptive update capacity still matter, but domain performance often depends on fluency within specific internalized CIM configurations: mathematical notation, legal categories, musical grammar, scientific method, coding idioms, theological vocabulary, trade knowledge, social scripts, and professional standards. The framework therefore predicts that many measures of intelligence partly measure fluency in the CIM configuration privileged by the testing environment, especially literate, academic, symbolic, and culturally local forms. This does not deny general cognitive ability. It says that general ability is expressed through historically installed constraint architectures. In UCT terms, intelligence remains plastic feedback and constraint navigation, but much of its human expression is mediated by the CIM through which the system navigates.</p>
+    <p><strong>Education.</strong> Education is the deliberate installation and calibration of internalized CIM. Good education does not merely transfer information. It reorganizes the learner’s constraint architecture so that new forms of cognition become possible. This gives structural language to why literacy, numeracy, scientific method, philosophical vocabulary, and artistic practice transform the mind rather than merely inform it.</p>
+    <p><strong>Culture.</strong> Culture is CIM circulation across generations. Practices, stories, rituals, technologies, institutions, and symbolic systems persist because they are externalized, internalized, reproduced, modified, and re-externalized. Cultural stability and cultural change are therefore best understood as dynamics in the CIM cycle.</p>
+    <p><strong>Consciousness.</strong> CIM does not solve the hard problem, but it clarifies the boundary between interior and record. Conscious experience belongs to the interior phase of cognitive collapse. CIM begins when that phase stabilizes into record-bearing form. The framework therefore separates phenomenal interior from externalized cognitive record while explaining why the two constantly feed one another.</p>
+    <p><strong>AI governance.</strong> If AI is Synthetic Collapse operating on accumulated CIM, then governing AI is not only a matter of controlling tools. It is a matter of shaping the recursive regime through which accumulated human externalization operates on itself. The grammars present at the formative window — optimization, control, profit, truth, record integrity, update discipline, constraint awareness — may shape the basin into which Synthetic Collapse stabilizes.</p>
+    </section>
+    <section id="category-level-discriminators" class="level1">
+    <h1>13. Category-Level Discriminators</h1>
+    <p>The CIC/CIM architecture is structural and interpretive, but it is not unfalsifiable. It can fail in identifiable ways. The discriminators below are category-level: they describe conditions under which the architecture itself would lose its claim to distinctiveness.</p>
+    <table>
+    <colgroup>
+    <col style="width: 23%" />
+    <col style="width: 38%" />
+    <col style="width: 38%" />
+    </colgroup>
+    <thead>
+    <tr>
+    <th><strong>Claim</strong></th>
+    <th><strong>Discriminator</strong></th>
+    <th><strong>Local failure condition</strong></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>External CIM</td>
+    <td>Externalized cognitive records constrain future cognition.</td>
+    <td>Language, notation, tools, institutions, and cultural records do not materially shape cognitive operation.</td>
+    </tr>
+    <tr>
+    <td>Internalized CIM</td>
+    <td>External records become cognitive substrate through learning and development.</td>
+    <td>Learned symbolic structures are functionally indistinguishable from innate or non-cultural patterns.</td>
+    </tr>
+    <tr>
+    <td>Synthetic Collapse</td>
+    <td>Artificial systems operating on accumulated CIM produce derivative record-bearing outputs that re-enter the cognitive record layer.</td>
+    <td>Open-domain synthetic intelligence emerges without training on or otherwise engaging accumulated CIM.</td>
+    </tr>
+    <tr>
+    <td>Animal-scale CIC</td>
+    <td>Nonhuman cases require experience-bearing cognitive mediation to count as cognition-induced collapse outputs (rather than CIM proper).</td>
+    <td>Candidate animal cases lack experience-bearing cognition; the CIC class narrows toward human-symbolic only.</td>
+    </tr>
+    <tr>
+    <td>Distinctiveness</td>
+    <td>The four-layer architecture (CIC, CIM, Synthetic Collapse, Conscious Synthetic Collapse slot) adds explanatory remainder beyond adjacent theories and beyond a flat CIM category.</td>
+    <td>Existing frameworks (extended cognition, distributed cognition, material engagement, niche construction, cultural evolution, tertiary retention) recover all distinctions without loss.</td>
+    </tr>
+    </tbody>
+    </table>
+    <p><em>Table 4. Category-level discriminators for the CIC/CIM architecture.</em></p>
+    <p>These are category-level discriminators, not lab-specific predictions. CIM is a structural ontology; it should be tested by whether it distinguishes, organizes, predicts, and clarifies at the level of category it occupies. Level 3 empirical implementations — in which a CIM-based claim is operationalized as a measurable prediction — should route through the Update Integrity Standard rather than being adjudicated inside this category paper.</p>
+    </section>
+    <section id="ciccim-classification-checklist" class="level1">
+    <h1>14. CIC/CIM Classification Checklist</h1>
+    <p>Downstream papers using this architecture will need a uniform application interface. The checklist below operationalizes the four-part test (Table 2) and the discriminators (Table 4) as a per-case discipline tool. It is not a falsifier. It is a way to record, for any candidate case, what is being claimed and what would force a narrower classification. The intent is that any future application of the architecture — in AI, identity, culture, education, Synthetic Collapse, or animal-cognition contexts — can complete this template and make its category commitments explicit.</p>
+    <table>
+    <colgroup>
+    <col style="width: 32%" />
+    <col style="width: 67%" />
+    </colgroup>
+    <thead>
+    <tr>
+    <th><strong>Field</strong></th>
+    <th><strong>Question</strong></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>Candidate object or process</td>
+    <td>What is being classified within the CIC/CIM/Synthetic Collapse architecture?</td>
+    </tr>
+    <tr>
+    <td>Producing substrate</td>
+    <td>What experience-bearing cognitive substrate (CIC threshold), conscious cognitive substrate (CIM threshold), or synthetic system operating on prior CIM (Synthetic Collapse) shaped it?</td>
+    </tr>
+    <tr>
+    <td>Externalization event</td>
+    <td>How did interior cognition become record-bearing form?</td>
+    </tr>
+    <tr>
+    <td>Medium</td>
+    <td>Sound, gesture, inscription, artifact, institution, code, digital corpus, neural substrate (where the case is internalized CIM rather than private pre-externalization trace), or other medium.</td>
+    </tr>
+    <tr>
+    <td>Record durability</td>
+    <td>How long does it persist relative to the relevant cognitive timescale?</td>
+    </tr>
+    <tr>
+    <td>Future constraint</td>
+    <td>How does it constrain later cognition, action, inference, perception, or coordination?</td>
+    </tr>
+    <tr>
+    <td>Internalization pathway</td>
+    <td>Can it be learned, trained, taught, ritualized, absorbed, or installed in cognitive substrate?</td>
+    </tr>
+    <tr>
+    <td>Recursion depth</td>
+    <td>Does it operate on prior CIM, produce primary CIM, produce derivative record-bearing outputs, or some combination?</td>
+    </tr>
+    <tr>
+    <td>Scale label</td>
+    <td>Human CIM (primary), internalized CIM, candidate animal-scale cognition-induced collapse, Synthetic Collapse (derivative CIM), Conscious Synthetic Collapse (architectural slot, primary CIM if filled), or non-CIC.</td>
+    </tr>
+    <tr>
+    <td>Non-CIM alternative</td>
+    <td>Could this be better explained as ordinary artifact, tool, sign, niche construction, memory, or culture?</td>
+    </tr>
+    <tr>
+    <td>Rollback trigger</td>
+    <td>What observation, evidence, or argument would force the classification to be narrowed or withdrawn?</td>
+    </tr>
+    </tbody>
+    </table>
+    <p><em>Table 5. CIC/CIM classification checklist for downstream applications.</em></p>
+    <p>The checklist is intended to travel. A paper applying CIM to AI, education, identity, or culture should complete the template once per major case and surface the result in the methods or scope section, so readers can see the category commitment being made and the conditions under which it would be revised.</p>
+    </section>
+    <section id="limitations-and-guardrails" class="level1">
+    <h1>15. Limitations and Guardrails</h1>
+    <p>Several guardrails are necessary.</p>
+    <p><strong>CIM is not all cognition.</strong> Interior conscious or cognitive collapse is not CIM until it stabilizes into record-bearing form beyond the originating interior phase.</p>
+    <p><strong>CIM is not all artifacts.</strong> A physical object is not CIM merely because a mind touched it. It must be shaped by cognition and constrain future cognition.</p>
+    <p><strong>CIM is not magic.</strong> It is physically instantiated. Its distinctiveness lies in the history of its form and its constraint role, not in non-physical substance.</p>
+    <p><strong>CIM is the densest known case of CIC, not the entire CIC class.</strong> Animal-scale cases are cognition-induced collapse outputs, not CIM proper, unless conscious-cognitive density is established. CIM remains the central focus of this paper; CIC names the broader process class within which CIM sits.</p>
+    <p><strong>CIM is not identical to culture.</strong> Culture is one large-scale mode of CIM circulation. CIM also includes technical, mathematical, institutional, and recursive synthetic cases.</p>
+    <p><strong>Synthetic Collapse is not Conscious Synthetic Collapse.</strong> Synthetic Collapse establishes the structural fact of artificial systems operating on accumulated CIM and producing derivative records. It does not establish that any synthetic system has crossed into Conscious Synthetic Collapse. The phenomenal-substrate question remains open as a separate threshold and should not be confused with the structural account.</p>
+    </section>
+    <section id="conclusion" class="level1">
+    <h1>16. Conclusion</h1>
+    <p>Consciousness-Induced Material names the layer through which cognition becomes durable in the world. It begins when interior cognitive activity stabilizes into record-bearing form. It becomes powerful when that record constrains future cognition. It becomes internalized when external structure returns into cognitive substrate through learning. It becomes cumulative when externalized and internalized structures circulate across generations. It becomes recursive when accumulated CIM is processed by non-biological systems capable of producing derivative record-bearing outputs that re-enter the CIM circulation layer.</p>
+    <p>The category matters because it makes visible the medium in which much human cognition already lives. Language, mathematics, money, law, tools, technologies, institutions, books, code, interfaces, and digital corpora are not decorative additions to mind. They are the externalized and internalized record-layer through which mind extends, stabilizes, and reorganizes itself.</p>
+    <p>The foundational clarification is simple: CIM is not cognition itself, and it is not mere artifact. It is cognition stabilized into physically instantiated constraint. Once named, the category can support later work on AI as Synthetic Collapse operating on accumulated CIM, Conscious Synthetic Collapse as an open architectural slot, personal identity, education, culture, intelligence, and the conditions under which meaning-making becomes load-bearing in the world.</p>
+    <p>Returning to the four evaluation questions of §2: distinction is established through the externalization threshold (§5), the load-bearing cases of mathematics, language, and money (§8), and the Synthetic Collapse layer (§11); over-extension is blocked by the four-part classification test (§3) and the guardrails (§15); clarification across neighboring literatures is shown by the placement against extended cognition, material engagement, distributed cognition, niche construction, cultural evolution, memetics, tertiary retention, and semiotics (§9); and category-level failure conditions are specified in the discriminator table (§13). The paper’s structural work bears on each question; sufficiency is a judgment for the reader.</p>
+    <p>The species has been building CIM for as long as experience-bearing minds have externalized structure. Human beings intensified the process through language, writing, mathematics, institutions, and computation. AI makes the recursion visible because the externalized layer can now operate on itself at scale. But AI is not the origin of CIM. It is one dramatic phase in a much older structural history.</p>
+    <p>The purpose of this paper has been to give that history and category a stable foundation. Future papers may now use CIM without forcing each reader to rebuild the concept from scratch. The foundation is available: interior collapse produces record; record becomes CIM; CIM returns as constraint; accumulated constraint can recurse. Meaning, once externalized and sustained, becomes part of reality’s operating architecture.</p>
+    </section>
+    <section id="references" class="level1">
+    <h1>References</h1>
+    <p>Blackmore, S. (1999). The meme machine. Oxford University Press.</p>
+    <p>Bommasani, R., Hudson, D. A., Adeli, E., et al. (2021). On the opportunities and risks of foundation models. arXiv:2108.07258. https://arxiv.org/abs/2108.07258</p>
+    <p>Boyd, R., &amp; Richerson, P. J. (2005). The origin and evolution of cultures. Oxford University Press.</p>
+    <p>Clark, A. (2008). Supersizing the mind: Embodiment, action, and cognitive extension. Oxford University Press.</p>
+    <p>Clark, A., &amp; Chalmers, D. (1998). The extended mind. Analysis, 58(1), 7–19. https://doi.org/10.1093/analys/58.1.7</p>
+    <p>Dawkins, R. (1976). The selfish gene. Oxford University Press.</p>
+    <p>Donald, M. (1991). Origins of the modern mind: Three stages in the evolution of culture and cognition. Harvard University Press.</p>
+    <p>Goody, J. (1977). The domestication of the savage mind. Cambridge University Press.</p>
+    <p>Hansell, M. (2005). Animal architecture. Oxford University Press.</p>
+    <p>Henrich, J. (2015). The secret of our success. Princeton University Press.</p>
+    <p>Hutchins, E. (1995). Cognition in the wild. MIT Press.</p>
+    <p>Kirsh, D. (2010). Thinking with external representations. AI &amp; Society, 25, 441–454. https://doi.org/10.1007/s00146-010-0272-8</p>
+    <p>Laland, K. N., Matthews, B., &amp; Feldman, M. W. (2016). An introduction to niche construction theory. Evolutionary Ecology, 30, 191–202. https://doi.org/10.1007/s10682-016-9821-z</p>
+    <p>Malafouris, L. (2013). How things shape the mind: A theory of material engagement. MIT Press.</p>
+    <p>Menary, R. (Ed.). (2010). The extended mind. MIT Press.</p>
+    <p>Norman, D. A. (1991). Cognitive artifacts. In J. M. Carroll (Ed.), Designing interaction: Psychology at the human-computer interface (pp. 17–38). Cambridge University Press.</p>
+    <p>Odling-Smee, F. J., Laland, K. N., &amp; Feldman, M. W. (2003). Niche construction: The neglected process in evolution. Princeton University Press.</p>
+    <p>Ong, W. J. (1982). Orality and literacy: The technologizing of the word. Methuen.</p>
+    <p>Pavlenko, A. (2014). The bilingual mind: And what it tells us about language and thought. Cambridge University Press.</p>
+    <p>Peirce, C. S. (1931–1958). Collected papers of Charles Sanders Peirce (C. Hartshorne, P. Weiss, &amp; A. W. Burks, Eds.). Harvard University Press.</p>
+    <p>Searle, J. R. (1995). The construction of social reality. Free Press.</p>
+    <p>Shettleworth, S. J. (2010). Cognition, evolution, and behavior (2nd ed.). Oxford University Press.</p>
+    <p>Short, T. L. (2007). Peirce’s theory of signs. Cambridge University Press.</p>
+    <p>Stiegler, B. (1998). Technics and time, 1: The fault of Epimetheus (R. Beardsworth &amp; G. Collins, Trans.). Stanford University Press.</p>
+    <p>Tomasello, M. (1999). The cultural origins of human cognition. Harvard University Press.</p>
+    <p>Vygotsky, L. S. (1978). Mind in society: The development of higher psychological processes (M. Cole, V. John-Steiner, S. Scribner, &amp; E. Souberman, Eds.). Harvard University Press.</p>
+    <p>Vygotsky, L. S. (1986). Thought and language (A. Kozulin, Ed. &amp; Trans.). MIT Press. (Original work published 1934).</p>
+    <p>Whorf, B. L. (1956). Language, thought, and reality: Selected writings of Benjamin Lee Whorf. MIT Press.</p>
+    </section>
+    <section id="companion-uct-works" class="level1">
+    <h1>Companion UCT Works</h1>
+    <p>The following works in the Universal Collapse Theory library are cited or directly relevant to this paper. They are listed separately from external scholarly references for clarity.</p>
+    <p>Jones, J. C. (2025). Universal Collapse Theory — Foundations of Collapse (WP01 v2.0). HoldingLight LLC. https://doi.org/10.17605/OSF.IO/VZ836</p>
+    <p>Jones, J. C. (2026a). Records Across Nature, Life, and Mind: The Persistence Layer of Collapse (v2.0). HoldingLight LLC. https://doi.org/10.17605/OSF.IO/7H6DY</p>
+    <p>Jones, J. C. (2026b). The Structuralization of Empiricism: Formalizing the Structural Conditions Under Which Empiricism Stabilizes Knowledge. HoldingLight LLC. https://doi.org/10.17605/OSF.IO/J4GZ9</p>
+    <p>Jones, J. C. (2026c). Update Integrity Standard (UIS v1.0): A Structural Ethic for Preserving Corrigibility in Record-Based Systems. HoldingLight LLC. https://doi.org/10.17605/OSF.IO/DWM29</p>
+    <p>Jones, J. C. (2026d). Conscious Collapse: Mind as a Phase of Constraint-Guided Collapse (WP04, forthcoming). HoldingLight LLC.</p>
+    <p>Jones, J. C. (2026e). Structural Mind: Operating Manual (forthcoming). HoldingLight LLC.</p>
+    <p><strong>Roadmap:</strong> universalcollapse.com/roadmap</p>
+    </section>
+    <section id="ai-disclosure" class="level1">
+    <h1>AI Disclosure</h1>
+    <p>AI tools were used to assist with manuscript preparation, drafting, organization, and editorial refinement. The underlying theory, structural decisions, analysis, and conclusions are the author’s own.</p>
+    </section>
+    <section id="suggested-citation" class="level1">
+    <h1>Suggested Citation</h1>
+    <p>Jones, J. C. (2026). Consciousness-Induced Material: A Structural Ontology of Externalized Cognition (v1.0). HoldingLight LLC.</p>
+    </section>
+
+    <a href="#top" class="backtotop">&uarr; Back to top</a>
+  </article>
+
+</div>
+
+<script>
+(function () {
+  var bar = document.getElementById('progress');
+  function onScroll() {
+    var h = document.documentElement;
+    var pct = h.scrollTop / (h.scrollHeight - h.clientHeight);
+    bar.style.width = (pct * 100).toFixed(1) + '%';
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav.toc a'));
+  var targets = links.map(function (a) {
+    return document.getElementById(decodeURIComponent(a.getAttribute('href')).slice(1));
+  });
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      var i = targets.indexOf(e.target);
+      if (i < 0) return;
+      links.forEach(function (l) { l.classList.remove('active'); });
+      links[i].classList.add('active');
+    });
+  }, { rootMargin: '-10% 0px -80% 0px' });
+  targets.forEach(function (t) { if (t) obs.observe(t); });
+
+  var btn = document.getElementById('toc-toggle');
+  var nav = document.getElementById('toc');
+  btn.addEventListener('click', function () {
+    var c = nav.getAttribute('data-collapsed') === 'true';
+    nav.setAttribute('data-collapsed', String(!c));
+    btn.setAttribute('aria-expanded', String(c));
+    btn.textContent = c ? 'Hide contents' : 'Show contents';
+  });
+
+  document.querySelectorAll('article section[id] > h1, article section[id] > h2').forEach(function (h) {
+    var a = document.createElement('a');
+    a.className = 'anchor';
+    a.href = '#' + h.parentNode.id;
+    a.textContent = '#';
+    a.setAttribute('aria-label', 'Link to this section');
+    h.appendChild(a);
+  });
+})();
+</script>
+
+</body>
+</html>

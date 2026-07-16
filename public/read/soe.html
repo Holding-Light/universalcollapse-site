@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Structuralization of Empiricism — Universal Collapse Theory</title>
+  <meta name="description" content="The structural conditions under which empiricism stabilizes knowledge.">
+
+  <!-- Full-text reading copy. The citable record is the landing page;
+       canonical points there so Scholar and search consolidate on one URL. -->
+  <link rel="canonical" href="https://universalcollapse.com/read/soe">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="The Structuralization of Empiricism — Universal Collapse Theory">
+  <meta property="og:description" content="The structural conditions under which empiricism stabilizes knowledge.">
+  <meta property="og:url" content="https://universalcollapse.com/read/soe">
+  <meta property="og:site_name" content="Universal Collapse Theory">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@300;400&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg-deep: #08090c;
+      --bg-surface: #0e1017;
+      --bg-elevated: #161820;
+      --text-primary: #e8e6e1;
+      --text-secondary: #9b978f;
+      --text-tertiary: #5e5b54;
+      --accent: #c9a96e;
+      --accent-dim: #8a7245;
+      --rule: rgba(201, 169, 110, 0.12);
+      --serif: 'EB Garamond', Georgia, serif;
+      --sans: 'Outfit', system-ui, sans-serif;
+      --mono: 'JetBrains Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg-deep);
+      color: var(--text-primary);
+      font-family: var(--sans);
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    #progress {
+      position: fixed; top: 0; left: 0; height: 2px; width: 0%;
+      background: var(--accent); z-index: 100; transition: width 0.1s linear;
+    }
+
+    .topbar {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(8, 9, 12, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--rule);
+      padding: 0.75rem 1.5rem;
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 0.8rem;
+    }
+    .topbar a { color: var(--text-secondary); text-decoration: none; }
+    .topbar a:hover { color: var(--accent); }
+    .topbar .cite { color: var(--text-tertiary); font-family: var(--mono); font-size: 0.7rem; }
+
+    .shell {
+      max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem 6rem;
+      display: grid; grid-template-columns: minmax(0, 220px) minmax(0, 1fr); gap: 3rem;
+    }
+
+    nav.toc {
+      position: sticky; top: 5rem; align-self: start;
+      max-height: calc(100vh - 8rem); overflow-y: auto;
+      font-size: 0.8rem; line-height: 1.6;
+    }
+    nav.toc > p {
+      color: var(--text-tertiary); text-transform: uppercase;
+      letter-spacing: 0.12em; font-size: 0.65rem; margin-bottom: 0.75rem;
+    }
+    nav.toc ul { list-style: none; }
+    nav.toc ul ul { padding-left: 0.85rem; }
+    nav.toc li { margin: 0.3rem 0; }
+    nav.toc a {
+      color: var(--text-secondary); text-decoration: none;
+      display: block; padding-left: 0.6rem;
+      border-left: 1px solid transparent;
+    }
+    nav.toc a:hover { color: var(--text-primary); }
+    nav.toc a.active { color: var(--accent); border-left-color: var(--accent); }
+
+    article { min-width: 0; }
+
+    .paper-head { border-bottom: 1px solid var(--rule); padding-bottom: 1.75rem; margin-bottom: 2.5rem; }
+    .paper-head .tier {
+      font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.15em;
+      color: var(--accent-dim); text-transform: uppercase;
+    }
+    .paper-head h1 {
+      font-family: var(--serif); font-weight: 500; font-size: 2.1rem;
+      line-height: 1.2; margin: 0.75rem 0 0.5rem; color: var(--text-primary);
+    }
+    .paper-head .sub { font-family: var(--serif); font-style: italic; color: var(--text-secondary); font-size: 1.05rem; }
+    .paper-head .meta { margin-top: 1.1rem; font-size: 0.78rem; color: var(--text-tertiary); }
+    .paper-head .meta a { color: var(--accent-dim); text-decoration: none; }
+
+    article h1, article h2, article h3 {
+      font-family: var(--serif); font-weight: 600; line-height: 1.3;
+      color: var(--text-primary); scroll-margin-top: 5rem;
+    }
+    article h1 { font-size: 1.5rem; margin: 3rem 0 1rem; }
+    article h2 { font-size: 1.2rem; margin: 2rem 0 0.75rem; color: var(--text-secondary); }
+    article h3 { font-size: 1.05rem; margin: 1.5rem 0 0.5rem; color: var(--text-secondary); }
+
+    article h1 .anchor, article h2 .anchor {
+      opacity: 0; margin-left: 0.5rem; color: var(--accent-dim);
+      text-decoration: none; font-size: 0.7em; font-family: var(--sans);
+    }
+    article h1:hover .anchor, article h2:hover .anchor { opacity: 1; }
+
+    article p {
+      font-family: var(--serif); font-size: 1.12rem; font-weight: 400;
+      line-height: 1.75; margin: 0 0 1.15rem; color: var(--text-primary);
+    }
+    article ul, article ol { font-family: var(--serif); font-size: 1.12rem; margin: 0 0 1.15rem 1.5rem; }
+    article li { margin-bottom: 0.4rem; }
+    article strong { font-weight: 600; color: var(--text-primary); }
+    article em { font-style: italic; }
+    article a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--rule); }
+    article blockquote {
+      border-left: 2px solid var(--accent-dim); padding-left: 1.25rem;
+      margin: 1.5rem 0; color: var(--text-secondary); font-style: italic;
+      border-radius: 0;
+    }
+
+    math { font-size: 1.05em; color: var(--text-primary); }
+
+    .backtotop {
+      display: inline-block; margin-top: 3rem; padding-top: 1.5rem;
+      border-top: 1px solid var(--rule); width: 100%;
+      font-size: 0.8rem; color: var(--text-tertiary); text-decoration: none;
+    }
+    .backtotop:hover { color: var(--accent); }
+
+    #toc-toggle { display: none; }
+
+    @media (max-width: 820px) {
+      .shell { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; padding: 1.25rem 1.1rem 4rem; }
+      nav.toc {
+        position: static; max-height: none; order: -1;
+        border: 1px solid var(--rule); border-radius: 6px; padding: 0.9rem 1rem;
+      }
+      nav.toc[data-collapsed="true"] ul { display: none; }
+      #toc-toggle { display: block; background: none; border: none; color: var(--text-secondary);
+        font-family: var(--sans); font-size: 0.75rem; cursor: pointer; padding: 0; }
+      .paper-head h1 { font-size: 1.6rem; }
+      article p, article ul, article ol { font-size: 1.08rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<div class="topbar">
+  <a href="https://universalcollapse.com/soe">&larr; The Structuralization of Empiricism</a>
+  <span class="cite">10.17605/OSF.IO/J4GZ9</span>
+</div>
+
+<div class="shell">
+
+  <nav class="toc" id="toc" data-collapsed="false">
+    <p>Contents</p>
+    <button id="toc-toggle" aria-expanded="true">Hide contents</button>
+    <ul>
+    <li><a href="#section" id="toc-section"><br />
+    </a></li>
+    <li><a href="#abstract" id="toc-abstract">Abstract</a></li>
+    <li><a href="#section-1" id="toc-section-1"><br />
+    </a></li>
+    <li><a href="#the-problem-empiricism-solves-without-naming" id="toc-the-problem-empiricism-solves-without-naming">1. The Problem Empiricism Solves Without Naming</a></li>
+    <li><a href="#relation-to-existing-traditions" id="toc-relation-to-existing-traditions">2. Relation to Existing Traditions</a></li>
+    <li><a href="#claim-levels-and-scope" id="toc-claim-levels-and-scope">3. Claim Levels and Scope</a>
+    <ul>
+    <li><a href="#architectural-claims-level-1" id="toc-architectural-claims-level-1">3.1 Architectural Claims (Level 1)</a></li>
+    <li><a href="#interpretive-claims-level-2" id="toc-interpretive-claims-level-2">3.2 Interpretive Claims (Level 2)</a></li>
+    <li><a href="#divergence-claims-level-3" id="toc-divergence-claims-level-3">3.3 Divergence Claims (Level 3)</a></li>
+    <li><a href="#scope-limits" id="toc-scope-limits">3.4 Scope Limits</a></li>
+    <li><a href="#review-target" id="toc-review-target">3.5 Review Target</a></li>
+    </ul></li>
+    <li><a href="#the-minimal-structural-kernel-of-empirical-stabilization" id="toc-the-minimal-structural-kernel-of-empirical-stabilization">4. The Minimal Structural Kernel of Empirical Stabilization</a></li>
+    <li><a href="#records-and-the-emergence-of-objectivity" id="toc-records-and-the-emergence-of-objectivity">5. Records and the Emergence of Objectivity</a>
+    <ul>
+    <li><a href="#records-as-constraint-carriers" id="toc-records-as-constraint-carriers">5.1 Records as Constraint-Carriers</a></li>
+    <li><a href="#redundancy-and-convergence" id="toc-redundancy-and-convergence">5.2 Redundancy and Convergence</a></li>
+    <li><a href="#failure-modes-pseudo-objectivity" id="toc-failure-modes-pseudo-objectivity">5.3 Failure Modes: Pseudo-Objectivity</a></li>
+    <li><a href="#objectivity-as-emergent-stabilization" id="toc-objectivity-as-emergent-stabilization">5.4 Objectivity as Emergent Stabilization</a></li>
+    </ul></li>
+    <li><a href="#stabilization-signals-the-coherence-state-family-s₁s₃" id="toc-stabilization-signals-the-coherence-state-family-s₁s₃">6. Stabilization Signals: The Coherence-State Family (S₁–S₃)</a>
+    <ul>
+    <li><a href="#s₁-redundancy-consensus" id="toc-s₁-redundancy-consensus">6.1 S₁ — Redundancy → Consensus</a></li>
+    <li><a href="#s₂-neutrality-resolution-delay" id="toc-s₂-neutrality-resolution-delay">6.2 S₂ — Neutrality → Resolution Delay</a></li>
+    <li><a href="#s₃-constraint-sweeps-hysteresis" id="toc-s₃-constraint-sweeps-hysteresis">6.3 S₃ — Constraint Sweeps → Hysteresis</a></li>
+    <li><a href="#interpreting-the-coherence-state-family" id="toc-interpreting-the-coherence-state-family">6.4 Interpreting the Coherence-State Family</a></li>
+    <li><a href="#coherence-as-a-state-family-not-a-scalar" id="toc-coherence-as-a-state-family-not-a-scalar">6.5 Coherence as a State Family, Not a Scalar</a></li>
+    </ul></li>
+    <li><a href="#update-integrity-and-corrigibility" id="toc-update-integrity-and-corrigibility">7. Update Integrity and Corrigibility</a>
+    <ul>
+    <li><a href="#what-is-update-integrity" id="toc-what-is-update-integrity">7.1 What Is Update Integrity?</a></li>
+    <li><a href="#failure-modes-viewed-from-the-update-side" id="toc-failure-modes-viewed-from-the-update-side">7.2 Failure Modes Viewed From the Update Side</a></li>
+    <li><a href="#corrigibility-as-a-structural-property" id="toc-corrigibility-as-a-structural-property">7.3 Corrigibility as a Structural Property</a></li>
+    <li><a href="#structuralization-not-moralization" id="toc-structuralization-not-moralization">7.4 Structuralization, Not Moralization</a></li>
+    </ul></li>
+    <li><a href="#neutrality-and-commitment-as-structural-moves" id="toc-neutrality-and-commitment-as-structural-moves">8. Neutrality and Commitment as Structural Moves</a></li>
+    <li><a href="#scope-conditions-and-domain-of-validity" id="toc-scope-conditions-and-domain-of-validity">9. Scope Conditions and Domain of Validity</a></li>
+    <li><a href="#what-this-is-not" id="toc-what-this-is-not">10. What This Is Not</a></li>
+    <li><a href="#level-3-divergence-claims-and-falsifiers" id="toc-level-3-divergence-claims-and-falsifiers">11. Level 3 Divergence Claims and Falsifiers</a>
+    <ul>
+    <li><a href="#divergence-claim-1-redundancy-as-a-convergence-driver" id="toc-divergence-claim-1-redundancy-as-a-convergence-driver">11.1 Divergence Claim 1 — Redundancy as a Convergence Driver</a></li>
+    <li><a href="#divergence-claim-2-neutrality-induced-latency" id="toc-divergence-claim-2-neutrality-induced-latency">11.2 Divergence Claim 2 — Neutrality-Induced Latency</a></li>
+    <li><a href="#divergence-claim-3-record-dependent-hysteresis" id="toc-divergence-claim-3-record-dependent-hysteresis">11.3 Divergence Claim 3 — Record-Dependent Hysteresis</a></li>
+    <li><a href="#divergence-claim-4-integrity-interventions-alter-stabilization" id="toc-divergence-claim-4-integrity-interventions-alter-stabilization">11.4 Divergence Claim 4 — Integrity Interventions Alter Stabilization</a></li>
+    <li><a href="#divergence-claim-5-cross-domain-portability" id="toc-divergence-claim-5-cross-domain-portability">11.5 Divergence Claim 5 — Cross-Domain Portability</a></li>
+    <li><a href="#global-failure-condition" id="toc-global-failure-condition">11.6 Global Failure Condition</a></li>
+    </ul></li>
+    <li><a href="#conclusion" id="toc-conclusion">12. Conclusion</a></li>
+    <li><a href="#section-2" id="toc-section-2"><br />
+    </a></li>
+    <li><a href="#notation-key" id="toc-notation-key">Notation Key</a></li>
+    <li><a href="#section-3" id="toc-section-3"><br />
+    </a></li>
+    <li><a href="#references" id="toc-references">References</a></li>
+    </ul>
+  </nav>
+
+  <article>
+    <header class="paper-head">
+      <span class="tier">Standards</span>
+      <h1>The Structuralization of Empiricism</h1>
+      <p class="sub">Formalizing the Structural Conditions Under Which Empiricism Stabilizes Knowledge</p>
+      <p class="meta">
+        Jeremy C. Jones &middot; HoldingLight LLC &middot; 2026/04 &middot; CC BY 4.0<br>
+        Cite as <a href="https://doi.org/10.17605/OSF.IO/J4GZ9">10.17605/OSF.IO/J4GZ9</a>
+        
+      </p>
+    </header>
+
+    <p><strong>The Structuralization of Empiricism</strong></p>
+    <p><em>Formalizing the Structural Conditions Under Which Empiricism Stabilizes Knowledge</em></p>
+    <p>Jeremy C. Jones (ORCID 0009-0007-2515-3774)—HoldingLight LLC</p>
+    <p>contact@universalcollapse.com</p>
+    <p>© 2026 | CC BY 4.0</p>
+    <p>Version: v1.0—Prepared 2026–04</p>
+    <section id="section" class="level1">
+    <h1><br />
+    </h1>
+    </section>
+    <section id="abstract" class="level1">
+    <h1>Abstract</h1>
+    <p>Empiricism has proven remarkably durable—shared evidence, reproducibility, and revision under disconfirmation have produced cumulative progress across centuries and disciplines. What has not been formalized is the architecture that makes those practices converge rather than drift into pseudo-consensus, frozen paradigm, or institutional inertia. This paper specifies that architecture. A minimal recursive kernel (Ω, K, C<sup>K</sup>, x*, R, U) formalizes what empirical practice already does; three portable stabilization signatures—redundancy-driven consensus (S₁), neutrality-induced resolution delay (S₂), and constraint-sweep hysteresis (S₃)—serve as cross-domain stress tests of empirical integrity. Update integrity names the structural condition under which records are permitted to modify constraints. Neutrality and commitment are identified not merely as epistemic virtues or personal dispositions but as structurally grounded moves with signal-state preconditions. Five Level 3 divergence claims define local failure conditions and a global portability challenge. The contribution is architectural: the framework does not replace empirical practice but specifies the conditions under which it stabilizes—conditions now explicit, pathologies now named, claims now exposed to operational challenge.</p>
+    <p><strong>Keywords:</strong> empiricism; reproducibility; records; constraint propagation; update integrity; coherence; falsifiability; philosophy of science</p>
+    </section>
+    <section id="section-1" class="level1">
+    <h1><br />
+    </h1>
+    </section>
+    <section id="the-problem-empiricism-solves-without-naming" class="level1">
+    <h1>1. The Problem Empiricism Solves Without Naming</h1>
+    <p>A finding has been replicated across a dozen studies. The results converge. The effect appears robust. By every visible indicator, this is empirical consensus.</p>
+    <p>Now look closer. The studies share an instrument calibrated to the same standard. They draw from overlapping populations. They cite a common methodological lineage. The “independent replications” are correlated trials of the same underlying assumption. The convergence is measurable, but structurally weaker than it appears.</p>
+    <p>Empirical practice has developed tools for handling this: independence requirements, calibration audits, multi-site replication, preregistration, transparent reporting, and adversarial review. These safeguards do not always work, and they are not always applied. But when empirical inquiry converges rather than merely appears to converge, some version of this architecture is usually present. Reproducibility concerns whether the same data, methods, code, and analysis conditions yield consistent results, while replicability concerns whether separate studies collecting their own data obtain consistent results for the same scientific question (National Academies of Sciences, Engineering, and Medicine [NASEM], 2019).</p>
+    <p>What has not been made explicit is the architecture they instantiate together.</p>
+    <p>Many procedures of empirical practice—observe, measure, test, replicate—are well described in local methodological literatures: measurement, uncertainty, replication, statistical inference, and reporting. What is less often stated in one place is the shared architecture by which those procedures stabilize knowledge across observers and over time. Why does redundancy produce convergence under some conditions and only the appearance of convergence under others? When does revision genuinely refine a constraint set, and when does it merely simulate refinement? What distinguishes a stable empirical regime from a self-sealing one?</p>
+    <p>These are not metaphysical questions. They are architectural ones, and empirical practice already contains the answers in distributed form. This paper makes that architecture explicit.</p>
+    <p>We call the project the <strong>Structuralization of Empiricism</strong>: the articulation of the minimal recursive structure under which empirical systems generate durable, corrigible knowledge.</p>
+    <p>The thesis:</p>
+    <blockquote>
+    <p>Empirical knowledge stabilizes when constraint-governed selection, durable records, and recursive update remain aligned across observers and over time.</p>
+    </blockquote>
+    <p>This claim does not challenge empirical practice. It does not introduce new physical equations, override established measurements, or supersede experimental protocols. It identifies the structural conditions that empirical practice has always relied on when it genuinely converges—and, by the same architecture, what fails when convergence becomes illusory.</p>
+    <p>The contribution is architectural. What follows develops this claim: a minimal recursive kernel (§4), the role of records in grounding objectivity (§5), the operational signals by which stabilization can be detected (§6), the integrity conditions the architecture depends on (§7), and the falsifiable divergence claims that make it testable (§11).</p>
+    <p><strong>Triad placement.</strong> This paper occupies the stabilization position in the Universal Collapse Theory (UCT) standards layer. <em>Records Across Nature, Life, and Mind</em> defines the persistence layer: what records are and why they make collapse cumulative. The <em>Update Integrity Standard</em> (UIS v1.0) defines the operational governance layer: how update loops remain corrigible through record discipline, independence audit, and symmetric update rules. The present paper defines the middle architecture: the structural conditions under which empirical inquiry stabilizes rather than drifting into pseudo-consensus, frozen paradigm, or institutional inertia. For the broader framework, see end matter.</p>
+    </section>
+    <section id="relation-to-existing-traditions" class="level1">
+    <h1>2. Relation to Existing Traditions</h1>
+    <p>The structural question this paper asks—under what conditions does empirical inquiry stabilize rather than fragment?—has been approached from several directions. The traditions below identify pieces of the stabilization problem; SoE routes those pieces through a single record-constraint-update architecture without replacing their local accounts.</p>
+    <p>Popper and Kuhn. Popper (1959) treated falsifiability as a demarcation criterion for scientific claims; here, falsifiability is treated not as a static property of propositions but as a structural feature of the update loop—a system preserves falsifiability when U remains sensitive to records that could revise K (Section 7), a condition the divergence claims in Section 11 operationalize. Kuhn (1962) described how paradigms stabilize normal science and how anomaly accumulation produces crisis; in the terms introduced here, paradigm stability corresponds to constraint-alignment across recursive cycles, and paradigm crisis corresponds to a failure of update integrity—records accumulate that the active constraint set can no longer absorb without structural revision. Lakatos (1970) refined this picture by distinguishing progressive research programs—whose protective-belt modifications predict novel facts—from degenerating ones, whose modifications absorb anomalies ad hoc; in SoE terms, the latter signals a localized update-integrity failure in which records accumulate but only the protective periphery is revised.</p>
+    <p>Bayesian epistemology and Peirce. Bayesian epistemology provides one of the most developed formal accounts of belief updating; the recursive kernel is compatible with Bayesian updating, and the update rule U(K, x*, R) can be read as a generalized posterior revision. AGM belief-revision theory likewise formalized contraction and revision as operations on theories (Alchourrón, Gärdenfors, &amp; Makinson, 1985); SoE does not replace that formal tradition, but relocates the update problem inside record-bearing empirical systems where record durability, independence, and update integrity determine whether revision remains corrigible. What the present framework adds is the observation that priors and background assumptions are accumulated constraint sets that can freeze, producing the self-sealing dynamics Section 7 treats as update-integrity failures. Peirce’s (1878) pragmatic convergence thesis finds an operational echo in Signal S₁: redundant independent records should drive inter-observer agreement in measurable trends—not assumed, but tested.</p>
+    <p>Social epistemology and neighboring positions. Longino (1990) argued that objectivity is a function of critical interaction within communities rather than individual cognition; the present framework is compatible with this view and adds a structural mechanism—shared, independently accessible records are the interface through which critical interaction produces convergence. Goldman’s veritistic social epistemology and Kitcher’s account of the organization of cognitive labor reinforce the same point from the social side: epistemic success is shaped by the practices and institutions through which inquiry is organized, not by isolated individual inference alone (Goldman, 1999; Kitcher, 1990, 1993). The paper’s agnosticism about what ultimately exists places it in the neighborhood of structural realism (Worrall, 1989; Ladyman &amp; Ross, 2007) and is compatible with constructive empiricism (van Fraassen, 1980), though it commits to neither. The contribution is architectural, not metaphysical.</p>
+    <p>Thus, the framework’s contribution is not to adjudicate among falsification, Bayesianism, belief revision, social epistemology, or structural realism, but to specify the stabilization architecture that empirical systems instantiate when records remain durable, constraints remain revisable, and update remains corrigible.</p>
+    </section>
+    <section id="claim-levels-and-scope" class="level1">
+    <h1>3. Claim Levels and Scope</h1>
+    <p>The paper operates at three claim levels and one bounded scope. Keeping them distinct prevents the framework from reading as more than it claims to be.</p>
+    <section id="architectural-claims-level-1" class="level2">
+    <h2>3.1 Architectural Claims (Level 1)</h2>
+    <p>These define the minimal recursive kernel: Ω, K, C<sup>K</sup>, x*, R, U. They describe a structural pattern present in record-bearing update systems. They do not assert ontological primacy, metaphysical finality, or universal necessity. If future work replaces this kernel with a more precise structural description, the framework updates accordingly.</p>
+    </section>
+    <section id="interpretive-claims-level-2" class="level2">
+    <h2>3.2 Interpretive Claims (Level 2)</h2>
+    <p>These reparameterize empirical practice in structural terms: records as constraint-carriers, redundancy as convergence driver, neutrality as latency source, hysteresis as memory signature. They do not overturn existing scientific definitions; they provide a unifying lens under which those definitions can be related. They are compatible with current statistical, physical, and methodological models.</p>
+    </section>
+    <section id="divergence-claims-level-3" class="level2">
+    <h2>3.3 Divergence Claims (Level 3)</h2>
+    <p>These assert measurable stabilization signatures (S₁–S₃). They are the empirically testable portion of the framework; Level 1 and Level 2 claims can still be rejected on grounds of incoherence, redundancy, lack of explanatory gain, or poor fit with established practice. If redundancy fails to predict convergence, if neutrality fails to alter resolution latency, if hysteresis fails under record accumulation, or if integrity interventions do not alter stabilization, the framework must be revised or constrained.</p>
+    </section>
+    <section id="scope-limits" class="level2">
+    <h2>3.4 Scope Limits</h2>
+    <p>This paper does not claim that coherence is a moral property, that stabilization implies truth, that all reality reduces to recursive collapse, that the framework replaces domain-specific science, or that metaphysical disputes are resolved by structuralization. It claims only that empiricism stabilizes under identifiable structural conditions. No additional primitives, theological commitments, ethical prescriptions, or cosmological extensions are introduced here; those belong to separate works and must not be inferred from this one.</p>
+    </section>
+    <section id="review-target" class="level2">
+    <h2>3.5 Review Target</h2>
+    <p>This paper does not ask the reader to accept Universal Collapse Theory as a metaphysical system. It asks whether empirical stabilization can be usefully modeled as a record-bearing constraint-update process: Ω is the space of live hypotheses or interpretations; K is the active constraint set; x* is the selected result; R is the durable record; U is the update rule that modifies K in response to R. The framework should be accepted provisionally only if it clarifies known empirical practices, distinguishes real convergence from pseudo-convergence, and yields operational tests beyond metaphor. It should be revised or rejected if S₁, S₂, and S₃ do not add predictive or diagnostic value beyond existing statistical, methodological, and social-epistemic models. Companion documents carry their own claims and should be evaluated separately: <em>Records Across Nature, Life, and Mind</em> for the cross-domain theory of records, and the <em>Update Integrity Standard</em> for the operational governance specification.</p>
+    </section>
+    </section>
+    <section id="the-minimal-structural-kernel-of-empirical-stabilization" class="level1">
+    <h1>4. The Minimal Structural Kernel of Empirical Stabilization</h1>
+    <p>Empiricism is a recursive constraint-refinement process. Let:</p>
+    <ul>
+    <li><p>Ω denote a structured possibility space (hypotheses, parameter values, interpretations).</p></li>
+    <li><p>K denote the active constraint set (measurement rules, background assumptions, calibration standards, logical consistency requirements).</p></li>
+    <li><p>C<sup>K</sup> denote constraint-conditioned selection or realization from Ω under K.</p></li>
+    <li><p>x* denote the realized outcome of selection.</p></li>
+    <li><p>R denote the record generated by x* (data traces, instrument logs, publications, memory traces).</p></li>
+    <li><p>U denote the update rule that modifies K in light of R.</p></li>
+    </ul>
+    <p><strong>Notation note.</strong> C<sup>K</sup> denotes constraint-conditioned selection in general—the structural pattern by which a possibility space narrows to a realized outcome under active constraints. It is a method-level formalism, not a claim about a new microphysical collapse mechanism. The same notation appears across UCT’s physics, biology, and mind domains; here it is applied to empirical inquiry as a record-bearing update system.</p>
+    <p><strong>Triad routing.</strong> The record term R is treated only minimally here; its full operational definition and cross-domain role are developed in <em>Records Across Nature, Life, and Mind</em>. The formal apparatus more generally is distributed across the standards triad: Records carries the persistence formalism, the <em>Update Integrity Standard</em> carries the measurement and threshold formalism, and the present paper develops the stabilization kernel that connects them.</p>
+    <p>The recursive cycle can be expressed schematically:</p>
+    <p><strong>Ω + K → C<sup>K</sup> → x* → R → U(K, x*, R) → K′</strong></p>
+    <p>Empirical inquiry unfolds as repeated iteration of this loop. A possibility space Ω is constrained by K. Selection C<sup>K</sup> yields a concrete outcome x*. The outcome produces durable records R. Records feed back through U to refine K. The refined constraint set K′ governs subsequent selection.</p>
+    <p>The formulation is intentionally minimal: it does not specify the content of Ω or K, and imposes no metaphysical stance on what ultimately exists. It formalizes what empirical practice already does—hypotheses are constrained, outcomes realized, records preserved, assumptions updated.</p>
+    <p>The structural question becomes: <strong>under what conditions does this loop converge toward stability rather than oscillate, fragment, or self-seal?</strong> Stability here does not mean immobility. It means constraint-alignment across iterations—later updates reduce inconsistency rather than amplify it.</p>
+    <p>Several features of empirical practice can now be recognized as structural safeguards rather than merely cultural conventions. Independence requirements prevent correlated pseudo-redundancy. Calibration ensures that records correspond to external constraints. Replication increases redundancy. Falsifiability preserves revisability in U. Preregistration constrains hypothesis flexibility within Ω. Simmons, Nelson, and Simonsohn (2011) show why this last constraint matters: undisclosed flexibility in data collection, analysis, and reporting can inflate false-positive rates, so ex ante rules for stopping, variables, exclusions, conditions, and covariates protect empirical update from post hoc search. Chambers (2013) developed the Registered Reports format as one operationalization of this constraint: peer review of methods and predictions occurs before data collection, so that publication decisions track the rigor of the design rather than the direction of the result—a structural mechanism for keeping U sensitive to disconfirming records.</p>
+    <p>The loop preserves stability under three conditions:</p>
+    <ul>
+    <li><p><strong>Constraint discipline</strong> (K is explicit and revisable).</p></li>
+    <li><p><strong>Record integrity</strong> (R is durable and independently accessible).</p></li>
+    <li><p><strong>Update corrigibility</strong> (U allows revision rather than freezing).</p></li>
+    </ul>
+    <p>When these hold, empirical systems tend toward dynamic stabilization. When they fail, instability emerges—through drift, echo chambers, pseudo-consensus, or ideological lock-in.</p>
+    <p>This structuralization does not replace empirical science. It names the conditions under which empirical science works.</p>
+    </section>
+    <section id="records-and-the-emergence-of-objectivity" class="level1">
+    <h1>5. Records and the Emergence of Objectivity</h1>
+    <p>Empiricism depends on an underexamined assumption: that public records stabilize shared knowledge. The Structuralization of Empiricism makes this explicit.</p>
+    <p>In the recursive kernel, R (record) is not incidental. It is the stabilizing interface between observers.</p>
+    <p>In this account, objectivity does not require observers to be unbiased; it emerges when shared records constrain observers across recursive update cycles.</p>
+    <section id="records-as-constraint-carriers" class="level2">
+    <h2>5.1 Records as Constraint-Carriers</h2>
+    <p>A record is any durable trace that persists beyond the moment of selection, is independently accessible, and constrains future updates. Examples include instrument readouts, archived datasets, published results, logged experimental conditions, and replication outcomes.</p>
+    <p>Records function as constraint-carriers. Once produced, they limit the admissible interpretations in Ω for subsequent cycles. If a measurement yields x*, and that result is redundantly recorded and accessible, the next iteration of K cannot ignore it without violating constraint discipline.</p>
+    <p>Objectivity is therefore not metaphysical neutrality. It is structural constraint propagation through records.</p>
+    </section>
+    <section id="redundancy-and-convergence" class="level2">
+    <h2>5.2 Redundancy and Convergence</h2>
+    <p>A central empirical regularity follows: when records are independently redundant, disagreement tends to decay. This is formalized as Signal S₁ (Section 6). The opening vignette is exactly this problem in reverse: when ostensibly independent replications share a record lineage, convergence can appear stronger than its true independence warrants.</p>
+    <p>S₁ depends on independence. Correlated records—shared bias, shared instrumentation error, copied data—do not increase constraint strength; they simulate redundancy. Record redundancy must therefore satisfy two structural conditions: durability (records persist) and independence (records are not trivially correlated). When both hold, convergence is expected. When either fails, apparent consensus may be illusory.</p>
+    </section>
+    <section id="failure-modes-pseudo-objectivity" class="level2">
+    <h2>5.3 Failure Modes: Pseudo-Objectivity</h2>
+    <p>Several well-known empirical pathologies are structural degradations of R, U, or independence conditions:</p>
+    <ul>
+    <li><p><strong>Pseudo-redundancy:</strong> Correlated datasets mistaken for independent confirmation.</p></li>
+    <li><p><strong>Record suppression:</strong> Selective publication or deletion of disconfirming traces.</p></li>
+    <li><p><strong>Constraint freezing:</strong> Updates U that no longer revise K despite new records.</p></li>
+    <li><p><strong>Echo-chamber amplification:</strong> High redundancy within a closed network but low external independence.</p></li>
+    </ul>
+    <p>The last failure mode admits a finer-grained distinction. Nguyen (2020) separates epistemic bubbles, in which independent records are simply absent from a network, from echo chambers, in which external records are present but actively discredited. The structural intervention differs: bubbles require expanded record access, while echo chambers require restoring the sensitivity of U to disconfirming records. Both are integrity failures, but they fail at different points in the loop.</p>
+    <p>These failure modes do not invalidate empiricism. They show what happens when record integrity conditions are violated—and they are the specific pathologies the architecture predicts, not surprises.</p>
+    </section>
+    <section id="objectivity-as-emergent-stabilization" class="level2">
+    <h2>5.4 Objectivity as Emergent Stabilization</h2>
+    <p>Under the recursive kernel, objectivity is multi-agent constraint-alignment under shared record access. Observers do not need identical priors. They need access to shared, independent records that iteratively constrain divergence.</p>
+    <p>This interpretation does not alter existing empirical definitions of measurement or statistics. It explains why they function.</p>
+    </section>
+    </section>
+    <section id="stabilization-signals-the-coherence-state-family-s₁s₃" class="level1">
+    <h1>6. Stabilization Signals: The Coherence-State Family (S₁–S₃)</h1>
+    <p>The recursive kernel describes how empirical systems update. The question now becomes: how can stabilization be detected operationally?</p>
+    <p>The Structuralization of Empiricism introduces a small family of portable signals that function as stress-tests of constraint-alignment across domains. These are not new physical laws. They are observable stabilization signatures in record-bearing, update-capable systems.</p>
+    <p>Coherence, in this framework, is defined minimally as constraint-alignment across recursive update steps. It is not moral, teleological, or normative. It is dynamic stabilization under constraint propagation.</p>
+    <p>Three canonical signals operationalize this stabilization.</p>
+    <section id="s₁-redundancy-consensus" class="level2">
+    <h2>6.1 S₁ — Redundancy → Consensus</h2>
+    <p><strong>Definition.</strong> When independently generated records increase under preserved independence conditions, inter-observer disagreement decreases.</p>
+    <p><strong>Operational proxies.</strong> Inter-rater reliability trends (e.g., Cohen’s κ), meta-analytic variance reduction, agreement rates across independent instruments, cross-laboratory reproducibility rates.</p>
+    <p><strong>Expected directionality.</strong> As independent redundancy increases, variance between observers decreases.</p>
+    <p><strong>Control conditions.</strong> Independence must be explicitly tested (e.g., different labs, different sampling frames); shared calibration artifacts must be controlled; correlated biases must be measured.</p>
+    <p><strong>Falsifier.</strong> If redundancy increases but disagreement does not decrease under verified independence, S₁ fails locally.</p>
+    <p>The Open Science Collaboration’s 100-study replication project provides a concrete S₁ caution: replication effects averaged about half the magnitude of original effects, and only 36% of replications reached statistical significance despite 97% of original studies doing so, so convergence must be audited as a measured property rather than assumed from the existence of prior positive records (Open Science Collaboration, 2015).</p>
+    </section>
+    <section id="s₂-neutrality-resolution-delay" class="level2">
+    <h2>6.2 S₂ — Neutrality → Resolution Delay</h2>
+    <p><strong>Definition.</strong> Under reduced prior constraint—when priors are weak or symmetry between competing hypotheses is high—resolution latency increases and selection C<sup>K</sup> becomes slower or less stable.</p>
+    <p><strong>Operational proxies.</strong> Increased decision time under balanced priors, extended convergence time in statistical estimation under uninformative priors, greater instability in ambiguous perceptual tasks, increased iteration counts before convergence in algorithmic systems.</p>
+    <p><strong>Expected directionality.</strong> As prior constraint strength decreases, time-to-stable-selection increases.</p>
+    <p><strong>Control conditions.</strong> Task difficulty must be controlled independently from neutrality; noise levels must be measured; stopping rules must be pre-declared.</p>
+    <p><strong>Falsifier.</strong> If resolution speed does not change under systematically varied prior neutrality, S₂ fails locally.</p>
+    <p>S₂ reflects not weakness, but structural symmetry: when constraints do not privilege one region of Ω, stabilization takes longer.</p>
+    </section>
+    <section id="s₃-constraint-sweeps-hysteresis" class="level2">
+    <h2>6.3 S₃ — Constraint Sweeps → Hysteresis</h2>
+    <p><strong>Definition.</strong> When constraints are varied bidirectionally (swept up and down), system responses may exhibit path dependence. This reflects the persistence of records in K.</p>
+    <p><strong>Operational proxies.</strong> Loop area in parameter sweeps (∮ y dx), return-path discrepancy in decision thresholds, persistence of belief states after stimulus removal, persistence of model or classification states after constraint reversal.</p>
+    <p><strong>Expected directionality.</strong> Systems with accumulated records exhibit path-dependent stabilization.</p>
+    <p><strong>Control conditions.</strong> External lag must be separated from intrinsic hysteresis; instrumental inertia must be measured; sweep rates must be controlled.</p>
+    <p><strong>Falsifier.</strong> If no path dependence appears where record accumulation is expected, S₃ fails locally.</p>
+    </section>
+    <section id="interpreting-the-coherence-state-family" class="level2">
+    <h2>6.4 Interpreting the Coherence-State Family</h2>
+    <p>The three signals describe distinct but related stabilization behaviors. S₁ captures cross-agent alignment under redundancy. S₂ captures symmetry sensitivity under weak constraints. S₃ captures memory effects under constraint variation.</p>
+    <p>Together, they form a minimal operational family for detecting stabilization in recursive empirical systems. They do not assume a particular ontology. They are intended to be tested across physical, biological, cognitive, and institutional domains, subject to the scope conditions in §9. They do not define what is true; they detect when systems converge under constraint.</p>
+    <p>The schema below compresses the operational structure of the four primary test families that support the Level 3 divergence claims: S₁–S₃ and update integrity. Cross-domain portability (Claim 5) is assessed by comparing the performance of these tests across domains satisfying the scope conditions in §9, rather than by a separate test family. Each row gives a generic manipulation, a generic metric, a null/failure condition, and the location at which full implementation is specified. Per the triad division, SoE defines the test schema; the <em>Update Integrity Standard</em> specifies the empirical ledger and reporting standards; domain demonstration papers instantiate each test in context.</p>
+    <table>
+    <colgroup>
+    <col style="width: 16%" />
+    <col style="width: 20%" />
+    <col style="width: 20%" />
+    <col style="width: 23%" />
+    <col style="width: 20%" />
+    </colgroup>
+    <thead>
+    <tr>
+    <th><strong>Claim</strong></th>
+    <th><strong>Generic manipulation</strong></th>
+    <th><strong>Generic metric</strong></th>
+    <th><strong>Null / failure condition</strong></th>
+    <th><strong>Full implementation</strong></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td><strong>S₁: redundancy → consensus</strong></td>
+    <td>Increase verified-independent records</td>
+    <td>Inter-rater reliability (κ), meta-analytic variance reduction, cross-laboratory reproducibility rates</td>
+    <td>Redundancy increases but disagreement does not fall under verified independence</td>
+    <td>UIS empirical ledger + domain demonstration paper</td>
+    </tr>
+    <tr>
+    <td><strong>S₂: neutrality → resolution delay</strong></td>
+    <td>Reduce prior constraint or increase symmetry among alternatives</td>
+    <td>Time-to-resolution, convergence latency, instability duration in ambiguous tasks</td>
+    <td>Prior-neutrality varies but resolution latency does not</td>
+    <td>UIS empirical ledger + perceptual/cognitive demonstration paper</td>
+    </tr>
+    <tr>
+    <td><strong>S₃: sweeps → hysteresis</strong></td>
+    <td>Sweep a constraint bidirectionally (up and down)</td>
+    <td>Loop area (∮ y dx), return-path discrepancy</td>
+    <td>Bidirectional sweep produces simple reversibility where record accumulation predicts path dependence</td>
+    <td>UIS empirical ledger + constraint-sweep / domain demonstration paper</td>
+    </tr>
+    <tr>
+    <td><strong>Update integrity</strong></td>
+    <td>Independently improve or degrade R, U, or independence conditions</td>
+    <td>Specified in UIS empirical ledger</td>
+    <td>Verified integrity change produces no predicted change in stabilization metrics</td>
+    <td>UIS empirical ledger and reporting standards</td>
+    </tr>
+    </tbody>
+    </table>
+    <p><em>Table 1. Schema for Level 3 testable claims. Each row states a generic manipulation, a generic metric, the local null/failure condition for that claim, and the location at which full operational implementation is specified. The schema is intentionally domain-neutral; instantiated metrics, control conditions, and threshold values are supplied in the Update Integrity Standard and in domain-specific demonstration papers.</em></p>
+    </section>
+    <section id="coherence-as-a-state-family-not-a-scalar" class="level2">
+    <h2>6.5 Coherence as a State Family, Not a Scalar</h2>
+    <p>Coherence is not a single scalar quantity. It is a family of stabilization behaviors detectable through agreement trends (S₁), resolution latency patterns (S₂), and hysteresis signatures (S₃). Empirical systems rarely display all three signals uniformly. Section 9 states the structural preconditions under which these signals apply. This avoids overreach and preserves falsifiability.</p>
+    </section>
+    </section>
+    <section id="update-integrity-and-corrigibility" class="level1">
+    <h1>7. Update Integrity and Corrigibility</h1>
+    <p>The recursive kernel assumes that constraint sets (K) are revisable under new records (R). This revisability is not guaranteed. It depends on structural conditions.</p>
+    <p>Empiricism stabilizes not only because records exist, but because records are permitted to modify constraints. We call this condition <strong>update integrity</strong>.</p>
+    <section id="what-is-update-integrity" class="level2">
+    <h2>7.1 What Is Update Integrity?</h2>
+    <p>Update integrity holds when records are preserved without falsification, redundancy is genuine rather than manufactured, evidence standards are symmetric, and constraints remain revisable under legitimate disconfirmation. Formally, update integrity is the condition under which U(K, x*, R) remains sensitive to R. If U becomes insensitive to R, stabilization degenerates into rigidity rather than convergence.</p>
+    <p>This distinction is structural, not moral. A system may appear coherent internally while failing update integrity. Such systems display path-dependent persistence (S₃) without redundancy-driven convergence (S₁)—a diagnostic signature the architecture predicts.</p>
+    </section>
+    <section id="failure-modes-viewed-from-the-update-side" class="level2">
+    <h2>7.2 Failure Modes Viewed From the Update Side</h2>
+    <p>The failure modes introduced in Section 5.3 are each integrity failures viewed from the update side rather than the record side. If pseudo-redundancy is the opening failure mode, constraint freezing is its mirror failure: records exist, but U stops allowing them to revise K. Record corruption distorts R. Pseudo-redundancy manufactures S₁. Constraint freezing paralyzes U. Asymmetric standards bias U’s response to R.</p>
+    <p>The point is not merely that such pathologies exist—they are well-known. The point is that they can be read as recurrent structural failures of the same recursive architecture rather than as a miscellaneous list of sociological defects.</p>
+    </section>
+    <section id="corrigibility-as-a-structural-property" class="level2">
+    <h2>7.3 Corrigibility as a Structural Property</h2>
+    <p>Corrigibility is the capacity of a system to reduce constraint misalignment over time. A system is corrigible when disconfirming records propagate, updates modify K proportionally, independence conditions are preserved, and sweep tests reveal appropriate reversibility (bounded hysteresis).</p>
+    <p><strong>Cross-reference.</strong> The operational specification of update integrity—audit procedures, corruption detection rules, measurement metrics, and institutional implementation guidance—is formalized in the <em>Update Integrity Standard</em> (UIS v1.0). This section provides the conceptual framing; UIS provides the operational specification.</p>
+    </section>
+    <section id="structuralization-not-moralization" class="level2">
+    <h2>7.4 Structuralization, Not Moralization</h2>
+    <p>Update integrity is not a moral property. A system may act in good faith yet violate update integrity structurally. Conversely, structural safeguards can improve stabilization even when actors are imperfect. The Structuralization of Empiricism does not claim that science is corrupt or broken. It claims that empirical stability depends on preserving update integrity across recursive cycles.</p>
+    </section>
+    </section>
+    <section id="neutrality-and-commitment-as-structural-moves" class="level1">
+    <h1>8. Neutrality and Commitment as Structural Moves</h1>
+    <p>Empiricism contains implicit decision rules about when to remain neutral and when to commit. The Structuralization of Empiricism locates both in the signal architecture.</p>
+    <p>Neutrality, structurally, is the appropriate response to symmetric or weakly-resolved constraints. When constraints do not privilege one region of Ω over another, premature commitment risks false stabilization—and the architecture predicts exactly this through S₂: under weak or symmetrical constraints, resolution latency increases. Delayed commitment preserves update integrity. Constraint-aware neutrality is therefore not indecision; it is a structural safeguard grounded in the kernel itself.</p>
+    <p>Commitment, structurally, is the appropriate response to convergent records with bounded memory and preserved integrity. When redundant independent records converge (S₁), when neutrality-induced delay no longer changes outcome (S₂ plateau), when sweep tests show bounded hysteresis (S₃ controlled), and when update integrity remains satisfied, commitment becomes structurally warranted. Commitment here does not mean certainty. It means provisionally accepting constraint refinements into K, using K′ for predictive and practical action, and maintaining revisability under future disconfirmation. It is bounded stabilization under constraint.</p>
+    <p>The deeper point is that these are not merely epistemic virtues or personal dispositions. They are also structural moves with specifiable signal-state preconditions. A system that remains neutral when S₁ has converged is as structurally mismatched as one that commits when S₂ has not plateaued. Which move is appropriate is therefore not merely dispositional. It depends on the recursive state the system is actually in.</p>
+    <p><strong>Cross-reference.</strong> The operational decision rules—stopping criteria, pre-declared thresholds, multi-level alignment procedures, stabilization-mode classifications—are formalized in the <em>Update Integrity Standard</em> (UIS v1.0). This section establishes the structural grounds; UIS provides the protocols.</p>
+    </section>
+    <section id="scope-conditions-and-domain-of-validity" class="level1">
+    <h1>9. Scope Conditions and Domain of Validity</h1>
+    <p>The framework applies to systems that satisfy three structural preconditions:</p>
+    <ul>
+    <li><p><strong>Structured possibility (Ω):</strong> The system contains distinguishable alternative states or hypotheses.</p></li>
+    <li><p><strong>Durable records (R):</strong> Outcomes leave persistent traces accessible beyond the moment of realization.</p></li>
+    <li><p><strong>Recursive update (U):</strong> Constraint sets (K) are capable of modification in response to records.</p></li>
+    </ul>
+    <p>Where these conditions fail, the coherence-state family (S₁–S₃) may not apply or may require reinterpretation.</p>
+    <p>The framework may not apply, or may apply only weakly, when records are inaccessible or non-durable; when update rules are opaque or non-corrigible; when independence cannot be audited; when stability is imposed by authority rather than record-sensitive update; or when the system has no meaningful possibility space beyond retrospective interpretation. These exclusions are not edge cases for the framework to absorb. They mark the structural boundary of the architecture, and the divergence claims of §11 become inapplicable rather than merely weakened in such regimes.</p>
+    </section>
+    <section id="what-this-is-not" class="level1">
+    <h1>10. What This Is Not</h1>
+    <p>Five scope limits are worth stating explicitly.</p>
+    <p><strong>Not a replacement or an expansion.</strong> The framework does not introduce new physical equations, override established measurements, or supersede experimental protocols, and it does not propose a cosmology, metaphysics, or theory of everything. It addresses one thing: the architecture of empirical stabilization.</p>
+    <p><strong>Not a metaphysical or moral doctrine.</strong> Coherence is treated descriptively as dynamic stabilization under constraint, not as a fundamental substance, a teleological tendency, or an ethical commandment. Ethical or metaphysical extensions may be derived elsewhere, but they are not entailed here.</p>
+    <p><strong>Not anti-relativist or anti-constructivist.</strong> The framework does not deny that observers have priors, that social structures influence interpretation, or that context shapes constraint formation. It states only that durable records and revisable constraints enable convergence under defined conditions.</p>
+    <p><strong>Not self-sealing.</strong> The falsification conditions are stated in Section 11. Failure of any divergence claim constrains the framework’s scope.</p>
+    <p><strong>Not the full record theory or update-integrity standard.</strong> The cross-domain definition of records and the operational governance specification for update integrity are supplied by companion documents (<em>Records Across Nature, Life, and Mind</em> and the <em>Update Integrity Standard</em> respectively). This paper carries only the stabilization architecture between them.</p>
+    </section>
+    <section id="level-3-divergence-claims-and-falsifiers" class="level1">
+    <h1>11. Level 3 Divergence Claims and Falsifiers</h1>
+    <p>The framework makes five Level 3 claims: statements about observable differences expected if the structural model is correct. Each is narrow and testable. Failure under controlled conditions requires revision or rejection.</p>
+    <section id="divergence-claim-1-redundancy-as-a-convergence-driver" class="level2">
+    <h2>11.1 Divergence Claim 1 — Redundancy as a Convergence Driver</h2>
+    <p><strong>Claim.</strong> Verified independent redundancy predicts measurable reduction in inter-observer disagreement.</p>
+    <p>This is stronger than “replication is good.” It asserts a directional effect: as independent redundancy increases, disagreement should decrease in a predictable manner.</p>
+    <p><strong>Falsifier.</strong> If disagreement remains unchanged under verified independence and increasing redundancy, the S₁ structural claim fails locally.</p>
+    </section>
+    <section id="divergence-claim-2-neutrality-induced-latency" class="level2">
+    <h2>11.2 Divergence Claim 2 — Neutrality-Induced Latency</h2>
+    <p><strong>Claim.</strong> Under systematically reduced prior constraint, resolution latency increases.</p>
+    <p><strong>Falsifier.</strong> If resolution speed is invariant under controlled prior-neutrality manipulation, the S₂ claim fails locally.</p>
+    </section>
+    <section id="divergence-claim-3-record-dependent-hysteresis" class="level2">
+    <h2>11.3 Divergence Claim 3 — Record-Dependent Hysteresis</h2>
+    <p><strong>Claim.</strong> Systems that accumulate records exhibit measurable path dependence under bidirectional constraint sweeps.</p>
+    <p><strong>Falsifier.</strong> If systems with accumulated records show no path-dependent discrepancy under controlled sweeps, the S₃ structural claim fails locally.</p>
+    </section>
+    <section id="divergence-claim-4-integrity-interventions-alter-stabilization" class="level2">
+    <h2>11.4 Divergence Claim 4 — Integrity Interventions Alter Stabilization</h2>
+    <p><strong>Claim.</strong> Interventions that independently improve or degrade R, U, or independence conditions should measurably alter stabilization outcomes in the predicted direction. Integrity-preserving interventions increase S₁ reliability, regulate S₂ appropriately, and reduce pathological S₃ lock-in; integrity-degrading interventions show the inverse pattern.</p>
+    <p><strong>Falsifier.</strong> If independently verified integrity improvements or degradations produce no corresponding change in stabilization metrics across repeated controlled comparisons, the update-integrity claim fails locally.</p>
+    </section>
+    <section id="divergence-claim-5-cross-domain-portability" class="level2">
+    <h2>11.5 Divergence Claim 5 — Cross-Domain Portability</h2>
+    <p><strong>Claim.</strong> The S₁–S₃ stabilization family applies across domains satisfying the recursive preconditions of Section 9.</p>
+    <p><strong>Falsifier.</strong> If the signals hold in one domain but systematically fail in another under equivalent structural conditions, portability weakens.</p>
+    </section>
+    <section id="global-failure-condition" class="level2">
+    <h2>11.6 Global Failure Condition</h2>
+    <p>The five claims above describe local falsifiers: the failure of a single signal in a single domain weakens that signal’s claim, not the architecture as a whole. A global failure condition is therefore also stated. The framework’s portability claim weakens if, across multiple domains satisfying the preconditions of §9 and the reporting requirements of the <em>Update Integrity Standard</em>, independently specified S₁–S₃ tests repeatedly fail to discriminate stable convergence from pseudo-convergence, latency from noise, or hysteresis from ordinary lag better than domain-local statistical, methodological, and social-epistemic models alone. That is the acceptance/rejection target for the architecture as a portable framework.</p>
+    <p>These claims do not assert that coherence is universal, that stabilization guarantees truth, or that convergence implies metaphysical correctness. They assert that record-bearing recursive systems exhibit measurable stabilization behaviors under constraint propagation. Failure of any divergence claim constrains the framework’s scope.</p>
+    </section>
+    </section>
+    <section id="conclusion" class="level1">
+    <h1>12. Conclusion</h1>
+    <p>Empiricism has endured not because it is philosophically complete, but because it stabilizes knowledge under real-world conditions. This paper has proposed that such stabilization is not accidental. It arises from a specifiable recursive architecture: structured possibility (Ω), constraint-governed selection (C<sup>K</sup>), durable records (R), revisable update (U), and measurable stabilization behaviors (S₁–S₃).</p>
+    <p>When redundant independent records accumulate (S₁), neutrality delays premature resolution (S₂), constraint sweeps reveal bounded hysteresis (S₃), and update integrity is preserved, empirical inquiry stabilizes. When these conditions fail, instability emerges—as drift, echo-chamber consensus, frozen paradigm, or pseudo-redundant agreement. These pathologies are not surprises. They are the predicted failure modes of the architecture.</p>
+    <p>The contribution is architectural. The framework identifies the conditions under which empirical systems converge rather than fragment, names the pathologies that result when those conditions fail, and provides portable signals that can stress-test stabilization across domains satisfying the preconditions of Section 9. The falsification conditions are stated in Section 11.</p>
+    <p>The architecture supports one claim:</p>
+    <blockquote>
+    <p>Empirical knowledge stabilizes when constraint propagation, record durability, and corrigible update remain aligned across recursive cycles.</p>
+    </blockquote>
+    <p>This is not a replacement for empiricism. It is an articulation of what empirical practice has always depended on when it converges. The conditions are now specifiable. The failure modes are now named. The claims are now exposed to operational challenge.</p>
+    </section>
+    <section id="section-2" class="level1">
+    <h1><br />
+    </h1>
+    </section>
+    <section id="notation-key" class="level1">
+    <h1>Notation Key</h1>
+    <p>The following symbols and technical terms appear throughout the paper. Definitions are given in compact form; full development is in the indicated sections.</p>
+    <table>
+    <colgroup>
+    <col style="width: 25%" />
+    <col style="width: 74%" />
+    </colgroup>
+    <thead>
+    <tr>
+    <th><strong>Symbol / Term</strong></th>
+    <th><strong>Meaning</strong></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td><strong>Ω</strong></td>
+    <td>Structured possibility space (hypotheses, parameter values, interpretations). See §4.</td>
+    </tr>
+    <tr>
+    <td><strong>K</strong></td>
+    <td>Active constraint set (measurement rules, background assumptions, calibration standards, logical consistency requirements). See §4.</td>
+    </tr>
+    <tr>
+    <td><strong>C<sup>K</sup></strong></td>
+    <td>Constraint-conditioned selection from Ω under K. A method-level formalism, not a microphysical mechanism. See §4.</td>
+    </tr>
+    <tr>
+    <td><strong>x*</strong></td>
+    <td>Realized outcome of selection. See §4.</td>
+    </tr>
+    <tr>
+    <td><strong>R</strong></td>
+    <td>Durable record generated by x* (data traces, instrument logs, publications). See §4–§5; full cross-domain treatment in <em>Records Across Nature, Life, and Mind</em>.</td>
+    </tr>
+    <tr>
+    <td><strong>U</strong></td>
+    <td>Update rule modifying K in light of R. Read schematically as U(K, x*, R) → K′. See §4, §7.</td>
+    </tr>
+    <tr>
+    <td><strong>S₁</strong></td>
+    <td>Stabilization signature: redundancy → consensus. Verified independent redundancy predicts measurable reduction in inter-observer disagreement. See §6.1.</td>
+    </tr>
+    <tr>
+    <td><strong>S₂</strong></td>
+    <td>Stabilization signature: neutrality → resolution delay. Reduced prior constraint or symmetry among alternatives extends time-to-stable-selection. See §6.2.</td>
+    </tr>
+    <tr>
+    <td><strong>S₃</strong></td>
+    <td>Stabilization signature: constraint sweeps → hysteresis. Bidirectional constraint sweeps produce path-dependent responses where records have accumulated. See §6.3.</td>
+    </tr>
+    <tr>
+    <td><strong>Update integrity</strong></td>
+    <td>Condition under which U(K, x*, R) remains sensitive to R. Operationalized in the <em>Update Integrity Standard</em>. See §7.</td>
+    </tr>
+    <tr>
+    <td><strong>Coherence</strong></td>
+    <td>Dynamic stabilization under constraint propagation. Used descriptively, not as a moral, teleological, or normative property. See §6.</td>
+    </tr>
+    <tr>
+    <td><strong>Pseudo-redundancy</strong></td>
+    <td>Correlated records mistaken for independent confirmation. Simulates S₁ convergence without strengthening it. See §5.3.</td>
+    </tr>
+    <tr>
+    <td><strong>Constraint freezing</strong></td>
+    <td>U becomes insensitive to R despite the accumulation of new records. Stabilization degenerates into rigidity rather than convergence. See §7.</td>
+    </tr>
+    </tbody>
+    </table>
+    </section>
+    <section id="section-3" class="level1">
+    <h1><br />
+    </h1>
+    </section>
+    <section id="references" class="level1">
+    <h1>References</h1>
+    <p>Alchourrón, C. E., P. Gärdenfors, and D. Makinson. 1985. “On the logic of theory change: Partial meet contraction and revision functions.” <em>Journal of Symbolic Logic</em> 50 (2): 510–530. https://doi.org/10.2307/2274239</p>
+    <p>Chambers, C. D. 2013. “Registered Reports: A new publishing initiative at Cortex.” <em>Cortex</em> 49 (3): 609–610. https://doi.org/10.1016/j.cortex.2012.12.016</p>
+    <p>Goldman, A. I. 1999. <em>Knowledge in a Social World</em>. Oxford University Press.</p>
+    <p>Jones, J. C. 2025. <em>Universal Collapse Theory—Foundations of Collapse</em> (WP01 v2.0). HoldingLight LLC. PhilArchive.</p>
+    <p>Jones, J. C. 2026a. <em>Records Across Nature, Life, and Mind: The Persistence Layer of Collapse</em> (v2.0). HoldingLight LLC. https://doi.org/10.17605/OSF.IO/7H6DY</p>
+    <p>Jones, J. C. 2026b. <em>Update Integrity Standard (UIS v1.0): A Structural Ethic for Preserving Corrigibility in Record-Based Systems</em>. HoldingLight LLC. https://doi.org/10.17605/OSF.IO/DWM29</p>
+    <p>Kitcher, P. 1990. “The division of cognitive labor.” <em>The Journal of Philosophy</em> 87 (1): 5–22. https://doi.org/10.2307/2026796</p>
+    <p>Kitcher, P. 1993. <em>The Advancement of Science: Science without Legend, Objectivity without Illusions</em>. Oxford University Press.</p>
+    <p>Kuhn, T. S. 1962. <em>The Structure of Scientific Revolutions</em>. University of Chicago Press.</p>
+    <p>Ladyman, J., and D. Ross. 2007. <em>Every Thing Must Go: Metaphysics Naturalized</em>. Oxford University Press.</p>
+    <p>Lakatos, I. 1970. “Falsification and the methodology of scientific research programmes.” In <em>Criticism and the Growth of Knowledge</em>, edited by I. Lakatos and A. Musgrave, 91–196. Cambridge University Press.</p>
+    <p>Longino, H. E. 1990. <em>Science as Social Knowledge: Values and Objectivity in Scientific Inquiry</em>. Princeton University Press.</p>
+    <p>National Academies of Sciences, Engineering, and Medicine (NASEM). 2019. <em>Reproducibility and Replicability in Science</em>. Washington, DC: The National Academies Press. https://doi.org/10.17226/25303</p>
+    <p>Nguyen, C. T. 2020. “Echo chambers and epistemic bubbles.” <em>Episteme</em> 17 (2): 141–161. https://doi.org/10.1017/epi.2018.32</p>
+    <p>Open Science Collaboration. 2015. “Estimating the reproducibility of psychological science.” <em>Science</em> 349 (6251): aac4716. https://doi.org/10.1126/science.aac4716</p>
+    <p>Peirce, C. S. 1878. “How to make our ideas clear.” <em>Popular Science Monthly</em> 12: 286–302.</p>
+    <p>Popper, K. R. 1959. <em>The Logic of Scientific Discovery</em>. Hutchinson.</p>
+    <p>Simmons, J. P., L. D. Nelson, and U. Simonsohn. 2011. “False-positive psychology: Undisclosed flexibility in data collection and analysis allows presenting anything as significant.” <em>Psychological Science</em> 22 (11): 1359–1366. https://doi.org/10.1177/0956797611417632</p>
+    <p>van Fraassen, B. C. 1980. <em>The Scientific Image</em>. Oxford University Press.</p>
+    <p>Worrall, J. 1989. “Structural realism: The best of both worlds?” <em>Dialectica</em> 43 (1–2): 99–124.</p>
+    <p><em>AI Disclosure.</em> AI tools were used to assist with manuscript preparation. The underlying theory, arguments, and interpretive claims are the author’s own, and the author takes full responsibility for the content.</p>
+    <p><em>Citation:</em> Jones, J. C. (2026). The Structuralization of Empiricism: Formalizing the Structural Conditions Under Which Empiricism Stabilizes Knowledge. HoldingLight LLC.</p>
+    <p>Series: Universal Collapse Theory — Standards Layer</p>
+    <p>Companions: Records Across Nature, Life, and Mind; Update Integrity Standard (UIS v1.0)</p>
+    <p>© 2026 Jeremy C. Jones — HoldingLight LLC</p>
+    </section>
+
+    <a href="#top" class="backtotop">&uarr; Back to top</a>
+  </article>
+
+</div>
+
+<script>
+(function () {
+  var bar = document.getElementById('progress');
+  function onScroll() {
+    var h = document.documentElement;
+    var pct = h.scrollTop / (h.scrollHeight - h.clientHeight);
+    bar.style.width = (pct * 100).toFixed(1) + '%';
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav.toc a'));
+  var targets = links.map(function (a) {
+    return document.getElementById(decodeURIComponent(a.getAttribute('href')).slice(1));
+  });
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      var i = targets.indexOf(e.target);
+      if (i < 0) return;
+      links.forEach(function (l) { l.classList.remove('active'); });
+      links[i].classList.add('active');
+    });
+  }, { rootMargin: '-10% 0px -80% 0px' });
+  targets.forEach(function (t) { if (t) obs.observe(t); });
+
+  var btn = document.getElementById('toc-toggle');
+  var nav = document.getElementById('toc');
+  btn.addEventListener('click', function () {
+    var c = nav.getAttribute('data-collapsed') === 'true';
+    nav.setAttribute('data-collapsed', String(!c));
+    btn.setAttribute('aria-expanded', String(c));
+    btn.textContent = c ? 'Hide contents' : 'Show contents';
+  });
+
+  document.querySelectorAll('article section[id] > h1, article section[id] > h2').forEach(function (h) {
+    var a = document.createElement('a');
+    a.className = 'anchor';
+    a.href = '#' + h.parentNode.id;
+    a.textContent = '#';
+    a.setAttribute('aria-label', 'Link to this section');
+    h.appendChild(a);
+  });
+})();
+</script>
+
+</body>
+</html>

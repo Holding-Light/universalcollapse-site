@@ -46,6 +46,8 @@ from pathlib import Path
 RE_CK_UPPER = re.compile(r"C_\{?K\}?")
 RE_CK_MANGLED = re.compile(r"\bCK_?t\b")
 RE_CK_LOWER = re.compile(r"C_\{?k\}?|C\u2096")
+# Correct Unicode operator: C + MODIFIER LETTER CAPITAL K (U+1D37; U+1D30 also seen)
+RE_CK_UNICODE_OK = re.compile("C[\u1D37\u1D30]")
 
 # --- encoding ---------------------------------------------------------------
 RE_FFFD = re.compile(r"\uFFFD")
@@ -126,6 +128,12 @@ def lint(name, html, args, sitemap_locs=None):
         errors.append(f"NOTATION: mangled operator (sub/sup lost) — {snippet(vis, m)}")
     for m in RE_CK_LOWER.finditer(vis):
         warns.append(f"NOTATION: lowercase C_k variant — {snippet(vis, m)}")
+    # A page that mentions the operator in prose but carries no correct form is
+    # a silent conversion failure. Text-only linting cannot see this otherwise.
+    if "collapse operator" in vis.lower() and not RE_CK_UNICODE_OK.search(vis) \
+            and "<math" not in html:
+        warns.append("NOTATION: prose names the collapse operator but no correct "
+                      "C^K form present — verify with check_conversion.py against the docx")
 
     # 2 — encoding
     n_fffd = len(RE_FFFD.findall(html))

@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Update Integrity Standard (UIS) — Universal Collapse Theory</title>
+  <meta name="description" content="Corruptors, integrity indicators, repair protocols. A structural ethic for preserving corrigibility in record-based systems.">
+
+  <!-- Full-text reading copy. The citable record is the landing page;
+       canonical points there so Scholar and search consolidate on one URL. -->
+  <link rel="canonical" href="https://universalcollapse.com/read/uis">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Update Integrity Standard (UIS) — Universal Collapse Theory">
+  <meta property="og:description" content="Corruptors, integrity indicators, repair protocols. A structural ethic for preserving corrigibility in record-based systems.">
+  <meta property="og:url" content="https://universalcollapse.com/read/uis">
+  <meta property="og:site_name" content="Universal Collapse Theory">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@300;400&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg-deep: #08090c;
+      --bg-surface: #0e1017;
+      --bg-elevated: #161820;
+      --text-primary: #e8e6e1;
+      --text-secondary: #9b978f;
+      --text-tertiary: #5e5b54;
+      --accent: #c9a96e;
+      --accent-dim: #8a7245;
+      --rule: rgba(201, 169, 110, 0.12);
+      --serif: 'EB Garamond', Georgia, serif;
+      --sans: 'Outfit', system-ui, sans-serif;
+      --mono: 'JetBrains Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg-deep);
+      color: var(--text-primary);
+      font-family: var(--sans);
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    #progress {
+      position: fixed; top: 0; left: 0; height: 2px; width: 0%;
+      background: var(--accent); z-index: 100; transition: width 0.1s linear;
+    }
+
+    .topbar {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(8, 9, 12, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--rule);
+      padding: 0.75rem 1.5rem;
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 0.8rem;
+    }
+    .topbar a { color: var(--text-secondary); text-decoration: none; }
+    .topbar a:hover { color: var(--accent); }
+    .topbar .cite { color: var(--text-tertiary); font-family: var(--mono); font-size: 0.7rem; }
+
+    .shell {
+      max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem 6rem;
+      display: grid; grid-template-columns: minmax(0, 220px) minmax(0, 1fr); gap: 3rem;
+    }
+
+    nav.toc {
+      position: sticky; top: 5rem; align-self: start;
+      max-height: calc(100vh - 8rem); overflow-y: auto;
+      font-size: 0.8rem; line-height: 1.6;
+    }
+    nav.toc > p {
+      color: var(--text-tertiary); text-transform: uppercase;
+      letter-spacing: 0.12em; font-size: 0.65rem; margin-bottom: 0.75rem;
+    }
+    nav.toc ul { list-style: none; }
+    nav.toc ul ul { padding-left: 0.85rem; }
+    nav.toc li { margin: 0.3rem 0; }
+    nav.toc a {
+      color: var(--text-secondary); text-decoration: none;
+      display: block; padding-left: 0.6rem;
+      border-left: 1px solid transparent;
+    }
+    nav.toc a:hover { color: var(--text-primary); }
+    nav.toc a.active { color: var(--accent); border-left-color: var(--accent); }
+
+    article { min-width: 0; }
+
+    .paper-head { border-bottom: 1px solid var(--rule); padding-bottom: 1.75rem; margin-bottom: 2.5rem; }
+    .paper-head .tier {
+      font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.15em;
+      color: var(--accent-dim); text-transform: uppercase;
+    }
+    .paper-head h1 {
+      font-family: var(--serif); font-weight: 500; font-size: 2.1rem;
+      line-height: 1.2; margin: 0.75rem 0 0.5rem; color: var(--text-primary);
+    }
+    .paper-head .sub { font-family: var(--serif); font-style: italic; color: var(--text-secondary); font-size: 1.05rem; }
+    .paper-head .meta { margin-top: 1.1rem; font-size: 0.78rem; color: var(--text-tertiary); }
+    .paper-head .meta a { color: var(--accent-dim); text-decoration: none; }
+
+    article h1, article h2, article h3 {
+      font-family: var(--serif); font-weight: 600; line-height: 1.3;
+      color: var(--text-primary); scroll-margin-top: 5rem;
+    }
+    article h1 { font-size: 1.5rem; margin: 3rem 0 1rem; }
+    article h2 { font-size: 1.2rem; margin: 2rem 0 0.75rem; color: var(--text-secondary); }
+    article h3 { font-size: 1.05rem; margin: 1.5rem 0 0.5rem; color: var(--text-secondary); }
+
+    article h1 .anchor, article h2 .anchor {
+      opacity: 0; margin-left: 0.5rem; color: var(--accent-dim);
+      text-decoration: none; font-size: 0.7em; font-family: var(--sans);
+    }
+    article h1:hover .anchor, article h2:hover .anchor { opacity: 1; }
+
+    article p {
+      font-family: var(--serif); font-size: 1.12rem; font-weight: 400;
+      line-height: 1.75; margin: 0 0 1.15rem; color: var(--text-primary);
+    }
+    article ul, article ol { font-family: var(--serif); font-size: 1.12rem; margin: 0 0 1.15rem 1.5rem; }
+    article li { margin-bottom: 0.4rem; }
+    article strong { font-weight: 600; color: var(--text-primary); }
+    article em { font-style: italic; }
+    article a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--rule); }
+    article blockquote {
+      border-left: 2px solid var(--accent-dim); padding-left: 1.25rem;
+      margin: 1.5rem 0; color: var(--text-secondary); font-style: italic;
+      border-radius: 0;
+    }
+
+    math { font-size: 1.05em; color: var(--text-primary); }
+
+    .backtotop {
+      display: inline-block; margin-top: 3rem; padding-top: 1.5rem;
+      border-top: 1px solid var(--rule); width: 100%;
+      font-size: 0.8rem; color: var(--text-tertiary); text-decoration: none;
+    }
+    .backtotop:hover { color: var(--accent); }
+
+    #toc-toggle { display: none; }
+
+    @media (max-width: 820px) {
+      .shell { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; padding: 1.25rem 1.1rem 4rem; }
+      nav.toc {
+        position: static; max-height: none; order: -1;
+        border: 1px solid var(--rule); border-radius: 6px; padding: 0.9rem 1rem;
+      }
+      nav.toc[data-collapsed="true"] ul { display: none; }
+      #toc-toggle { display: block; background: none; border: none; color: var(--text-secondary);
+        font-family: var(--sans); font-size: 0.75rem; cursor: pointer; padding: 0; }
+      .paper-head h1 { font-size: 1.6rem; }
+      article p, article ul, article ol { font-size: 1.08rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<div class="topbar">
+  <a href="https://universalcollapse.com/uis">&larr; Update Integrity Standard (UIS)</a>
+  <span class="cite">10.17605/OSF.IO/DWM29</span>
+</div>
+
+<div class="shell">
+
+  <nav class="toc" id="toc" data-collapsed="false">
+    <p>Contents</p>
+    <button id="toc-toggle" aria-expanded="true">Hide contents</button>
+    <ul>
+    <li><a href="#abstract" id="toc-abstract">Abstract</a></li>
+    <li><a href="#purpose" id="toc-purpose">Purpose</a></li>
+    <li><a href="#core-principle" id="toc-core-principle">Core principle</a>
+    <ul>
+    <li><a href="#review-target" id="toc-review-target">Review target</a></li>
+    <li><a href="#triad-placement" id="toc-triad-placement">Triad placement</a></li>
+    <li><a href="#uct-kernel-context-informal" id="toc-uct-kernel-context-informal">UCT kernel context (informal)</a></li>
+    </ul></li>
+    <li><a href="#definitions" id="toc-definitions">Definitions</a>
+    <ul>
+    <li><a href="#update-loop" id="toc-update-loop">Update loop</a></li>
+    <li><a href="#update-integrity" id="toc-update-integrity">Update integrity</a></li>
+    <li><a href="#constraint-set-k" id="toc-constraint-set-k">Constraint set (K)</a></li>
+    <li><a href="#effective-independence-k_eff" id="toc-effective-independence-k_eff">Effective independence (k_eff)</a></li>
+    <li><a href="#record-r" id="toc-record-r">Record (R)</a></li>
+    <li><a href="#discriminator" id="toc-discriminator">Discriminator</a></li>
+    </ul></li>
+    <li><a href="#corruptors" id="toc-corruptors">Corruptors</a></li>
+    <li><a href="#integrity-indicators" id="toc-integrity-indicators">Integrity indicators</a>
+    <ul>
+    <li><a href="#measurement-proxies-for-corrigibility" id="toc-measurement-proxies-for-corrigibility">Measurement proxies for corrigibility</a></li>
+    </ul></li>
+    <li><a href="#repair-protocols" id="toc-repair-protocols">Repair protocols</a></li>
+    <li><a href="#neutrality-and-commitment-protocols" id="toc-neutrality-and-commitment-protocols">Neutrality and commitment protocols</a>
+    <ul>
+    <li><a href="#signal-state-preconditions" id="toc-signal-state-preconditions">Signal-state preconditions</a></li>
+    <li><a href="#stopping-criteria" id="toc-stopping-criteria">Stopping criteria</a></li>
+    <li><a href="#multi-level-alignment" id="toc-multi-level-alignment">Multi-level alignment</a></li>
+    <li><a href="#stabilization-mode-classifications" id="toc-stabilization-mode-classifications">Stabilization-mode classifications</a></li>
+    </ul></li>
+    <li><a href="#uis-reporting-standard-uisrs" id="toc-uis-reporting-standard-uisrs">UIS Reporting Standard (UIS‑RS)</a></li>
+    <li><a href="#scope-and-application" id="toc-scope-and-application">Scope and application</a></li>
+    <li><a href="#oneline-carryforward" id="toc-oneline-carryforward">One‑line carryforward</a></li>
+    <li><a href="#appendix-a-the-empirical-ledger" id="toc-appendix-a-the-empirical-ledger">Appendix A: The Empirical Ledger</a></li>
+    <li><a href="#appendix-b-minimal-implementation-thresholds" id="toc-appendix-b-minimal-implementation-thresholds">Appendix B: Minimal Implementation Thresholds</a>
+    <ul>
+    <li><a href="#minimum-measurement-requirements" id="toc-minimum-measurement-requirements">Minimum measurement requirements</a></li>
+    <li><a href="#independence-audit" id="toc-independence-audit">Independence audit</a></li>
+    <li><a href="#default-metrics" id="toc-default-metrics">Default metrics</a></li>
+    <li><a href="#scope-rule" id="toc-scope-rule">Scope rule</a></li>
+    </ul></li>
+    <li><a href="#references-selected" id="toc-references-selected">References (selected)</a></li>
+    </ul>
+  </nav>
+
+  <article>
+    <header class="paper-head">
+      <span class="tier">Standards</span>
+      <h1>Update Integrity Standard (UIS)</h1>
+      <p class="sub">A structural ethic for preserving corrigibility in record‑based systems</p>
+      <p class="meta">
+        Jeremy C. Jones &middot; HoldingLight LLC &middot; 2026/04 &middot; CC BY 4.0<br>
+        Cite as <a href="https://doi.org/10.17605/OSF.IO/DWM29">10.17605/OSF.IO/DWM29</a>
+        
+      </p>
+    </header>
+
+    <p><strong>Update Integrity Standard (UIS)</strong></p>
+    <p><em>A structural ethic for preserving corrigibility in record‑based systems</em></p>
+    <p><strong>Jeremy C. Jones (ORCID 0009-0007-2515-3774)</strong></p>
+    <p>HoldingLight LLC</p>
+    <p><em>Version v1.0 • 2026-04 • CC BY 4.0</em></p>
+    <p>universalcollapse.com</p>
+    <p>© 2026 Jeremy C. Jones — HoldingLight LLC</p>
+    <p><em>This document is a versioned internal standard of the Universal Collapse Theory research program, published for transparency, reuse, and critique. It is not presented as a field-ratified standard.</em></p>
+    <section id="abstract" class="level1">
+    <h1>Abstract</h1>
+    <p>Any system that learns from its own outcomes—scientific communities, institutions, minds, algorithms—depends on an update loop: outcomes produce records, and records modify future constraints. This standard identifies the structural conditions under which that loop remains corrigible (update integrity) and names the common failure modes that break it: record falsification, pseudo-redundancy, constraint freezing, selective update rules, coercive agreement, discriminator-free coherence, and identity binding. For each failure mode, a corresponding repair protocol and diagnostic indicator are specified. This version specifies measurement proxies for corrigibility, signal-state protocols for neutrality and commitment (referencing the S₁–S₃ stabilization family), an Empirical Ledger template for per-domain tracking, and a Minimal Implementation appendix specifying measurement thresholds. UIS is a companion to <em>The Structuralization of Empiricism</em> (Jones, 2026b), which introduces the recursive kernel and stabilization signatures that UIS operationalizes, and to <em>Records Across Nature, Life, and Mind</em> (Jones, 2026a), which defines the persistence layer UIS protects.</p>
+    <p><strong>Keywords:</strong> update integrity; corrigibility; record discipline; redundancy audit; discriminators; reporting standards; research integrity; philosophy of science</p>
+    </section>
+    <section id="purpose" class="level1">
+    <h1>Purpose</h1>
+    <p>The Update Integrity Standard (UIS) formalizes a single ethic implied by a record‑based collapse framework: do not corrupt the update loop. UIS is not a social virtue code (“be nice”). It is a structural requirement for any system that aims to remain coherent over time—scientific communities, organizations, minds, and institutions alike.</p>
+    </section>
+    <section id="core-principle" class="level1">
+    <h1>Core principle</h1>
+    <p>A system remains update‑capable when (i) records are not falsified, (ii) redundancy is not counterfeited, and (iii) constraints remain revisable under legitimate evidence. “Legitimate evidence” here means evidence admitted under pre-declared standards, with inspectable provenance, symmetric evaluation rules, and enough independence information to assess redundancy quality.</p>
+    <section id="review-target" class="level2">
+    <h2>Review target</h2>
+    <p>UIS does not ask the reader to accept Universal Collapse Theory as a metaphysical system or to treat this document as a field-ratified compliance standard. It asks whether update integrity can be operationalized as a practical standard for record-bearing systems: preserve records, audit redundancy, specify discriminators, keep constraints revisable, and report the current stabilization mode. UIS should be accepted provisionally only if its corruptor classes, indicators, repair protocols, reporting standard, and empirical ledger improve the detection and repair of update-loop failure. It should be revised or rejected if these procedures do not distinguish corrigible update from pseudo-redundancy, constraint freezing, selective update, or locked stabilization better than ordinary domain-local practice.</p>
+    </section>
+    <section id="triad-placement" class="level2">
+    <h2>Triad placement</h2>
+    <p>This document occupies the update-integrity position in the UCT standards layer. <em>Records Across Nature, Life, and Mind</em> defines the persistence layer: what records are and why they make collapse cumulative. <em>The Structuralization of Empiricism</em> defines the stabilization layer: how record-bearing empirical systems converge, delay, or lock under constraints. UIS defines the governance layer: how update loops remain corrigible through record discipline, independence audit, symmetric standards, pre-declared discriminators, and explicit rollback/correction procedures.</p>
+    </section>
+    <section id="uct-kernel-context-informal" class="level2">
+    <h2>UCT kernel context (informal)</h2>
+    <p>(Ω, K) → C<sup>K</sup>(Ω, K) = x* → (R, S, T) → K′ = U(K, x*, R)</p>
+    <p>Here S denotes residue or loss/side-effect structure and T denotes record-time or ledger index; UIS focuses on R, U, and redundancy quality because those are the interfaces most directly involved in corrigibility.</p>
+    <p>UIS protects three interfaces in this loop:</p>
+    <ul>
+    <li><p>Records R (what happened and what is recoverable)</p></li>
+    <li><p>Update map U (how records are allowed to change constraints)</p></li>
+    <li><p>Redundancy quality (whether multiple records are genuinely independent)</p></li>
+    </ul>
+    </section>
+    </section>
+    <section id="definitions" class="level1">
+    <h1>Definitions</h1>
+    <section id="update-loop" class="level2">
+    <h2>Update loop</h2>
+    <p>The update loop is any process by which outcomes and their records modify future constraints—belief revision, learning rules, institutional reform, scientific error correction, or model retraining.</p>
+    </section>
+    <section id="update-integrity" class="level2">
+    <h2>Update integrity</h2>
+    <p>Update integrity means the loop remains corrigible: false models can be corrected by reality‑contact and by audit of records. Integrity is graded, not binary; UIS measures and improves it.</p>
+    </section>
+    <section id="constraint-set-k" class="level2">
+    <h2>Constraint set (K)</h2>
+    <p>The active rules, assumptions, thresholds, policies, priors, or operating conditions that shape what outcomes are allowed, selected, interpreted, or acted on. K is what records modify through U.</p>
+    </section>
+    <section id="effective-independence-k_eff" class="level2">
+    <h2>Effective independence (k_eff)</h2>
+    <p>The estimated number of genuinely independent records after shared sources, shared instruments, shared incentives, copied evidence, or correlated errors are discounted. Reported in independence audits and UIS-RS disclosures.</p>
+    </section>
+    <section id="record-r" class="level2">
+    <h2>Record (R)</h2>
+    <p>A durable, inspectable trace of an outcome that can constrain future updates. Examples include datasets, instrument logs, publications, audit trails, and memory traces. The full cross-domain definition is given in <em>Records Across Nature, Life, and Mind</em> (Jones, 2026a).</p>
+    </section>
+    <section id="discriminator" class="level2">
+    <h2>Discriminator</h2>
+    <p>A pre-specified observation, failure condition, or comparison that would distinguish a claim from a plausible alternative and force update, scope reduction, or withdrawal. Discriminators are required for Level 3 claims under UIS-RS.</p>
+    </section>
+    </section>
+    <section id="corruptors" class="level1">
+    <h1>Corruptors</h1>
+    <p>UIS names the common failure modes that break corrigibility. Each corruptor targets R, U, or redundancy.</p>
+    <ul>
+    <li><p><strong>Record falsification:</strong> Lying, data fabrication, selective deletion, retroactive rewriting of what was predicted or observed.</p></li>
+    <li><p><strong>Pseudo‑redundancy:</strong> Manufacturing the appearance of consensus via correlated sources, echo chambers, pressure, or copy‑pasted evidence shards.</p></li>
+    <li><p><strong>Constraint freezing:</strong> Dogma: treating provisional constraints as non‑negotiable axioms; refusing to define what would change the belief/policy.</p></li>
+    <li><p><strong>Selective update rules:</strong> Asymmetric standards: evidence counts only when it supports the preferred conclusion; logic is applied unevenly.</p></li>
+    <li><p><strong>Coercive agreement:</strong> Forcing public agreement without independent access to records; compliance replaces consensus. In UCT terms, this is coercive collapse.</p></li>
+    <li><p><strong>Discriminator‑free coherence:</strong> Claims insulated from discriminators; emotive or aesthetic coherence replaces constraint coherence. Informally: vibe‑metaphysics.</p></li>
+    <li><p><strong>Identity binding:</strong> Beliefs become self‑binding; updating feels like self‑destruction, so U is effectively disabled in that channel. Distinct from social-psychological identity fusion (Swann et al., 2012), where group membership becomes personally fused with the self; UIS uses “identity binding” in an update-loop sense.</p></li>
+    </ul>
+    </section>
+    <section id="integrity-indicators" class="level1">
+    <h1>Integrity indicators</h1>
+    <p>Use these diagnostics to audit whether a loop is generative (corrigible) or supplanted (self‑sealing):</p>
+    <ul>
+    <li><p><strong>Pre‑commitment:</strong> the system can state in advance what observations would change its conclusion.</p></li>
+    <li><p><strong>Audit trail:</strong> predictions, decisions, and justifications are recorded before outcomes are known.</p></li>
+    <li><p><strong>Independent replication:</strong> redundancy comes from genuinely independent records (or an explicit k_eff estimate). This usage aligns with the reproducibility/replicability distinction in the National Academies of Sciences, Engineering, and Medicine report (NASEM, 2019): reproducibility under the same data and analytic conditions is not the same integrity signal as independent studies obtaining consistent results with their own data.</p></li>
+    <li><p><strong>Error admission is low-cost:</strong> acknowledging error does not trigger identity or status collapse.</p></li>
+    <li><p><strong>Symmetric standards:</strong> the same evidentiary and logical filters apply regardless of conclusion.</p></li>
+    <li><p><strong>Ablations exist where causal learning/adaptation is claimed:</strong> disabling the proposed update mechanism should reduce the claimed performance gain or stabilization effect (causal attribution).</p></li>
+    </ul>
+    <section id="measurement-proxies-for-corrigibility" class="level2">
+    <h2>Measurement proxies for corrigibility</h2>
+    <p>Corrigibility is graded. The indicators above describe qualitative conditions; the following proxies quantify them where measurement is feasible. Each proxy operationalizes update sensitivity: the degree to which records are permitted to modify K.</p>
+    <ul>
+    <li><p><strong>Replication success rate:</strong> Proportion of verified-independent attempts that replicate a claimed finding under preserved independence conditions. Low rates indicate weak S₁ or corrupted R.</p></li>
+    <li><p><strong>Time-to-retraction:</strong> Elapsed time from confirmed disconfirmation to formal correction of the record. Long latencies indicate weak U. In publication contexts, this proxy should be interpreted in the corrective sense used by the Committee on Publication Ethics (COPE, 2025): retraction protects the integrity of the record rather than serving primarily as punishment.</p></li>
+    <li><p><strong>Correction lag:</strong> Time from first credible disconfirming evidence to effective constraint update (retraction, model revision, policy change). Distinguishable from time-to-retraction by tracking the <em>evidence-to-update</em> interval rather than disconfirmation-to-formality.</p></li>
+    <li><p><strong>Variance reduction across independent trials:</strong> Rate at which cross-trial variance decays as independent records accumulate. Failure to reduce variance under preserved independence indicates pseudo-redundancy or update insensitivity.</p></li>
+    <li><p><strong>Rollback completion rate:</strong> Proportion of failed, retracted, or integrity-compromised claims that are visibly corrected, scoped down, withdrawn, or replaced within a pre-declared window. Useful where formal retraction is not the native unit of correction (institutions, algorithmic systems, policy regimes).</p></li>
+    </ul>
+    <p>These proxies are not exhaustive. They are default starting points for domains where no native corrigibility metric exists. Domain-specific metrics may substitute or extend them; substitutions must preserve the property measured (update sensitivity under disconfirmation).</p>
+    </section>
+    </section>
+    <section id="repair-protocols" class="level1">
+    <h1>Repair protocols</h1>
+    <p>UIS is practical: it specifies small, repeatable interventions that restore corrigibility without requiring total worldview replacement.</p>
+    <ul>
+    <li><p><strong>R‑Ledger (Record discipline):</strong> Write predictions and rationales with timestamps; preserve failures; forbid retroactive edits (append only). Where records are digital datasets or computational artifacts, R‑Ledger discipline should be read alongside FAIR data principles (Wilkinson et al., 2016): records must be findable, accessible, interoperable, and reusable enough to support later audit and update.</p></li>
+    <li><p><strong>Discriminator rule:</strong> For every nontrivial claim, name at least one observation that would discriminate it from a plausible alternative.</p></li>
+    <li><p><strong>Independence audit:</strong> Estimate whether sources are independent; downgrade confidence when redundancy is correlated (report k_eff).</p></li>
+    <li><p><strong>Reversibility first:</strong> Prefer reversible, low‑stakes tests before irreversible commitments (prevents identity binding).</p></li>
+    <li><p><strong>Attack‑to‑Stack policy:</strong> Replace adversarial language with stack placement: argue level and interface before arguing content. (“Stack” here means the level/interface at which a claim operates: record, constraint, update rule, signal state, or domain application.)</p></li>
+    <li><p><strong>Constraint loosening:</strong> If a belief/policy is frozen, reduce grip by one notch: hold it provisionally and run a bounded test.</p></li>
+    <li><p><strong>Post‑mortem update:</strong> After outcomes resolve, log what constraint was missing and what update will be made to K (not just what happened).</p></li>
+    </ul>
+    </section>
+    <section id="neutrality-and-commitment-protocols" class="level1">
+    <h1>Neutrality and commitment protocols</h1>
+    <p>Every update loop reaches points where it must decide: remain neutral, or commit to a constraint refinement. The Structuralization of Empiricism (Jones, 2026b) shows that both moves are structurally grounded in the signal state of the system, not merely in epistemic virtue or personal disposition. UIS operationalizes these grounds as decision protocols.</p>
+    <p>Neutrality and commitment errors are symmetric. A system that remains neutral when S₁ has converged under verified independence is as malformed as one that commits when S₂ has not plateaued. Each direction corrupts the update loop in a characteristic way: premature commitment manufactures false S₁ and locks K against legitimate disconfirmation; delayed commitment freezes the loop in symmetric indecision and wastes update capacity.</p>
+    <section id="signal-state-preconditions" class="level2">
+    <h2>Signal-state preconditions</h2>
+    <p><strong>Neutrality is structurally warranted when:</strong></p>
+    <ul>
+    <li><p>Redundancy is low or unaudited (independence not yet verified).</p></li>
+    <li><p>Competing hypotheses remain symmetric under current K (S₂ active).</p></li>
+    <li><p>Sweep tests have not yet been applied, so S₃ status is unknown.</p></li>
+    <li><p>Prior-constraint strength is insufficient to resolve selection C<sup>K</sup> without structural distortion.</p></li>
+    </ul>
+    <p><strong>Commitment is structurally warranted when:</strong></p>
+    <ul>
+    <li><p>Redundant independent records have converged (S₁ has resolved under verified independence).</p></li>
+    <li><p>Neutrality-induced delay no longer alters outcome (S₂ plateau).</p></li>
+    <li><p>Sweep tests reveal bounded, acceptable hysteresis (S₃ controlled).</p></li>
+    <li><p>Update integrity conditions remain satisfied (R durable, U sensitive, standards symmetric).</p></li>
+    </ul>
+    </section>
+    <section id="stopping-criteria" class="level2">
+    <h2>Stopping criteria</h2>
+    <p>Stopping rules must be pre-declared, not retrofit. Acceptable stopping triggers include: a pre-registered threshold for S₁ convergence; a fixed budget of replications, trials, or iterations; an S₂ plateau confirmed across at least two independent resolution attempts; a bounded S₃ loop area below a domain-specified limit. Stopping without pre-declared triggers is a corruptor (selective update): the system retroactively chooses the stopping point that supports the preferred conclusion. This is not merely procedural: undisclosed flexibility in data collection, analysis, and reporting can inflate false-positive rates (Simmons, Nelson, &amp; Simonsohn, 2011), which is why preregistered stopping rules function as update-integrity safeguards. Where pre-declaration is infeasible because the domain is genuinely exploratory, UIS-RS must label the claim exploratory and prohibit Level 3 commitment until a confirmatory test is specified.</p>
+    </section>
+    <section id="multi-level-alignment" class="level2">
+    <h2>Multi-level alignment</h2>
+    <p>Commitment does not require alignment at every level simultaneously. A claim may be committed at the architectural level (Level 1) while remaining neutral at the divergence level (Level 3). What must not occur is asymmetric collapse: committing at Level 3 (a specific empirical prediction) while leaving Level 1 scope undefined, or committing at Level 1 (a structural pattern) while claiming Level 3 predictive force without signal-state support. Each level’s commitment has its own preconditions; mixing them corrupts the update loop.</p>
+    </section>
+    <section id="stabilization-mode-classifications" class="level2">
+    <h2>Stabilization-mode classifications</h2>
+    <p>Systems can be classified by which signal-state configuration they occupy:</p>
+    <ul>
+    <li><p><strong>Converging:</strong> S₁ active and producing variance reduction; commitment conditions approaching.</p></li>
+    <li><p><strong>Symmetric:</strong> S₂ dominant; neutrality appropriate; stopping rules in force.</p></li>
+    <li><p><strong>Path-dependent:</strong> S₃ signatures present; requires independence audit before commitment.</p></li>
+    <li><p><strong>Locked:</strong> S₃ present without S₁ convergence and without update sensitivity; pathological stabilization; requires repair protocols.</p></li>
+    <li><p><strong>Drifting:</strong> No stable signal state; neither S₁ convergence nor S₂ plateau; may indicate missing K (constraint set incomplete) or failed R (records not durable).</p></li>
+    </ul>
+    <p>Classification is not a verdict. It is a snapshot: the same system may move between modes as records accumulate, integrity is preserved or corrupted, or K is revised. Reporting the current mode under UIS-RS (below) disciplines claims about the system’s epistemic state.</p>
+    </section>
+    </section>
+    <section id="uis-reporting-standard-uisrs" class="level1">
+    <h1>UIS Reporting Standard (UIS‑RS)</h1>
+    <p>Minimum disclosure when you claim a belief, model, or policy is “update‑capable”: UIS-RS is structurally adjacent to open-science reporting frameworks such as the Transparency and Openness Promotion (TOP) Guidelines (Nosek et al., 2015), which treat transparency, data availability, preregistration, and reporting standards as ways to increase the verifiability of empirical claims.</p>
+    <ul>
+    <li><p><strong>Claim boundary:</strong> what domain is this operating in: physical, biological, cognitive, institutional, or algorithmic? Is the claim about records, constraints, update rules, signal state, or domain application?</p></li>
+    <li><p><strong>Record set:</strong> what records exist, where they live, and what is preserved (R).</p></li>
+    <li><p><strong>Redundancy:</strong> how many independent records support the claim; what is the estimated k_eff?</p></li>
+    <li><p><strong>Discriminators:</strong> what would change the conclusion; what alternatives were considered?</p></li>
+    <li><p><strong>Update rule:</strong> what is allowed to update in K, how fast, and under what triggers (U).</p></li>
+    <li><p><strong>Integrity risks:</strong> which corruptors are most likely here (e.g., pseudo‑redundancy, identity binding) and what safeguards are in place.</p></li>
+    <li><p><strong>Stabilization mode:</strong> which mode applies (converging, symmetric, path-dependent, locked, drifting); what signal states justify the classification.</p></li>
+    <li><p><strong>Claim level:</strong> Level 1 architectural mapping, Level 2 interpretive lens, or Level 3 testable claim.</p></li>
+    <li><p><strong>Rollback trigger:</strong> what observation, replication result, audit failure, or integrity breach would force correction, scope reduction, or withdrawal?</p></li>
+    <li><p><strong>Stopping rule:</strong> what pre-declared threshold, replication budget, S₂ plateau, or S₃ bound justifies commitment?</p></li>
+    </ul>
+    </section>
+    <section id="scope-and-application" class="level1">
+    <h1>Scope and application</h1>
+    <p>UIS applies wherever a system’s future behavior depends on records of its past outcomes. This includes empirical research communities (where update integrity maps onto replication standards, preregistration, and error correction), cognitive and perceptual systems (where beliefs and expectations update under incoming evidence), biological systems (where molecular records constrain developmental and adaptive trajectories), institutional and policy systems (where accumulated precedent shapes future decision rules), and algorithmic systems (where training data and feedback loops modify model constraints). The standard is domain-portable: it does not prescribe what a system should believe, only the structural conditions under which its update loop remains corrigible. For the formal epistemological framework that motivates these conditions, see <em>The Structuralization of Empiricism</em> (Jones, 2026b).</p>
+    <p>UIS does not certify that a belief, model, policy, or institution is correct. It provides a disclosure standard for whether the update loop has specified its records, redundancy structure, discriminators, update rule, integrity risks, and stabilization mode. Domain-specific standards remain authoritative for domain-specific truth, safety, legality, and ethics.</p>
+    </section>
+    <section id="oneline-carryforward" class="level1">
+    <h1>One‑line carryforward</h1>
+    <p>Don’t corrupt the update loop: protect records, preserve independent redundancy, and keep constraints revisable.</p>
+    </section>
+    <section id="appendix-a-the-empirical-ledger" class="level1">
+    <h1>Appendix A: The Empirical Ledger</h1>
+    <p>To prevent scope creep, applications of the Structuralization of Empiricism framework (and of update-integrity standards generally) should be logged explicitly using the following template. Each domain application completes all fields.</p>
+    <table>
+    <colgroup>
+    <col style="width: 30%" />
+    <col style="width: 69%" />
+    </colgroup>
+    <thead>
+    <tr>
+    <th><strong>Field</strong></th>
+    <th><strong>Entry</strong></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td><strong>Domain</strong></td>
+    <td>(e.g., pharmacology, climate science, machine learning)</td>
+    </tr>
+    <tr>
+    <td><strong>Ω specification</strong></td>
+    <td>What are the distinguishable alternatives?</td>
+    </tr>
+    <tr>
+    <td><strong>K specification</strong></td>
+    <td>What constraints are active? (instruments, priors, protocols)</td>
+    </tr>
+    <tr>
+    <td><strong>Record type (R)</strong></td>
+    <td>What traces persist? (datasets, logs, publications)</td>
+    </tr>
+    <tr>
+    <td><strong>Independence audit method</strong></td>
+    <td>How is independence verified? (different labs, different data sources, k_eff reported)</td>
+    </tr>
+    <tr>
+    <td><strong>S₁ status</strong></td>
+    <td>Does redundancy drive convergence? (measured / expected / not tested / failed)</td>
+    </tr>
+    <tr>
+    <td><strong>S₂ status</strong></td>
+    <td>Does neutrality delay resolution? (measured / expected / not tested / failed)</td>
+    </tr>
+    <tr>
+    <td><strong>S₃ status</strong></td>
+    <td>Does constraint sweep reveal hysteresis? (measured / expected / not tested / failed)</td>
+    </tr>
+    <tr>
+    <td><strong>Control conditions satisfied</strong></td>
+    <td>List controls applied and any uncontrolled confounds.</td>
+    </tr>
+    <tr>
+    <td><strong>Update integrity assessment</strong></td>
+    <td>Are records preserved? Is U sensitive to R? Are standards symmetric? Stabilization mode?</td>
+    </tr>
+    <tr>
+    <td><strong>Correction/rollback history</strong></td>
+    <td>Log any revisions, retractions, or scope changes since initial entry.</td>
+    </tr>
+    <tr>
+    <td><strong>Claim level</strong></td>
+    <td>Level 1 (architectural mapping), Level 2 (interpretive lens), or Level 3 (testable claim).</td>
+    </tr>
+    <tr>
+    <td><strong>Discriminator / rollback trigger</strong></td>
+    <td>What observation, failure, replication result, or integrity audit would change, constrain, retract, or roll back the claim?</td>
+    </tr>
+    <tr>
+    <td><strong>Stopping rule</strong></td>
+    <td>What pre-declared threshold, replication budget, S₂ plateau, or S₃ bound justifies commitment?</td>
+    </tr>
+    </tbody>
+    </table>
+    <p>The ledger serves four purposes: it makes domain-of-validity explicit, tracks where signals hold or fail, prevents silent expansion into unsupported domains, and preserves falsifiability. Ledger entries are append-only records in the UIS sense: once logged, they are revised only through explicit correction/rollback entries, never through silent overwrite.</p>
+    </section>
+    <section id="appendix-b-minimal-implementation-thresholds" class="level1">
+    <h1>Appendix B: Minimal Implementation Thresholds</h1>
+    <p>This appendix specifies a practical floor for applying the Structuralization of Empiricism at Level 3 (the divergence-claim level, where the framework is falsifiable). If an application cannot satisfy these minimum requirements, it remains within scope at Level 1 (architectural mapping) or Level 2 (interpretive lens) but cannot generate falsifiable predictions under this framework.</p>
+    <section id="minimum-measurement-requirements" class="level2">
+    <h2>Minimum measurement requirements</h2>
+    <p>To make a Level 3 claim in any domain, at least one of the following must be measurable under controlled conditions.</p>
+    <ul>
+    <li><p><strong>For S₁:</strong> A quantifiable agreement or variance metric across at least two verified-independent sources (e.g., Cohen’s κ, inter-lab variance, meta-analytic heterogeneity I², cross-instrument correlation).</p></li>
+    <li><p><strong>For S₂:</strong> A measurable time-to-resolution or convergence metric under at least two levels of prior constraint strength (e.g., MCMC iterations, reaction time, policy adoption latency, iteration count under uninformative priors).</p></li>
+    <li><p><strong>For S₃:</strong> A measurable response variable under bidirectional constraint variation, with loop area or return-path discrepancy computable (e.g., confidence ratings under evidence accumulation and retraction, threshold shifts in parameter sweeps, policy reversal hysteresis).</p></li>
+    <li><p><strong>For update integrity:</strong> A measurable integrity proxy under independently specified improvement or degradation of R, U, or independence conditions. Acceptable proxies include correction lag, time-to-retraction, replication success under verified independence, variance reduction across independent trials, rollback completion rate, or discriminator-satisfaction rate. The intervention must be defined independently of whether stabilization improves; otherwise the test is circular.</p></li>
+    </ul>
+    </section>
+    <section id="independence-audit" class="level2">
+    <h2>Independence audit</h2>
+    <p>Every Level 3 application must include an explicit independence audit answering:</p>
+    <ul>
+    <li><p>What sources generated the records?</p></li>
+    <li><p>Do sources share instrumentation, calibration standards, training data, or institutional incentives?</p></li>
+    <li><p>What specific steps were taken to verify independence (different labs, different populations, different methods)?</p></li>
+    <li><p>What residual correlations remain, and how are they bounded (report k_eff)?</p></li>
+    </ul>
+    <p>Without this audit, apparent S₁ convergence cannot be distinguished from pseudo-redundancy, and any claimed commitment fails UIS disclosure.</p>
+    </section>
+    <section id="default-metrics" class="level2">
+    <h2>Default metrics</h2>
+    <p>When domain-specific metrics are unavailable, the following defaults provide a starting point:</p>
+    <ul>
+    <li><p><strong>Convergence latency:</strong> Time (in trials, iterations, or calendar units) from initial constraint application to stable selection.</p></li>
+    <li><p><strong>Agreement rate:</strong> Proportion of independent observers or runs reaching the same endpoint under shared record access.</p></li>
+    <li><p><strong>Hysteresis area:</strong> Integrated discrepancy between forward and reverse constraint-sweep response curves.</p></li>
+    <li><p><strong>Correction lag:</strong> Time from confirmed disconfirmation to effective constraint update (retraction, model revision, policy change). See also: Measurement proxies for corrigibility (above).</p></li>
+    </ul>
+    </section>
+    <section id="scope-rule" class="level2">
+    <h2>Scope rule</h2>
+    <p><strong>If you cannot measure at least one S-signature or update-integrity proxy under controlled conditions, the application is out of scope for Level 3 claims.</strong> It may still be useful at Level 1 (as a conceptual mapping) or Level 2 (as an interpretive lens), but it cannot generate falsifiable predictions under this framework, and UIS-RS disclosure must declare the level at which the claim operates.</p>
+    </section>
+    </section>
+    <section id="references-selected" class="level1">
+    <h1>References (selected)</h1>
+    <p>COPE Council. (2025). <em>COPE Retraction guidelines — English (Version 3)</em>. Committee on Publication Ethics. https://doi.org/10.24318/cope.2019.1.4</p>
+    <p>Jones, J. C. (2025). <em>Universal Collapse Theory—Foundations of Collapse</em> (WP01 v2.0). HoldingLight LLC.</p>
+    <p>Jones, J. C. (2026a). <em>Records Across Nature, Life, and Mind: The Persistence Layer of Collapse</em> (v2.0). HoldingLight LLC. https://doi.org/10.17605/OSF.IO/7H6DY</p>
+    <p>Jones, J. C. (2026b). <em>The Structuralization of Empiricism: Formalizing the Structural Conditions Under Which Empiricism Stabilizes Knowledge</em>. HoldingLight LLC. https://doi.org/10.17605/OSF.IO/J4GZ9</p>
+    <p>National Academies of Sciences, Engineering, and Medicine. (2019). <em>Reproducibility and Replicability in Science</em>. The National Academies Press. https://doi.org/10.17226/25303</p>
+    <p>Nosek, B. A., et al. (2015). Promoting an open research culture. <em>Science</em>, <em>348</em>(6242), 1422–1425. https://doi.org/10.1126/science.aab2374</p>
+    <p>Simmons, J. P., Nelson, L. D., &amp; Simonsohn, U. (2011). False-positive psychology: Undisclosed flexibility in data collection and analysis allows presenting anything as significant. <em>Psychological Science</em>, <em>22</em>(11), 1359–1366. https://doi.org/10.1177/0956797611417632</p>
+    <p>Swann, W. B., Jr., Jetten, J., Gómez, Á., Whitehouse, H., &amp; Bastian, B. (2012). When group membership gets personal: A theory of identity fusion. <em>Psychological Review</em>, <em>119</em>(3), 441–456. https://doi.org/10.1037/a0028589</p>
+    <p>Wilkinson, M. D., et al. (2016). The FAIR Guiding Principles for scientific data management and stewardship. <em>Scientific Data</em>, <em>3</em>, 160018. https://doi.org/10.1038/sdata.2016.18</p>
+    <p><em>AI Disclosure.</em> AI tools were used to assist with manuscript preparation. The underlying theory, arguments, and interpretive claims are the author’s own, and the author takes full responsibility for the content.</p>
+    <p><em>Citation:</em> Jones, J. C. (2026). Update Integrity Standard (UIS v1.0): A Structural Ethic for Preserving Corrigibility in Record-Based Systems. HoldingLight LLC.</p>
+    <p>Series: Universal Collapse Theory — Standards Layer</p>
+    <p>Companions: <em>Records Across Nature, Life, and Mind</em>; <em>The Structuralization of Empiricism</em></p>
+    <p>© 2026 Jeremy C. Jones — HoldingLight LLC</p>
+    </section>
+
+    <a href="#top" class="backtotop">&uarr; Back to top</a>
+  </article>
+
+</div>
+
+<script>
+(function () {
+  var bar = document.getElementById('progress');
+  function onScroll() {
+    var h = document.documentElement;
+    var pct = h.scrollTop / (h.scrollHeight - h.clientHeight);
+    bar.style.width = (pct * 100).toFixed(1) + '%';
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav.toc a'));
+  var targets = links.map(function (a) {
+    return document.getElementById(decodeURIComponent(a.getAttribute('href')).slice(1));
+  });
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      var i = targets.indexOf(e.target);
+      if (i < 0) return;
+      links.forEach(function (l) { l.classList.remove('active'); });
+      links[i].classList.add('active');
+    });
+  }, { rootMargin: '-10% 0px -80% 0px' });
+  targets.forEach(function (t) { if (t) obs.observe(t); });
+
+  var btn = document.getElementById('toc-toggle');
+  var nav = document.getElementById('toc');
+  btn.addEventListener('click', function () {
+    var c = nav.getAttribute('data-collapsed') === 'true';
+    nav.setAttribute('data-collapsed', String(!c));
+    btn.setAttribute('aria-expanded', String(c));
+    btn.textContent = c ? 'Hide contents' : 'Show contents';
+  });
+
+  document.querySelectorAll('article section[id] > h1, article section[id] > h2').forEach(function (h) {
+    var a = document.createElement('a');
+    a.className = 'anchor';
+    a.href = '#' + h.parentNode.id;
+    a.textContent = '#';
+    a.setAttribute('aria-label', 'Link to this section');
+    h.appendChild(a);
+  });
+})();
+</script>
+
+</body>
+</html>

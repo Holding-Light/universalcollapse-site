@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WP03 — Biological Collapse — Universal Collapse Theory</title>
+  <meta name="description" content="Abiogenesis, evolution, and the major transitions read as constrained collapse.">
+
+  <!-- Full-text reading copy. The citable record is the landing page;
+       canonical points there so Scholar and search consolidate on one URL. -->
+  <link rel="canonical" href="https://universalcollapse.com/read/wp03">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="WP03 — Biological Collapse — Universal Collapse Theory">
+  <meta property="og:description" content="Abiogenesis, evolution, and the major transitions read as constrained collapse.">
+  <meta property="og:url" content="https://universalcollapse.com/read/wp03">
+  <meta property="og:site_name" content="Universal Collapse Theory">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@300;400&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg-deep: #08090c;
+      --bg-surface: #0e1017;
+      --bg-elevated: #161820;
+      --text-primary: #e8e6e1;
+      --text-secondary: #9b978f;
+      --text-tertiary: #5e5b54;
+      --accent: #c9a96e;
+      --accent-dim: #8a7245;
+      --rule: rgba(201, 169, 110, 0.12);
+      --serif: 'EB Garamond', Georgia, serif;
+      --sans: 'Outfit', system-ui, sans-serif;
+      --mono: 'JetBrains Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg-deep);
+      color: var(--text-primary);
+      font-family: var(--sans);
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    #progress {
+      position: fixed; top: 0; left: 0; height: 2px; width: 0%;
+      background: var(--accent); z-index: 100; transition: width 0.1s linear;
+    }
+
+    .topbar {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(8, 9, 12, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--rule);
+      padding: 0.75rem 1.5rem;
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 0.8rem;
+    }
+    .topbar a { color: var(--text-secondary); text-decoration: none; }
+    .topbar a:hover { color: var(--accent); }
+    .topbar .cite { color: var(--text-tertiary); font-family: var(--mono); font-size: 0.7rem; }
+
+    .shell {
+      max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem 6rem;
+      display: grid; grid-template-columns: minmax(0, 220px) minmax(0, 1fr); gap: 3rem;
+    }
+
+    nav.toc {
+      position: sticky; top: 5rem; align-self: start;
+      max-height: calc(100vh - 8rem); overflow-y: auto;
+      font-size: 0.8rem; line-height: 1.6;
+    }
+    nav.toc > p {
+      color: var(--text-tertiary); text-transform: uppercase;
+      letter-spacing: 0.12em; font-size: 0.65rem; margin-bottom: 0.75rem;
+    }
+    nav.toc ul { list-style: none; }
+    nav.toc ul ul { padding-left: 0.85rem; }
+    nav.toc li { margin: 0.3rem 0; }
+    nav.toc a {
+      color: var(--text-secondary); text-decoration: none;
+      display: block; padding-left: 0.6rem;
+      border-left: 1px solid transparent;
+    }
+    nav.toc a:hover { color: var(--text-primary); }
+    nav.toc a.active { color: var(--accent); border-left-color: var(--accent); }
+
+    article { min-width: 0; }
+
+    .paper-head { border-bottom: 1px solid var(--rule); padding-bottom: 1.75rem; margin-bottom: 2.5rem; }
+    .paper-head .tier {
+      font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.15em;
+      color: var(--accent-dim); text-transform: uppercase;
+    }
+    .paper-head h1 {
+      font-family: var(--serif); font-weight: 500; font-size: 2.1rem;
+      line-height: 1.2; margin: 0.75rem 0 0.5rem; color: var(--text-primary);
+    }
+    .paper-head .sub { font-family: var(--serif); font-style: italic; color: var(--text-secondary); font-size: 1.05rem; }
+    .paper-head .meta { margin-top: 1.1rem; font-size: 0.78rem; color: var(--text-tertiary); }
+    .paper-head .meta a { color: var(--accent-dim); text-decoration: none; }
+
+    article h1, article h2, article h3 {
+      font-family: var(--serif); font-weight: 600; line-height: 1.3;
+      color: var(--text-primary); scroll-margin-top: 5rem;
+    }
+    article h1 { font-size: 1.5rem; margin: 3rem 0 1rem; }
+    article h2 { font-size: 1.2rem; margin: 2rem 0 0.75rem; color: var(--text-secondary); }
+    article h3 { font-size: 1.05rem; margin: 1.5rem 0 0.5rem; color: var(--text-secondary); }
+
+    article h1 .anchor, article h2 .anchor {
+      opacity: 0; margin-left: 0.5rem; color: var(--accent-dim);
+      text-decoration: none; font-size: 0.7em; font-family: var(--sans);
+    }
+    article h1:hover .anchor, article h2:hover .anchor { opacity: 1; }
+
+    article p {
+      font-family: var(--serif); font-size: 1.12rem; font-weight: 400;
+      line-height: 1.75; margin: 0 0 1.15rem; color: var(--text-primary);
+    }
+    article ul, article ol { font-family: var(--serif); font-size: 1.12rem; margin: 0 0 1.15rem 1.5rem; }
+    article li { margin-bottom: 0.4rem; }
+    article strong { font-weight: 600; color: var(--text-primary); }
+    article em { font-style: italic; }
+    article a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--rule); }
+    article blockquote {
+      border-left: 2px solid var(--accent-dim); padding-left: 1.25rem;
+      margin: 1.5rem 0; color: var(--text-secondary); font-style: italic;
+      border-radius: 0;
+    }
+
+    math { font-size: 1.05em; color: var(--text-primary); }
+
+    .backtotop {
+      display: inline-block; margin-top: 3rem; padding-top: 1.5rem;
+      border-top: 1px solid var(--rule); width: 100%;
+      font-size: 0.8rem; color: var(--text-tertiary); text-decoration: none;
+    }
+    .backtotop:hover { color: var(--accent); }
+
+    #toc-toggle { display: none; }
+
+    @media (max-width: 820px) {
+      .shell { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; padding: 1.25rem 1.1rem 4rem; }
+      nav.toc {
+        position: static; max-height: none; order: -1;
+        border: 1px solid var(--rule); border-radius: 6px; padding: 0.9rem 1rem;
+      }
+      nav.toc[data-collapsed="true"] ul { display: none; }
+      #toc-toggle { display: block; background: none; border: none; color: var(--text-secondary);
+        font-family: var(--sans); font-size: 0.75rem; cursor: pointer; padding: 0; }
+      .paper-head h1 { font-size: 1.6rem; }
+      article p, article ul, article ol { font-size: 1.08rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<div class="topbar">
+  <a href="https://universalcollapse.com/wp03">&larr; Biological Collapse</a>
+  <span class="cite">10.17605/OSF.IO/5SZ86</span>
+</div>
+
+<div class="shell">
+
+  <nav class="toc" id="toc" data-collapsed="false">
+    <p>Contents</p>
+    <button id="toc-toggle" aria-expanded="true">Hide contents</button>
+    <ul>
+    <li><a href="#abstract" id="toc-abstract">Abstract</a></li>
+    <li><a href="#introduction-life-as-a-phase-of-collapse-behavior" id="toc-introduction-life-as-a-phase-of-collapse-behavior">§1 Introduction: Life as a Phase of Collapse Behavior</a></li>
+    <li><a href="#first-biological-collapse-substrate-gradients-and-pre-life-coherence" id="toc-first-biological-collapse-substrate-gradients-and-pre-life-coherence">§2 First Biological Collapse: Substrate, Gradients, and Pre-Life Coherence</a>
+    <ul>
+    <li><a href="#structured-potential-on-a-young-earth" id="toc-structured-potential-on-a-young-earth">2.1 Structured potential on a young Earth</a></li>
+    <li><a href="#gradients-light-and-chemical-collapse" id="toc-gradients-light-and-chemical-collapse">2.2 Gradients, light, and chemical collapse</a></li>
+    <li><a href="#life-as-a-phase-deep-basins-and-extinction-resistance" id="toc-life-as-a-phase-deep-basins-and-extinction-resistance">2.3 Life as a phase: deep basins and extinction-resistance</a></li>
+    <li><a href="#summary-and-bridge-to-evolution-as-collapse" id="toc-summary-and-bridge-to-evolution-as-collapse">2.4 Summary and bridge to evolution as collapse</a></li>
+    </ul></li>
+    <li><a href="#genetic-information-as-records-and-constraints" id="toc-genetic-information-as-records-and-constraints">§3 Genetic Information as Records and Constraints</a>
+    <ul>
+    <li><a href="#genomes-as-records-of-biological-collapse" id="toc-genomes-as-records-of-biological-collapse">3.1 Genomes as records of Biological Collapse</a></li>
+    <li><a href="#genotype-as-constraint-architecture" id="toc-genotype-as-constraint-architecture">3.2 Genotype as constraint architecture</a></li>
+    <li><a href="#phenotype-as-realized-outcome-under-nested-constraints" id="toc-phenotype-as-realized-outcome-under-nested-constraints">3.3 Phenotype as realized outcome under nested constraints</a></li>
+    <li><a href="#canalization-robustness-and-stable-developmental-basins" id="toc-canalization-robustness-and-stable-developmental-basins">3.4 Canalization, robustness, and stable developmental basins</a></li>
+    </ul></li>
+    <li><a href="#evolution-as-collapse-under-constraint" id="toc-evolution-as-collapse-under-constraint">§4 Evolution as Collapse Under Constraint</a>
+    <ul>
+    <li><a href="#evolution-as-iterative-collapse-on-ωbio" id="toc-evolution-as-iterative-collapse-on-ωbio">4.1 Evolution as iterative collapse on Ω<sub>bio</sub></a></li>
+    <li><a href="#variation-as-exploration-of-structured-potential" id="toc-variation-as-exploration-of-structured-potential">4.2 Variation as exploration of structured potential</a></li>
+    <li><a href="#selection-as-constraint-on-biological-outcomes" id="toc-selection-as-constraint-on-biological-outcomes">4.3 Selection as constraint on biological outcomes</a></li>
+    <li><a href="#fitness-landscapes-as-structured-potential" id="toc-fitness-landscapes-as-structured-potential">4.4 Fitness landscapes as structured potential</a></li>
+    <li><a href="#coherence-contingency-and-repeatability" id="toc-coherence-contingency-and-repeatability">4.5 Coherence, contingency, and repeatability</a></li>
+    <li><a href="#major-transitions-as-updates-to-kbio" id="toc-major-transitions-as-updates-to-kbio">4.6 Major transitions as updates to K<sub>bio</sub></a></li>
+    </ul></li>
+    <li><a href="#development-and-morphogenesis-as-nested-biological-collapse" id="toc-development-and-morphogenesis-as-nested-biological-collapse">§5 Development and Morphogenesis as Nested Biological Collapse</a>
+    <ul>
+    <li><a href="#from-single-cell-to-organism-as-a-collapse-sequence" id="toc-from-single-cell-to-organism-as-a-collapse-sequence">5.1 From single cell to organism as a collapse sequence</a></li>
+    <li><a href="#morphogen-gradients-and-patterning-as-early-constraint-fields" id="toc-morphogen-gradients-and-patterning-as-early-constraint-fields">5.2 Morphogen gradients and patterning as early constraint fields</a></li>
+    <li><a href="#lineage-trees-and-delayed-resolution" id="toc-lineage-trees-and-delayed-resolution">5.3 Lineage trees and delayed resolution</a></li>
+    <li><a href="#robustness-canalization-and-stable-developmental-basins" id="toc-robustness-canalization-and-stable-developmental-basins">5.4 Robustness, canalization, and stable developmental basins</a></li>
+    <li><a href="#plasticity-and-alternative-trajectories" id="toc-plasticity-and-alternative-trajectories">5.5 Plasticity and alternative trajectories</a></li>
+    <li><a href="#development-as-intra-organism-biological-collapse" id="toc-development-as-intra-organism-biological-collapse">5.6 Development as intra-organism Biological Collapse</a></li>
+    </ul></li>
+    <li><a href="#self-organization-and-emergent-complexity-as-iterative-collapse" id="toc-self-organization-and-emergent-complexity-as-iterative-collapse">§6 Self-Organization and Emergent Complexity as Iterative Collapse</a>
+    <ul>
+    <li><a href="#beyond-selection-when-structure-appears-on-its-own" id="toc-beyond-selection-when-structure-appears-on-its-own">6.1 Beyond selection: when structure appears “on its own”</a></li>
+    <li><a href="#constraint-closure-and-autocatalytic-sets" id="toc-constraint-closure-and-autocatalytic-sets">6.2 Constraint closure and autocatalytic sets</a></li>
+    <li><a href="#networks-as-stable-configurations-in-ωbio" id="toc-networks-as-stable-configurations-in-ωbio">6.3 Networks as stable configurations in Ω<sub>bio</sub></a></li>
+    <li><a href="#attractors-and-recurring-signatures-in-self-organizing-systems" id="toc-attractors-and-recurring-signatures-in-self-organizing-systems">6.4 Attractors and recurring signatures in self-organizing systems</a></li>
+    <li><a href="#complexity-science-as-a-catalog-of-collapse-patterns" id="toc-complexity-science-as-a-catalog-of-collapse-patterns">6.5 Complexity science as a catalog of collapse patterns</a></li>
+    </ul></li>
+    <li><a href="#populations-ecosystems-and-multi-level-organization" id="toc-populations-ecosystems-and-multi-level-organization">§7 Populations, Ecosystems, and Multi-Level Organization</a>
+    <ul>
+    <li><a href="#from-individuals-to-populations-as-collapse-domains" id="toc-from-individuals-to-populations-as-collapse-domains">7.1 From individuals to populations as collapse domains</a></li>
+    <li><a href="#multi-level-selection-and-nested-constraints" id="toc-multi-level-selection-and-nested-constraints">7.2 Multi-level selection and nested constraints</a></li>
+    <li><a href="#niche-construction-and-dynamic-environments" id="toc-niche-construction-and-dynamic-environments">7.3 Niche construction and dynamic environments</a></li>
+    <li><a href="#ecosystems-as-collective-stable-regimes" id="toc-ecosystems-as-collective-stable-regimes">7.4 Ecosystems as collective stable regimes</a></li>
+    <li><a href="#resilience-tipping-points-and-recurring-signatures" id="toc-resilience-tipping-points-and-recurring-signatures">7.5 Resilience, tipping points, and recurring signatures</a></li>
+    <li><a href="#multi-level-organization-and-the-life-phase" id="toc-multi-level-organization-and-the-life-phase">7.6 Multi-level organization and the life-phase</a></li>
+    </ul></li>
+    <li><a href="#proto-intent-directionality-without-consciousness" id="toc-proto-intent-directionality-without-consciousness">§8 Proto-intent: Directionality Without Consciousness</a>
+    <ul>
+    <li><a href="#from-passive-structure-to-active-directionality" id="toc-from-passive-structure-to-active-directionality">8.1 From passive structure to active directionality</a></li>
+    <li><a href="#networks-that-close-the-loop-sensing-internal-state-action" id="toc-networks-that-close-the-loop-sensing-internal-state-action">8.2 Networks that close the loop: sensing → internal state → action</a></li>
+    <li><a href="#teleonomy-not-teleology" id="toc-teleonomy-not-teleology">8.3 Teleonomy, not teleology</a></li>
+    <li><a href="#examples-slime-molds-plants-collectives" id="toc-examples-slime-molds-plants-collectives">8.4 Examples: slime molds, plants, collectives</a></li>
+    <li><a href="#proto-intent-as-a-spectrum" id="toc-proto-intent-as-a-spectrum">8.5 Proto-intent as a spectrum</a></li>
+    <li><a href="#summary-life-phase-directionality-without-new-forces" id="toc-summary-life-phase-directionality-without-new-forces">8.6 Summary: life-phase directionality without new forces</a></li>
+    </ul></li>
+    <li><a href="#empirical-signatures-and-structural-tests" id="toc-empirical-signatures-and-structural-tests">§9 Empirical Signatures and Structural Tests</a>
+    <ul>
+    <li><a href="#origin-of-life-and-constraint-closure" id="toc-origin-of-life-and-constraint-closure">9.1 Origin of life and constraint closure</a></li>
+    <li><a href="#evolutionary-constraints-and-convergent-evolution" id="toc-evolutionary-constraints-and-convergent-evolution">9.2 Evolutionary constraints and convergent evolution</a></li>
+    <li><a href="#development-canalization-and-delayed-resolution" id="toc-development-canalization-and-delayed-resolution">9.3 Development, canalization, and delayed resolution</a></li>
+    <li><a href="#ecosystems-self-organization-and-hysteresis" id="toc-ecosystems-self-organization-and-hysteresis">9.4 Ecosystems, self-organization, and hysteresis</a></li>
+    <li><a href="#proto-intent-and-biological-directionality" id="toc-proto-intent-and-biological-directionality">9.5 Proto-intent and biological directionality</a></li>
+    </ul></li>
+    <li><a href="#conclusion-biological-collapse-as-life-phase-organization" id="toc-conclusion-biological-collapse-as-life-phase-organization">§10 Conclusion: Biological Collapse as Life-Phase Organization</a></li>
+    <li><a href="#appendix-a-kernel-notation" id="toc-appendix-a-kernel-notation">Appendix A: Kernel Notation</a></li>
+    <li><a href="#appendix-b-biology-specific-notation-wp03" id="toc-appendix-b-biology-specific-notation-wp03">Appendix B: Biology-Specific Notation (WP03)</a>
+    <ul>
+    <li><a href="#b.1-domain-specific-notation-wp03" id="toc-b.1-domain-specific-notation-wp03">B.1 Domain-specific notation (WP03)</a></li>
+    <li><a href="#b.2-assumptions-and-scope" id="toc-b.2-assumptions-and-scope">B.2 Assumptions and scope</a></li>
+    <li><a href="#b.3-empirical-signatures-quick-reference" id="toc-b.3-empirical-signatures-quick-reference">B.3 Empirical signatures: quick reference</a></li>
+    </ul></li>
+    <li><a href="#references" id="toc-references">References</a></li>
+    </ul>
+  </nav>
+
+  <article>
+    <header class="paper-head">
+      <span class="tier">Tier 1 &amp;mdash; White Papers</span>
+      <h1>WP03 — Biological Collapse</h1>
+      <p class="sub">Life-Phase Organization, Genetic Records, Evolution, Development, and Proto-intent</p>
+      <p class="meta">
+        Jeremy C. Jones &middot; HoldingLight LLC &middot; 2026/05 &middot; CC BY 4.0<br>
+        Cite as <a href="https://doi.org/10.17605/OSF.IO/5SZ86">10.17605/OSF.IO/5SZ86</a>
+        
+      </p>
+    </header>
+
+    <p><strong>Universal Collapse Theory—Biological Collapse: Life as a Phase of Constraint-Guided Collapse (WP03 v1.0)</strong></p>
+    <p>Life-Phase Organization, Genetic Records, Evolution, Development, and Proto-intent</p>
+    <p>Jeremy C. Jones (ORCID 0009–0007–2515–3774)—HoldingLight LLC</p>
+    <p>© 2025–2026 | CC BY 4.0</p>
+    <p><em>Part of the Universal Collapse Theory White Papers Series</em></p>
+    <p>Companion volume: Universal Collapse Theory (2025), ISBN 978‑1‑969095‑01‑6.</p>
+    <p>Version: v1.0—Prepared 2026–05</p>
+    <p>Biological Collapse: Life as a Phase of Constraint-Guided Collapse</p>
+    <section id="abstract" class="level1">
+    <h1>Abstract</h1>
+    <p>This paper treats life as a phase of matter’s collapse behavior under sustained gradients. Biological Collapse is defined as the regime in which physical and chemical processes become organized such that structure begins to carry its own constraints forward. First Biological Collapse marks the threshold: the emergence of chemical networks that regenerate their own components and boundaries under persistent gradients — a phase change in collapse dynamics, not a new substance.</p>
+    <p>Once this phase exists, genomic information appears as both record and constraint: genomes compress past viable configurations into heritable architectures K<sub>geno</sub> that bias which phenotypes are reachable. We recast evolution as iterative Biological Collapse at the population level, development and morphogenesis as nested collapse sequences within individuals, self-organizing networks as stable configurations in biological state space, and populations and ecosystems as multi-level organizational regimes exhibiting resilience, tipping points, and hysteresis. We introduce proto-intent — the intrinsic directional character of any living system in an active state, observable as a systematic bias in collapse trajectories toward viability-preserving outcomes, without requiring conscious experience. Proto-intent is the biological inheritor of directional persistence already present in active physical states and the structural ancestor of conscious purpose.</p>
+    <p>Biological Collapse makes testable commitments. Across origin-of-life experiments, evolutionary landscapes, developmental biology, network science, and ecology, it identifies three recurring signatures — redundancy → consensus (S₁), neutrality → delayed resolution (S₂), sweeps → hysteresis (S₃) — as fingerprints of constraint-guided dynamics. If these signatures fail to appear where predicted, the framework must be revised or rejected.</p>
+    <p><strong>Keywords:</strong> biological collapse; life as a phase of matter; genotype–phenotype mapping; evolution as collapse under constraint; development and morphogenesis; self-organization and ecosystems; proto-intent (directionality without consciousness)</p>
+    <p><strong>Contents</strong></p>
+    <p><strong>Abstract</strong> 2</p>
+    <p><strong>§1 Introduction: Life as a Phase of Collapse Behavior</strong> 5</p>
+    <p><strong>§2 First Biological Collapse: Substrate, Gradients, and Pre-Life Coherence</strong> 6</p>
+    <blockquote>
+    <p>2.1 Structured potential on a young Earth 6</p>
+    <p>2.2 Gradients, light, and chemical collapse 7</p>
+    <p>2.3 Life as a phase: deep basins and extinction-resistance 8</p>
+    <p>2.4 Summary and bridge to evolution as collapse 9</p>
+    </blockquote>
+    <p><strong>§3 Genetic Information as Records and Constraints</strong> 10</p>
+    <blockquote>
+    <p>3.1 Genomes as records of Biological Collapse 10</p>
+    <p>3.2 Genotype as constraint architecture 11</p>
+    <p>3.3 Phenotype as realized outcome under nested constraints 12</p>
+    <p>3.4 Canalization, robustness, and stable developmental basins 13</p>
+    </blockquote>
+    <p><strong>§4 Evolution as Collapse Under Constraint</strong> 13</p>
+    <blockquote>
+    <p>4.1 Evolution as iterative collapse on Ω<sub>bio</sub> 13</p>
+    <p>4.2 Variation as exploration of structured potential 14</p>
+    <p>4.3 Selection as constraint on biological outcomes 14</p>
+    <p>4.4 Fitness landscapes as structured potential 15</p>
+    <p>4.5 Coherence, contingency, and repeatability 15</p>
+    <p>4.6 Major transitions as updates to K<sub>bio</sub> 16</p>
+    </blockquote>
+    <p><strong>§5 Development and Morphogenesis as Nested Biological Collapse</strong> 17</p>
+    <blockquote>
+    <p>5.1 From single cell to organism as a collapse sequence 17</p>
+    <p>5.2 Morphogen gradients and patterning as early constraint fields 17</p>
+    <p>5.3 Lineage trees and delayed resolution 18</p>
+    <p>5.4 Robustness, canalization, and stable developmental basins 18</p>
+    <p>5.5 Plasticity and alternative trajectories 18</p>
+    <p>5.6 Development as intra-organism Biological Collapse 19</p>
+    </blockquote>
+    <p><strong>§6 Self-Organization and Emergent Complexity as Iterative Collapse</strong> 19</p>
+    <blockquote>
+    <p>6.1 Beyond selection: when structure appears “on its own” 19</p>
+    <p>6.2 Constraint closure and autocatalytic sets 19</p>
+    <p>6.3 Networks as stable configurations in Ω<sub>bio</sub> 20</p>
+    <p>6.4 Attractors and recurring signatures in self-organizing systems 21</p>
+    <p>6.5 Complexity science as a catalog of collapse patterns 21</p>
+    </blockquote>
+    <p><strong>§7 Populations, Ecosystems, and Multi-Level Organization</strong> 21</p>
+    <blockquote>
+    <p>7.1 From individuals to populations as collapse domains 21</p>
+    <p>7.2 Multi-level selection and nested constraints 22</p>
+    <p>7.3 Niche construction and dynamic environments 22</p>
+    <p>7.4 Ecosystems as collective stable regimes 23</p>
+    <p>7.5 Resilience, tipping points, and recurring signatures 23</p>
+    <p>7.6 Multi-level organization and the life-phase 24</p>
+    </blockquote>
+    <p><strong>§8 Proto-intent: Directionality Without Consciousness</strong> 24</p>
+    <blockquote>
+    <p>8.1 From passive structure to active directionality 24</p>
+    <p>8.2 Networks that close the loop: sensing → internal state → action 25</p>
+    <p>8.3 Teleonomy, not teleology 26</p>
+    <p>8.4 Examples: slime molds, plants, collectives 27</p>
+    <p>8.5 Proto-intent as a spectrum 27</p>
+    <p>8.6 Summary: life-phase directionality without new forces 28</p>
+    </blockquote>
+    <p><strong>§9 Empirical Signatures and Structural Tests</strong> 28</p>
+    <blockquote>
+    <p>9.1 Origin of life and constraint closure 31</p>
+    <p>9.2 Evolutionary constraints and convergent evolution 32</p>
+    <p>9.3 Development, canalization, and delayed resolution 32</p>
+    <p>9.4 Ecosystems, self-organization, and hysteresis 33</p>
+    <p>9.5 Proto-intent and biological directionality 33</p>
+    </blockquote>
+    <p><strong>§10 Conclusion: Biological Collapse as Life-Phase Organization</strong> 34</p>
+    <p><strong>Appendix A: Kernel Notation</strong> 35</p>
+    <p><strong>Appendix B: Biology-Specific Notation (WP03)</strong> 35</p>
+    <blockquote>
+    <p>B.1 Domain-specific notation (WP03) 35</p>
+    <p>B.2 Assumptions and scope 37</p>
+    <p>B.3 Empirical signatures: quick reference 37</p>
+    </blockquote>
+    <p><strong>References</strong> 37</p>
+    </section>
+    <section id="introduction-life-as-a-phase-of-collapse-behavior" class="level1">
+    <h1>§1 Introduction: Life as a Phase of Collapse Behavior</h1>
+    <p>Biology has detailed accounts of how life works — how genes are regulated, how organisms develop, how populations evolve, how ecosystems respond to perturbation. What it does not yet have is a structural account of why the same patterns — convergence, canalization, hysteresis, directional behavior — recur across these domains that otherwise seem unrelated.</p>
+    <p>This paper proposes that these patterns share a common origin: life is a phase of collapse behavior under constraint. Formally, the paper uses a general collapse kernel in which structured possibilities are narrowed into realized outcomes under active constraints, leaving records that shape what becomes possible next. Within the broader Universal Collapse Theory (UCT) framework, that kernel was introduced in WP01 (Jones 2025a) and extended to physics in WP02 (Jones 2025b), where it accounts for how atoms, molecules, and phases of matter arise as stable configurations under physical constraints. Biological Collapse asks a natural next question:</p>
+    <p><em>What happens when collapse under constraint is applied to matter arranged in ways that can remember and update their own constraints?</em></p>
+    <p>This paper argues that life is the answer. On early Earth, physics had already produced a rich chemical possibility space Ω<sub>chem</sub> and strong gradients (solar, thermal, chemical) acting as physical constraints K<sub>phys</sub>. Biological Collapse begins when some chemical networks cross a threshold: they start to regenerate their own components and boundaries, turning gradients into self-maintaining, self-propagating organization. We call this transition First Biological Collapse. Life is not a new substance; it is a phase change in how collapse unfolds under ongoing gradients (see, e.g., Ruiz-Mirazo, Briones &amp; de la Escosura 2014; Lane 2015; Martin &amp; Russell 2007).</p>
+    <p>Once this phase exists, genomic information appears as both record and constraint. Genomes are records R of past Biological Collapse — stored traces of viable configurations that have persisted — and also part of the constraint architecture K<sub>geno</sub> that biases which regions of Ω<sub>bio</sub> are reachable. The genotype–phenotype map is treated as a specific instance of the kernel:</p>
+    <p><em>x<sub>pheno</sub></em><sup>*</sup> = C<sup>K(bio)</sup>(Ω<sub>bio</sub>),</p>
+    <p>where K<sub>bio</sub> = {K<sub>phys+chem</sub>, K<sub>geno</sub>, K<sub>dev</sub>, K<sub>env</sub>}. Robustness, canalization, and plasticity become properties of how stable developmental basins in Ω<sub>bio</sub> are shaped by this constraint architecture (cf. Alberts et al. 2014; Wagner 2005; Gilbert &amp; Barresi 2017).</p>
+    <p>On this foundation, the paper recasts evolution, development, self-organization, and ecological dynamics as different expressions of the same Biological Collapse. It introduces proto-intent — the directional bias of any active living system toward viability-preserving outcomes, without requiring consciousness — as the biological inheritor of directional persistence already present in physical states, and the structural ancestor of conscious purpose. The paper closes with empirical signatures (S₁–S₃) by which the framework can be tested.</p>
+    <p><strong>Scope.</strong> This paper offers a structural reframing of biological organization. It does not replace evolutionary biology, developmental biology, systems biology, or ecology; it proposes a common grammar across them. Operational details are developed separately in the Structural Biology Operating Manual (Jones 2026d), and the commitment-under-uncertainty argument is developed in Biological Faith Systems (Jones 2026a).</p>
+    <p><strong>Relation to the Standards Layer.</strong> Readers who want the methodological version of this framework before entering the biological implementation can consult <em>The Structuralization of Empiricism</em> (Jones 2026c), which presents the same recursive kernel as a portable formalism for empirical stabilization rather than as a domain-specific biological claim. WP03 applies that structural grammar to life: genomes, developmental systems, organisms, and ecosystems are treated as record-bearing, constraint-updating systems.</p>
+    <p><strong>Terminology.</strong> Throughout this paper, “constraint” is used in its general structural sense — any factor that narrows which configurations in a possibility space actually resolve. In biology, this grammar is already present under domain-native names: selection pressure, canalization, regulation, niche, developmental context. These are constraints in the kernel sense. WP03 treats them as a unified family not to replace these terms but to make visible what they share.</p>
+    </section>
+    <section id="first-biological-collapse-substrate-gradients-and-pre-life-coherence" class="level1">
+    <h1>§2 First Biological Collapse: Substrate, Gradients, and Pre-Life Coherence</h1>
+    <section id="structured-potential-on-a-young-earth" class="level2">
+    <h2>2.1 Structured potential on a young Earth</h2>
+    <p>By the time life appears, physics has already done a tremendous amount of work. Collapse under constraint has produced a planet with stable atoms, rich chemistry, a differentiated crust and ocean, and a star overhead. Early Earth is not a blank slate; it is a vast space of chemical configurations and reaction pathways — structured potential Ω<sub>chem</sub> — already shaped by physical constraints K<sub>phys</sub>: gravity, elemental abundances, temperature and pressure ranges, solvent properties, and more (see, e.g., Zahnle et al. 2007; Sleep 2018).</p>
+    <p>The question of “how life begins” is therefore not “how something comes from nothing,” but:</p>
+    <p><em>How do local, constraint-shaped chemical structures in Ω<sub>chem</sub> cross a threshold where collapse under constraint becomes self-maintaining and self-propagating?</em></p>
+    <p>That threshold is what we call First Biological Collapse: the first time chemical structure begins to recursively preserve and extend itself using its environment’s gradients, rather than simply appearing and dissolving as a transient pattern.</p>
+    <p>What this looks like in biological terms: some subset of chemical configurations begins interacting with gradients, surfaces, and catalysts in such a way that the products include self-promoting structures — autocatalytic cycles, replicators, proto-membranes — and the surviving structures begin to function as templates and boundary conditions that bias future chemistry toward similar outcomes, rather than dissolving back into transient configurations (Ruiz-Mirazo, Briones &amp; de la Escosura 2014; Martin &amp; Russell 2007; Lane 2015).</p>
+    <p>In kernel terms, biology begins when some subset of configurations Ω<sub>bio</sub> ⊂ Ω<sub>chem</sub> interacts with physical and chemical constraints K<sub>phys</sub> (gradients, surfaces, catalysts) such that realized outcomes x<sub>t</sub><sup>*</sup> include self-promoting structures and records R<sub>t</sub> now include templates that bias future collapse toward similar structures. At that point, constraints are no longer purely external — the system carries them forward, and K<sub>bio</sub> proper begins.</p>
+    <p>Experimental work has shown that small sets of molecules can form autocatalytic networks in plausible prebiotic conditions, where each component’s formation is catalyzed by others in the set — for example, self-replicating oligonucleotide cycles (Sievers &amp; von Kiedrowski 1994), peptide autocatalytic networks (Ashkenasy et al. 2004), and ribozyme recombination networks (Hayden et al. 2008), alongside theoretical algorithms that detect such autocatalytic sets in model chemistries (Hordijk, Kauffman &amp; Steel 2011; Hordijk &amp; Steel 2017).</p>
+    <p>The thermodynamic backdrop here has been mapped from a different angle. Prigogine’s dissipative structures showed that systems far from equilibrium can spontaneously self-organize, sustaining order through continuous energy throughput rather than approaching thermodynamic death (Prigogine 1977; Nicolis &amp; Prigogine 1977). The maximum entropy production literature extends this picture: complex systems often configure themselves to dissipate gradients faster than simpler alternatives, with biological organization a local maximum of this tendency (Kleidon 2010; Martyushev &amp; Seleznev 2006). What Biological Collapse adds is structural specification of the relationship between dissipation and persistence. Dissipative structures and MEP describe the energetic conditions under which order can be maintained; the kernel describes how that order accumulates records and updates its own constraints. Prigogine answers “how does order survive in a dissipating universe”; Biological Collapse answers “how does that survival become heritable.”</p>
+    <p>At that moment, chemical collapse becomes biological collapse: the system has acquired a minimal capacity to carry its own constraints forward.</p>
+    </section>
+    <section id="gradients-light-and-chemical-collapse" class="level2">
+    <h2>2.2 Gradients, light, and chemical collapse</h2>
+    <p>Prebiotic Earth was saturated with gradients: thermal gradients (day–night, vents vs. ocean), chemical gradients (redox pairs, pH differences, mineral interfaces), and — crucially — radiative gradients from the Sun.</p>
+    <p>On a planetary surface, this becomes very concrete:</p>
+    <ul>
+    <li><p>Low-entropy solar photons arrive from a small solid angle.</p></li>
+    <li><p>Earth re-emits higher-entropy infrared photons across a much larger solid angle.</p></li>
+    <li><p>The difference is usable energy: it can drive chemical reactions and sustain organization before being dissipated as waste heat (Kleidon 2010; Kleidon 2012).</p></li>
+    </ul>
+    <p>The Sun does not produce life directly. It extends the range of chemical configurations that can be sustained by continually supplying structured energy to Ω<sub>chem</sub>. Any region that can intercept and channel that energy — surface pools, mineral surfaces, ice films, vents illuminated at shallow depths — can serve as a setting where chemical collapse generates new stable structures.</p>
+    <p>Multiple origin-of-life scenarios (UV-driven surface chemistry, hydrothermal vents, tidal pools, ice matrices) differ in detail but share the same structural core:</p>
+    <ul>
+    <li><p>a rich chemical possibility space Ω<sub>chem</sub>;</p></li>
+    <li><p>strong, persistent gradients (including light) acting as physical and chemical constraints K<sub>phys</sub>;</p></li>
+    <li><p>repeated collapse C<sup>K(phys)</sup>(Ω<sub>chem</sub>) generating stable chemical structures (cycles, polymers, compartments);</p></li>
+    <li><p>some of those structures beginning to capture and reuse the gradients that produced them (Sutherland 2016; Russell, Daniel &amp; Hall 1993; Deamer 2017; Damer &amp; Deamer 2020).</p></li>
+    </ul>
+    <p>First Biological Collapse thus appears when certain chemical structures become sinks for gradient flow that reconstitute themselves. Light and entropy are not incidental; they are the fuel and bookkeeping of this process: light delivers structured energy, early metabolisms and radiative losses carry away residue S, and surviving structures R embody the first biological records.</p>
+    <p>The relationship to autocatalytic-set (RAF) theory is one of generalization. RAF formalisms (Hordijk &amp; Steel 2004, 2017) specify the chemical conditions under which a reaction network becomes collectively self-sustaining: every reaction is catalyzed by a member of the set, and every member can be produced from a designated food source by reactions in the set. Biological Collapse treats RAF closure as one realization of constraint closure (§6.2) — the chemical instance of the broader structural relation in which records and constraints co-update. RAF is not displaced by the kernel framing; it is the chemistry-level manifestation of what the kernel describes structurally across substrates. Where RAF specifies “what self-sustaining means in chemistry,” the kernel specifies “what self-sustaining means in any system that produces and maintains its own constraints.”</p>
+    </section>
+    <section id="life-as-a-phase-deep-basins-and-extinction-resistance" class="level2">
+    <h2>2.3 Life as a phase: deep basins and extinction-resistance</h2>
+    <p>From this structural perspective, “life” is not any particular molecule, cell, or species. It is a phase regime in the space of chemical states: a region of Ω<sub>chem</sub> where collapse under constraints naturally produces self-maintaining, self-propagating networks — autocatalytic sets, replicators, and eventually cells — that preserve and elaborate their own constraints.</p>
+    <p>Once such a regime appears and finds a robust foothold, it can be surprisingly hard to eliminate. Mass extinctions prune specific lineages and ecosystems, but they do not destroy the broader life-phase constraint regime K<sub>bio</sub> that makes biological organization possible (Benton 1995; Erwin 2006). As long as:</p>
+    <ul>
+    <li><p>gradients (e.g., solar + geochemical) persist, and</p></li>
+    <li><p>planetary conditions support complex chemistry,</p></li>
+    </ul>
+    <p>the system remains inside the basin of attraction for biological collapse. Surviving lineages can radiate into emptied niches; in extreme cases, fresh origin-like events might become possible if complexity is driven low enough.</p>
+    <p>This persistence is not passive. Even the simplest self-maintaining networks must commit resources to structure under conditions of incomplete information — investing in repair, replication, and boundary maintenance without any guarantee that conditions will hold. This commitment-under-uncertainty is a structural feature of the life-phase itself, not merely one strategy among many; Biological Faith Systems (Jones 2026a) develops this argument in full.</p>
+    <p>The phase analogy makes the point concrete:</p>
+    <ul>
+    <li><p>You can melt a crystal without destroying the solid phase as a possibility.</p></li>
+    <li><p>To remove the phase entirely, you must change K so drastically (e.g., temperature and pressure) that no crystal can exist.</p></li>
+    </ul>
+    <p>Similarly, to truly “kill life” in the deep sense would mean shifting K<sub>bio</sub> so far that no self-maintaining networks can form at all — for instance by stripping away gradients, solvents, and accessible chemistry. Short of that, what we usually call “killing life” is pruning branches within the life-phase, not annihilating the phase itself. Given an Earth-like environment and sufficient time, the emergence and persistence of life are not miracles of chance but expressions of the same constraint-guided dynamics that shaped atoms, molecules, and larger physical structures.</p>
+    <p>Whether life is cosmically inevitable given the right conditions or vanishingly contingent remains contested (de Duve 1995; Gould 1989). The structural account developed here predicts that life-phase organization is a high-probability attractor at the phase level, while specific lineages remain contingent. The prediction is structural — it follows from the kernel and would update with it.</p>
+    </section>
+    <section id="summary-and-bridge-to-evolution-as-collapse" class="level2">
+    <h2>2.4 Summary and bridge to evolution as collapse</h2>
+    <p>First Biological Collapse marks the point where:</p>
+    <ul>
+    <li><p>structured potential Ω<sub>chem</sub>,</p></li>
+    <li><p>strong gradients (including light) acting as physical and chemical constraints K<sub>phys</sub>, and</p></li>
+    <li><p>repeated collapse C<sup>K(phys)</sup></p></li>
+    </ul>
+    <p>produce self-maintaining, self-propagating chemical networks that begin to carry their own constraints forward as records R (as outlined in §§2.1–2.3). Once those networks persist, K<sub>bio</sub> proper emerges: the system’s own architecture becomes part of the constraint set. Life appears as a phase regime in chemical state space, with a deep basin of attraction as long as planetary constraints remain within broad bounds.</p>
+    <p>The next step is to ask how this regime behaves once established. Given:</p>
+    <ul>
+    <li><p>heritable records (proto-genetic information),</p></li>
+    <li><p>imperfect replication (variation), and</p></li>
+    <li><p>differential persistence (selection under changing environmental constraints),</p></li>
+    </ul>
+    <p>Biological Collapse becomes evolutionary collapse: the iterative restructuring of Ω<sub>bio</sub> under fitness constraints. The following sections treat evolution, development, and ecological organization as higher-order expressions of the same kernel — showing how the constraint-guided dynamics that operated in physics and pre-life chemistry continue to operate through biological time.</p>
+    <p>A note on terminology: “phase” here is structural rather than thermodynamic in the strict statistical-mechanics sense. The claim is that life is a robustly occupied region of state space with hysteresis, deep basins, and resistance to dissolution — properties that justify the phase analogy without committing to a specific thermodynamic order parameter.</p>
+    </section>
+    </section>
+    <section id="genetic-information-as-records-and-constraints" class="level1">
+    <h1>§3 Genetic Information as Records and Constraints</h1>
+    <section id="genomes-as-records-of-biological-collapse" class="level2">
+    <h2>3.1 Genomes as records of Biological Collapse</h2>
+    <p>Once First Biological Collapse has occurred, life carries its own history forward in a new way. Chemical structure no longer just appears and dissolves; it is copied with variation. Genomic material (DNA, RNA, stable templates) is the first durable and clearly heritable form of biological record R: stored traces of which configurations have survived under the prevailing constraints.</p>
+    <p>From a structural perspective, a genome is not a “blueprint” in the folk sense. It is a compressed summary of past biological outcomes that have managed to persist. Each sequence encodes:</p>
+    <ul>
+    <li><p>a particular way of routing gradients through matter (metabolic pathways, structural proteins),</p></li>
+    <li><p>a particular boundary architecture (membranes, cell walls),</p></li>
+    <li><p>and a particular interaction pattern with environment and other organisms.</p></li>
+    </ul>
+    <p>These are not arbitrary. They are the accumulated result of selection acting on Ω<sub>bio</sub>: the space of possible living configurations. Genomic records R persist because, under historical constraint sets K<sub>bio</sub>, they repeatedly produced viable outcomes x*. They are survivor codes (Alberts et al. 2014; Maynard Smith &amp; Szathmáry 1995; Lane 2015).</p>
+    <p>In kernel notation:</p>
+    <p>Genome<sub>t</sub> ∈ R<sub>t</sub></p>
+    <p>At biological time t, the genomes present in a population are part of the population’s heritable information — not just passive strings but stored structure that shapes future collapse.</p>
+    </section>
+    <section id="genotype-as-constraint-architecture" class="level2">
+    <h2>3.2 Genotype as constraint architecture</h2>
+    <p>Genomes do not act alone. A bare DNA sequence floating in vacuum does nothing. To become causally relevant, a sequence must be embedded in:</p>
+    <ul>
+    <li><p>a cellular context (transcription/translation machinery, membrane, cytoplasm),</p></li>
+    <li><p>a regulatory architecture (promoters, enhancers, repressors, epigenetic marks),</p></li>
+    <li><p>an environment (nutrients, temperature, signals, other organisms).</p></li>
+    </ul>
+    <p>Together, these form a constraint architecture K<sub>geno</sub> that biases which states in Ω<sub>bio</sub> are accessible and how likely they are to be realized (Alberts et al. 2014; Ptashne 2004; Jaenisch &amp; Bird 2003; Alon 2006).</p>
+    <p>We can thus treat the genotype not only as a record R but also as part of K:</p>
+    <p>K<sub>bio</sub> = {K<sub>phys+chem</sub>, K<sub>geno</sub>, K<sub>dev</sub>, K<sub>env</sub>}</p>
+    <p>Here:</p>
+    <ul>
+    <li><p>K<sub>phys+chem</sub> captures the physical and chemical constraints that underlie all biology (atoms, reaction networks, solvent properties, diffusion, thermodynamics).</p></li>
+    <li><p>K<sub>geno</sub> encodes the heritable architecture: which proteins can be made, how they are regulated, how cells divide, what structures can be built.</p></li>
+    <li><p>K<sub>dev</sub> encodes developmental constraints: morphogenetic fields, regulatory cascades, tissue geometry, and stage-dependent context (elaborated in §5).</p></li>
+    <li><p>K<sub>env</sub> encodes local environment: temperature, resources, toxins, competitors, symbionts.</p></li>
+    </ul>
+    <p>This decomposition aligns with a longstanding argument in developmental systems theory. Oyama (2000), Griffiths and Gray (1994), and colleagues have argued for two decades that development cannot be understood by privileging genes as a singular informational locus; multiple heritable resources — cellular machinery, parental environment, niche conditions, learned behaviors — participate in producing each generation’s organisms. The kernel framing makes this point structurally: K<sub>geno</sub> is one constraint set among several, and other components of K<sub>bio</sub> carry their own inheritance dynamics. K<sub>dev</sub> is partly inherited through cellular structure and maternal effects; K<sub>env</sub> is partly inherited through niche construction (§7.3); even K<sub>phys+chem</sub> reflects long-stable physical regularities that organisms inherit by being embedded in them. What developmental systems theory establishes — that inheritance is plural and that genomes are one channel among several — the kernel formalizes by indexing constraint sets and their update rules separately.</p>
+    <p>Under this combined K, collapse C<sup>K(bio)</sup> does not explore every imaginable organismal configuration. It explores a tiny, biased subset defined by the genotype’s constraint architecture and its interaction with environment.</p>
+    <p>The genotype is the part of K that can be copied and varied, and thus the main handle by which Biological Collapse reshapes its own constraints over evolutionary time via the update rule:</p>
+    <p>K<sub>geno, t+1</sub> = U(K<sub>geno, t</sub>, x<sub>pheno, t</sub><sup>*</sup>, R<sub>t</sub>).</p>
+    <p>Here U is the composite update operator generated by mutation, drift, recombination, and selection acting across generations; the structural argument does not depend on which weighting these mechanisms receive in a given system, so U is left unspecified at this level of abstraction.</p>
+    <p>This characterization treats the genotype as the dominant inheritance channel; epigenetic marks, parental effects, and other inclusive-inheritance mechanisms operate alongside it as additional channels that propagate constraints across generations (Jablonka &amp; Lamb 2014). The kernel framing accommodates these by treating R as a multi-channel record set rather than collapsing inheritance into K<sub>geno</sub> alone.</p>
+    </section>
+    <section id="phenotype-as-realized-outcome-under-nested-constraints" class="level2">
+    <h2>3.3 Phenotype as realized outcome under nested constraints</h2>
+    <p>If genotype is a constraint architecture, then phenotype — the actual organism — is a realized outcome:</p>
+    <p><em>x<sub>pheno</sub></em><sup>*</sup> = C<sup>K(bio)</sup>(Ω<sub>bio</sub>).</p>
+    <p>Here, Ω<sub>bio</sub> includes all potential developmental trajectories, morphologies, physiological states, and behaviors compatible with physics and chemistry. The combined constraints — physical, genomic, and environmental — select a particular path through that space: a particular body plan, pattern of gene expression, and set of functional capacities. These constraints act simultaneously throughout development, not in sequence (Alberts et al. 2014; Gilbert &amp; Barresi 2017).</p>
+    <p>Phenotype is not gene output alone — it is the outcome of this nested collapse (many developmental resolutions occurring within the larger organismal one), where environment and stochastic micro-variations matter and genotype biases the distribution of possible outcomes rather than fully determining them. Development is a sequence of such collapses: at each stage, many possibilities are pruned, narrowing the organism into a stable configuration within Ω<sub>bio</sub> (the space of viable living forms). Plasticity reflects slack in K — room within the constraints for variation — such that when the environment changes, some genotypes support a range of viable phenotypes. Canalization, conversely, indicates that the combined K sharply favors one narrow region (West-Eberhard 2003; Wagner 2014; Gilbert &amp; Barresi 2017).</p>
+    <p>The genotype–phenotype map is therefore not a static dictionary. It is a collapse operator: given a particular constraint architecture and environment, it generates realized organisms and their behaviors as x<sub>pheno</sub><sup>*</sup>.</p>
+    </section>
+    <section id="canalization-robustness-and-stable-developmental-basins" class="level2">
+    <h2>3.4 Canalization, robustness, and stable developmental basins</h2>
+    <p>From a structural perspective, robust phenotypes are those that occupy deep basins in Ω<sub>bio</sub>: many developmental trajectories converge to the same structural outcome, and the resulting organization remains functional under perturbation. Waddington’s epigenetic landscape captures this intuition geometrically — a picture of collapse under K into a small number of deep basins where many trajectories converge (Waddington 1957; Wagner 2005).</p>
+    <p>Once we recognize genomes as both records (R) and constraints (part of K), robustness and canalization follow naturally: selection has pruned fragile architectures and retained those that form stable basins in organismal state space (Kitano 2004). Canalization is the presence of steep, deep basins where many starting conditions converge on the same developmental outcome.</p>
+    <p>These are not mysterious properties. They are what happens when constraint architectures have been shaped over evolutionary time to channel development toward reliable outcomes — the structural signature of a system whose records and constraints have been co-refined by selection.</p>
+    </section>
+    </section>
+    <section id="evolution-as-collapse-under-constraint" class="level1">
+    <h1>§4 Evolution as Collapse Under Constraint</h1>
+    <section id="evolution-as-iterative-collapse-on-ωbio" class="level2">
+    <h2>4.1 Evolution as iterative collapse on Ω<sub>bio</sub></h2>
+    <p>Once genomes exist as both records R and constraints K<sub>geno</sub>, Biological Collapse no longer stops at producing single organisms. It becomes iterative:</p>
+    <p>Ω<sub>bio</sub> → <em>C<sup>K(bio)</sup></em> → x<sub>pheno</sub><sup>*</sup> → <em>Selection</em> → R′<sub>geno</sub> → <em>U</em> → K′<sub>geno</sub></p>
+    <p>where:</p>
+    <ul>
+    <li><p>Ω<sub>bio</sub> is the space of possible biological configurations (genotypes, phenotypes, developmental paths),</p></li>
+    <li><p>K<sub>bio</sub> = {K<sub>phys+chem</sub>, K<sub>geno</sub>, K<sub>dev</sub>, K<sub>env</sub>} is the current constraint architecture,</p></li>
+    <li><p>x<sub>pheno</sub><sup>*</sup> denotes the realized population of phenotypes in a generation,</p></li>
+    <li><p>selection prunes which genomes become records R′<sub>geno</sub> in the next generation,</p></li>
+    <li><p>and K′<sub>geno</sub> = U(K<sub>geno</sub>, x<sub>pheno</sub><sup>*</sup>, R′<sub>geno</sub>) is the updated heritable constraint set.</p></li>
+    </ul>
+    <p>This is the general kernel applied across generations. Evolution is Biological Collapse iterated over populations: each generation is a fresh collapse of Ω<sub>bio</sub> under current constraints, followed by an update of those constraints based on which phenotypes persist and reproduce (Futuyma 2013; Gillespie 2004).</p>
+    </section>
+    <section id="variation-as-exploration-of-structured-potential" class="level2">
+    <h2>4.2 Variation as exploration of structured potential</h2>
+    <p>Random mutation has often been framed as pure chance. Here, variation is constrained exploration of structured potential: mutations and recombinations explore Ω<sub>geno</sub> under molecular and developmental biases, so the reachable genotype space Ω<sub>geno</sub><sup>reachable</sup> is only a small, structured subset of Ω<sub>geno</sub>. Evolutionary novelty is emergence within that structured potential, not a blind walk through an arbitrary space (Maynard Smith 1970; Gavrilets 2004; Lynch 2007; Wagner 2014).</p>
+    <p>This framing aligns with two specific projects. Wagner’s Arrival of the Fittest (2014) argued that genotype–phenotype maps are organized such that variation is systematically biased toward viable forms — the structure of the search space, alongside selection, is what makes evolutionary novelty reachable. Kauffman’s adjacent possible (Kauffman 2000) names the related structural fact that any configuration has a small accessible neighborhood of next configurations, and this neighborhood is what evolution actually explores. Biological Collapse formalizes both relationships: Ω<sub>geno</sub><sup>reachable</sup> is a precise expression of the adjacent possible at the genomic level, and the constraint architecture K<sub>bio</sub> is what shapes it. The kernel framing extends this to a temporal recursion — reachable regions update over generations through the same C–K–R–U loop developed in §3.</p>
+    </section>
+    <section id="selection-as-constraint-on-biological-outcomes" class="level2">
+    <h2>4.3 Selection as constraint on biological outcomes</h2>
+    <p>Selection is constraint applied to biological outcomes. Given an environment K<sub>env</sub>, not all phenotypes x<sub>pheno</sub><sup>*</sup> are equally compatible with survival and reproduction. Selection acts as a filter on realized outcomes, enforcing:</p>
+    <ul>
+    <li><p>physiological viability (can the organism function at all?),</p></li>
+    <li><p>developmental robustness (can the organism reliably reach its phenotype?),</p></li>
+    <li><p>ecological fit (can it persist and reproduce in its niche?) (Darwin 1859; Fisher 1930; Futuyma 2013).</p></li>
+    </ul>
+    <p>Selection is thus collapse of collapse:</p>
+    <ul>
+    <li><p>First, development collapses Ω<sub>bio</sub> into phenotypes.</p></li>
+    <li><p>Then selection collapses the set of phenotypes into those whose constraint architectures can persist.</p></li>
+    </ul>
+    <p>What we call “adaptation” is the statistical imprint of this second collapse on the distribution of genotypes over time (Lande &amp; Arnold 1983; Orr 2005).</p>
+    </section>
+    <section id="fitness-landscapes-as-structured-potential" class="level2">
+    <h2>4.4 Fitness landscapes as structured potential</h2>
+    <p>A fitness landscape represents Ω<sub>geno</sub> as a domain whose scalar field encodes expected persistence and reproductive output under a given K<sub>env</sub>. High-fitness regions are robust basins: genotypes whose constraint architectures reliably generate viable phenotypes. Evolutionary trajectories are constraint-guided paths over this structured potential—variation generates local moves, and selection prunes those that leave stable basins while retaining those that deepen or shift them (Wright 1932; Kauffman 1993; Gavrilets 2004).</p>
+    <p>Landscapes are not static: as environments change and organisms modify their own niches, K<sub>env</sub> shifts and the landscape shifts with it (Odling-Smee, Laland &amp; Feldman 2003; de Visser &amp; Krug 2014).</p>
+    </section>
+    <section id="coherence-contingency-and-repeatability" class="level2">
+    <h2>4.5 Coherence, contingency, and repeatability</h2>
+    <p>Is evolution contingent or convergent? From the standpoint of a single lineage, paths are path-dependent. From the standpoint of Ω<sub>bio</sub> and K, however, many features recur—multicellularity, eyes, flight, nervous systems, sociality (Conway Morris 2003; Losos 2017). There are many ways to fall out of viability, but relatively few deep basins that robustly route gradients, maintain organization, and permit further adaptation.</p>
+    <p>Empirical fitness landscapes reinforce this picture: measurements of many mutational combinations in proteins and microbes show that fitness is typically rugged but structured, with only a small subset of mutational paths leading “uphill.” Classic experiments on β-lactamase (Weinreich et al. 2006) show that only a handful of the 120 possible mutational routes to high resistance are accessible (de Visser &amp; Krug 2014). Evolution therefore tends to follow a limited set of ridges in Ω<sub>geno</sub>, making convergence on certain peaks—the “good tricks”—far more likely than a random walk would suggest.</p>
+    <p>Convergent evolution — independent lineages arriving at similar solutions — is a recurring signature of repeated collapse under similar constraints arriving at the same or similar stable configurations. Contingency remains in the path taken; the constraint architecture limits the destination space (Conway Morris 2003; McGhee 2011).</p>
+    <p>Within the Conway Morris–Gould debate (Gould 1989; Conway Morris 2003), the structural account predicts that convergence is the rule — constraint architectures limit destination space — while contingency operates in the path taken.</p>
+    </section>
+    <section id="major-transitions-as-updates-to-kbio" class="level2">
+    <h2>4.6 Major transitions as updates to K<sub>bio</sub></h2>
+    <p>Some evolutionary changes are not just moves within a landscape; they change the structure of the landscape itself. Major transitions (genes → chromosomes, prokaryotes → eukaryotes, unicells → multicells, solitary → social) are naturally understood as updates to the constraint architecture:</p>
+    <p>K<sub>bio, t+1</sub> = U(K<sub>bio, t</sub>, x<sub>pheno, t</sub><sup>*</sup>, R<sub>t</sub>)</p>
+    <p>where:</p>
+    <ul>
+    <li><p>new levels of organization (e.g., cell groups, societies) become units of selection,</p></li>
+    <li><p>new record types appear (epigenetic marks, cultural transmission),</p></li>
+    <li><p>and new viable configurations open in Ω<sub>bio</sub> (Maynard Smith &amp; Szathmáry 1995; Szathmáry 2015; Okasha 2006).</p></li>
+    </ul>
+    <p>Each transition effectively changes:</p>
+    <ul>
+    <li><p>which configurations are even reachable (expanding Ω<sub>bio</sub><sup>reachable</sup>),</p></li>
+    <li><p>which constraints can be inherited (multi-level inheritance systems),</p></li>
+    <li><p>and where stable organization can be maintained (e.g., cooperation stabilized by new institutional or genetic mechanisms).</p></li>
+    </ul>
+    <p>These are not violations of Biological Collapse. They are higher-order collapses of K itself: constraint architectures emerge that allow deeper, more elaborate organization to persist under the same underlying physical and chemical laws.</p>
+    <p>The major-transitions framing also engages the Extended Evolutionary Synthesis. Laland and colleagues (Laland et al. 2015; Pigliucci &amp; Müller 2010) have argued that the modern synthesis needs structural extensions to account for developmental bias, niche construction, inclusive inheritance, and plasticity — phenomena treated as peripheral by gene-centric frameworks but foundational to how evolution actually proceeds. Biological Collapse is naturally compatible: the K<sub>bio</sub> decomposition treats inheritance as plural (§3.2), niche construction operates through K<sub>env</sub> updates (§7.3), developmental bias appears as constraint architecture in K<sub>dev</sub> (§5), and plasticity emerges from multiple basins selectable under K<sub>env</sub> shifts (§5.5). What the kernel adds is a unified update structure: K<sub>bio, t+1</sub> = U(K<sub>bio, t</sub>, x*<sub>t</sub>, R<sub>t</sub>) absorbs all four EES extensions into a single iterative form rather than treating them as separate amendments. The framework reads as EES with formal scaffolding rather than as a rival.</p>
+    </section>
+    </section>
+    <section id="development-and-morphogenesis-as-nested-biological-collapse" class="level1">
+    <h1>§5 Development and Morphogenesis as Nested Biological Collapse</h1>
+    <section id="from-single-cell-to-organism-as-a-collapse-sequence" class="level2">
+    <h2>5.1 From single cell to organism as a collapse sequence</h2>
+    <p>Development is Biological Collapse iterated within a single lifetime, as evolution is across generations. Starting from a zygote, an organism traces a path through Ω<sub>bio</sub>—the space of possible cellular states, tissue arrangements, and body plans—under a hierarchy of constraints:</p>
+    <ul>
+    <li><p>Genetic constraints K<sub>geno</sub>: encoded in the genome and its regulatory architecture.</p></li>
+    <li><p>Physico-chemical constraints K<sub>phys+chem</sub>: diffusion laws, reaction rates, mechanical properties of tissues, solvent, temperature.</p></li>
+    <li><p>Local developmental constraints K<sub>dev</sub>: morphogen gradients, cell–cell interactions, extracellular matrices, mechanical forces.</p></li>
+    <li><p>Environmental constraints K<sub>env</sub>: nutrients, gravity, temperature, signals, maternal effects (Alberts et al. 2014; Gilbert &amp; Barresi 2017).</p></li>
+    </ul>
+    <p>Together these form:</p>
+    <p>K<sub>bio</sub> = {K<sub>phys+chem</sub>, K<sub>geno</sub>, K<sub>dev</sub>, K<sub>env</sub>}</p>
+    <p>Under this combined K—which itself changes as development proceeds—the organism follows a nested collapse sequence. Ω<sub>bio</sub>(0) is the zygote’s structured potential; K<sub>bio</sub>(k) is the constraint architecture at stage k, reflecting new signals, changed tissue geometry, and updated cellular context; and x<sub>k</sub><sup>*</sup> are successive developmental states (early cleavages, germ layers, organ primordia, mature tissues). At each step, many possibilities are pruned and a smaller set remains viable. Development is therefore progressive collapse: a series of constrained resolutions under a shifting K that narrows the organism’s future while building a stable structure.</p>
+    </section>
+    <section id="morphogen-gradients-and-patterning-as-early-constraint-fields" class="level2">
+    <h2>5.2 Morphogen gradients and patterning as early constraint fields</h2>
+    <p>Classic models of morphogenesis — morphogen gradients, reaction–diffusion systems, positional-information schemes — can be understood directly in structural terms. A morphogen gradient is a spatially structured component of K<sub>dev</sub>: concentration fields and signaling profiles that bias which gene expression states, and therefore cell fates, are accessible at each location (Wolpert 1969; Turing 1952; Gierer &amp; Meinhardt 1972).</p>
+    <p>Cells at different positions collapse into different fates (muscle, neuron, epithelium) because their local K differs. Reaction–diffusion models simply specify a particular dynamical form for the gradient field; the structural role is the same: to partition the cellular state space into distinct stable states corresponding to differentiated cell types (Kondo &amp; Miura 2010; Green &amp; Sharpe 2015).</p>
+    <p>Tissues and organs are meso-scale stable configurations shaped by these patterned constraints. The same genome, under different gradient fields, collapses into different stable expression patterns and morphologies.</p>
+    </section>
+    <section id="lineage-trees-and-delayed-resolution" class="level2">
+    <h2>5.3 Lineage trees and delayed resolution</h2>
+    <p>Development does not resolve all fates at once. Stem and progenitor cells often remain multipotent or pluripotent for extended periods, resolving into specific lineages only when additional constraints (signals, contacts, mechanical stresses) arrive. This is a clear biological example of delayed resolution:</p>
+    <ul>
+    <li><p>Early on, cells occupy open regions of cellular state space where multiple fates remain compatible with current constraints.</p></li>
+    <li><p>As K changes (new signals, changed neighborhood), the open region tilts and collapse selects a specific fate (Gilbert &amp; Barresi 2017; Morrison &amp; Kimble 2006; Slack 2013).</p></li>
+    </ul>
+    <p>Lineage trees can therefore be viewed as deferred collapse graphs: at each branch point, progenitor states that were previously open are forced to resolve under new K. The timing of these branch points, and the robustness with which they produce similar outcomes, are measures of how sharply the constraints define stable developmental basins in the biological state space.</p>
+    </section>
+    <section id="robustness-canalization-and-stable-developmental-basins" class="level2">
+    <h2>5.4 Robustness, canalization, and stable developmental basins</h2>
+    <p>Despite noise in molecular processes and variability in environment, many organisms develop with striking precision: body plans, organ positions, and connectivity patterns are highly stereotyped. This is what we expect from deep basins in Ω<sub>bio</sub>:</p>
+    <ul>
+    <li><p>Many micro-level variations (stochastic gene expression, slight differences in cell position) still collapse into the same macro-level outcome.</p></li>
+    <li><p>Perturbations within a certain range are corrected by feedback in K (redundant signaling, mechanical compensation, regulatory network structure) (Kitano 2004; Wagner 2005; Jaeger &amp; Monk 2014).</p></li>
+    </ul>
+    <p>Modern evo-devo research reinforces this picture: gene regulatory networks preferentially produce certain phenotypes, and dynamical models show that genotypes and their regulatory architectures specify attractor basins corresponding to the stable developmental configurations that repeated collapse converges on (Uller et al. 2018; Jaeger &amp; Monk 2014). As in the genomic case (§3.4), canalization here is not mysterious robustness but the visible consequence of selection tuning constraint architectures toward reliable developmental outcomes.</p>
+    </section>
+    <section id="plasticity-and-alternative-trajectories" class="level2">
+    <h2>5.5 Plasticity and alternative trajectories</h2>
+    <p>Not all developmental pathways are tightly canalized. Many organisms exhibit plasticity: the ability to produce different phenotypes from the same genotype when K<sub>env</sub> changes (e.g., temperature-dependent sex determination, diet-induced morphs, caste differentiation). The genotype–development architecture defines a family of basins selectable by environmental inputs. Plasticity is thus a form of conditional collapse — not a breakdown of constraint-guided dynamics but a more complex constraint structure in the biological state space, where multiple viable outcomes are built into the architecture (West-Eberhard 2003; Pigliucci 2001).</p>
+    </section>
+    <section id="development-as-intra-organism-biological-collapse" class="level2">
+    <h2>5.6 Development as intra-organism Biological Collapse</h2>
+    <p>Development and morphogenesis are intra-organism expressions of the same kernel that governs evolution: the organism starts as a high-structured-potential state (zygote) and undergoes a sequence of collapses that progressively prune possibilities and stabilize structure under the biological constraint architecture. Development is not a separate ontological layer. It is Biological Collapse viewed from the inside.</p>
+    </section>
+    </section>
+    <section id="self-organization-and-emergent-complexity-as-iterative-collapse" class="level1">
+    <h1>§6 Self-Organization and Emergent Complexity as Iterative Collapse</h1>
+    <section id="beyond-selection-when-structure-appears-on-its-own" class="level2">
+    <h2>6.1 Beyond selection: when structure appears “on its own”</h2>
+    <p>Biological order arises through more than selection alone. Even in model systems such as reaction–diffusion dynamics or cellular automata, we see spontaneous patterning: stripes, spots, waves, oscillations. In living systems, metabolic cycles, gene regulatory networks, neural circuits, flocking, and division of labor all exhibit striking organization that cannot be reduced to “one gene at a time” or a single selective event (Turing 1952; Wolfram 2002; Camazine et al. 2001).</p>
+    <p>Self-organization is what happens when collapse under constraint is iterated inside a network: components repeatedly interact under a shared K, and the resulting dynamics settle into stable attractors—persistent or metastable patterns in biological state space that can be reused and elaborated (Kauffman 1993; Alon 2006).</p>
+    <p>Selection shapes which networks appear and persist. Self-organization describes how those networks behave once they exist.</p>
+    </section>
+    <section id="constraint-closure-and-autocatalytic-sets" class="level2">
+    <h2>6.2 Constraint closure and autocatalytic sets</h2>
+    <p>The recursive engine of Biological Collapse is constraint closure: the structural relation in which a set of processes produces and maintains the very constraints that channel them. Under repeated collapse C<sup>K(bio)</sup>, some reaction subnetworks begin to regenerate their own catalysts and compartments, generating new records and adding them to K. Once established, an autocatalytic set functions as a local constraint architecture:</p>
+    <p>K<sub>net</sub> ⊂ K<sub>bio</sub></p>
+    <p>that biases future collapses toward maintaining and extending that network. The closure is not metaphorical. The system’s outputs include the constraints on its own future behavior. This is the operational move that distinguishes Biological Collapse from passive constraint-application: collapse generates constraints, those constraints guide further collapse, and that further collapse generates further constraints. The recursion is the engine.</p>
+    <p>This structural relation has been approached from several directions in the prior literature. Maturana and Varela’s autopoiesis identified self-production of components and boundaries as the defining feature of living organization (Maturana &amp; Varela 1980; Varela 1979). Kauffman’s autocatalytic-set formalism specified the chemical conditions under which collective reaction networks become collectively self-sustaining (Kauffman 1993; Hordijk &amp; Steel 2004, 2017). Mossio, Montévil, Moreno, and colleagues developed organizational closure as a philosophical account of biological autonomy, distinguishing constraints — which channel processes — from processes — which dissipate energy — and showing that biological organization consists in constraints maintaining themselves through the processes they enable (Montévil &amp; Mossio 2015; Moreno &amp; Mossio 2015; Mossio, Montévil &amp; Longo 2016).</p>
+    <p>These literatures converge on the same structural fact from biology-specific framings. Biological Collapse adds two things. First, it locates constraint closure inside a kernel that operates beyond biology: the same record-constraint-update structure that closes biologically also closes in physics (where stable matter configurations carry constraints forward, WP02) and in cognition (where representational architectures shape their own future representations, developed in WP04). Constraint closure is not what makes life biological; it is what life inherits from collapse under constraint and elaborates into a phase. Second, the kernel makes the recursion’s intermediate steps inspectable. Collapse produces realized outcomes x*. Some realized outcomes persist as records R. Records become part of K. Updated K shapes the next collapse. K<sub>net</sub> ⊂ K<sub>bio</sub> is the formal expression of this loop closing locally inside a network. Mossio’s “constraints maintaining themselves through processes” and Maturana’s “self-producing organization” become specific instances of what the kernel describes structurally.</p>
+    <p>This is self-organization in the strict structural sense, and it is the operational reason living systems exhibit the recurring signatures developed in §6.4. Where the recursion runs cleanly, S₁ (redundancy → consensus) appears because many trajectories collapse to the same self-maintained attractor. S₂ (neutrality → delayed resolution) appears because the network can hover in metastable configurations before the closure tightens. S₃ (sweeps → hysteresis) appears because once a closure is established, returning the driving conditions to baseline does not unwind the records that closure produced. The signatures are not ornaments on the recursion. They are what the recursion looks like from outside.</p>
+    </section>
+    <section id="networks-as-stable-configurations-in-ωbio" class="level2">
+    <h2>6.3 Networks as stable configurations in Ω<sub>bio</sub></h2>
+    <p>Many familiar biological networks can be understood as stable configurations in state space: metabolic cycles (Krebs, Calvin) that route gradients through regenerating intermediates (Nelson &amp; Cox 2017); gene regulatory networks whose attractors in gene-expression space correspond to cell types and functional states (Alon 2006; Jaeger &amp; Monk 2014); neural circuits that stabilize patterns of activity and connectivity encoding sensorimotor routines, memories, and learned behaviors (Hopfield 1982; Dayan &amp; Abbott 2001); and collective behaviors—flocking, schooling, ant trail formation—that stabilize movement and resource patterns through local interaction rules (Camazine et al. 2001; Couzin 2009).</p>
+    </section>
+    <section id="attractors-and-recurring-signatures-in-self-organizing-systems" class="level2">
+    <h2>6.4 Attractors and recurring signatures in self-organizing systems</h2>
+    <p>Self-organizing systems often exhibit three recurring signatures:</p>
+    <p><strong>Redundancy → consensus (S<sub>1</sub>):</strong> Repeated runs of the same network under similar K converge to the same attractor — e.g., the same metabolic cycle, the same pattern in a reaction–diffusion system, similar flocking regimes.</p>
+    <p><strong>Neutrality → delayed resolution (S<sub>2</sub>):</strong> Networks can hover in metastable or marginal states before committing to a particular attractor. GRNs with multiple potential fates, neural circuits near a decision boundary, and ecosystems near a tipping point all show periods where the system remains flexible until a small change in K (signal, stressor) pushes it into a specific stable pattern.</p>
+    <p><strong>Sweeps → hysteresis (S<sub>3</sub>):</strong> When control parameters (e.g., coupling strength, resource availability) are swept up and down, self-organizing networks often exhibit hysteresis: the path into a pattern and the path out of it differ. Once a pattern is established, it persists beyond the conditions that originally triggered it, because the network’s own structure has become part of K.</p>
+    <p>These are not quirks of isolated models. They are the expected signatures of collapse under constraint in many-body, feedback-rich systems. Self-organization is simply where these signatures become easiest to see.</p>
+    </section>
+    <section id="complexity-science-as-a-catalog-of-collapse-patterns" class="level2">
+    <h2>6.5 Complexity science as a catalog of collapse patterns</h2>
+    <p>Complexity science has spent decades cataloging recurring motifs—power laws, criticality, small-world networks, modularity, scale-free degree distributions (Bak 1996; Watts &amp; Strogatz 1998; Barabási &amp; Albert 1999; Newman 2010). These are recurring organizational solutions in systems maintaining order under changing constraints. Complexity science names the motifs; Biological Collapse explains why living systems so often produce and stabilize them.</p>
+    </section>
+    </section>
+    <section id="populations-ecosystems-and-multi-level-organization" class="level1">
+    <h1>§7 Populations, Ecosystems, and Multi-Level Organization</h1>
+    <section id="from-individuals-to-populations-as-collapse-domains" class="level2">
+    <h2>7.1 From individuals to populations as collapse domains</h2>
+    <p>Thus far, Biological Collapse has been treated at the level of individual organisms and networks: genomes, development, self-organization. Life-phase organization also extends across populations — ensembles of organisms linked by reproduction and subject to shared environmental constraints.</p>
+    <p>A population at generation t can be described as a realized region Ω<sub>bio,t</sub> — the genotype–phenotype configurations actually instantiated across individuals — shaped by a constraint architecture K<sub>pop</sub> = {K<sub>phys+chem</sub>, K<sub>env</sub>, K<sub>demographic</sub>, K<sub>interaction</sub>} and iterated by a collapse operator C<sup>K(pop)</sup> that maps Ω<sub>bio,t</sub> into Ω<sub>bio,t+1</sub> (Futuyma 2013; Roughgarden 1998).</p>
+    <p>Each generation, Biological Collapse operates at two levels:</p>
+    <ul>
+    <li><p>Within individuals — development and self-organization collapse structured potential into viable phenotypes x<sub>pheno</sub><sup>*</sup>.</p></li>
+    <li><p>Across individuals — reproduction, death, and interaction collapse Ω<sub>bio,t</sub> into Ω<sub>bio,t+1</sub>, filtered by selection, drift, and demographic processes.</p></li>
+    </ul>
+    <p>A population is thus a statistical region of persistence in Ω<sub>bio</sub>: a region of genotype–phenotype space where certain combinations persist and reproduce under shared constraints. Changes in Ω<sub>bio,t</sub> over time show how collapse under K<sub>pop</sub> reshapes that region.</p>
+    </section>
+    <section id="multi-level-selection-and-nested-constraints" class="level2">
+    <h2>7.2 Multi-level selection and nested constraints</h2>
+    <p>Selection does not act only on individual organisms. Genes, cells, organisms, and groups form nested levels of organization, each of which can act as a unit of selection (Sober &amp; Wilson 1998; Okasha 2006).</p>
+    <p>Structurally, this requires a reslicing of the biological constraint architecture by level of organization rather than by type. We denote this level-sliced decomposition K<sub>level</sub>:</p>
+    <p>K<sub>level</sub> = {K<sub>geno</sub>, K<sub>cell</sub>, K<sub>organism</sub>, K<sub>group</sub>, K<sub>env</sub>}.</p>
+    <p>K<sub>level</sub> is not a new architecture — it is K<sub>bio</sub> indexed across organizational scales rather than constraint types. Collapse under K<sub>level</sub> can prune structures that disrupt higher-level organization — from selfish genetic elements to uncooperative groups — when persistence at that higher level has itself become part of the active constraint architecture. Major transitions (§4.6) occur when new levels of organization become stable organizational units in their own right, stabilized by evolved constraints such as division of labor, policing, and communication (Maynard Smith &amp; Szathmáry 1995; Bourke 2011).</p>
+    <p>Multi-level selection is thus not an add-on. It is what happens when the constraint architecture acquires structure at multiple scales and collapse operates simultaneously across them.</p>
+    </section>
+    <section id="niche-construction-and-dynamic-environments" class="level2">
+    <h2>7.3 Niche construction and dynamic environments</h2>
+    <p>Populations do not evolve against a fixed background. Organisms modify their own constraints:</p>
+    <ul>
+    <li><p>beavers build dams;</p></li>
+    <li><p>plants change soil composition and microclimate;</p></li>
+    <li><p>microbes alter pH and redox conditions;</p></li>
+    <li><p>humans transform landscapes and atmospheric composition.</p></li>
+    </ul>
+    <p>This is known as niche construction. Organisms are not only subject to K<sub>env</sub>; they are active contributors to it:</p>
+    <p>K<sub>env, t+1</sub> = U<sub>env</sub>(K<sub>env, t</sub>, x<sub>pheno, t</sub><sup>*</sup>, R<sub>t</sub>).</p>
+    <p>The environment becomes part of the system’s accumulated records R, shaped by past collapses and now feeding back into future ones. Evolutionary trajectories are therefore co-constructed (Odling-Smee, Laland &amp; Feldman 2003; Laland et al. 2015).</p>
+    <p>Niches themselves are stable configurations in constraint space: durable combinations of environmental conditions and resident species where particular strategies can persist. As niche construction proceeds, collapse may produce new configurations or destabilize existing ones.</p>
+    </section>
+    <section id="ecosystems-as-collective-stable-regimes" class="level2">
+    <h2>7.4 Ecosystems as collective stable regimes</h2>
+    <p>An ecosystem can be understood as a higher-order Biological Collapse domain: a multi-species system in which organisms, abiotic factors, and flows of energy and matter interact under shared constraints K<sub>eco</sub>. Over ecological time, collapse under K<sub>eco</sub> tends to stabilize food webs, trophic structures, and biogeochemical cycles—ecosystem-level regimes that robustly route gradients through the community while maintaining overall structure (Odum &amp; Barrett 2005; Loreau 2010; Begon, Townsend &amp; Harper 2006).</p>
+    </section>
+    <section id="resilience-tipping-points-and-recurring-signatures" class="level2">
+    <h2>7.5 Resilience, tipping points, and recurring signatures</h2>
+    <p>Ecosystem dynamics display the same recurring signatures described in §6.4:</p>
+    <p><strong>Redundancy → consensus (S₁):</strong> Independent disturbances and successional sequences often converge to similar community types under similar K<sub>eco</sub> — characteristic forest types, reef states (Connell &amp; Slatyer 1977; Walker, Kinzig &amp; Langridge 1999).</p>
+    <p><strong>Neutrality → delayed resolution (S₂):</strong> Ecosystems can linger near critical thresholds: alternative stable states coexist in Ω<sub>eco</sub>, until small changes in K tip the system into a different basin (clear-water vs. turbid lake, grassland vs. shrubland) (Holling 1973; Scheffer et al. 2001).</p>
+    <p><strong>Sweeps → hysteresis (S₃):</strong> When drivers (nutrient load, grazing pressure, temperature) are swept up and then down, ecosystems exhibit hysteresis: the path to degradation and the path to recovery differ because past collapse has reshaped soil, species pools, and feedback loops, altering the landscape of stable regimes in Ω<sub>eco</sub> (Scheffer et al. 2001; Scheffer 2009; Folke et al. 2004).</p>
+    <p>Resilience and tipping points are expressions of how deep and wide stable regimes in the ecosystem state space are, and how K has been modified by prior biological activity.</p>
+    </section>
+    <section id="multi-level-organization-and-the-life-phase" class="level2">
+    <h2>7.6 Multi-level organization and the life-phase</h2>
+    <p>Taken together, populations and ecosystems show that the life-phase is not just about individual organisms maintaining themselves. It is a hierarchy of organization—within organisms (networks, tissues, organs), across organisms (populations stabilizing genotype–phenotype distributions), and across species (ecosystems stabilizing flows under shared gradients). Each level carries its own records R and constraints K. Deep order appears when constraints are aligned so that collapse at one level supports collapse at others; instability appears when constraints at different levels pull in incompatible directions.</p>
+    <p>This multi-level picture sets the stage for proto-intent: the emergence of systems that do more than passively undergo collapse — that bias collapse in functionally meaningful ways, long before consciousness appears.</p>
+    </section>
+    </section>
+    <section id="proto-intent-directionality-without-consciousness" class="level1">
+    <h1>§8 Proto-intent: Directionality Without Consciousness</h1>
+    <section id="from-passive-structure-to-active-directionality" class="level2">
+    <h2>8.1 From passive structure to active directionality</h2>
+    <p>Any living system that maintains an active state—not merely a stable one, but one that must act to persist—has a directional character built into its constraint architecture. A bacterium navigating a chemical gradient is not being pushed by external forces alone; its trajectory is biased by an internal regulatory architecture that the organism itself carries forward. External influence remains profound—it is constitutive of the system’s emergence and ongoing shaping—but the active source of directional bias now sits inside the system’s own architecture. Proto-intent names this structural fact: the point at which a system’s directional behavior is no longer fully explained by external forces acting on a passive object.</p>
+    <p>A clarification of scope is useful here. Biological Faith Systems (BFS; Jones 2026a) addresses how living systems commit under uncertainty — operating on incomplete information and persisting despite it — and treats the distributed, feedback-corrigible commitment mechanisms across physiology, immunology, and ecology as expressions of a single structural demand: commitment under uncertainty as a precondition of viability, not one adaptive strategy among many. Proto-intent addresses a different question: why the source of directional bias sits inside the active state rather than outside it. BFS explains how systems commit; proto-intent explains why those commitments have a direction.</p>
+    <p>This directionality is visible across all of biology. Living systems:</p>
+    <ul>
+    <li><p>sense gradients (chemicals, light, fields, flows),</p></li>
+    <li><p>change internal state in response,</p></li>
+    <li><p>and act in ways that reliably steer themselves toward viability-preserving outcomes — nutrient sources, safer zones, efficient paths, cooperative structures.</p></li>
+    </ul>
+    <p>Slime molds finding shortest paths, plant roots foraging for nutrients, bacterial chemotaxis, and collective hunting in predators all exhibit this pattern: the system behaves as if it “wants” certain outcomes, even though no consciousness is present (Nakagaki et al. 2000; Berg 2004; Trewavas 2003; Couzin 2009).</p>
+    <p>Proto-intent is the intrinsic directional character of any living system in an active state — the structurally grounded tendency to bias collapse toward outcomes that sustain its own organization, without requiring conscious experience.</p>
+    <p>It is not a new force. It is what constraint-guided collapse looks like once a system can sense, integrate, and act.</p>
+    <p>Nor is it new to biology. Directional persistence is already a feature of active physical states: a body in motion continues in its direction until an external counter-constraint modifies it. What biology adds is not directionality itself but a constraint architecture rich enough to fold sensing, integration, and action back into the system’s own continuation. The system whose persistence is at stake becomes the system that registers, integrates, and acts on the counter-constraints that shape it. Proto-intent is what directional persistence looks like once the architecture running the loop is also what the loop is keeping alive.</p>
+    </section>
+    <section id="networks-that-close-the-loop-sensing-internal-state-action" class="level2">
+    <h2>8.2 Networks that close the loop: sensing → internal state → action</h2>
+    <p>Proto-intent becomes visible when a biological system has at least three ingredients:</p>
+    <p><strong>1. Sensing:</strong> Components that couple external variables (nutrient concentration, light direction, temperature, social signals) into internal state changes.</p>
+    <p><strong>2. Internal state:</strong> Networks (metabolic, regulatory, neural, collective) that integrate those inputs over time — filtering, amplifying, or combining them into stable or metastable configurations (Alon 2006; Dayan &amp; Abbott 2001).</p>
+    <p><strong>3. Action:</strong> Effectors (motors, growth processes, secretion, coordinated movement) that change the system’s relation to its environment — moving up gradients, modifying local conditions, reshaping interaction networks.</p>
+    <p>Structurally, this is a closed loop: Environment → <em>sensing</em> → Internal state → <em>C<sup>K(net)</sup></em> → Action → <em>niche effects</em> → Environment</p>
+    <p>where K<sub>net</sub> is the constraint architecture of the internal network. Over evolutionary time, selection tunes K<sub>net</sub> so that this loop systematically biases collapse toward states in which the system persists and can re-enter the loop.</p>
+    <p>This is the minimal structural analogue of “aiming at” an outcome, without any claim that the system experiences that aim. Proto-intent names the behavioral signature — the observable bias in collapse trajectories.</p>
+    </section>
+    <section id="teleonomy-not-teleology" class="level2">
+    <h2>8.3 Teleonomy, not teleology</h2>
+    <p>Biologists often distinguish between:</p>
+    <ul>
+    <li><p>Teleology: the idea that systems act “for the sake of” future goals in a metaphysical sense.</p></li>
+    <li><p>Teleonomy: the appearance of purpose generated by blind evolutionary processes shaping structure (Pittendrigh 1958; Mayr 1961; Monod 1971).</p></li>
+    </ul>
+    <p>Proto-intent fits squarely in the teleonomic camp, but with a more explicit structural account:</p>
+    <ul>
+    <li><p>There is no extra “goal force” added to physics.</p></li>
+    <li><p>Instead, evolution and self-organization have shaped systems whose constraint architectures K<sub>bio</sub> make certain collapse outcomes far more likely than others — specifically, those that keep the system viable and in play.</p></li>
+    </ul>
+    <p>Over evolutionary time, these architectures are selected and refined because they tend to:</p>
+    <ul>
+    <li><p>route gradients through the system in ways that maintain structure (food → growth/repair, not random heat),</p></li>
+    <li><p>keep the system within viable regions of Ω<sub>bio</sub> (functional physiological and behavioral states),</p></li>
+    <li><p>and bias against configurations that lead to rapid loss of viability (predation, starvation, lethal stress).</p></li>
+    </ul>
+    <p>Contemporary philosophy of biology has been working related ground from a different starting point. Walsh (2015) argues that organisms are genuine agents whose goal-directed activity is ontologically primitive — neither reducible to selection-shaped mechanism nor explainable as heuristic shorthand. Walsh’s project shares with proto-intent a refusal to treat biological directionality as either residue or fiction. What proto-intent adds is structural location: the directional bias does not float at the level of “the organism” as a whole but sits inside the active constraint set K<sub>net</sub>, where sensing–state–action loops have been tuned by selection. Walsh establishes that biological agency is real; proto-intent specifies where in the architecture it lives.</p>
+    <p>Purpose-like behavior is thus a structural consequence of collapse under constraint in systems where sensing–state–action loops have been tuned by selection. No new ontology is required; proto-intent is how organization behaves when it can move.</p>
+    <p>Proto-intent is therefore not a softened teleology, nor a rebranded teleonomy. It names what selection has already tuned: constraint architectures whose collapse trajectories are directionally biased toward viability. Calling this “directionality” claims no more than the biology already commits to; the work done by the term is to locate the bias where it structurally lives—inside the active constraint set—rather than leaving it as a descriptive anomaly of living systems.</p>
+    </section>
+    <section id="examples-slime-molds-plants-collectives" class="level2">
+    <h2>8.4 Examples: slime molds, plants, collectives</h2>
+    <p>A few canonical examples make this concrete:</p>
+    <p><strong>Slime molds (Physarum).</strong> Slime molds can find near-shortest paths through mazes and optimize networks between nutrient sources. Their behavior emerges from local sensing and flow adjustments in a distributed body. Their network architecture biases the system toward transport-efficient configurations. The system behaves as if it “intends” to minimize cost, but structurally it is a self-organizing network exploiting gradients (Nakagaki et al. 2000; Tero et al. 2010).</p>
+    <p><strong>Plant foraging.</strong> Roots extend preferentially into nutrient-rich patches, adjust growth to water availability, and even avoid obstacles. Genotype, hormone signaling, and local mechanical/chemical cues define the developmental and environmental constraints such that collapse of root architectures is biased toward configurations that increase resource capture. No neurons are required; proto-intent appears as directional growth embedded in development (Trewavas 2003; Trewavas 2014).</p>
+    <p><strong>Collective coordination.</strong> Ant colonies find efficient foraging paths through pheromone-based local interactions; schooling fish evade predators through simple rules of neighbor alignment and repulsion; cooperative hunters distribute sensing and action across the group. No central controller directs the collective; local interaction rules under shared environmental constraints bias group-level collapse toward viability-preserving configurations. Proto-intent here is a distributed property of the collective itself — directionality that lives in the interaction topology rather than in any single member (Camazine et al. 2001; Couzin 2009; Sumpter 2010).</p>
+    <p>All three cases share the same signature: bi-directional coupling between environment and internal structure, tuned by selection, that biases collapse in a functionally consistent direction.</p>
+    </section>
+    <section id="proto-intent-as-a-spectrum" class="level2">
+    <h2>8.5 Proto-intent as a spectrum</h2>
+    <p>Proto-intent is not all-or-nothing. It exists along a spectrum of structural sophistication:</p>
+    <ul>
+    <li><p>At the low end, bacteria exhibiting simple chemotaxis: move up nutrient gradients, away from toxins (Berg 2004).</p></li>
+    <li><p>In the middle, slime molds, plants, and simple nervous systems coordinating more complex foraging, growth, and avoidance strategies (Nakagaki et al. 2000; Trewavas 2003; Couzin 2009).</p></li>
+    <li><p>At the high end of proto-intent, animals with richer sensorimotor loops and rudimentary learning: systems that can reshape their own internal constraints K<sub>net</sub> within a lifetime (synaptic plasticity, regulatory changes) to better exploit patterns in K (Dayan &amp; Abbott 2001; Tinbergen 1963).</p></li>
+    </ul>
+    <p>The continuist picture this spectrum implies is not neutral. Whether mental life is graded across living systems or appears only at a binary threshold remains contested in philosophy of mind. Proto-intent's structural definition produces the graded view as output: directionality is continuous from the simplest active states upward, and consciousness extends rather than originates this structural feature (Godfrey-Smith 2016). The kernel framing locates the continuity in architectural complexity rather than treating it as a metaphysical preference.</p>
+    <p>This spectrum sets up the transition into Conscious Collapse (WP04). The step from proto-intent to genuine subjective experience is not a jump from “no directionality” to “directionality.” It is a jump from:</p>
+    <ul>
+    <li><p>directionality implemented in networks that do not represent their own states as content,</p></li>
+    <li><p>to directionality implemented in networks where the system’s own collapse events become available as content to the system itself (as developed in WP04).</p></li>
+    </ul>
+    <p>Proto-intent is thus the structural ancestor of conscious intent. It is what directionality looks like when a system can act but cannot yet represent its own action as experience.</p>
+    </section>
+    <section id="summary-life-phase-directionality-without-new-forces" class="level2">
+    <h2>8.6 Summary: life-phase directionality without new forces</h2>
+    <p>Proto-intent gives us a way to talk about purpose-like behavior in biology without invoking mysticism or new physics:</p>
+    <ul>
+    <li><p>It arises when self-organizing networks in the life-phase close the loop: sensing → internal state → action → niche modification → new sensing.</p></li>
+    <li><p>Evolution shapes constraint architectures K<sub>bio</sub> such that these loops systematically bias collapse toward states that sustain organization.</p></li>
+    <li><p>The result is behavior that looks directed, goal-seeking, and problem-solving, even in systems with no consciousness.</p></li>
+    </ul>
+    <p>Proto-intent is a natural consequence of constraint-guided collapse at biological scales. Once the life-phase produces systems that can sense and act, constraint architectures that keep those systems in play will be preferentially retained. Conscious Collapse will inherit and transform this structure; but proto-intent shows that directionality was already a feature of the life-phase long before any organism could represent what direction meant.</p>
+    </section>
+    </section>
+    <section id="empirical-signatures-and-structural-tests" class="level1">
+    <h1>§9 Empirical Signatures and Structural Tests</h1>
+    <p>Biology already documents the component phenomena. Convergent evolution, developmental canalization, ecosystem hysteresis, directional behavior in simple organisms — these are well established across subfields. What biology does not yet have is a structural account of why these phenomena recur together. If Biological Collapse is correct — if life is a phase of constraint-guided collapse in which records accumulate, constraints update, and coherence is actively maintained — then three portable signatures should appear wherever this logic operates: redundancy driving consensus (S₁), neutrality delaying resolution (S₂), and constraint sweeps producing hysteresis (S₃). The sections below identify where these signatures appear across biological domains and state the conditions under which the framework should be revised or rejected.</p>
+    <p><strong>Table 1. S-signal mapping across biological domains.</strong></p>
+    <table>
+    <colgroup>
+    <col style="width: 10%" />
+    <col style="width: 20%" />
+    <col style="width: 20%" />
+    <col style="width: 47%" />
+    </colgroup>
+    <thead>
+    <tr>
+    <th><strong>S-Signal</strong></th>
+    <th><strong>Signature</strong></th>
+    <th><strong>Biological Domain</strong></th>
+    <th><strong>What to look for</strong></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>— (phase)</td>
+    <td>Constraint closure</td>
+    <td>Origin of life</td>
+    <td>Self-regenerating networks under sustained gradients (§9.1)</td>
+    </tr>
+    <tr>
+    <td>S₁</td>
+    <td>Redundancy → consensus</td>
+    <td>Evolution</td>
+    <td>Convergent forms under similar constraints (§9.2)</td>
+    </tr>
+    <tr>
+    <td>S₁</td>
+    <td>Redundancy → consensus</td>
+    <td>Evolution</td>
+    <td>Structured fitness landscapes with clustered basins (§9.2)</td>
+    </tr>
+    <tr>
+    <td>S₂</td>
+    <td>Neutrality → delayed resolution</td>
+    <td>Development</td>
+    <td>Multi-potential zones resolving sharply when constraints arrive (§9.3)</td>
+    </tr>
+    <tr>
+    <td>S₁ / S₂</td>
+    <td>Redundancy + neutrality</td>
+    <td>Development</td>
+    <td>Robustness and plasticity correlating with network topology (§9.3)</td>
+    </tr>
+    <tr>
+    <td>S₃</td>
+    <td>Sweeps → hysteresis</td>
+    <td>Ecosystems</td>
+    <td>Path-dependent transitions between stable states (§9.4)</td>
+    </tr>
+    <tr>
+    <td>S₁</td>
+    <td>Redundancy → consensus</td>
+    <td>Self-organization</td>
+    <td>Recurring network motifs associated with attractor stability (§9.4)</td>
+    </tr>
+    <tr>
+    <td>— (proto-intent)</td>
+    <td>Directional bias</td>
+    <td>All life</td>
+    <td>Viability-directed behavior explainable by constraint architecture (§9.5)</td>
+    </tr>
+    </tbody>
+    </table>
+    <p>The point of Biological Collapse is therefore not merely that biology contains convergence, canalization, hysteresis, and directional behavior; biology already knows that it does. The sharper claim is that these phenomena should be linked by a common constraint-record-update architecture that yields non-obvious, cross-domain discriminators.</p>
+    <p>Three discriminators are particularly diagnostic. First, systems whose viability depends on timely regulation should show systematic costs when forced to defer commitment until uncertainty is largely resolved, because early action plus feedback correction is part of the architecture rather than an optional strategy. This prediction is the empirical face of the commitment-under-uncertainty argument developed in Biological Faith Systems (Jones 2026a). Second, perceptual systems should show changes in the timing of resolution itself when task-dependent constraint states change, not only changes in response magnitude. Third, systems driven through matched onset-and-release sweeps should often show path-dependent recovery rather than simple retracing, because prior collapse has altered the active constraint set; this signature has been documented in rice transcriptome response to abiotic stress (Jones 2026b) and is developed across ecological, regulatory, and neural networks in §§6–7.</p>
+    <p>If such effects fail to appear, or if they are fully captured by domain-local models without any shared constraint-record-update logic, then the unifying claim of Biological Collapse loses explanatory force.</p>
+    <p>Table 2 specifies the data type, null model, and failure condition for each signature; the expected pattern under the framework is developed in the subsections below.</p>
+    <p><strong>Table 2. Falsification specifications for S-signatures.</strong></p>
+    <table>
+    <colgroup>
+    <col style="width: 16%" />
+    <col style="width: 19%" />
+    <col style="width: 21%" />
+    <col style="width: 42%" />
+    </colgroup>
+    <thead>
+    <tr>
+    <th><strong>Signature</strong></th>
+    <th><strong>Data type</strong></th>
+    <th><strong>Null model</strong></th>
+    <th><strong>Failure condition</strong></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>S₁ Redundancy → consensus</td>
+    <td>Convergent-evolution surveys; empirical fitness landscapes (microbial, protein); recurring network motifs in metabolic, regulatory, and neural data.</td>
+    <td>Random walks on unstructured state space; flat or uniformly rugged fitness landscapes; motif distributions independent of functional stability.</td>
+    <td>Vast trait diversity without deep convergence; landscapes lacking discernible basins; no link between motif distribution and stability.</td>
+    </tr>
+    <tr>
+    <td>S₂ Neutrality → delayed resolution</td>
+    <td>Cell-fate timing in stem and progenitor populations; multi-potential developmental zones; ecosystem dwell times near alternative-state thresholds.</td>
+    <td>Hard-wired immediate fate determination; resolution timing independent of constraint state.</td>
+    <td>Cell fates uniformly determined from earliest stages with no open zones; resolution timing uncoupled from identifiable constraint changes; robustness and plasticity uncorrelated with network topology.</td>
+    </tr>
+    <tr>
+    <td>S₃ Sweeps → hysteresis</td>
+    <td>Matched onset-and-release sweeps in environmental drivers (nutrients, temperature, abiotic stress); transcriptomic and ecosystem trajectories under reversed inputs.</td>
+    <td>Reversible state-following — return path matches forward path; no path dependence.</td>
+    <td>Smooth reversible return to baseline regardless of sweep magnitude or duration; no measurable forward/return trajectory divergence.</td>
+    </tr>
+    </tbody>
+    </table>
+    <section id="origin-of-life-and-constraint-closure" class="level2">
+    <h2>9.1 Origin of life and constraint closure</h2>
+    <p>The first structural test concerns the phase transition itself. If Biological Collapse begins when chemical networks cross the threshold into self-maintaining organization, then origin-of-life experiments that combine rich chemical diversity, sustained gradients (light, redox, thermal), and surfaces or compartments (minerals, membranes, pores) should tend to generate networks that regenerate their own components and boundaries at rates exceeding appropriately specified null models (cf. Kauffman 1993; Hordijk &amp; Steel 2004, 2017; Sutherland 2016; Deamer 2017; Damer &amp; Deamer 2020). Specifically:</p>
+    <ul>
+    <li><p>emergence of cycles that reconstitute their catalysts,</p></li>
+    <li><p>persistent compartments that maintain internal chemistry,</p></li>
+    <li><p>and increasing reuse of gradients over time.</p></li>
+    </ul>
+    <p>Failure to produce any form of constraint closure across a wide range of plausible prebiotic conditions would count against the idea that Biological Collapse is a natural outcome of chemistry under sustained gradients.</p>
+    </section>
+    <section id="evolutionary-constraints-and-convergent-evolution" class="level2">
+    <h2>9.2 Evolutionary constraints and convergent evolution</h2>
+    <p>Convergent evolution is one of biology’s most familiar patterns: similar forms and strategies arise independently when organisms face similar constraints (Conway Morris 2003; McGhee 2011; Losos 2017). Streamlining in swimmers, camera-like eyes, eusocial organization — these suggest repeated discoveries of similar viable configurations under comparable constraint architectures. If the framework is correct, this pattern should recur systematically at the level of deep morphological and functional traits: similar constraints should reliably produce similar outcomes (S₁), and the diversity of deep solutions should be limited relative to the vast combinatorial space available.</p>
+    <p>A biological world with enormous trait diversity but very little deep convergence — where nearly every complex solution is unique — would weaken this claim.</p>
+    <p>The same logic applies to fitness landscapes. Empirical reconstructions of fitness landscapes (from microbial evolution, protein variants, or digital organisms) should show clustered high-fitness regions: basins where many mutational paths converge on similar outcomes (Maynard Smith 1970; Kauffman 1993; Gavrilets 2004; de Visser &amp; Krug 2014). Flat or uniformly rugged landscapes with no discernible basins would challenge the notion that evolution is shaped by constraint-guided architecture.</p>
+    </section>
+    <section id="development-canalization-and-delayed-resolution" class="level2">
+    <h2>9.3 Development, canalization, and delayed resolution</h2>
+    <p>Development is where the S₂ signature — neutrality delaying resolution — should be most visible. Early developmental stages feature multi-potential zones where cell fates remain open under broad constraints, followed by sharp resolution when new constraints arrive. This is already well documented:</p>
+    <ul>
+    <li><p>stem and progenitor populations maintain multiple fates as viable options,</p></li>
+    <li><p>identifiable signals or mechanical cues tilt these open states toward commitment,</p></li>
+    <li><p>and resolution, once triggered, is relatively stereotyped (Morrison &amp; Kimble 2006; Slack 2013; Gilbert &amp; Barresi 2017).</p></li>
+    </ul>
+    <p>If cell fate decisions were uniformly hard-wired from the earliest stages with no open zones or delayed resolution, the S₂ signature would be absent and the nested-collapse picture would need revision.</p>
+    <p>Developmental robustness provides a complementary test. Perturbation experiments (gene knockouts, signaling disruptions, mechanical perturbations) should reveal structured robustness: some traits are highly canalized (deep constraint basins), others remain plastic (multiple basins), and these patterns should correlate with network topology and regulatory architecture (Kitano 2004; Wagner 2005, 2014; Jaeger &amp; Monk 2014; West-Eberhard 2003). A lack of correspondence between network structure and robustness patterns would challenge the idea that developmental outcomes are shaped by constraint-defined basins.</p>
+    </section>
+    <section id="ecosystems-self-organization-and-hysteresis" class="level2">
+    <h2>9.4 Ecosystems, self-organization, and hysteresis</h2>
+    <p>Ecosystems provide a particularly visible test of S₃. If ecosystems are stable regimes maintained under shared constraints, then alternative stable states and hysteresis should be common when key drivers — nutrients, grazing, temperature — are swept up and down. This means:</p>
+    <ul>
+    <li><p>different paths into and out of degraded or restored states,</p></li>
+    <li><p>history dependence in community composition and function,</p></li>
+    <li><p>and structural changes in the constraint landscape (species pool, soil, feedbacks) that explain why the return path differs from the forward path (Holling 1973; Scheffer et al. 2001; Scheffer 2009; Folke et al. 2004).</p></li>
+    </ul>
+    <p>A world where ecosystems always return smoothly and reversibly to previous states when drivers are reversed would undermine S₃ as a recurring signature of biological collapse.</p>
+    <p>One concrete demonstration of S₃-style path dependence has been documented in rice transcriptome response to abiotic stress sweeps, where gene-expression trajectories exhibited constraint-dependent hysteresis consistent with the structural account above (Jones 2026b).</p>
+    <p>Across metabolic, regulatory, and neural networks, recurring motifs — cycles, feedforward loops, modular clusters — are frequently associated with attractor-like stability (Alon 2006; Jaeger &amp; Monk 2014; Hopfield 1982; Newman 2010). These are S₁ signatures: similar constraint architectures independently producing similar organizational solutions. If large-scale surveys found no meaningful link between network motif distribution and functional stability, this aspect of the framework would be weakened.</p>
+    </section>
+    <section id="proto-intent-and-biological-directionality" class="level2">
+    <h2>9.5 Proto-intent and biological directionality</h2>
+    <p>Proto-intent names a structural fact about all living systems: action is biased toward viability-preserving outcomes by the system’s constraint architecture and feedback history. A bacterium moves toward nutrients. A plant orients toward light. A mouse avoids open spaces. In each case, the organism’s accumulated constraints — genome, developmental wiring, ecological context — guide collapse in a particular direction without requiring consciousness, foresight, or intention.</p>
+    <p>This directionality should be explainable by the system’s constraint architecture and tunable by modifying those constraints. Altering sensing, internal integration, or effector mechanisms should shift the bias in predictable ways (Nakagaki et al. 2000; Berg 2004; Trewavas 2003; Couzin 2009).</p>
+    <p>If living systems under controlled conditions behaved indistinguishably from random processes — if constraint architecture produced no directional bias at all — then proto-intent as a structural feature of life would not hold.</p>
+    <p>These are not predictions about what biology will discover. Biology has already documented convergence, canalization, hysteresis, and directional behavior across its subfields. The structural claim is that these phenomena share a common grammar — constraint-guided collapse producing records that update future constraints — and that the three portable signatures (S₁, S₂, S₃) connect them. If those signatures fail to recur where the framework says they should, or if they recur without any meaningful connection to the constraint-record-update dynamics that the framework identifies, the framework must be revised or rejected.</p>
+    </section>
+    </section>
+    <section id="conclusion-biological-collapse-as-life-phase-organization" class="level1">
+    <h1>§10 Conclusion: Biological Collapse as Life-Phase Organization</h1>
+    <p>WP03 has argued that life is not an exception to collapse under constraint. It is a phase of matter’s collapse behavior: a regime in which physical and chemical processes become organized such that structure begins to carry its own constraints forward.</p>
+    <p>The paper developed this claim across four levels. First Biological Collapse (§2) established the phase change: chemical networks under sustained gradients crossing the threshold into self-maintaining, self-propagating organization. Genetic information (§3) and evolution (§4) showed how records and constraints become heritable and iteratively reshaped. Development, self-organization, and multi-level organization (§§5–7) demonstrated the kernel operating within organisms, across networks, and through populations and ecosystems. Proto-intent (§8) identified the structural ancestor of conscious purpose: directionality without experience, emerging when sensing–state–action loops bias collapse toward viability.</p>
+    <p>Several of these moves do work that existing frameworks do not. Constraint closure (§6.2) names the recursive engine — collapse generates constraints that guide further collapse — and locates this relation inside a kernel that operates beyond biology, where autopoiesis, autocatalytic-set theory, and organizational closure each name the biological face of the same structural fact. Proto-intent (§8) identifies where biological directionality sits structurally: inside the active constraint set K<sub>net</sub> rather than at the metaphorical level of “the organism,” extending the agential-biology project (Walsh 2015) by specifying location. The K<sub>level</sub> reslicing (§7.2) treats multi-level selection not as a separate architecture but as K<sub>bio</sub> indexed across organizational scales, defusing the proliferation-of-K objection. The framework’s compatibility with developmental systems theory (§3.2), the Extended Evolutionary Synthesis (§4.6), and contemporary process philosophy of biology is structural rather than rhetorical: each of these projects recognizes a feature the kernel formalizes, and the kernel’s update rule absorbs their extensions into a single iterative form rather than treating them as separate amendments.</p>
+    <p>The framework commits to empirical discriminators (§9). Across origin-of-life experiments, evolutionary landscapes, developmental biology, network science, ecology, and behavioral studies, Biological Collapse predicts three recurring signatures — redundancy → consensus (S₁), neutrality → delayed resolution (S₂), sweeps → hysteresis (S₃) — as fingerprints of constraint-guided dynamics. One concrete demonstration of S₃ has been documented in rice transcriptome response to abiotic stress (Jones 2026b); further demonstrations across additional substrates are the project’s ongoing empirical commitment. If the signatures fail to appear where predicted, or if they recur without any meaningful connection to the constraint-record-update dynamics the framework identifies, the framework must be revised or rejected.</p>
+    <p>WP03 extends the kernel established in WP01 and applied to physics in WP02 into biology, arguing that life is a phase in which collapse produces and maintains structures that preserve and elaborate their own constraints under ongoing gradients. The next step, taken up in WP04, is to ask what happens when collapse acquires not only structure and directionality, but also experience — when some biological networks begin to represent their own states and histories as content. That is the domain of Conscious Collapse, where the same constraint-guided dynamics that shape matter and life begin to shape minds.</p>
+    </section>
+    <section id="appendix-a-kernel-notation" class="level1">
+    <h1>Appendix A: Kernel Notation</h1>
+    <p>WP03 uses the collapse kernel (Ω, K, C<sup>K</sup>, x<sub>t</sub><sup>*</sup>, R<sub>t</sub>, S<sub>t</sub>, T, U) as defined in WP01 (Foundations of Collapse, v2.0). The universal postulates (P1–P4) and structural axioms (A1–A2) that govern the kernel are stated in full in WP01 and are not restated here. Biology-specific instantiations of these symbols are collected in Appendix B below.</p>
+    </section>
+    <section id="appendix-b-biology-specific-notation-wp03" class="level1">
+    <h1>Appendix B: Biology-Specific Notation (WP03)</h1>
+    <p>This appendix collects the domain-specific notation used in WP03. The core kernel is defined in Appendix A above.</p>
+    <section id="b.1-domain-specific-notation-wp03" class="level2">
+    <h2>B.1 Domain-specific notation (WP03)</h2>
+    <p><strong>State spaces (Ω)</strong></p>
+    <ul>
+    <li><p>Ω<sub>chem</sub> — chemical state space: possible molecules, reaction pathways, and compositions on a prebiotic or living planet.</p></li>
+    <li><p>Ω<sub>bio</sub> — biological state space: genotypes, phenotypes, developmental trajectories, physiological states, and behaviors compatible with underlying physics and chemistry.</p></li>
+    <li><p>Ω<sub>cell</sub> — cellular state space: possible transcriptional / regulatory states of a cell (GRN configurations).</p></li>
+    <li><p>Ω<sub>net</sub> — network state space: activity/configuration states of a given biological network (metabolic, regulatory, neural, collective).</p></li>
+    <li><p>Ω<sub>eco</sub> — ecosystem state space: community compositions, interaction networks, and functional flows.</p></li>
+    </ul>
+    <p><strong>Constraint sets (K)</strong></p>
+    <ul>
+    <li><p>K<sub>phys+chem</sub> — physical/chemical constraints that underlie all biology.</p></li>
+    <li><p>K<sub>geno</sub> — genomic / hereditary constraints.</p></li>
+    <li><p>K<sub>dev</sub> — developmental constraints: morphogen gradients, cell–cell interactions, tissue mechanics.</p></li>
+    <li><p>K<sub>env</sub> — environmental constraints: external physical and ecological conditions.</p></li>
+    <li><p>K<sub>demographic</sub> — demographic/reproductive constraints.</p></li>
+    <li><p>K<sub>interaction</sub> — interaction constraints: competition, cooperation, mating structure, signaling.</p></li>
+    <li><p>K<sub>pop</sub> — population-level constraints: {K<sub>phys+chem</sub>, K<sub>env</sub>, K<sub>demographic</sub>, K<sub>interaction</sub>}.</p></li>
+    <li><p>K<sub>eco</sub> — ecosystem-level constraints.</p></li>
+    <li><p>K<sub>net</sub> — internal network constraints.</p></li>
+    <li><p>K<sub>cell</sub> — cell-level constraints: gene regulation, metabolism, intracellular dynamics.</p></li>
+    <li><p>K<sub>organism</sub> — organism-level constraints: tissue organization, physiology, behavior.</p></li>
+    <li><p>K<sub>group</sub> — group-level constraints: social structure, collective behavior, kin and interaction networks.</p></li>
+    <li><p>K<sub>bio</sub> — composite biological constraint architecture: K<sub>bio</sub> = {K<sub>phys+chem</sub>, K<sub>geno</sub>, K<sub>dev</sub>, K<sub>env</sub>}.</p></li>
+    <li><p>K<sub>level</sub> — biological constraint architecture sliced by organizational level: K<sub>level</sub> = {K<sub>geno</sub>, K<sub>cell</sub>, K<sub>organism</sub>, K<sub>group</sub>, K<sub>env</sub>}. A reslicing of K<sub>bio</sub>, not a replacement of it (see §7.2).</p></li>
+    </ul>
+    <p><strong>Records and phases</strong></p>
+    <ul>
+    <li><p>R<sub>geno</sub> — genomic records: sequences encoding past viable configurations.</p></li>
+    <li><p>R<sub>net</sub> — network records: stable motifs, weights, or configurations.</p></li>
+    <li><p>R<sub>eco</sub> — ecosystem records: modified soils, structures, and legacies feeding back into K<sub>env</sub>.</p></li>
+    <li><p>"Life-phase" — the organizational regime where constraint closure and self-maintaining networks exist (First Biological Collapse and its descendants).</p></li>
+    </ul>
+    </section>
+    <section id="b.2-assumptions-and-scope" class="level2">
+    <h2>B.2 Assumptions and scope</h2>
+    <p>WP03 operates under standard biological assumptions: standard biochemistry, Darwinian evolution, and teleonomy rather than teleology. These are stated in full, with operational guardrails, in the Structural Biology Operating Manual (Jones 2026d; axioms SBIO-0 through SBIO-8).</p>
+    </section>
+    <section id="b.3-empirical-signatures-quick-reference" class="level2">
+    <h2>B.3 Empirical signatures: quick reference</h2>
+    <p>WP03’s empirical signatures are developed in full in Section 9. The following is a quick-reference mapping of each signature to its biological instances:</p>
+    <ul>
+    <li><p><strong>Constraint closure</strong> (phase threshold) — origin-of-life experiments producing self-regenerating networks under sustained gradients (§9.1).</p></li>
+    <li><p><strong>S₁ (redundancy → consensus)</strong> — convergent evolution under similar constraints; clustered fitness basins in empirical landscapes; recurring network motifs associated with attractor stability (§§9.2, 9.4).</p></li>
+    <li><p><strong>S₂ (neutrality → delayed resolution)</strong> — multipotential developmental zones resolving sharply when new constraints arrive; robustness and plasticity patterns correlating with network topology (§9.3).</p></li>
+    <li><p><strong>S₃ (sweeps → hysteresis)</strong> — ecological and transcriptomic path dependence under reversed drivers; history-dependent transitions between alternative stable states (§9.4).</p></li>
+    <li><p><strong>Proto-intent</strong> (directional bias) — viability-directed behavior across all life, explainable by constraint architecture and tunable by modifying sensing, integration, or effector mechanisms (§9.5).</p></li>
+    </ul>
+    </section>
+    </section>
+    <section id="references" class="level1">
+    <h1>References</h1>
+    <p>Alberts, B. et al. 2014. Molecular Biology of the Cell. 6th ed. Garland Science.</p>
+    <p>Alon, U. 2006. An Introduction to Systems Biology: Design Principles of Biological Circuits. Chapman &amp; Hall/CRC.</p>
+    <p>Ashkenasy, G. et al. 2004. “Design of a directed molecular network.” Proceedings of the National Academy of Sciences 101: 10872–10877.</p>
+    <p>Bak, P. 1996. How Nature Works: The Science of Self-Organized Criticality. Copernicus.</p>
+    <p>Barabási, A.-L., and Albert, R. 1999. “Emergence of scaling in random networks.” Science 286: 509–512.</p>
+    <p>Begon, M., Townsend, C. R., and Harper, J. L. 2006. Ecology: From Individuals to Ecosystems. 4th ed. Blackwell.</p>
+    <p>Benton, M. J. 1995. “Diversification and extinction in the history of life.” Science 268: 52–58.</p>
+    <p>Berg, H. C. 2004. E. coli in Motion. Springer.</p>
+    <p>Bourke, A. F. G. 2011. Principles of Social Evolution. Oxford University Press.</p>
+    <p>Camazine, S. et al. 2001. Self-Organization in Biological Systems. Princeton University Press.</p>
+    <p>Connell, J. H., and Slatyer, R. O. 1977. “Mechanisms of succession in natural communities.” American Naturalist 111: 1119–1144.</p>
+    <p>Conway Morris, S. 2003. Life’s Solution: Inevitable Humans in a Lonely Universe. Cambridge University Press.</p>
+    <p>Couzin, I. D. 2009. “Collective cognition in animal groups.” Trends in Cognitive Sciences 13: 36–43.</p>
+    <p>Damer, B., and Deamer, D. 2020. “The hot spring hypothesis for an origin of life.” Astrobiology 20: 429–452.</p>
+    <p>Darwin, C. 1859. On the Origin of Species. John Murray.</p>
+    <p>Dayan, P., and Abbott, L. F. 2001. Theoretical Neuroscience. MIT Press.</p>
+    <p>Deamer, D. 2017. “The role of lipid membranes in life’s origin.” Life 7: 5.</p>
+    <p>de Duve, C. 1995. Vital Dust: Life as a Cosmic Imperative. Basic Books.</p>
+    <p>de Visser, J. A. G. M., and Krug, J. 2014. “Empirical fitness landscapes and the predictability of evolution.” Nature Reviews Genetics 15: 480–490.</p>
+    <p>Erwin, D. H. 2006. Extinction: How Life on Earth Nearly Ended 250 Million Years Ago. Princeton University Press.</p>
+    <p>Fisher, R. A. 1930. The Genetical Theory of Natural Selection. Clarendon Press.</p>
+    <p>Folke, C. et al. 2004. “Regime shifts, resilience, and biodiversity in ecosystem management.” Annual Review of Ecology, Evolution, and Systematics 35: 557–581.</p>
+    <p>Futuyma, D. J. 2013. Evolution. 3rd ed. Sinauer.</p>
+    <p>Gavrilets, S. 2004. Fitness Landscapes and the Origin of Species. Princeton University Press.</p>
+    <p>Gierer, A., and Meinhardt, H. 1972. “A theory of biological pattern formation.” Kybernetik 12: 30–39.</p>
+    <p>Gilbert, S. F., and Barresi, M. J. F. 2017. Developmental Biology. 11th ed. Sinauer.</p>
+    <p>Gillespie, J. H. 2004. Population Genetics: A Concise Guide. 2nd ed. Johns Hopkins University Press.</p>
+    <p>Godfrey-Smith, P. 2016. Other Minds: The Octopus, the Sea, and the Deep Origins of Consciousness. Farrar, Straus and Giroux.</p>
+    <p>Gould, S. J. 1989. Wonderful Life: The Burgess Shale and the Nature of History. W. W. Norton.</p>
+    <p>Green, J. B. A., and Sharpe, J. 2015. “Positional information and reaction-diffusion: two big ideas in developmental biology combine.” Development 142: 1203–1211.</p>
+    <p>Griffiths, P. E., and Gray, R. D. 1994. “Developmental systems and evolutionary explanation.” Journal of Philosophy 91: 277–304.</p>
+    <p>Hayden, E. J., von Kiedrowski, G., and Lehman, N. 2008. “Systems chemistry on ribozyme self-construction: evidence for anabolic autocatalysis in a recombination network.” Angewandte Chemie International Edition 47: 8424–8428.</p>
+    <p>Holling, C. S. 1973. “Resilience and stability of ecological systems.” Annual Review of Ecology and Systematics 4: 1–23.</p>
+    <p>Hopfield, J. J. 1982. “Neural networks and physical systems with emergent collective computational abilities.” Proceedings of the National Academy of Sciences 79: 2554–2558.</p>
+    <p>Hordijk, W., and Steel, M. 2004. “Detecting autocatalytic, self-sustaining sets in chemical reaction systems.” Journal of Theoretical Biology 227: 451–461.</p>
+    <p>Hordijk, W., Kauffman, S. A., and Steel, M. 2011. “Required levels of catalysis for emergence of autocatalytic sets in models of chemical reaction systems.” International Journal of Molecular Sciences 12(5): 3085–3101.</p>
+    <p>Hordijk, W., and Steel, M. 2017. “Chasing the tail: the emergence of autocatalytic networks.” Biosystems 152: 1–10.</p>
+    <p>Jablonka, E., and Lamb, M. J. 2014. Evolution in Four Dimensions: Genetic, Epigenetic, Behavioral, and Symbolic Variation in the History of Life. Revised edition. MIT Press.</p>
+    <p>Jaeger, J., and Monk, N. 2014. “Bioattractors: dynamical systems theory and the evolution of regulatory processes.” Journal of Physiology 592: 2267–2281.</p>
+    <p>Jaenisch, R., and Bird, A. 2003. “Epigenetic regulation of gene expression.” Nature Genetics 33: 245–254.</p>
+    <p>Jones, J. C. 2025a. Universal Collapse Theory—Foundations of Collapse (WP01 v2.0). HoldingLight LLC. https://doi.org/10.17605/OSF.IO/VZ836.</p>
+    <p>Jones, J. C. 2025b. Universal Collapse Theory—Collapse in Physics (WP02 v1.0). HoldingLight LLC. https://doi.org/10.17605/OSF.IO/3NYMP.</p>
+    <p>Jones, J. C. 2026a. Biological Faith Systems: How Living Systems Commit Before Certainty. HoldingLight LLC. https://doi.org/10.17605/OSF.IO/D37Q5.</p>
+    <p>Jones, J. C. 2026b. Constraint-Sweep Hysteresis in Rice Transcriptome State During Heat Stress and Recovery: A Reproducible, Theory-Neutral Test on GEO GSE74793. HoldingLight LLC. https://doi.org/10.17605/OSF.IO/KZ8TP.</p>
+    <p>Jones, J. C. 2026c. The Structuralization of Empiricism: Formalizing the Structural Conditions Under Which Empiricism Stabilizes Knowledge. HoldingLight LLC. https://doi.org/10.17605/OSF.IO/J4GZ9.</p>
+    <p>Jones, J. C. 2026d. Universal Collapse Theory—Structural Biology Operating Manual. HoldingLight LLC. https://doi.org/10.17605/OSF.IO/CPKNX.</p>
+    <p>Kauffman, S. A. 1993. The Origins of Order. Oxford University Press.</p>
+    <p>Kauffman, S. A. 2000. Investigations. Oxford University Press.</p>
+    <p>Kitano, H. 2004. “Biological robustness.” Nature Reviews Genetics 5: 826–837.</p>
+    <p>Kleidon, A. 2010. “Life, hierarchy, and the thermodynamic machinery of planet Earth.” Physics of Life Reviews 7: 424–460.</p>
+    <p>Kleidon, A. 2012. “How does the Earth system generate and maintain thermodynamic disequilibrium and what does it imply for the future of the planet?” Philosophical Transactions of the Royal Society A 370: 1012–1040.</p>
+    <p>Kondo, S., and Miura, T. 2010. “Reaction-diffusion model as a framework for understanding biological pattern formation.” Science 329: 1616–1620.</p>
+    <p>Laland, K. N. et al. 2015. “The extended evolutionary synthesis: its structure, assumptions and predictions.” Proceedings of the Royal Society B 282: 20151019.</p>
+    <p>Lande, R., and Arnold, S. J. 1983. “The measurement of selection on correlated characters.” Evolution 37: 1210–1226.</p>
+    <p>Lane, N. 2015. The Vital Question. W. W. Norton.</p>
+    <p>Loreau, M. 2010. From Populations to Ecosystems: Theoretical Foundations for a New Ecological Synthesis. Princeton University Press.</p>
+    <p>Losos, J. B. 2017. Improbable Destinies: Fate, Chance, and the Future of Evolution. Riverhead Books.</p>
+    <p>Lynch, M. 2007. The Origins of Genome Architecture. Sinauer.</p>
+    <p>Martin, W., and Russell, M. J. 2007. “On the origin of biochemistry at an alkaline hydrothermal vent.” Philosophical Transactions of the Royal Society B 362: 1887–1925.</p>
+    <p>Martyushev, L. M., and Seleznev, V. D. 2006. “Maximum entropy production principle in physics, chemistry and biology.” Physics Reports 426: 1–45.</p>
+    <p>Maturana, H. R., and Varela, F. J. 1980. Autopoiesis and Cognition: The Realization of the Living. D. Reidel.</p>
+    <p>Maynard Smith, J. 1970. “Natural selection and the concept of a protein space.” Nature 225: 563–564.</p>
+    <p>Maynard Smith, J., and Szathmáry, E. 1995. The Major Transitions in Evolution. Oxford University Press.</p>
+    <p>Mayr, E. 1961. “Cause and effect in biology.” Science 134: 1501–1506.</p>
+    <p>McGhee, G. R. 2011. Convergent Evolution: Limited Forms Most Beautiful. MIT Press.</p>
+    <p>Monod, J. 1971. Chance and Necessity. Alfred A. Knopf.</p>
+    <p>Montévil, M., and Mossio, M. 2015. “Biological organisation as closure of constraints.” Journal of Theoretical Biology 372: 179–191.</p>
+    <p>Moreno, A., and Mossio, M. 2015. Biological Autonomy: A Philosophical and Theoretical Enquiry. Springer.</p>
+    <p>Morrison, S. J., and Kimble, J. 2006. “Asymmetric and symmetric stem-cell divisions in development and cancer.” Nature 441: 1068–1074.</p>
+    <p>Mossio, M., Montévil, M., and Longo, G. 2016. “Theoretical principles for biology: Organization.” Progress in Biophysics and Molecular Biology 122: 24–35.</p>
+    <p>Nakagaki, T., Yamada, H., and Tóth, Á. 2000. “Maze-solving by an amoeboid organism.” Nature 407: 470.</p>
+    <p>NCBI Gene Expression Omnibus. GSE74793: Rice transcriptome under heat stress and recovery [Dataset]. National Center for Biotechnology Information. https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE74793.</p>
+    <p>Nelson, D. L., and Cox, M. M. 2017. Lehninger Principles of Biochemistry. 7th ed. W. H. Freeman.</p>
+    <p>Newman, M. E. J. 2010. Networks: An Introduction. Oxford University Press.</p>
+    <p>Nicolis, G., and Prigogine, I. 1977. Self-Organization in Nonequilibrium Systems. Wiley.</p>
+    <p>Odling-Smee, J., Laland, K. N., and Feldman, M. W. 2003. Niche Construction: The Neglected Process in Evolution. Princeton University Press.</p>
+    <p>Odum, E. P., and Barrett, G. W. 2005. Fundamentals of Ecology. 5th ed. Thomson Brooks/Cole.</p>
+    <p>Okasha, S. 2006. Evolution and the Levels of Selection. Oxford University Press.</p>
+    <p>Orr, H. A. 2005. “The genetic theory of adaptation: a brief history.” Nature Reviews Genetics 6: 119–127.</p>
+    <p>Oyama, S. 2000. The Ontogeny of Information: Developmental Systems and Evolution. 2nd ed. Duke University Press.</p>
+    <p>Pigliucci, M. 2001. Phenotypic Plasticity: Beyond Nature and Nurture. Johns Hopkins University Press.</p>
+    <p>Pigliucci, M., and Müller, G. B. (eds.). 2010. Evolution: The Extended Synthesis. MIT Press.</p>
+    <p>Pittendrigh, C. S. 1958. “Adaptation, natural selection, and behavior.” In Roe, A., and Simpson, G. G. (eds.), Behavior and Evolution, pp. 390–416. Yale University Press.</p>
+    <p>Prigogine, I. 1977. “Time, structure and fluctuations.” Nobel Lecture.</p>
+    <p>Ptashne, M. 2004. A Genetic Switch. 3rd ed. Cold Spring Harbor Laboratory Press.</p>
+    <p>Roughgarden, J. 1998. Primer of Ecological Theory. Prentice Hall.</p>
+    <p>Ruiz-Mirazo, K., Briones, C., and de la Escosura, A. 2014. “Prebiotic systems chemistry.” Chemical Reviews 114: 285–366.</p>
+    <p>Russell, M. J., Daniel, R. M., and Hall, A. J. 1993. “On the emergence of life via catalytic iron-sulphide membranes.” Terra Nova 5: 343–347.</p>
+    <p>Scheffer, M. 2009. Critical Transitions in Nature and Society. Princeton University Press.</p>
+    <p>Scheffer, M. et al. 2001. “Catastrophic shifts in ecosystems.” Nature 413: 591–596.</p>
+    <p>Sievers, D., and von Kiedrowski, G. 1994. “Self-replication of complementary nucleotide-based oligomers.” Nature 369: 221–224.</p>
+    <p>Slack, J. M. W. 2013. Essential Developmental Biology. 3rd ed. Wiley.</p>
+    <p>Sleep, N. H. 2018. “Geological and geochemical constraints on the origin and evolution of life.” Astrobiology 18: 1199–1219.</p>
+    <p>Sober, E., and Wilson, D. S. 1998. Unto Others: The Evolution and Psychology of Unselfish Behavior. Harvard University Press.</p>
+    <p>Sumpter, D. J. T. 2010. Collective Animal Behavior. Princeton University Press.</p>
+    <p>Sutherland, J. D. 2016. “The origin of life — out of the blue.” Angewandte Chemie International Edition 55: 104–121.</p>
+    <p>Szathmáry, E. 2015. “Toward major evolutionary transitions theory 2.0.” Proceedings of the National Academy of Sciences 112: 10104–10111.</p>
+    <p>Tero, A. et al. 2010. “Rules for biologically inspired adaptive network design.” Science 327: 439–442.</p>
+    <p>Tinbergen, N. 1963. “On aims and methods of ethology.” Zeitschrift für Tierpsychologie 20: 410–433.</p>
+    <p>Trewavas, A. 2003. “Aspects of plant intelligence.” Annals of Botany 92: 1–20.</p>
+    <p>Trewavas, A. 2014. Plant Behaviour and Intelligence. Oxford University Press.</p>
+    <p>Turing, A. M. 1952. “The chemical basis of morphogenesis.” Philosophical Transactions of the Royal Society B 237: 37–72.</p>
+    <p>Uller, T., Moczek, A. P., Watson, R. A., Brakefield, P. M., and Laland, K. N. 2018. “Developmental bias and evolution: a regulatory network perspective.” Genetics 209: 949–966.</p>
+    <p>Varela, F. J. 1979. Principles of Biological Autonomy. North Holland.</p>
+    <p>Waddington, C. H. 1957. The Strategy of the Genes. George Allen &amp; Unwin.</p>
+    <p>Wagner, A. 2005. Robustness and Evolvability in Living Systems. Princeton University Press.</p>
+    <p>Wagner, A. 2014. Arrival of the Fittest. Current/Penguin.</p>
+    <p>Walker, B., Kinzig, A., and Langridge, J. 1999. “Plant attribute diversity, resilience and ecosystem function.” Ecosystems 2: 95–113.</p>
+    <p>Walsh, D. M. 2015. Organisms, Agency, and Evolution. Cambridge University Press.</p>
+    <p>Watts, D. J., and Strogatz, S. H. 1998. “Collective dynamics of ‘small-world’ networks.” Nature 393: 440–442.</p>
+    <p>Weinreich, D. M. et al. 2006. “Darwinian evolution can follow only very few mutational paths to fitter proteins.” Science 312: 111–114.</p>
+    <p>West-Eberhard, M. J. 2003. Developmental Plasticity and Evolution. Oxford University Press.</p>
+    <p>Wolfram, S. 2002. A New Kind of Science. Wolfram Media.</p>
+    <p>Wolpert, L. 1969. “Positional information and the spatial pattern of cellular differentiation.” Journal of Theoretical Biology 25: 1–47.</p>
+    <p>Wright, S. 1932. “The roles of mutation, inbreeding, crossbreeding and selection in evolution.” Proceedings of the Sixth International Congress of Genetics 1: 356–366.</p>
+    <p>Zahnle, K. et al. 2007. “Emergence of a habitable planet.” Space Science Reviews 129: 35–78.</p>
+    <p>This paper is part of a broader research program. For related work, visit universalcollapse.com.</p>
+    <p><strong>AI Disclosure.</strong> AI tools were used to assist with manuscript preparation. The underlying theory, arguments, and interpretive claims are the author’s own, and the author takes full responsibility for the manuscript.</p>
+    <p><strong>Citation:</strong> Jones, J. C. (2026). <em>Universal Collapse Theory—Biological Collapse</em> (WP03 v1.0). HoldingLight LLC.</p>
+    </section>
+
+    <a href="#top" class="backtotop">&uarr; Back to top</a>
+  </article>
+
+</div>
+
+<script>
+(function () {
+  var bar = document.getElementById('progress');
+  function onScroll() {
+    var h = document.documentElement;
+    var pct = h.scrollTop / (h.scrollHeight - h.clientHeight);
+    bar.style.width = (pct * 100).toFixed(1) + '%';
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav.toc a'));
+  var targets = links.map(function (a) {
+    return document.getElementById(decodeURIComponent(a.getAttribute('href')).slice(1));
+  });
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      var i = targets.indexOf(e.target);
+      if (i < 0) return;
+      links.forEach(function (l) { l.classList.remove('active'); });
+      links[i].classList.add('active');
+    });
+  }, { rootMargin: '-10% 0px -80% 0px' });
+  targets.forEach(function (t) { if (t) obs.observe(t); });
+
+  var btn = document.getElementById('toc-toggle');
+  var nav = document.getElementById('toc');
+  btn.addEventListener('click', function () {
+    var c = nav.getAttribute('data-collapsed') === 'true';
+    nav.setAttribute('data-collapsed', String(!c));
+    btn.setAttribute('aria-expanded', String(c));
+    btn.textContent = c ? 'Hide contents' : 'Show contents';
+  });
+
+  document.querySelectorAll('article section[id] > h1, article section[id] > h2').forEach(function (h) {
+    var a = document.createElement('a');
+    a.className = 'anchor';
+    a.href = '#' + h.parentNode.id;
+    a.textContent = '#';
+    a.setAttribute('aria-label', 'Link to this section');
+    h.appendChild(a);
+  });
+})();
+</script>
+
+</body>
+</html>

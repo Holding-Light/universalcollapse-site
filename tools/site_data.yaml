@@ -45,6 +45,7 @@ pages:
 # lastmod preserves existing sitemap values where present (no false-update churn).
 papers:
   - slug: kernel_first
+    subtitle: "What Universal Collapse Theory Is — and Is Not"
     title: "Kernel First: Collapse Without Reification"
     tier: "Tier 0 — Orientation"
     doi: 6RZQ2
@@ -60,6 +61,10 @@ papers:
       constrained actualization, not substance; the Observer's Fallacy.
 
   - slug: wp01
+    src_file: "UCT_WP01_Foundations_of_Collapse_v2.0_2025_11_11.docx"
+    version: "2.0"
+    subtitle: "Latent Potential, Constraint, and Collapse as a Candidate Law of Coherence"
+    short_title: "WP01"
     title: "WP01 — Foundations of Collapse"
     tier: "Tier 1 — White Papers"
     doi: VZ836
@@ -74,6 +79,8 @@ papers:
       S1-S3, and cross-domain probes.
 
   - slug: wp02
+    src_file: "UCT_WP02_Collapse_in_Physics_Coherence_as_Law_from_Cosmology_to_Matter_v1.0_2025_11_11.docx"
+    subtitle: "Structural Physics and Cosmic Records in a Coherence-First Law Program"
     title: "WP02 — Collapse in Physics"
     tier: "Tier 1 — White Papers"
     doi: 3NYMP
@@ -86,6 +93,8 @@ papers:
     desc: Cosmology, measurement, records, entropy, decoherence.
 
   - slug: wp03
+    src_file: "UCT_WP03_Biological_Collapse_v1.0_2026_05.docx"
+    subtitle: "Life-Phase Organization, Genetic Records, Evolution, Development, and Proto-intent"
     title: "WP03 — Biological Collapse"
     tier: "Tier 1 — White Papers"
     doi: 5SZ86
@@ -98,6 +107,8 @@ papers:
     desc: Abiogenesis, evolution, and the major transitions read as constrained collapse.
 
   - slug: cim_foundational
+    src_file: "UCT_T15_CIM_Foundational_v1.0_2026_05.docx"
+    subtitle: "Internalization, Cognitive Scale, and the Substrate of Cumulative Meaning"
     title: "Consciousness-Induced Material: A Structural Ontology of Externalized Cognition"
     tier: CIM
     doi: 7URMK
@@ -112,6 +123,8 @@ papers:
       environments mind builds. The substrate-independence claim.
 
   - slug: collapse_reframed
+    src_file: "UCT_T15_Collapse_Reframed_v1.0_2026-02-12.docx"
+    subtitle: "Kernel Specification and Signature-Mapped Predictions for a Coherence-First Research Program"
     title: Collapse Reframed
     tier: "Tier 1.5 — Interpretive Bridges"
     doi: PY5V3
@@ -124,6 +137,8 @@ papers:
     desc: Quantum structural reinterpretation. The physics entry ramp.
 
   - slug: schrodinger
+    src_file: "UCT_T15_Schrodinger_Mathematical_Experience_v1.0_2026_02.docx"
+    subtitle: "Resolving the Schrödinger Confusion"
     title: "Schrödinger Reframe: Mathematical Experience"
     tier: "Tier 1.5 — Interpretive Bridges"
     doi: GPYWJ
@@ -136,6 +151,8 @@ papers:
     desc: Mathematics as record-bearing formal system rather than substrate.
 
   - slug: bfs
+    src_file: "UCT_T15_Biological_Faith_Systems_v1.0_2026_04.docx"
+    subtitle: "How Living Systems Commit Before Certainty"
     title: Biological Faith Systems
     tier: "Tier 1.5 — Interpretive Bridges"
     doi: D37Q5
@@ -148,6 +165,8 @@ papers:
     desc: Commitment under uncertainty in biology.
 
   - slug: self_ego
+    src_file: "UCT_T15_Self_the_Ego_Did_Not_Build_v1.0_2026_03.docx"
+    subtitle: "A Structural Account of Perception, Accumulated Constraint, and the Limits of Ego Awareness"
     title: "Self, the Ego Did Not Build"
     tier: "Tier 1.5 — Interpretive Bridges"
     doi: ZGRD4
@@ -160,6 +179,8 @@ papers:
     desc: Identity formation through CIM-mediated experience.
 
   - slug: ai_synthetic
+    src_file: "UCT_T15_AI_as_Synthetic_Collapse_v1_0_2026_06.docx"
+    subtitle: "A Consciousness-Induced Material Account of the Recursive Phase of Externalized Cognition"
     title: AI as Synthetic Collapse
     tier: CIM
     doi: 4WSYR
@@ -174,6 +195,10 @@ papers:
       externalized cognition.
 
   - slug: records
+    src_file: "UCT_Standards_Records_v2.0_2026_04.docx"
+    version: "2.0"
+    subtitle: "The persistence layer of collapse in nature, life, and mind"
+    short_title: "Records"
     title: "Records Across Nature, Life, and Mind"
     tier: Standards
     doi: 7H6DY
@@ -188,6 +213,8 @@ papers:
       Framework-agnostic — useful without accepting UCT.
 
   - slug: soe
+    src_file: "UCT_Structuralization_of_Empiricism_v1.0_2026_04.docx"
+    subtitle: "Formalizing the Structural Conditions Under Which Empiricism Stabilizes Knowledge"
     title: The Structuralization of Empiricism
     tier: Standards
     doi: J4GZ9
@@ -200,6 +227,8 @@ papers:
     desc: The structural conditions under which empiricism stabilizes knowledge.
 
   - slug: uis
+    src_file: "UCT_Update_Integrity_Standard_v1.0_2026_04.docx"
+    subtitle: "A structural ethic for preserving corrigibility in record‑based systems"
     title: Update Integrity Standard (UIS)
     tier: Standards
     doi: DWM29
@@ -214,6 +243,8 @@ papers:
       preserving corrigibility in record-based systems.
 
   - slug: soai
+    src_file: "UCT_T15_Structuralization_of_AI_v1_0_2026_06.docx"
+    subtitle: "Formalizing the Structural Conditions for Coherent Description of Record-Carrying AI Systems"
     title: The Structuralization of AI
     tier: Standards
     doi: 6M7VW
@@ -228,6 +259,9 @@ papers:
       oriented locus, and S1/S2/S3 for AI systems.
 
   - slug: rice
+    date: "2026/04"
+    src_file: "UCT_T16_Bio_Constraint_Sweep_Rice_FINAL.docx"
+    subtitle: "A reproducible, theory-neutral test on GEO GSE74793"
     title: Bio Constraint Sweep (Rice)
     tier: "Tier 1.6 — Empirical Demonstrations"
     doi: KZ8TP
@@ -240,6 +274,9 @@ papers:
     desc: Biology wing. S3 hysteresis under constraint sweep.
 
   - slug: cogitate
+    date: "2026/04"
+    src_file: "UCT_T16_Constraint_Dependent_Perceptual_Resolution_COGITATE_v1.0.docx"
+    subtitle: "A Pre-Specified Reanalysis of the COGITATE iEEG Dataset"
     title: COGITATE — Constraint-Dependent Perceptual Resolution
     tier: "Tier 1.6 — Empirical Demonstrations"
     doi: MXYU2
@@ -252,6 +289,8 @@ papers:
     desc: Mind wing. Pre-specified reanalysis of the COGITATE iEEG dataset.
 
   - slug: ai_sig_deployed
+    src_file: "UCT_T16_AI_Empirical_Demo_v1_0_2026_05.docx"
+    subtitle: "Empirical Demonstration of S1, S2, and S3 in AI Substrates"
     title: "Empirical Demonstration of S1, S2, and S3 in Deployed AI Systems"
     tier: "Tier 1.6 — Empirical Demonstrations"
     doi: JPXCU

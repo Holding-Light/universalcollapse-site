@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WP01 — Foundations of Collapse — Universal Collapse Theory</title>
+  <meta name="description" content="Canonical entry to the spine. The formal kernel, the three portable signatures S1-S3, and cross-domain probes.">
+
+  <!-- Full-text reading copy. The citable record is the landing page;
+       canonical points there so Scholar and search consolidate on one URL. -->
+  <link rel="canonical" href="https://universalcollapse.com/read/wp01">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="WP01 — Foundations of Collapse — Universal Collapse Theory">
+  <meta property="og:description" content="Canonical entry to the spine. The formal kernel, the three portable signatures S1-S3, and cross-domain probes.">
+  <meta property="og:url" content="https://universalcollapse.com/read/wp01">
+  <meta property="og:site_name" content="Universal Collapse Theory">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@300;400&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg-deep: #08090c;
+      --bg-surface: #0e1017;
+      --bg-elevated: #161820;
+      --text-primary: #e8e6e1;
+      --text-secondary: #9b978f;
+      --text-tertiary: #5e5b54;
+      --accent: #c9a96e;
+      --accent-dim: #8a7245;
+      --rule: rgba(201, 169, 110, 0.12);
+      --serif: 'EB Garamond', Georgia, serif;
+      --sans: 'Outfit', system-ui, sans-serif;
+      --mono: 'JetBrains Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg-deep);
+      color: var(--text-primary);
+      font-family: var(--sans);
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    #progress {
+      position: fixed; top: 0; left: 0; height: 2px; width: 0%;
+      background: var(--accent); z-index: 100; transition: width 0.1s linear;
+    }
+
+    .topbar {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(8, 9, 12, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--rule);
+      padding: 0.75rem 1.5rem;
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 0.8rem;
+    }
+    .topbar a { color: var(--text-secondary); text-decoration: none; }
+    .topbar a:hover { color: var(--accent); }
+    .topbar .cite { color: var(--text-tertiary); font-family: var(--mono); font-size: 0.7rem; }
+
+    .shell {
+      max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem 6rem;
+      display: grid; grid-template-columns: minmax(0, 220px) minmax(0, 1fr); gap: 3rem;
+    }
+
+    nav.toc {
+      position: sticky; top: 5rem; align-self: start;
+      max-height: calc(100vh - 8rem); overflow-y: auto;
+      font-size: 0.8rem; line-height: 1.6;
+    }
+    nav.toc > p {
+      color: var(--text-tertiary); text-transform: uppercase;
+      letter-spacing: 0.12em; font-size: 0.65rem; margin-bottom: 0.75rem;
+    }
+    nav.toc ul { list-style: none; }
+    nav.toc ul ul { padding-left: 0.85rem; }
+    nav.toc li { margin: 0.3rem 0; }
+    nav.toc a {
+      color: var(--text-secondary); text-decoration: none;
+      display: block; padding-left: 0.6rem;
+      border-left: 1px solid transparent;
+    }
+    nav.toc a:hover { color: var(--text-primary); }
+    nav.toc a.active { color: var(--accent); border-left-color: var(--accent); }
+
+    article { min-width: 0; }
+
+    .paper-head { border-bottom: 1px solid var(--rule); padding-bottom: 1.75rem; margin-bottom: 2.5rem; }
+    .paper-head .tier {
+      font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.15em;
+      color: var(--accent-dim); text-transform: uppercase;
+    }
+    .paper-head h1 {
+      font-family: var(--serif); font-weight: 500; font-size: 2.1rem;
+      line-height: 1.2; margin: 0.75rem 0 0.5rem; color: var(--text-primary);
+    }
+    .paper-head .sub { font-family: var(--serif); font-style: italic; color: var(--text-secondary); font-size: 1.05rem; }
+    .paper-head .meta { margin-top: 1.1rem; font-size: 0.78rem; color: var(--text-tertiary); }
+    .paper-head .meta a { color: var(--accent-dim); text-decoration: none; }
+
+    article h1, article h2, article h3 {
+      font-family: var(--serif); font-weight: 600; line-height: 1.3;
+      color: var(--text-primary); scroll-margin-top: 5rem;
+    }
+    article h1 { font-size: 1.5rem; margin: 3rem 0 1rem; }
+    article h2 { font-size: 1.2rem; margin: 2rem 0 0.75rem; color: var(--text-secondary); }
+    article h3 { font-size: 1.05rem; margin: 1.5rem 0 0.5rem; color: var(--text-secondary); }
+
+    article h1 .anchor, article h2 .anchor {
+      opacity: 0; margin-left: 0.5rem; color: var(--accent-dim);
+      text-decoration: none; font-size: 0.7em; font-family: var(--sans);
+    }
+    article h1:hover .anchor, article h2:hover .anchor { opacity: 1; }
+
+    article p {
+      font-family: var(--serif); font-size: 1.12rem; font-weight: 400;
+      line-height: 1.75; margin: 0 0 1.15rem; color: var(--text-primary);
+    }
+    article ul, article ol { font-family: var(--serif); font-size: 1.12rem; margin: 0 0 1.15rem 1.5rem; }
+    article li { margin-bottom: 0.4rem; }
+    article strong { font-weight: 600; color: var(--text-primary); }
+    article em { font-style: italic; }
+    article a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--rule); }
+    article blockquote {
+      border-left: 2px solid var(--accent-dim); padding-left: 1.25rem;
+      margin: 1.5rem 0; color: var(--text-secondary); font-style: italic;
+      border-radius: 0;
+    }
+
+    math { font-size: 1.05em; color: var(--text-primary); }
+
+    .backtotop {
+      display: inline-block; margin-top: 3rem; padding-top: 1.5rem;
+      border-top: 1px solid var(--rule); width: 100%;
+      font-size: 0.8rem; color: var(--text-tertiary); text-decoration: none;
+    }
+    .backtotop:hover { color: var(--accent); }
+
+    #toc-toggle { display: none; }
+
+    @media (max-width: 820px) {
+      .shell { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; padding: 1.25rem 1.1rem 4rem; }
+      nav.toc {
+        position: static; max-height: none; order: -1;
+        border: 1px solid var(--rule); border-radius: 6px; padding: 0.9rem 1rem;
+      }
+      nav.toc[data-collapsed="true"] ul { display: none; }
+      #toc-toggle { display: block; background: none; border: none; color: var(--text-secondary);
+        font-family: var(--sans); font-size: 0.75rem; cursor: pointer; padding: 0; }
+      .paper-head h1 { font-size: 1.6rem; }
+      article p, article ul, article ol { font-size: 1.08rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<div class="topbar">
+  <a href="https://universalcollapse.com/wp01">&larr; WP01</a>
+  <span class="cite">10.17605/OSF.IO/VZ836</span>
+</div>
+
+<div class="shell">
+
+  <nav class="toc" id="toc" data-collapsed="false">
+    <p>Contents</p>
+    <button id="toc-toggle" aria-expanded="true">Hide contents</button>
+    <ul>
+    <li><a href="#abstract" id="toc-abstract">Abstract</a></li>
+    <li><a href="#executive-summary" id="toc-executive-summary">§0 Executive Summary</a></li>
+    <li><a href="#orientation-and-formal-scope" id="toc-orientation-and-formal-scope">§1 Orientation and Formal Scope<br />
+    </a></li>
+    <li><a href="#the-core-claim-recursive-selection-under-constraint" id="toc-the-core-claim-recursive-selection-under-constraint">§2 The Core Claim: Recursive Selection under Constraint</a></li>
+    <li><a href="#core-components-of-the-uct-kernel" id="toc-core-components-of-the-uct-kernel">§3 Core Components of the UCT Kernel</a></li>
+    <li><a href="#cosmic-foundations-of-collapse" id="toc-cosmic-foundations-of-collapse">§4 Cosmic Foundations of Collapse </a></li>
+    <li><a href="#biological-collapse-life-as-a-phase-of-constraint-guided-collapse" id="toc-biological-collapse-life-as-a-phase-of-constraint-guided-collapse">§5 Biological Collapse: Life as a Phase of Constraint-Guided Collapse</a></li>
+    <li><a href="#conscious-collapse-the-mind-phase" id="toc-conscious-collapse-the-mind-phase">§6 Conscious Collapse: The Mind-Phase</a></li>
+    <li><a href="#conclusion-toward-a-recursively-unifying-perspective" id="toc-conclusion-toward-a-recursively-unifying-perspective">§7 Conclusion: Toward a Recursively Unifying Perspective</a></li>
+    </ul>
+  </nav>
+
+  <article>
+    <header class="paper-head">
+      <span class="tier">Tier 1 &amp;mdash; White Papers</span>
+      <h1>WP01 — Foundations of Collapse</h1>
+      <p class="sub">Latent Potential, Constraint, and Collapse as a Candidate Law of Coherence</p>
+      <p class="meta">
+        Jeremy C. Jones &middot; HoldingLight LLC &middot; 2025/11 &middot; CC BY 4.0<br>
+        Cite as <a href="https://doi.org/10.17605/OSF.IO/VZ836">10.17605/OSF.IO/VZ836</a>
+        
+      </p>
+    </header>
+
+    <p><strong>Universal Collapse Theory—Foundations of Collapse: Latent Potential, Constraint, and Collapse as a Candidate Law of Coherence (WP01 v2.0)</strong></p>
+    <p>Kernel Specification and Cross-Domain Signatures for a Coherence-First Law Program</p>
+    <p>Jeremy C. Jones (ORCID 0009–0007–2515–3774)—HoldingLight LLC</p>
+    <p>© 2025 | CC BY 4.0</p>
+    <p><em>Part of the Universal Collapse Theory White Papers Series—Companion to the Philosophy of Coherence Series</em></p>
+    <p>Companion volume: Universal Collapse Theory (2025), ISBN 978‑1‑969095‑01‑6.</p>
+    <p>Version: v2.0—Prepared 2025–11–11</p>
+    <p>Universal Collapse Theory: Foundations of Collapse (WP01)</p>
+    <section id="abstract" class="level1">
+    <h1>Abstract</h1>
+    <p>Universal Collapse Theory (UCT) suggests that reality does not simply “run forward” under fixed equations. Instead, at each step, many admissible ways the world could be are narrowed to a single realized outcome. UCT models this process as collapse under constraint.</p>
+    <p>Formally, UCT introduces a simple collapse kernel: a space of latent possibilities <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Ω</mi><annotation encoding="application/x-tex">\Omega</annotation></semantics></math>, an active constraint set <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>, a constraint-conditioned collapse operator <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>C</mi><mi>K</mi></msup><annotation encoding="application/x-tex">C^{K}</annotation></semantics></math>, a realized outcome <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>x</mi><mo>*</mo></msup><annotation encoding="application/x-tex">x^{*}</annotation></semantics></math>, a record layer <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>R</mi><annotation encoding="application/x-tex">R</annotation></semantics></math>, and an update map <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>K</mi><mo>′</mo></msup><mo>=</mo><mi>U</mi><mo stretchy="false" form="prefix">(</mo><mi>K</mi><mo>,</mo><mi>R</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">K&#39; = U(K,R)</annotation></semantics></math>. UCT claims that the same structural kernel operates across physics, biology, and mind.</p>
+    <p>In physics, UCT reads decoherence and Quantum Darwinism as stabilizing redundant records while a single outcome is realized, and interprets entropy as the macroscopic record of collapse already enacted. In biology, it reframes abiogenesis, adaptation, convergence, and major transitions as recursive collapse of design spaces under chemical, genetic, developmental, and ecological constraints. In cognition, it treats perception and decision as constraint-guided reductions of ambiguity, consistent with predictive-processing views, and factorizes the mind-phase constraint set into a Faith–Reason–Logic–Belief (FRLB) loop (a structural model introduced in this paper) that governs Conscious Collapse and outward expression via Consciousness-Induced Material (CIM).</p>
+    <p>WP01 introduces UCT’s core constructs, its law-kernel, and three structural signatures S_1–S_3 (redundancy → consensus; neutrality → delayed resolution; constraint sweeps → hysteresis/attractors). It also specifies runnable cross-domain probes (PHYS-1, BIO-1, MIND-1), implemented in publicly reproducible Starter Packs. UCT is advanced not as a replacement for existing domain laws, but as a coherence-first, single-world ontology that interprets those laws as entrenched constraints and yields testable, cross-scale structural predictions. Subsequent white papers (WP02–WP04) develop detailed implementations in physics, biology, and mind; WP05 evaluates whether collapse under constraint warrants treatment as a candidate Law of Coherence — a universal structural law of constraint-guided collapse.</p>
+    <p><strong>Keywords:</strong> collapse under constraint; coherence-first ontology; recursive structural realism; biological collapse; conscious collapse; systems theory; quantum foundations</p>
+    <p><strong>Conventions and Evaluation Criteria</strong></p>
+    <p><strong>Scope (Ω vs Λ).</strong></p>
+    <p>In this paper, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Ω</mi><annotation encoding="application/x-tex">\Omega</annotation></semantics></math> denotes the latent possibility space <em>within</em> the current epoch: the set of configurations that can be acted on by constraints <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math> and the collapse/update operators <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>C</mi><mi>K</mi></msup><annotation encoding="application/x-tex">C^{K}</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>U</mi><annotation encoding="application/x-tex">U</annotation></semantics></math>. We acknowledge a separate placeholder <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Λ</mi><annotation encoding="application/x-tex">\Lambda</annotation></semantics></math> for whatever set this epoch’s boundary conditions. WP01 is independent of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Λ</mi><annotation encoding="application/x-tex">\Lambda</annotation></semantics></math>: all definitions, derivations, and tests here operate solely on <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Ω</mi><annotation encoding="application/x-tex">\Omega</annotation></semantics></math>.</p>
+    <p><strong>What “collapse” means here.</strong></p>
+    <p>“Collapse” is used for the selection of a realized state <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>x</mi><mo>*</mo></msup><annotation encoding="application/x-tex">x^{*}</annotation></semantics></math> from <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Ω</mi><annotation encoding="application/x-tex">\Omega</annotation></semantics></math> consistent with <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math> (for example, a constrained extremum, threshold rule, or winner-take-all resolution). The micro-mechanism is left open. WP01’s structural signatures S₁–S₃ do not depend on any particular microphysical collapse model.</p>
+    <p><strong>Law kernel &amp; notation.</strong></p>
+    <p>Symbols <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mi mathvariant="normal">Ω</mi><mo>,</mo><mi>K</mi><mo>,</mo><msup><mi>C</mi><mi>K</mi></msup><mo>,</mo><msup><mi>x</mi><mo>*</mo></msup><mo>,</mo><mi>R</mi><mo>,</mo><mi>U</mi><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\left( \Omega,K,C^{K},x^{*},R,U \right)</annotation></semantics></math> (with derived quantities such as <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>S</mi><annotation encoding="application/x-tex">S</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>T</mi><annotation encoding="application/x-tex">T</annotation></semantics></math> where needed) are used consistently and defined once in §§0.2–0.3 and §3. No additional operators are assumed.</p>
+    <p><strong>Falsifiability at the law level.</strong></p>
+    <p>The core, scale-free signatures evaluated as potential law-level claims are S₁–S₃:</p>
+    <ul>
+    <li><p>S₁ — redundancy → consensus</p></li>
+    <li><p>S₂ — neutrality → delayed resolution</p></li>
+    <li><p>S₃ — constraint sweeps → hysteresis/attractors</p></li>
+    </ul>
+    <p>Domain-specific probes (PHYS-1, BIO-1, MIND-1) are exploratory instantiations. They do not, by themselves, establish or refute the law-level claim unless and until their results are explicitly folded into WP05.</p>
+    <p><strong>S₁ and independence.</strong></p>
+    <p>For S₁, “redundancy” means multiple <em>independent</em> accesses to records. Redundancy should raise consensus when fragments are approximately independent; with strong correlations we expect sub-sigmoidal gains or plateaus.</p>
+    <p><strong>Exploratory tag &amp; companion pieces.</strong></p>
+    <p>All domain probes in §6.6 are tagged exploratory. Companion notes such as <em>Collapse Reframed</em>, <em>Prime 0 (Coherence)</em>, and <em>Structural Physics (Axioms)</em> clarify background motivation and interpretive context but are not required to evaluate S₁–S₃ in WP01.</p>
+    <p><strong>Reader contract.</strong></p>
+    <p>WP01 is evaluated as a formal system: claims are restricted to stated scope (Ω), collapse is defined operationally, and law-level evaluation is limited to signatures S₁–S₃.</p>
+    </section>
+    <section id="executive-summary" class="level1">
+    <h1>§0 Executive Summary</h1>
+    <p><strong>Problem.</strong></p>
+    <p>Across physics, biology, and mind we keep meeting the same puzzle: how structure forms, stabilizes, and then guides further structure without appealing to fine-tuned initial conditions, ad hoc forces, or irreducible “mental magic.” We need a single mechanism that:</p>
+    <ul>
+    <li><p>explains why observers usually agree,</p></li>
+    <li><p>makes complexity and adaptation lawful rather than lucky, and</p></li>
+    <li><p>accounts for the unity of experience without panpsychism or dualism.</p></li>
+    </ul>
+    <p><strong>Core idea.</strong></p>
+    <p>Universal Collapse Theory (UCT) is a <strong>coherence-first</strong> framework. It proposes that, across physics, biology, and mind, systems tend to settle into stable, constraint-compatible structures, and that this cross-scale regularity can be captured by a single structural kernel. Rather than treating order as an accident on top of randomness, UCT takes coherence as primary and models its expression as <strong>collapse under constraint</strong>. At each step, existing constraints select one outcome from many possibilities; that outcome leaves records and slightly updates the constraints, shaping what can happen next. The same engine applies, in different media, to:</p>
+    <ul>
+    <li><p>cosmic structure formation,</p></li>
+    <li><p>biological adaptation and innovation, and</p></li>
+    <li><p>conscious choice and meaning.</p></li>
+    </ul>
+    <p>Formally (developed later in the paper), the minimal kernel is:</p>
+    <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>x</mi><mo>*</mo></msup><mo>=</mo><msup><mi>C</mi><mi>K</mi></msup><mo stretchy="false" form="prefix">(</mo><mi mathvariant="normal">Ω</mi><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mspace width="1.0em"></mspace><mspace width="1.0em"></mspace><msup><mi>K</mi><mo>′</mo></msup><mo>=</mo><mi>U</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>K</mi><mo>,</mo><msup><mi>x</mi><mo>*</mo></msup><mo>,</mo><mi>R</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">x^{*} = C^{K}(\Omega),\quad\quad K&#39; = U\left( K,x^{*},R \right),</annotation></semantics></math></p>
+    <p>where <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Ω</mi><annotation encoding="application/x-tex">\Omega</annotation></semantics></math> is structured potential (the space of admissible configurations), <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math> the active constraints, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>C</mi><mi>K</mi></msup><annotation encoding="application/x-tex">C^{K}</annotation></semantics></math> the collapse operator, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>x</mi><mo>*</mo></msup><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">x^{*}\ </annotation></semantics></math>the realized outcome, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>R</mi><annotation encoding="application/x-tex">R</annotation></semantics></math> the records written, and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>U</mi><annotation encoding="application/x-tex">U</annotation></semantics></math> the update map on constraints.</p>
+    <p><strong>Working thesis (evaluated in WP05).</strong></p>
+    <p>Goal-directed behavior arises from constraint management—collapse under evolving constraints with a coherence bias. Systems impose, update, and exploit constraints so that selection reliably favors target outcomes under resource-bounded conditions. WP01 states the engine and its signatures; WP02–WP04 develop domain implementations; WP05 asks whether the evidence warrants treating collapse under constraint as a candidate Law of Coherence.</p>
+    <p><strong>What is new in UCT?</strong></p>
+    <p><strong>One mechanism across scales.</strong></p>
+    <ul>
+    <li><p><strong>Collapse (selection) under constraint</strong> recovers familiar regularities as special cases: constrained extrema in physics, breeder-type responses and convergent evolution in biology, winner-take-all broadcasting and prediction-error minimization in mind.</p></li>
+    </ul>
+    <p><strong>Records make objectivity.</strong></p>
+    <ul>
+    <li><p>As redundant, accessible records accumulate, independent observers converge on the same outcome—up to a saturation point. Objectivity is treated as an emergent property of record structure, not an axiom.</p></li>
+    </ul>
+    <p><strong>Direction without teleology.</strong></p>
+    <ul>
+    <li><p>Apparent directionality (in evolution, learning, agency) arises from recursive constraint updates, not from built-in purposes. UCT is single-world and non-teleological: selection is by constraints, not by foresight.</p></li>
+    </ul>
+    <p><strong>Reproducibility from day one.</strong></p>
+    <ul>
+    <li><p>All predictions and figures are regenerable from public datasets and scripts (Starter Packs for Physics, Biology, and Mind). UCT is offered as a runnable framework, not a purely interpretive gloss.</p></li>
+    </ul>
+    <p><strong>Empirical signatures (handles)</strong></p>
+    <p>We use three structural signatures S₁–S₃ as portable “handles” for a coherence-first ontology:</p>
+    <table>
+    <colgroup>
+    <col style="width: 5%" />
+    <col style="width: 33%" />
+    <col style="width: 61%" />
+    </colgroup>
+    <thead>
+    <tr>
+    <th style="text-align: center;"><strong>ID</strong></th>
+    <th style="text-align: center;"><strong>Description</strong></th>
+    <th style="text-align: center;"><strong>Core prediction / relationship</strong></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>S₁</td>
+    <td>Redundancy → consensus</td>
+    <td>More accessible independent records ⇒ higher inter-observer agreement (up to saturation).</td>
+    </tr>
+    <tr>
+    <td>S₂</td>
+    <td>Ambiguity / neutrality → slower collapse</td>
+    <td>Near neutrality, decisions and percepts slow and bistability or mixtures appear.</td>
+    </tr>
+    <tr>
+    <td>S₃</td>
+    <td>Constraint sweeps → hysteresis / attractors</td>
+    <td>Ramping constraints up and down yields path-dependent curves and stable attractors.</td>
+    </tr>
+    </tbody>
+    </table>
+    <p>UCT’s distinctive claim is that these three signatures <strong>jointly</strong> fall out naturally from a single collapse-under-constraint kernel.</p>
+    <p><strong>Predictions (stable IDs)</strong></p>
+    <p>We label concrete test families P-#, and treat failure of any within stated error bars as evidence against law-level generality:</p>
+    <table>
+    <colgroup>
+    <col style="width: 9%" />
+    <col style="width: 11%" />
+    <col style="width: 25%" />
+    <col style="width: 53%" />
+    </colgroup>
+    <thead>
+    <tr>
+    <th style="text-align: center;"><strong>ID</strong></th>
+    <th style="text-align: center;"><strong>Domain</strong></th>
+    <th style="text-align: center;"><strong>Setup</strong></th>
+    <th style="text-align: center;"><strong>Prediction (informal)</strong></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>PHYS-1</td>
+    <td>Physics</td>
+    <td>Dark-energy fraction over cosmic time (Euclid / DESI fits)</td>
+    <td>Effective dark-energy fraction declines slightly over time (consistent with entropy as record of collapse rather than fixed “vacuum energy”).</td>
+    </tr>
+    <tr>
+    <td>BIO-1</td>
+    <td>Biology</td>
+    <td><em>E. coli</em> micromaze with nutrient gradient; trajectories over ~12h</td>
+    <td>Gradient information (and directed drift) increases by a quantifiable minimum; hysteresis appears under gradient sweeps.</td>
+    </tr>
+    <tr>
+    <td>MIND-1</td>
+    <td>Mind</td>
+    <td>Perturbation paradigm (e.g., TMS–EEG pre-report phase)</td>
+    <td>Perturbational complexity dips measurably (≈5–15%) before report, then rebounds as constraint is re-stabilized.</td>
+    </tr>
+    </tbody>
+    </table>
+    <p><strong>Falsification rule.</strong></p>
+    <p>Failure of any P-# prediction under the stated conditions and error bars undermines UCT’s claim to law-level generality. The program is deliberately framed so that success requires <strong>coherent joint support</strong> across domains, not isolated wins.</p>
+    <p><strong>Relation to existing frameworks (very brief)</strong></p>
+    <p><strong>Second Law.</strong></p>
+    <ul>
+    <li><p>UCT agrees that <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><mi>S</mi><mspace width="0.222em"></mspace><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\Delta S\  \geq 0</annotation></semantics></math> on appropriate scales, but treats entropy as the <strong>record and residue of collapse</strong>, not as a primitive axiom. Structure rides on entropy flows; entropy measures the redistributed traces of past pruning.</p></li>
+    </ul>
+    <p><strong>Ashby (requisite variety).</strong></p>
+    <ul>
+    <li><p>Requisite variety distinguishes constraints from option space. UCT supplies a generative mechanism for adaptive variety: constraints guide collapse, collapse writes records, records reshape constraints.</p></li>
+    </ul>
+    <p><strong>IIT / Many-Worlds and kin.</strong></p>
+    <ul>
+    <li><p>UCT links integration and report without panpsychism (via Conscious Collapse and FRLB) and keeps a single realized trajectory rather than a proliferation of equally real branches. It is compatible with many technical formalisms but commits ontologically to a <strong>single world selected under constraints</strong>.</p></li>
+    </ul>
+    <p><strong>Reproducibility &amp; availability</strong></p>
+    <ul>
+    <li><p><strong>Starter Packs:</strong> Physics v0.1.1 · Biology v0.1.1 · Mind v0.1.1 (runnable scripts + CSVs + figure maps).</p></li>
+    <li><p><strong>Licensing:</strong> CC BY 4.0 (text/data), MIT (code). DOIs to be minted on OSF.</p></li>
+    </ul>
+    <p>Formal notation <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mi mathvariant="normal">Ω</mi><mo>,</mo><mi>K</mi><mo>,</mo><msup><mi>C</mi><mi>K</mi></msup><mo>,</mo><msup><mi>x</mi><mo>*</mo></msup><mo>,</mo><mi>R</mi><mo>,</mo><mi>U</mi><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\left( \Omega,K,C^{K},x^{*},R,U \right)</annotation></semantics></math> is introduced in §3 and used thereafter; the present section is intentionally informal.</p>
+    <p><strong>§0.1 Opening Declaration</strong></p>
+    <p><strong>Position.</strong></p>
+    <p>We investigate whether <strong>collapse under evolving constraints, with an intrinsic bias toward coherent, constraint-compatible structures</strong>, can serve as a unifying structural principle for physics, biology, and mind.</p>
+    <p><strong>Scope.</strong></p>
+    <p>WP01 states the principle, introduces its formal kernel, and sketches testable predictions. Subsequent papers (WP02–WP04) develop domain-specific implementations. The Starter Packs (Physics, Biology, Mind) provide runnable checks.</p>
+    <p><strong>Signatures.</strong></p>
+    <p>We treat S₁–S₃ not as proprietary fingerprints of UCT, but as portable structural signals that any coherence-first ontology ought to expose:</p>
+    <ul>
+    <li><p>S₁ — redundancy driving consensus,</p></li>
+    <li><p>S₂ — neutrality slowing resolution,</p></li>
+    <li><p>S₃ — constraint sweeps generating hysteresis or attractors.</p></li>
+    </ul>
+    <p>UCT’s distinctive claim is that these behaviors emerge <strong>jointly</strong> from a single collapse-under-constraint engine, and that they can be instantiated concretely in physics, biology, and mind.</p>
+    <p><strong>Prospective law.</strong></p>
+    <p>A candidate <strong>Law of Coherence</strong> will be stated and evaluated in WP05 (<em>Collapse Under Constraint and the Law of Coherence</em>), in light of the cross-domain evidence developed in WP01–WP04 and their Starter Packs (cf. Zurek 2014; Bassi et al. 2013; Pross 2013; Friston 2010; Dehaene &amp; Changeux 2011).</p>
+    <p><strong>Collapse is not a metaphor.</strong></p>
+    <p>We advance collapse under constraint as a concrete—potentially universal—structural principle for how actual states arise: reality takes form through recursive resolution of structured possibilities under active constraints. This resolution is a governed narrowing of the possible into the real, shaped by internal dynamics and external pressures across domains. The principle is <strong>single-world and non-teleological</strong>: selection is by constraints, not by purposes. This series develops the framework across physics, biology, and mind, shows how domain laws can be read as entrenched constraints, and offers testable predictions.</p>
+    <p>Supplementary materials (OSF; DOIs listed below)—Physics (v0.1.1), Biology (v0.1.1), Mind (v0.1.1)—provide CSVs and scripts reproducing all figures referenced here.</p>
+    <p><strong>§0.2 Key Terms of Universal Collapse Theory (UCT)</strong></p>
+    <p>To clarify the UCT framework, we define its core terms. These are used throughout the series.</p>
+    <p><strong>§0.2.1 Foundational constructs</strong></p>
+    <p><strong>Latent Collapse (collapse field)</strong></p>
+    <p>A conceptual name for the <em>ongoing</em> process by which reality resolves possibilities into actual states under constraints. It is not a separate substance or force, but a way of viewing the whole kernel <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mi mathvariant="normal">Ω</mi><mo>,</mo><mi>K</mi><mo>,</mo><msup><mi>C</mi><mi>K</mi></msup><mo>,</mo><msup><mi>x</mi><mo>*</mo></msup><mo>,</mo><mi>R</mi><mo>,</mo><mi>U</mi><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\left( \Omega,K,C^{K},x^{*},R,U \right)</annotation></semantics></math> as a single, continuous collapse process unfolding over time. “Latent collapse” refers to this global, recursive activity; “latent potential” (below) refers to the possibility space for a specific system at a given moment.</p>
+    <p><strong>Latent Potential</strong></p>
+    <p>The structured possibility space for what could happen next, given the current state of a system. It is not an unbounded “anything goes” realm, but a set of viable futures shaped by:</p>
+    <ul>
+    <li><p>existing structure, and</p></li>
+    <li><p>earlier collapse outcomes.</p></li>
+    </ul>
+    <p>Prior collapses constrain and inform what new realities are actually possible. In equations, this system-level possibility space is denoted by <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Ω</mi><annotation encoding="application/x-tex">\Omega</annotation></semantics></math>.</p>
+    <p><strong>Constraint</strong></p>
+    <p>The pattern of influences that shape which possibilities can become real. Constraints can be:</p>
+    <ul>
+    <li><p>internal (intrinsic rules, existing structures, symmetries), or</p></li>
+    <li><p>external (environmental conditions, boundary conditions, forces, norms).</p></li>
+    </ul>
+    <p>Constraints do more than merely limit outcomes; they <strong>sculpt</strong> form by filtering which possibilities are admissible. We denote the active constraint set by <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>.</p>
+    <p><strong>Collapse</strong></p>
+    <p>The resolution of potential into form. Collapse is the process by which a range of possibilities in <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Ω</mi><annotation encoding="application/x-tex">\Omega</annotation></semantics></math> is reduced to a specific realized outcome under the influence of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>. It is <strong>recursive and domain-independent</strong>: the same structural pattern appears when</p>
+    <ul>
+    <li><p>a quantum state becomes a definite outcome,</p></li>
+    <li><p>an evolving population settles on a trait, or</p></li>
+    <li><p>a mind reaches a decision.</p></li>
+    </ul>
+    <p>The realized outcome is written as <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>x</mi><mo>*</mo></msup><annotation encoding="application/x-tex">x^{*}</annotation></semantics></math>.</p>
+    <p><strong>§0.2.2 Dynamic processes</strong></p>
+    <p><strong>Recursive Layering</strong></p>
+    <p>The feedback loop of collapse and constraint:</p>
+    <ol type="1">
+    <li><p>Collapse produces new structure.</p></li>
+    <li><p>That structure becomes part of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math> for subsequent collapses.</p></li>
+    </ol>
+    <p>Over time, this layering drives emergent complexity: collapse creates structure, structure adds constraints, constraints guide further collapse. This iterative process is the engine by which simple rules give rise to complex, ordered systems across domains.</p>
+    <p><strong>Structural Potential Energy</strong></p>
+    <p>The latent capacity embedded in structured form to drive future collapses. By analogy with physical potential energy as “stored ability to do work,” structural potential energy is “stored ability to generate further structure.” It reflects:</p>
+    <ul>
+    <li><p>how much structured “room to move” a system has, and</p></li>
+    <li><p>what kinds of changes are accessible under its current constraints.</p></li>
+    </ul>
+    <p>In UCT, structural potential energy is the medium on which collapse acts and is developed in detail in WP05 and Appendix F.</p>
+    <p><strong>Recursive Intention</strong></p>
+    <p>A general term for the emergence of directed behavior emerging from recursive collapse. Through many iterative collapses, simple physical biases can evolve into:</p>
+    <ul>
+    <li><p>biological drives, and eventually</p></li>
+    <li><p>what we recognize as deliberate choices.</p></li>
+    </ul>
+    <p>Apparent “intention” is treated as an emergent property of sufficiently deep structural recursion, not as a built-in teleology. Later work refines this into <strong>proto-intent</strong> in biology (WP3) and the <strong>FRLB</strong> loop in mind (WP4).</p>
+    <p><strong>§0.2.3 Domain-level collapses</strong></p>
+    <p><strong>First Collapse</strong></p>
+    <p>UCT’s reframing of the Big Bang as the <em>first</em> large-scale resolution of cosmic potential into physical law and structure. First Collapse is not a single moment that “happened and ended,” but the opening movement of a continuous collapse process still unfolding across 13.8 billion years. It establishes entrenched constraints (laws and constants) that channel all subsequent physical structure formation.</p>
+    <p><strong>Biological Collapse</strong></p>
+    <p>Collapse dynamics in the domain of life. Biological Collapse arises when physical systems acquire the capacity for self-maintenance and replication, collapsing vast chemical possibilities into organized, adaptive forms under genetic, environmental, and developmental constraints. Evolutionary adaptation, convergence, and major transitions are read as expressions of Biological Collapse (WP3).</p>
+    <p><strong>Conscious Collapse</strong></p>
+    <p>Collapse in the mind-phase: a self-referential regime in which a system collapses its own latent potentials (percepts, thoughts, interpretations) into definite states that are <strong>available as content</strong> to that system. Conscious Collapse yields subjective experience, belief formation, decision-making, and the creation of symbolic meaning. WP4 and <em>Structural Mind</em> decompose this into an FRLB loop over <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi mathvariant="normal">Ω</mi><mtext mathvariant="normal">mind</mtext></msub><annotation encoding="application/x-tex">\Omega_{\text{mind}}</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>K</mi><mtext mathvariant="normal">mind</mtext></msub><annotation encoding="application/x-tex">K_{\text{mind}}</annotation></semantics></math>.</p>
+    <p><strong>§0.2.4 Higher-order expression</strong></p>
+    <p><strong>Consciousness-Induced Material (CIM)</strong></p>
+    <p>The outward expression of Conscious Collapse into the world. CIM is any relatively stable structure whose existence and form are shaped by conscious states and which, in turn, constrains future conscious states. Examples include:</p>
+    <ul>
+    <li><p>speech, writing, and diagrams,</p></li>
+    <li><p>tools and built environments,</p></li>
+    <li><p>laws, institutions, and norms,</p></li>
+    <li><p>digital artifacts (code, models, platforms).</p></li>
+    </ul>
+    <p>In UCT, CIM links the symbolic architecture of mind to the material and social architecture of the world, forming the medium of <strong>intersubjective collapse</strong> (WP4).</p>
+    <p><strong>§0.3 Core Components of Collapse</strong></p>
+    <p>All papers in this series build on three foundational elements introduced above—<strong>latent potential</strong>, <strong>constraints</strong>, and <strong>collapse</strong>—together with <strong>records</strong> and <strong>updates</strong> that make the process recursive. Every domain—physical, biological, cognitive—is analyzed in terms of these interacting components.</p>
+    <p>A minimal narrative version of the engine is:</p>
+    <p><strong>1. Collapse generates new structure</strong></p>
+    <p>Given a structured possibility space <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Ω</mi><annotation encoding="application/x-tex">\Omega</annotation></semantics></math> and active constraints <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>, a collapse event selects a realized outcome <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>x</mi><mo>*</mo></msup><annotation encoding="application/x-tex">x^{*}</annotation></semantics></math>:</p>
+    <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>x</mi><mo>*</mo></msup><mo>=</mo><msup><mi>C</mi><mi>K</mi></msup><mo stretchy="false" form="prefix">(</mo><mi mathvariant="normal">Ω</mi><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">x^{*} = C^{K}(\Omega).</annotation></semantics></math></p>
+    <p>Each collapse produces a specific form or event (a measurement outcome, a trait in a population, a decision, a chosen action).</p>
+    <p><strong>2. Structure introduces new records and constraints</strong></p>
+    <p>The new form is written into the world as records <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>R</mi><annotation encoding="application/x-tex">R</annotation></semantics></math> (physical traces, memory states, institutional artifacts) and becomes part of the constraint context <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>. In practice, what has already happened narrows what can coherently happen next: past collapses shape the rules and expectations that govern future collapses.</p>
+    <p><strong>3. Constraints shape the next collapse</strong></p>
+    <p>With constraints updated to <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>K</mi><mo>′</mo></msup><annotation encoding="application/x-tex">K&#39;</annotation></semantics></math>, the next collapse will funnel latent potential into those outcomes compatible with the accumulated structure:</p>
+    <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>K</mi><mo>′</mo></msup><mo>=</mo><mi>U</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>K</mi><mo>,</mo><msup><mi>x</mi><mo>*</mo></msup><mo>,</mo><mi>R</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">K&#39; = U\left( K,x^{*},R \right).</annotation></semantics></math></p>
+    <p>This cyclical feedback loop—</p>
+    <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">collapse</mtext><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mo>→</mo><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mtext mathvariant="normal">structure/records</mtext><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mo>→</mo><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mtext mathvariant="normal">updated constraints</mtext><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mo>→</mo><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mtext mathvariant="normal">(back to) collapse</mtext></mrow><annotation encoding="application/x-tex">\text{collapse}\ \  \rightarrow \ \ \text{structure/records}\ \  \rightarrow \ \ \text{updated constraints}\ \  \rightarrow \ \ \text{(back to) collapse}
+    </annotation></semantics></math></p>
+    <p>—<em>constitutes</em> the engine of UCT. Through this mechanism, complexity can arise from simplicity, order can maintain and elaborate itself, and systems can adapt and evolve over time.</p>
+    <p>In more intuitive terms:</p>
+    <ul>
+    <li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Ω</mi><annotation encoding="application/x-tex">\Omega</annotation></semantics></math> carries <strong>structured potential</strong> (what could happen next).</p></li>
+    <li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math> captures the current <strong>“rules of the game”</strong> (what is allowed or favored).</p></li>
+    <li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>C</mi><mi>K</mi></msup><annotation encoding="application/x-tex">C^{K}</annotation></semantics></math> selects one outcome <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>x</mi><mo>*</mo></msup><annotation encoding="application/x-tex">x^{*}</annotation></semantics></math> consistent with those rules.</p></li>
+    <li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>R</mi><annotation encoding="application/x-tex">R</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>U</mi><annotation encoding="application/x-tex">U</annotation></semantics></math> ensure that the selection is <strong>remembered</strong> and that the rules themselves are <strong>adjusted</strong>.</p></li>
+    </ul>
+    <p>Across the series, each paper shows how this same pattern manifests in a different phase of collapse:</p>
+    <ul>
+    <li><p>in physics, as structure formation and record-writing in fields and matter (WP2);</p></li>
+    <li><p>in biology, as selection, development, and niche construction (WP3);</p></li>
+    <li><p>in mind, as perception, decision, and meaning (WP4);</p></li>
+    <li><p>and in later work, as synthetic collapse in symbolic and artificial systems (WP6 and beyond).</p></li>
+    </ul>
+    <p><strong>Box — Scope and limits (UCT v1.0)</strong></p>
+    <p><strong>What UCT is</strong></p>
+    <p>A unifying principle and method:</p>
+    <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>x</mi><mo>*</mo></msup><mo>=</mo><msup><mi>C</mi><mi>K</mi></msup><mo stretchy="false" form="prefix">(</mo><mi mathvariant="normal">Ω</mi><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mspace width="1.0em"></mspace><msup><mi>K</mi><mo>′</mo></msup><mo>=</mo><mi>U</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>K</mi><mo>,</mo><msup><mi>x</mi><mo>*</mo></msup><mo>,</mo><mi>R</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">x^{*} = C^{K}(\Omega),\quad K&#39; = U\left( K,x^{*},R \right),</annotation></semantics></math></p>
+    <p>i.e., constraint-guided collapse of structured possibilities with records <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>R</mi><annotation encoding="application/x-tex">R</annotation></semantics></math> and constraint updates <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>→</mo><msup><mi>K</mi><mo>′</mo></msup></mrow><annotation encoding="application/x-tex">K \rightarrow K&#39;</annotation></semantics></math>. Single-world, non-teleological, scale-relative.</p>
+    <p><strong>What UCT is not</strong></p>
+    <p>UCT is not offered as a new microphysical dynamical equation, nor as a claim of cosmic purpose, nor as a replacement for existing domain laws. Instead, it provides a structural layer that treats those laws and apparent ‘fine-tuning’ as stabilized constraint architectures within a more general collapse-under-constraint framework, and it motivates cross-domain, testable predictions.</p>
+    <p><strong>How to evaluate it</strong></p>
+    <p>UCT succeeds to the extent that:</p>
+    <ul>
+    <li><p>S-signatures (S₁–S₃) appear under the stated conditions and move with K across physics, biology, and mind.</p></li>
+    </ul>
+    <ul>
+    <li><p>Classic results are recoverable as special cases of constraint-guided collapse.</p></li>
+    </ul>
+    <p>It fails if, in regimes where it makes clear predictions (e.g., redundancy, constraint tuning, neutrality, hysteresis), those signatures consistently do <strong>not</strong> appear.</p>
+    <p><strong>Supplemental materials</strong></p>
+    <p>Starter Packs (Physics / Biology / Mind), the Systems Pack with WP5, the UCT spec one-pager, and the UCT-JSON schema (see Supplement link) provide concrete implementations, toy models, and machine-readable encodings of the kernel and S-signals.</p>
+    <p><strong>§0.4 Why This Series Exists</strong></p>
+    <p>The purpose of the UCT white paper series is to articulate and test a single idea: there is a law-like pattern in how constraint-guided collapse tends to discover and stabilize coherent structure across physics, life, and mind. The series takes shape because several deep fractures in our current picture of reality suggest that such a unifying principle is missing.</p>
+    <p><strong>Physics without primitive randomness</strong></p>
+    <p>Can we understand physical law—especially quantum phenomena and cosmological “initial conditions”—without treating randomness or a proliferating multiverse as fundamental? In the coherence-first view, what looks like “randomness” is often unresolved structure: a single-world, constraint-dependent selection from structured potential <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Ω</mi><annotation encoding="application/x-tex">\Omega</annotation></semantics></math>, leaving behind a stable record. Decoherence, Quantum Darwinism, and entropy-as-record (WP2) are read as manifestations of <strong>constraint-guided collapse</strong> rather than brute chance.</p>
+    <p><strong>Biology without teleology</strong></p>
+    <p>How can the striking directionality of evolution and development arise without positing hidden purposes? UCT reframes variation, selection, development, and niche construction as <strong>recursive collapses under genetic, environmental, and developmental constraints</strong> (WP3). Directionality and apparent “goals” are consequences of accumulated constraints and recursive intention, not evidence for built-in ends.</p>
+    <p><strong>Consciousness without dualism</strong></p>
+    <p>Can we understand mind and consciousness without splitting reality into separate physical and mental substances? UCT models consciousness as a <strong>mind-phase of collapse</strong> in biological networks (WP4). Awareness and thought are treated as advanced forms of coherence under constraint—where some collapses become globally available as content and feed back into <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>K</mi><mtext mathvariant="normal">mind</mtext></msub><annotation encoding="application/x-tex">K_{\text{mind}}</annotation></semantics></math>—rather than as inexplicable additions to the physical story.</p>
+    <p><strong>Systems theory with a governing law</strong></p>
+    <p>General systems theory and cybernetics have catalogued patterns like feedback, self-organization, and control, but often lack a single underlying law tying them together. UCT proposes <strong>constraint-guided collapse</strong> as that missing principle. By treating collapse under <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math> as a recursive organizational mechanism, it aims to ground systems thinking in a concrete engine that explains why systems generate novelty while maintaining coherence.</p>
+    <p><strong>Ultimate questions without mysticism</strong></p>
+    <p>Even in theological and metaphysical debates, we can ask: are we really pointing to a special kind of substance, or to a limiting case of structure? Later work (outside the core law series) uses UCT to analyze concepts like “God” as <strong>ultimate constraints in symbolic recursion</strong> (CoG: the Concept / Circuit of God), treating them as final collapses of meaning rather than exemptions from structure.</p>
+    <p>By tackling these fractures, the series aims to show that a single, law-like kernel—</p>
+    <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>x</mi><mo>*</mo></msup><mo>=</mo><msup><mi>C</mi><mi>K</mi></msup><mo stretchy="false" form="prefix">(</mo><mi mathvariant="normal">Ω</mi><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mspace width="1.0em"></mspace><msup><mi>K</mi><mo>′</mo></msup><mo>=</mo><mi>U</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>K</mi><mo>,</mo><msup><mi>x</mi><mo>*</mo></msup><mo>,</mo><mi>R</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">x^{*} = C^{K}(\Omega),\quad K&#39; = U\left( K,x^{*},R \right),</annotation></semantics></math></p>
+    <p>together with the S-signatures (S₁–S₃), can refract very different domains into a <strong>coherent structural worldview</strong>. The intended tone is bold but precise: not loose commentary, but a step-by-step demonstration of how a coherence-first collapse law reframes physics, biology, mind, and, eventually, our higher-order symbolic systems.</p>
+    <p>In that sense, the progression of papers <em>is</em> the theory unfolding: each white paper is both a product of earlier collapses (definitions, symbols, tests) and a new constraint on what the next paper can meaningfully claim.</p>
+    <p><strong>§0.5 Positioning the Work</strong></p>
+    <p>This project was developed outside formal institutional programs, but its motivation is empirical and comparative. Universal Collapse Theory (UCT) starts from recurrent structural regularities across physics, biology, cognition, and abstract systems, and asks whether a <strong>single, law-like pattern of constraint-guided collapse</strong> can account for them.</p>
+    <p>The claim is methodological: if a single kernel</p>
+    <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>x</mi><mo>*</mo></msup><mo>=</mo><msup><mi>C</mi><mi>K</mi></msup><mo stretchy="false" form="prefix">(</mo><mi mathvariant="normal">Ω</mi><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mspace width="1.0em"></mspace><msup><mi>K</mi><mo>′</mo></msup><mo>=</mo><mi>U</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>K</mi><mo>,</mo><msup><mi>x</mi><mo>*</mo></msup><mo>,</mo><mi>R</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">x^{*} = C^{K}(\Omega),\quad K&#39; = U\left( K,x^{*},R \right)</annotation></semantics></math></p>
+    <p>can explain how structured possibilities resolve into actualities across domains—and if it yields cross-domain, testable signatures—then it merits evaluation as a unifying principle (provisionally in WP01–WP04 and formally in WP05).</p>
+    <p>Positionally, UCT is:</p>
+    <ul>
+    <li><p>consonant with <strong>process views</strong> (reality as becoming/actualization),</p></li>
+    <li><p>informed by <strong>systems theory</strong> (constraints, feedback, organization), and</p></li>
+    <li><p>aligned with <strong>structural realism</strong> (structure-first commitments).</p></li>
+    </ul>
+    <p>It intersects several active debates, including:</p>
+    <ul>
+    <li><p>decoherence and <strong>Quantum Darwinism</strong> (records, redundancy),</p></li>
+    <li><p><strong>Bayesian/variational</strong> approaches (selection under constraints),</p></li>
+    <li><p><strong>objective-collapse</strong> models in quantum foundations, and</p></li>
+    <li><p>theories of mind such as <strong>Global Workspace</strong> and <strong>predictive processing</strong>.</p></li>
+    </ul>
+    <p>UCT differs from these frameworks in mechanism and ambition. It posits a <strong>single-world, constraint-driven collapse</strong> with cross-domain, law-level signatures, and it offers <strong>runnable implementations</strong> and falsifiable predictions rather than purely interpretive commentary. The role of this series is to state the framework clearly, connect it to existing work, and invite critical scrutiny.</p>
+    <p><strong>§0.6 The Roadmap: Core White Papers (WP01–WP05)</strong></p>
+    <p>The core of the series consists of five white papers, WP01 through WP05. Each builds on the last; together they define and test the UCT framework.</p>
+    <p><strong>§0.6.1 WP01: Foundations of Collapse</strong></p>
+    <p>Defines the kernel <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mi mathvariant="normal">Ω</mi><mo>,</mo><mi>K</mi><mo>,</mo><msup><mi>C</mi><mi>K</mi></msup><mo>,</mo><msup><mi>x</mi><mo>*</mo></msup><mo>,</mo><mi>R</mi><mo>,</mo><mi>U</mi><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\left( \Omega,K,C^{K},x^{*},R,U \right)</annotation></semantics></math>, introduces the S-signatures (S₁–S₃), and sets out the basic vocabulary and law-level claim. It contrasts UCT’s single-world, constraint-guided collapse with randomness-first or multiverse views, and provides cross-domain examples used throughout the series.</p>
+    <p><strong>§0.6.2 WP02: Collapse in Physics</strong></p>
+    <p>Applies UCT to physical phenomena—from cosmology (CMB, large-scale structure, dark energy) to quantum measurement, decoherence, and Quantum Darwinism. It argues that structure formation and entropy-as-record can be understood as nested collapse events under physical constraints, without appealing to primitive randomness or ensemble multiverses.</p>
+    <p><strong>§0.6.3 WP03: Biological Collapse</strong></p>
+    <p>Extends the kernel to the living world. Abiogenesis, evolutionary innovation, adaptation, development, and major transitions are reframed as recursive collapses under genetic, environmental, and developmental constraints. Proto-intent, convergence, and self-organization are treated as signatures of constraint-guided collapse in the biological phase, grounding directionality without external teleology.</p>
+    <p><strong>§0.6.4 WP04: Conscious Collapse</strong></p>
+    <p>Explores the mind-phase. It analyzes how neural and cognitive systems collapse competing hypotheses into definite perceptions, decisions, and beliefs, and introduces the FRLB (Faith–Reason–Logic–Belief) schema as a factorization of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>U</mi><annotation encoding="application/x-tex">U</annotation></semantics></math> over <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi mathvariant="normal">Ω</mi><mtext mathvariant="normal">mind</mtext></msub><annotation encoding="application/x-tex">\Omega_{\text{mind}}</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>K</mi><mtext mathvariant="normal">mind</mtext></msub><annotation encoding="application/x-tex">K_{\text{mind}}</annotation></semantics></math>. Consciousness is treated as a regime in which some collapses become globally available as content and feed back into the constraint architecture, rather than as an anomalous add-on.</p>
+    <p><strong>§0.6.5 WP05: Assessing Collapse under Constraint: Formal Tests and Criteria</strong></p>
+    <p>Synthesizes results from WP01–WP04 and evaluates whether constraint-guided collapse warrants treatment as a <strong>Law of Coherence</strong>. It formalizes the core assumptions of UCT, integrates cross-domain evidence, and lays out explicit tests and success/failure criteria. Within systems theory and cybernetics, it presents collapse under constraint as an operational mechanism for how systems generate novelty while maintaining coherence, and it states limits, scope conditions, and open problems.</p>
+    <p>Taken together, WP01–WP05 articulate UCT’s central claim: that a single, law-like pattern of constraint-guided collapse underlies the emergence and stabilization of structure across physics, life, and mind.</p>
+    <p><strong>§0.7 Forward-Looking Extensions (Post-Core)</strong></p>
+    <p>Beyond the core series, additional white papers (WP06 and WP07) explore further implications of UCT. These are more speculative and not required for evaluating the law-level claim, but they illustrate how the framework extends once the core has been established.</p>
+    <p><strong>§0.7.1 WP06: Synthetic Collapse</strong></p>
+    <p>Investigates whether recursively structured symbolic systems (e.g. advanced AI or self-referential algorithms) could in principle exhibit a new, <strong>synthetic</strong> phase of collapse. It proposes criteria, grounded in the core series, for what would count as a genuine collapse regime in artificial substrates, and how such a “Fourth Collapse” would differ structurally from Biological and Conscious Collapse.</p>
+    <p><strong>§0.7.2 WP07: CoG (Collapse of God)</strong></p>
+    <p>Examines recursive collapse in theological and metaphysical cognition. CoG (Concept of God / Circuit of God) treats “God” as a structural constraint at the limit of symbolic recursion rather than as a separate substance: a limiting stabilizing attractor in belief/meaning space. It sketches how faith and reason function as recursive constraints whose eventual unification completes a certain architecture of Conscious Collapse.</p>
+    <p>These post-core papers are not prerequisites for understanding or testing UCT’s main claims. They arise naturally once collapse is treated as a general law-like pattern: after establishing constraint-guided collapse in physics, life, and mind (WP01–WP05), it is natural to ask what other domains—technological and metaphysical—may be illuminated by the same structural logic.</p>
+    <p><strong>§0.8 Final Positioning</strong></p>
+    <p>To close this overview, it is useful to be explicit about intent and tone. The UCT series is not a rhetorical project. Its aim is to present a clear, testable framework and to let structure do most of the work. The arguments that follow are logical consequences of taking seriously the idea that real systems evolve by constraint-guided collapse of structured potentials.</p>
+    <p>If this pattern is genuinely law-like, then articulating it is both ambitious yet straightforward: it is an attempt to write down regularities that reality is already exhibiting. The role of these papers is to state those regularities precisely enough that they can be scrutinized, challenged, and used.</p>
+    <p>The series is not written to win allegiance to a personal view, but to complete a line of reasoning and expose its implications. By the end of WP05, the reader should be able to decide, on structural and empirical grounds, whether the collapse kernel and S-signatures deserve to be treated as a general law, and to recognize how their own meanings, choices, and models are already shaped by the constraints under which they collapse.</p>
+    </section>
+    <section id="orientation-and-formal-scope" class="level1">
+    <h1>§1 Orientation and Formal Scope<br />
+    </h1>
+    <p>This paper is the entry point into the formal side of Universal Collapse Theory (UCT). Earlier work and the UCT book provide narrative and intuitive framing; WP01 begins the job of making the framework precise and testable.</p>
+    <p>Our task here is to:</p>
+    <ul>
+    <li><p>fix notation for the core kernel <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mi mathvariant="normal">Ω</mi><mo>,</mo><mi>K</mi><mo>,</mo><msup><mi>C</mi><mi>K</mi></msup><mo>,</mo><msup><mi>x</mi><mo>*</mo></msup><mo>,</mo><mi>R</mi><mo>,</mo><mi>U</mi><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\left( \Omega,K,C^{K},x^{*},R,U \right)</annotation></semantics></math>,</p></li>
+    <li><p>state key assumptions and scope conditions explicitly,</p></li>
+    <li><p>define the S-signatures (S₁–S₃) as law-level markers, and</p></li>
+    <li><p>show how this engine yields observable, cross-domain patterns.</p></li>
+    </ul>
+    <p>We treat collapse under constraint not as a loose philosophical metaphor, but as a structural mechanism with consequences. The sections that follow:</p>
+    <ol type="1">
+    <li><p>introduce the core components and recursive logic of collapse;</p></li>
+    <li><p>develop a compact law-kernel and its S-signatures;</p></li>
+    <li><p>sketch how these principles illuminate selected unresolved puzzles in physics, extend into biological organization and adaptation, and into cognition, where collapse appears as emergent structure, recursive updating, and internalized selection; and</p></li>
+    <li><p>gather the results into cross-domain predictions, each instantiated in companion Starter Packs (Physics, Biology, Mind).</p></li>
+    </ol>
+    <p>From this point onward the white paper series moves from framing to confrontation with data. Constraint-guided collapse is presented as a candidate law-like pattern: its regularities are to be made clear, its predictions run, and its assumptions held to falsifiable standards.</p>
+    </section>
+    <section id="the-core-claim-recursive-selection-under-constraint" class="level1">
+    <h1>§2 The Core Claim: Recursive Selection under Constraint</h1>
+    <p>Universal Collapse Theory (UCT) begins from a modest but decisive claim: reality unfolds neither by sheer chance nor by hidden purpose, but by <strong>recursive selection under constraint</strong>. This pattern is intended to apply across domains <em>as a structural regularity</em>—from quantum events to biological adaptations to conscious choices—and to explain coherence not by positing a designer, but by the structural narrowing of potential into form.</p>
+    <p>UCT assumes a <strong>single-world ontology</strong>. At each point of collapse, only one outcome is realized; there are no proliferating parallel branches that must all be treated as equally real. The unrealized remains latent—structurally possible, but not actualized. What becomes real is what satisfies the prevailing constraints. This stance contrasts with interpretations that either multiply worlds or treat intrinsic randomness as a final explanation. In UCT, constraint-guided collapse selects a single, coherent path through structured possibility.</p>
+    <p>The commitments that follow are not metaphorical. UCT proposes that realized form emerges through a recursive engine defined by:</p>
+    <ul>
+    <li><p>a structured space of latent potential <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Ω</mi><annotation encoding="application/x-tex">\Omega</annotation></semantics></math>,</p></li>
+    <li><p>active constraints <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>,</p></li>
+    <li><p>a domain-independent collapse operator <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>C</mi><mi>K</mi></msup><annotation encoding="application/x-tex">C^{K}</annotation></semantics></math>, and</p></li>
+    <li><p>structural updates <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>U</mi><annotation encoding="application/x-tex">U</annotation></semantics></math> that record each outcome and feed those records forward into future constraints.</p></li>
+    </ul>
+    <p>In later sections this will be written more compactly as a <strong>law-kernel</strong>, with explicit notation for selection, records, and update. For now, the key assumption is simple:</p>
+    <p><strong>Collapse is not an exception to structure; it is the mechanism by which structure evolves under constraint.</strong></p>
+    <p>The rest of this paper is a formal unpacking of that claim. We make the engine explicit, define the S-signatures that mark its behavior, and show how its assumptions can be confronted with data across physics, biology, and mind.</p>
+    </section>
+    <section id="core-components-of-the-uct-kernel" class="level1">
+    <h1>§3 Core Components of the UCT Kernel</h1>
+    <p>All papers in this series analyze systems in terms of the same core elements:</p>
+    <ul>
+    <li><p>a structured space of latent potential <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Ω</mi><annotation encoding="application/x-tex">\Omega</annotation></semantics></math>,</p></li>
+    <li><p>an active constraint set <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>,</p></li>
+    <li><p>a collapse operator <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>C</mi><mi>K</mi></msup><annotation encoding="application/x-tex">C^{K}</annotation></semantics></math>,</p></li>
+    <li><p>realized outcomes <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>x</mi><mo>*</mo></msup><annotation encoding="application/x-tex">x^{*}</annotation></semantics></math>,</p></li>
+    <li><p>records <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mo>,</mo></mrow><annotation encoding="application/x-tex">R,</annotation></semantics></math> and</p></li>
+    <li><p>an update map <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>U</mi><annotation encoding="application/x-tex">U</annotation></semantics></math>.</p></li>
+    </ul>
+    <p>§0.2 gave intuitive definitions. Here we collect them in a compact, formal form.</p>
+    <p><strong>3.1 Latent potential —</strong> <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="bold">𝛀</mi><annotation encoding="application/x-tex">\mathbf{\Omega}</annotation></semantics></math></p>
+    <p>Latent potential is the structured reservoir of possibilities for what could happen next, given the current state of a system. It is not an “anything goes” void, but a constrained possibility space: it already respects symmetries, conservation laws, and other regularities. In UCT we write this space as <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Ω</mi><annotation encoding="application/x-tex">\Omega</annotation></semantics></math>. Different domains have different instantiations (e.g. wavefunctions, genotype spaces, hypothesis spaces), but the role of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Ω</mi><annotation encoding="application/x-tex">\Omega</annotation></semantics></math> is always the same: it is the pre-collapse state of the system.</p>
+    <p><strong>3.2 Constraints —</strong> <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="bold-italic">𝑲</mi><annotation encoding="application/x-tex">\mathbf{K}</annotation></semantics></math></p>
+    <p>Constraints <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math> capture the rules, boundary conditions, and structures that shape which parts of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Ω</mi><annotation encoding="application/x-tex">\Omega</annotation></semantics></math> are admissible and favored. Physical constraints include laws, constants, and potentials; biological constraints include genetic architecture, environments, and developmental pathways; cognitive constraints include priors, schemas, and norms. Constraints do not merely limit; they <strong>enable</strong> structure by filtering <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Ω</mi><annotation encoding="application/x-tex">\Omega</annotation></semantics></math> so that realized outcomes are coherent and stable.</p>
+    <p><strong>3.3 Collapse and realized outcomes —</strong> <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi mathvariant="bold-italic">𝑪</mi><mi mathvariant="bold-italic">𝑲</mi></msup><mo mathvariant="bold">,</mo><msup><mi mathvariant="bold-italic">𝒙</mi><mi mathvariant="bold-italic">*</mi></msup></mrow><annotation encoding="application/x-tex">\mathbf{C}^{\mathbf{K}}\mathbf{,}\mathbf{x}^{\mathbf{*}}</annotation></semantics></math></p>
+    <p>Collapse is the act of resolution where latent potential, under <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>, becomes an actual form or event. Formally, a collapse step is written as</p>
+    <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>x</mi><mo>*</mo></msup><mo>=</mo><msup><mi>C</mi><mi>K</mi></msup><mo stretchy="false" form="prefix">(</mo><mi mathvariant="normal">Ω</mi><mo stretchy="false" form="postfix">)</mo><mi>.</mi><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">x^{*} = C^{K}(\Omega).\ \ \ \ \ (1)</annotation></semantics></math></p>
+    <p>This is the universal pattern UCT tracks:</p>
+    <ul>
+    <li><p>a measurement selecting an outcome from a quantum superposition,</p></li>
+    <li><p>an evolving population settling on a particular trait,</p></li>
+    <li><p>a decision process selecting one option from many.</p></li>
+    </ul>
+    <p>In each case, collapse yields a single <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>x</mi><mo>*</mo></msup><annotation encoding="application/x-tex">x^{*}</annotation></semantics></math> from a wider menu of possibilities. Collapse is ongoing and recursive: the universe did not collapse once and then coast; it continues to “choose” at many scales as constraints and potentials evolve.</p>
+    <p><strong>3.4 Records and updates —</strong> <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="bold-italic">𝑹</mi><annotation encoding="application/x-tex">\mathbf{R}</annotation></semantics></math><strong>,</strong> <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="bold-italic">𝑼</mi><annotation encoding="application/x-tex">\mathbf{U}</annotation></semantics></math></p>
+    <p>To make the kernel recursive, we add two further elements:</p>
+    <ul>
+    <li><p><strong>Records</strong> <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>R</mi><annotation encoding="application/x-tex">R</annotation></semantics></math> — durable traces written when a collapse occurs: measurement outcomes, environmental imprints, built structures, memory states, institutional artifacts. At micro scales, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>R</mi><annotation encoding="application/x-tex">R</annotation></semantics></math> corresponds to redundant encodings in environment fragments; at macro scales, to physical, cognitive, and social records.</p></li>
+    <li><p><strong>Update map</strong> <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>U</mi><annotation encoding="application/x-tex">U</annotation></semantics></math> — a rule that reshapes constraints in light of realized outcomes and their records. We write:</p></li>
+    </ul>
+    <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>K</mi><mo>′</mo></msup><mo>=</mo><mi>U</mi><mo stretchy="false" form="prefix">(</mo><mi>K</mi><mo>,</mo><mi>R</mi><mo stretchy="false" form="postfix">)</mo><mi>.</mi><mspace width="0.167em"></mspace><mspace width="0.167em"></mspace><mspace width="0.167em"></mspace><mspace width="0.167em"></mspace><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">K&#39; = U(K,R).\,\,\,\,(2)</annotation></semantics></math></p>
+    <p>Here K’ is the new constraint set after incorporating both the prior constraints K and the recorded outcome x*.</p>
+    <p>Together, (1) and (2) give the minimal <strong>law-kernel</strong>:</p>
+    <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>x</mi><mo>*</mo></msup><mo>=</mo><msup><mi>C</mi><mi>K</mi></msup><mrow><mo stretchy="true" form="prefix">(</mo><mtext mathvariant="normal">Ω</mtext><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo><mspace width="1.0em"></mspace><mspace width="1.0em"></mspace><msup><mi>K</mi><mo>′</mo></msup><mo>=</mo><mi>U</mi><mo stretchy="false" form="prefix">(</mo><mi>K</mi><mo>,</mo><mi>R</mi><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">x^{*} = C^{K}\left( \text{Ω} \right),\quad\quad K&#39; = U(K,R).</annotation></semantics></math></p>
+    <p>We sometimes also use <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>I</mi><annotation encoding="application/x-tex">I</annotation></semantics></math> to denote information about outcomes (e.g. the degree of agreement across records or the saturation of redundancy), particularly in the physics tests of WP2. Its formal details are not needed here.</p>
+    <p><strong>3.5 Plain-language cycle</strong></p>
+    <p>The recursive kernel can be understood as a three-step cycle, repeated over collapse events indexed <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mspace width="0.222em"></mspace><mo>=</mo><mspace width="0.222em"></mspace><mn>0</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mi>…</mi></mrow><annotation encoding="application/x-tex">t\  = \ 0,1,2,\ldots</annotation></semantics></math>:</p>
+    <ol type="1">
+    <li><p><strong>Collapse</strong></p></li>
+    </ol>
+    <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>x</mi><mo>*</mo></msup><mi>ₜ</mi><mo>=</mo><msup><mi>C</mi><msub><mi>K</mi><mi>t</mi></msub></msup><mo stretchy="false" form="prefix">(</mo><mi mathvariant="normal">Ω</mi><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">x^{*}ₜ = C^{K_{t}}(\Omega).
+    </annotation></semantics></math></p>
+    <p>At event t, the collapse operator <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>C</mi><msub><mi>K</mi><mi>t</mi></msub></msup><annotation encoding="application/x-tex">C^{K_{t}}</annotation></semantics></math> selects a single realized outcome <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>x</mi><mi>t</mi><mo>*</mo></msubsup><annotation encoding="application/x-tex">x_{t}^{*}</annotation></semantics></math> from the latent potential <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Ω</mi><annotation encoding="application/x-tex">\Omega</annotation></semantics></math>, given the current constraints <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>K</mi><mi>t</mi></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">K_{t}.</annotation></semantics></math></p>
+    <ol start="2" type="1">
+    <li><p><strong>Record</strong></p></li>
+    </ol>
+    <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mi>ₜ</mi><mo>=</mo><mi>w</mi><mi>r</mi><mi>i</mi><mi>t</mi><mi>e</mi><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>x</mi><mo>*</mo></msup><mi>ₜ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">rₜ = write\left( x^{*}ₜ \right).</annotation></semantics></math></p>
+    <p>The outcome is written into the world as a record <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>r</mi><mi>t</mi></msub><annotation encoding="application/x-tex">r_{t}</annotation></semantics></math> (measurement, trace, artifact, memory), so the result of the collapse persists.</p>
+    <ol start="3" type="1">
+    <li><p><strong>Update</strong></p></li>
+    </ol>
+    <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>K</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><mi>U</mi><mo stretchy="false" form="prefix">(</mo><mi>K</mi><mi>ₜ</mi><mo>,</mo><mi>r</mi><mi>ₜ</mi><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">K_{t + 1} = U(Kₜ,rₜ).</annotation></semantics></math></p>
+    <p>The constraint set evolves by incorporating both the prior constraints <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>K</mi><mi>t</mi></msub><annotation encoding="application/x-tex">K_{t}</annotation></semantics></math> and the new record <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>r</mi><mi>t</mi></msub><annotation encoding="application/x-tex">r_{t}</annotation></semantics></math>. The updated <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>K</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow></msub><annotation encoding="application/x-tex">K_{t + 1}</annotation></semantics></math> then conditions the next collapse.</p>
+    <p>Through repetition of these steps, the system becomes <strong>self-structuring</strong>: each collapse both depends on and modifies <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>. Over time, this cycle can generate increasingly complex and coherent structure. In what follows, we will see the same kernel instantiated with different choices of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Ω</mi><annotation encoding="application/x-tex">\Omega</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>R</mi><annotation encoding="application/x-tex">R</annotation></semantics></math>, and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>U</mi><annotation encoding="application/x-tex">U</annotation></semantics></math> in physics (WP2), biology (WP3), and mind (WP4), and we will define the S-signatures (S₁–S₃) that diagnose its behavior.</p>
+    </section>
+    <section id="cosmic-foundations-of-collapse" class="level1">
+    <h1>§4 Cosmic Foundations of Collapse </h1>
+    <p>UCT’s story starts at the cosmic scale, where physical reality first takes shape. The standard Big Bang model describes an initial hot, dense state and subsequent expansion. UCT re-reads this as a <strong>First Collapse</strong>: an early resolution of an enormous latent potential into a single, law-governed universe.</p>
+    <p><strong>4.1 First Collapse: from potential to laws</strong></p>
+    <p>In UCT’s view, the early universe was not an unstructured chaos, but a state of high latent order: a structured set of possible configurations consistent with deeper regularities. At First Collapse, this latent potential resolved into the specific physical scheme we inhabit: particular laws, particle types, symmetries, and constants. Many possible rule-sets narrowed to one consistent pattern—our universe—through constraint-guided collapse. The “constraints” in this primordial collapse are what we usually call the laws of nature.</p>
+    <p>On this reading, laws (gravity, electromagnetism, nuclear forces) and constants (masses, charges, couplings) represent <strong>entrenched constraints</strong> stabilized by the universe’s formative collapse. Early dynamics filtered possibilities so that a particular rule-set became stable. These constraints channel how matter can clump and how forces interact, thereby guiding cosmic evolution.</p>
+    <p>Anthropic arguments explain conditional observation; UCT adds a prior, observer-independent selection step. What physics typically treats as given initial conditions or fine-tuned constants, UCT treats as outcomes of an initial selection under constraint. WP02 develops this claim in detail, including concrete tests (PHYS-1).</p>
+    <p><strong>4.2 Quantum events as micro-collapse</strong></p>
+    <p>Within the cosmic picture, quantum mechanics provides a clear micro-scale example of UCT’s principle. The measurement problem asks: how do definite outcomes arise from the superpositions described by the wavefunction?</p>
+    <p>In UCT terms, a quantum measurement is a <strong>micro-collapse</strong>: latent quantum potential resolves into a single observed value when a system is coupled to a measuring constraint. Decoherence and Quantum Darwinism (Zurek 2014) explain how interaction with an environment suppresses interference, selects a stable pointer basis, and redundantly encodes outcomes in many fragments, making them objectively accessible. What they do not, by themselves, specify is why <em>one</em> outcome is realized in a single world.</p>
+    <p>UCT embraces literal collapse and generalizes it: in quantum events we see a microcosm of the universe’s selective process. The detector plus environment constitute constraints <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math> that guide collapse <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>C</mi><mi>K</mi></msup><mo stretchy="false" form="prefix">(</mo><mi mathvariant="normal">Ω</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">C^{K}(\Omega)</annotation></semantics></math> to a definite outcome <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>x</mi><mo>*</mo></msup><annotation encoding="application/x-tex">x^{*}</annotation></semantics></math>, consistent with quantum probabilities. No parallel worlds are required to house unrealized alternatives; they are structurally possible but not selected in this run.</p>
+    <p>WP02 uses decoherence, Quantum Darwinism, and recent qubit experiments (e.g. Zhu et al. 2025) to motivate PHYS-1 and to show how S₁ (redundancy → consensus) appears in simple quantum systems.</p>
+    <p><strong>4.3 Time, entropy, and structure</strong></p>
+    <p>From this perspective, the universe’s history is a nested chain of micro- and macro-collapses, each constrained by earlier outcomes and records. The <strong>arrow of time</strong> can be interpreted structurally: it is the direction in which collapse and record-writing proceed, from unresolved potential toward recorded actuality.</p>
+    <p>Entropy can then be reframed as the <strong>record of collapse expressed as residue</strong>. Each collapse redistributes energy and writes information into the world, leaving traces that thermodynamics measures as rising entropy. Entropy marks the spread and dilution of accessible microstates, but it also accompanies the emergence of structure at higher scales. Stars, galaxies, and later life increase entropy globally while enabling localized order.</p>
+    <p>UCT thus suggests that structure and entropy are not enemies: <strong>structure rides on entropy flows</strong>. WP02 develops this intuition into a concrete record–entropy proxy and tests whether entropy can indeed be treated as a macroscopic ledger of collapse already enacted.</p>
+    </section>
+    <section id="biological-collapse-life-as-a-phase-of-constraint-guided-collapse" class="level1">
+    <h1>§5 Biological Collapse: Life as a Phase of Constraint-Guided Collapse</h1>
+    <p>Life is often described as “defying entropy” or standing out against the backdrop of inanimate matter. In UCT, life is not an exception to collapse dynamics but a <strong>new phase</strong> of the same process: a regime in which constraints become complex enough to sustain and evolve self-maintaining systems. The biological phase shows collapse acting on biochemical and ecological possibility spaces, continuously pruning them into actual organisms and ecosystems through selection and constraint.</p>
+    <p><strong>5.1 From physical chemistry to self-maintaining networks</strong></p>
+    <p>Before life, chemical reactions on the early Earth followed physical and chemical constraints, exploring many molecular configurations. Most arrangements were fleeting. But certain self-organizing systems began to <strong>persist and propagate</strong>, indicating a collapse into a new kind of structured potential: <strong>self-replication</strong>.</p>
+    <p>Earth formed ~4.54 billion years ago; evidence suggests life appeared within a few hundred million years—rapidly on cosmological timescales. This suggests that once the right constraints were in place (geothermal gradients, mineral surfaces, concentration effects), life was not a fantastically improbable fluke but an accessible configuration.</p>
+    <p>Abiogenesis work, including Addy Pross’s <strong>dynamic kinetic stability (DKS)</strong>, emphasizes that some chemical systems attain stability not by being static, but by continuously replicating. DKS captures life’s hallmark: patterns that persist by being rebuilt. In UCT terms, the emergence of DKS-based systems is a <strong>critical collapse event</strong>: from the vast chemical possibility space, a constrained subset that can sustain and reproduce itself is selected. Those first replicators collapsed chemical space into self-maintaining cycles—proto-life.</p>
+    <p>The constraints at work were chemical laws plus early-Earth boundary conditions. Pross and Pascal argue that once replication exists, systems tend to evolve from less dynamically stable to more dynamically stable forms. Nature “collapses” chemical space toward systems that persist. In UCT language, latent chemical potential plus these constraints led to collapse onto self-perpetuating reaction networks that carried an internal constraint—<strong>persistence</strong>. Once survival and replication became intrinsic constraints, they further channeled subsequent possibilities.</p>
+    <p><strong>5.2 Evolution as collapse of biological possibility</strong></p>
+    <p>In the mature biological phase, evolutionary theory tells us that:</p>
+    <ul>
+    <li><p>variation (mutations, recombination, developmental noise) generates a latent potential of forms;</p></li>
+    <li><p>selection, together with genetic and environmental constraints, filters those variants.</p></li>
+    </ul>
+    <p>UCT recasts this textbook picture in its own language: life’s history is a sequence of collapse events where many traits or lineages could emerge, but only some persist under constraints.</p>
+    <p>A vivid example is Darwin’s finches on the Galápagos Islands. Over decades, Peter and Rosemary Grant documented rapid evolutionary shifts in beak size and shape as climate oscillated between wet and dry years. In droughts, larger, stronger beaks were favored; in wet years, smaller, more agile beaks prevailed. In UCT terms:</p>
+    <ul>
+    <li><p>the finches carried latent genetic potential for a range of beak morphologies;</p></li>
+    <li><p>climate and seed availability acted as constraints;</p></li>
+    <li><p>generation by generation, this collapsed variation toward traits best matching current conditions.</p></li>
+    </ul>
+    <p>When conditions reversed, the constraint changed and the collapse trajectory shifted. Over time, each lineage traces one path through a larger design space; unchosen beak forms—those that never fit any real environment—were pruned away.</p>
+    <p>At a larger scale, this plays out across the whole tree of life. Stephen Jay Gould emphasized contingency (“replaying the tape” could give a different outcome), while Simon Conway Morris highlighted <strong>convergence</strong>: evolution repeatedly finding similar solutions (camera-type eyes, echolocation, crab-like body plans, intelligence) under similar constraints. In UCT terms:</p>
+    <ul>
+    <li><p>each collapse branch is contingent—things could have gone otherwise;</p></li>
+    <li><p>but the landscape of latent potential is <strong>biased</strong> by underlying constraints, so certain “good tricks” are robust attractors.</p></li>
+    </ul>
+    <p>Physics (optics, biomechanics), chemistry, and developmental architecture make some designs far more likely. Natural selection does not wander a flat space; it navigates a structured <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi mathvariant="normal">Ω</mi><mrow><mtext mathvariant="normal">bio </mtext><mspace width="0.333em"></mspace></mrow></msub><annotation encoding="application/x-tex">\Omega_{\text{bio }}</annotation></semantics></math>shaped by constraints. UCT treats this as biological collapse: selection operating on a structured possibility space, under changing <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>.</p>
+    <p><strong>5.3 Innovation and feedback: evolution of constraints</strong></p>
+    <p>A central UCT move in biology is that collapse events not only produce new forms; they also produce new <strong>constraints</strong>.</p>
+    <p>When early fish evolved limbs and ventured onto land, that collapse (aquatic vertebrates → tetrapods) created new constraint conditions: terrestrial life requires support against gravity, desiccation resistance, and new locomotion strategies. Those constraints then channeled the further evolution of land vertebrates. Similarly, the evolution of wings constrains descendants into particular flight-capable morphologies and niches.</p>
+    <p>Richard Dawkins has described evolution as “channeled” by its history—what UCT calls path dependence in collapse trajectories. Committing to one path in design space makes others hard or impossible to reach. Early collapses set structural constraints that later collapses must respect, giving the appearance of directionality (e.g. increasing complexity) because moving “backwards” or “sideways” is heavily constrained.</p>
+    <p>Major transitions (Maynard Smith &amp; Szathmáry) illustrate this recursion: when many lower-level units (genes, cells, individuals) collapse into a higher-level individual (genomes, multicellular organisms, eusocial colonies), a new level of individuality and new higher-order constraints emerge (e.g. cooperation rules). Complexity can be seen as <strong>accumulated constraint</strong>: each organizational layer narrows what lower layers can do.</p>
+    <p>Evo-devo work supports this structured landscape view. Developmental gene networks channel which variations are even accessible. All insect wings, for example, are modifications of a shared developmental circuit; radically different wing-like devices (e.g., freely rotating wheels) do not appear—not because they’re logically impossible, but because current developmental potentials don’t include them. In UCT, these variational biases are part of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>K</mi><mtext mathvariant="normal">bio</mtext></msub><annotation encoding="application/x-tex">K_{\text{bio}}</annotation></semantics></math>: latent potential is not uniform; it is pre-structured by history. Collapse (selection) then chooses within this biased subset.</p>
+    <p><strong>5.4 Constraint-modulating behavior (proto-intent)</strong></p>
+    <p>As Biological Collapse iterates, some systems do more than submit to constraints—they <strong>modulate</strong> them. Once organisms are under selection for persistence and reproduction, behavior acquires <strong>goal-like regularities</strong>:</p>
+    <ul>
+    <li><p>bacteria bias their random walks up nutrient gradients (chemotaxis),</p></li>
+    <li><p>organisms construct or modify niches (burrows, nests, soils, microclimates),</p></li>
+    <li><p>regulatory feedback loops maintain internal variables within viable ranges.</p></li>
+    </ul>
+    <p>In these cases, actions bias which trajectories are realized next. The organism’s behavior changes the local constraints; those altered constraints, in turn, change subsequent collapses.</p>
+    <p>In UCT language, living systems become <strong>constraint-modulating processes</strong>. Proto-intent is the structural tendency of such systems to bias collapse toward continued existence and reproduction, without invoking conscious purpose. This sets the stage for the mind-phase, where constraint modeling and modulation become explicit and internalized.</p>
+    <p>In summary, the biological phase can be seen as collapse operating on structured biochemical and ecological spaces, under constraints that both shape and are reshaped by life. WP03 develops this picture in detail and tests whether S₁–S₃ and BIO-1 behave as a coherence-first law would predict in evolution and development. In the next section, we turn to the mind-phase, where collapse becomes self-referential and can model its own constraints.</p>
+    </section>
+    <section id="conscious-collapse-the-mind-phase" class="level1">
+    <h1>§6 Conscious Collapse: The Mind-Phase</h1>
+    <p>In the <strong>mind-phase</strong>, collapse takes forms we know well: perception selecting a single interpretation, decisions choosing one action from many, beliefs and meanings stabilizing out of abstract possibilities. This is the most provocative extension of UCT, because it touches long-standing puzzles about consciousness and free will.</p>
+    <p>The premise is simple:</p>
+    <p>A mind is a system that implements the collapse kernel over its own internal state space and can <strong>model and update its own constraints</strong>.</p>
+    <p>Where physical and biological phases illustrate mostly automatic, externally driven collapse, the mind-phase introduces <strong>agent-centric collapse</strong>: an observer participates in shaping which possibilities become real <em>for that system</em>.</p>
+    <p><strong>6.1 Perception as mind-phase collapse</strong></p>
+    <p>The brain is continuously bombarded with noisy, ambiguous input. Yet we experience a coherent world. Contemporary cognitive science—especially predictive-processing approaches—models perception as <strong>inference</strong> (Clark 2013; Friston 2010): the brain maintains a generative model, predicts incoming signals, and minimizes prediction error by updating internal hypotheses or acting on the world.</p>
+    <p>In UCT terms:</p>
+    <ul>
+    <li><p>latent potential = <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi mathvariant="normal">Ω</mi><mrow><mi>p</mi><mi>e</mi><mi>r</mi><mi>c</mi><mi>e</mi><mi>p</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">\Omega_{percept}</annotation></semantics></math>, the space of brain states compatible with a given stimulus;</p></li>
+    <li><p>constraints = <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>K</mi><mrow><mi>p</mi><mi>e</mi><mi>r</mi><mi>c</mi><mi>e</mi><mi>p</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">K_{percept}</annotation></semantics></math>, the brain’s internal model (priors, context, goals, architecture);</p></li>
+    <li><p>collapse = <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><msub><mo>*</mo><mrow><mi>p</mi><mi>e</mi><mi>r</mi><mi>c</mi><mi>e</mi><mi>p</mi><mi>t</mi></mrow></msub><mo>=</mo><msup><mi>C</mi><msub><mi>K</mi><mrow><mi>p</mi><mi>e</mi><mi>r</mi><mi>c</mi><mi>e</mi><mi>p</mi><mi>t</mi></mrow></msub></msup><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi mathvariant="normal">Ω</mi><mrow><mi>p</mi><mi>e</mi><mi>r</mi><mi>c</mi><mi>e</mi><mi>p</mi><mi>t</mi></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">x*_{percept} = C^{K_{percept}}\left( \Omega_{percept} \right)</annotation></semantics></math>, settling on a best-fitting interpretation that is then globally available as conscious content.</p></li>
+    </ul>
+    <p>Bistable images (Necker cube, Rubin’s vase) make this vivid: multiple viable interpretations exist, but awareness flips between definite percepts. Neurodynamically, cortical networks alternate between attractor states; that settling is the collapse of perceptual ambiguity into an experienced reality (Devia et al. 2022). Repeated collapse plus feedback refines <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>K</mi><mtext mathvariant="normal">percept</mtext></msub><annotation encoding="application/x-tex">K_{\text{percept}}</annotation></semantics></math>: learning and attention are constraint updates that make perception faster and less ambiguous.</p>
+    <p><strong>6.2 Decision-making and agency</strong></p>
+    <p>Decision-making is another natural fit for collapse language. Faced with a choice, we often entertain multiple options; eventually we commit to one act. Drift–diffusion and race models describe this as <strong>evidence accumulation</strong> to threshold: activity ramps up until one option wins and the others are suppressed (Gold &amp; Shadlen 2007; Bogacz 2007).</p>
+    <p>In UCT terms:</p>
+    <ul>
+    <li><p>latent potential = undecided preference structures in <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi mathvariant="normal">Ω</mi><mtext mathvariant="normal">act</mtext></msub><annotation encoding="application/x-tex">\Omega_{\text{act}}</annotation></semantics></math>,</p></li>
+    <li><p>constraints = context, values, framing, prior commitments <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>K</mi><mtext mathvariant="normal">act</mtext></msub><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\left( K_{\text{act}} \right)</annotation></semantics></math>,</p></li>
+    <li><p>collapse = a commitment <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>x</mi><mtext mathvariant="normal">act</mtext><mo>*</mo></msubsup><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">x_{\text{act}}^{*}\ </annotation></semantics></math>when the system crosses a decision threshold.</p></li>
+    </ul>
+    <p>Work in “quantum cognition” (Pothos &amp; Busemeyer 2013; Yearsley &amp; Busemeyer 2016) shows that some decision anomalies are well modeled if we treat mental states as superposed preferences and answers as measurements that collapse them. UCT does <strong>not</strong> require physically quantum brains, but it notes the structural parallel: in both cases, collapse selects one outcome from a structured possibility space under constraints.</p>
+    <p>Free will, in this framing, is not an escape from the kernel but <strong>constraint management</strong>: a choice is “free” to the extent that the agent can generate or endorse higher-order constraints (principles, values, self-imposed rules) that shape how collapse over options proceeds. From the outside, choices sit in a web of causes; from the inside, we <em>experience</em> ourselves as introducing constraints that make some trajectories more likely than others.</p>
+    <p><strong>6.3 FRLB: a mind-phase update kernel</strong></p>
+    <p>In the mind-phase, the abstract update law</p>
+    <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>K</mi><mo>′</mo></msup><mo>=</mo><mi>U</mi><mo stretchy="false" form="prefix">(</mo><mi>K</mi><mo>,</mo><mi>R</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">K&#39; = U(K,R)</annotation></semantics></math></p>
+    <p>is realized by a finite, embodied architecture. In <em>Structural Mind</em>, this is factorized as a minimal four-part loop:</p>
+    <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>K</mi><mtext mathvariant="normal">mind</mtext></msub><mo>≡</mo><mo stretchy="false" form="prefix">(</mo><mi>F</mi><mo>,</mo><mi>R</mi><mo>,</mo><mi>L</mi><mo>,</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo><mo>,</mo></mrow><annotation encoding="application/x-tex">K_{\text{mind}} \equiv (F,R,L,B),</annotation></semantics></math></p>
+    <p>where:</p>
+    <ul>
+    <li><p><strong>Faith (F)</strong> encodes baseline commitments and priors (what is treated as given).</p></li>
+    <li><p><strong>Reason (R)</strong> governs exploration: hypothesis generation, evidence gathering.</p></li>
+    <li><p><strong>Logic (L)</strong> enforces internal coherence: consistency filters and inferential rules.</p></li>
+    <li><p><strong>Belief (B)</strong> is the currently stabilized world-model that guides perception and action.</p></li>
+    </ul>
+    <p>Under this factorization, the mind-phase update law becomes:</p>
+    <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>F</mi><mo>,</mo><mi>R</mi><mo>,</mo><mi>L</mi><mo>,</mo><mi>B</mi><msup><mo stretchy="false" form="postfix">)</mo><mo>′</mo></msup><mo>=</mo><msub><mi>U</mi><mtext mathvariant="normal">mind</mtext></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>F</mi><mo>,</mo><mi>R</mi><mo>,</mo><mi>L</mi><mo>,</mo><mi>B</mi><mo>;</mo><mspace width="0.167em"></mspace><msup><mi>x</mi><mo>*</mo></msup><mo>,</mo><msub><mi>R</mi><mtext mathvariant="normal">world</mtext></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">(F,R,L,B)&#39; = U_{\text{mind}}\left( F,R,L,B;\, x^{*},R_{\text{world}} \right),</annotation></semantics></math></p>
+    <p>where <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>x</mi><mo>*</mo></msup><annotation encoding="application/x-tex">x^{*}</annotation></semantics></math> are the resolved outcomes the system encounters and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>R</mi><mtext mathvariant="normal">world</mtext></msub><annotation encoding="application/x-tex">R_{\text{world}}</annotation></semantics></math> denotes records and feedback from the environment.</p>
+    <p>The FRLB loop is not an add-on to UCT; it is <strong>the general kernel seen at higher resolution</strong>:</p>
+    <ul>
+    <li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math> selecting resolutions,</p></li>
+    <li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>R</mi><annotation encoding="application/x-tex">R</annotation></semantics></math> encoding the history of collapse,</p></li>
+    <li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>U</mi><annotation encoding="application/x-tex">U</annotation></semantics></math> reshaping constraints in response.</p></li>
+    </ul>
+    <p>What changes in the mind-phase is the <strong>richness of</strong> <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>: conscious systems can represent, evaluate, and revise their own constraints. WP04 develops FRLB into a full dynamical model of mind-phase collapse; in WP01 it suffices to note that this is how the general kernel is instantiated in cognition.</p>
+    <p><strong>6.4 Conscious Collapse: observation from within</strong></p>
+    <p>UCT does not require consciousness to collapse physical wavefunctions; decoherence and environmental interaction suffice for the physics discussed in §4. It does, however, propose an inward analogue:</p>
+    <p><strong>Conscious experience = collapse of internal latent potential into a definite phenomenal state.</strong></p>
+    <p>At any moment, the brain hosts vast unconscious processing that never reaches awareness. Global workspace models (Dehaene &amp; Changeux 2011; Dehaene 2014) propose that information becomes conscious when it is “ignited” and broadcast to a brain-wide network, making it globally available for report and control. UCT reads this ignition as a collapse in <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi mathvariant="normal">Ω</mi><mtext mathvariant="normal">GW</mtext></msub><annotation encoding="application/x-tex">\Omega_{\text{GW}}</annotation></semantics></math>: many candidate representations, constrained by attention and relevance, reduce to a single globally available state.</p>
+    <p>Integrated Information Theory (Tononi et al. 2016) ties consciousness to highly integrated, differentiated brain states. UCT treats such measures as indicators of being in a mind-phase collapse regime, not as definitions. In UCT language, <strong>Conscious Collapse</strong> is the step where unconscious potentials (percepts, interpretations, thoughts) are reduced, under <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>K</mi><mtext mathvariant="normal">mind</mtext></msub><annotation encoding="application/x-tex">K_{\text{mind}}</annotation></semantics></math>, to the coherent scene or thought you are now aware of. Each conscious resolution then becomes part of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>R</mi><annotation encoding="application/x-tex">R</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>K</mi><mtext mathvariant="normal">mind</mtext></msub><annotation encoding="application/x-tex">K_{\text{mind}}</annotation></semantics></math>, reshaping subsequent collapse.</p>
+    <p><strong>6.5 Self-observation and higher-order feedback</strong></p>
+    <p>Consciousness also allows <strong>self-observation</strong>: a mind can attend to its own thoughts, feelings, and tendencies. This adds another layer to the kernel:</p>
+    <ul>
+    <li><p>collapse selecting content,</p></li>
+    <li><p>collapse <em>about</em> collapse (meta-level monitoring),</p></li>
+    <li><p>updates that incorporate both.</p></li>
+    </ul>
+    <p>Practices like mindfulness can be seen as temporarily loosening some components of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>K</mi><mtext mathvariant="normal">mind</mtext></msub><annotation encoding="application/x-tex">K_{\text{mind}}</annotation></semantics></math>: instead of immediately collapsing every arising thought into belief or action, attention can let multiple possibilities coexist longer before selection. Rigid or obsessive states reflect extremely tight constraints: every thought is rapidly snapped into a predetermined pattern.</p>
+    <p>The modest claim here is that UCT’s collapse mechanism provides a unified description for many mental phenomena: attention selects, perception interprets, decisions commit, beliefs frame—all are selection events that reduce many to one and then feed back as new constraints. The brain as a physical object obeys physical and biological collapse; mind-phase collapse is a further layer in its representational space.</p>
+    <p>WP04 elaborates this structure and connects it to detailed neural and behavioral data. In WP01, the aim is simply to show that the same kernel can, in principle, extend into the mind-phase without breaking the physical story.</p>
+    </section>
+    <section id="conclusion-toward-a-recursively-unifying-perspective" class="level1">
+    <h1>§7 Conclusion: Toward a Recursively Unifying Perspective</h1>
+    <p>Across the cosmic, biological, and cognitive phases, Universal Collapse Theory presents reality as a recursive process of <strong>constraint-guided collapse</strong>. At every level, what we observe as structure, order, or meaning is the result of latent possibilities being resolved by prevailing constraints into singular actualities. From the constraints beneath physics that fixed our universe’s basic constants, to the sieve of natural selection shaping life’s diversity, to the focused lens of conscious attention yielding a coherent stream of experience—each can be seen as an instance of the same selection logic unfolding in different media.</p>
+    <p>Philosophically, UCT converges with views that treat reality as <strong>process and relation</strong>, not a static inventory of things. It resonates with recursive structural realism: the idea that the structure of relations at one level gives rise to the next. It also reframes familiar dualities—chance vs. necessity, freedom vs. determinism, mind vs. matter—as differences in how constraints shape collapse rather than as absolute opposites. Potential (latent possibilities) and structure (entrenched constraints) meet in collapse, yielding the contingent order we see. Likewise, the brain’s mechanics and the mind’s freedom intersect in the mind-phase: our choices feel free to the extent that we, as agents, supply constraints that help resolve them.</p>
+    <p><strong>What does UCT offer beyond metaphor?</strong></p>
+    <p>It offers a <strong>research program</strong>. It encourages physicists to think in terms of selection principles that might complement or partly replace anthropic reasoning: are there hidden constraint laws that “choose” among possible constants or symmetry breakings (WP02)? It invites biologists to quantify how constraints shape evolutionary pathways—e.g., by comparing latent design spaces with realized biodiversity to measure how evolution “collapses” possibility into actual lineages (WP03). And it challenges cognitive scientists to formalize how minds reduce uncertainty—using information theory, predictive processing, and quantum-like formalisms—while grounding these models in a single selection structure (WP04).</p>
+    <p>By making cross-disciplinary analogies explicit, UCT sparks concrete hypotheses. Are there measurable parallels between decoherence in quantum systems and attention filtering in neural systems? Between natural selection in biology and convergence dynamics in machine learning? Between redundancy in records and consensus formation in social or cognitive networks? The S-signatures (S₁–S₃) and initial probes (PHYS-1, BIO-1, MIND-1), developed further in the domain papers, are intended as first tests of these connections.</p>
+    <p>Importantly, UCT is <strong>testable in parts</strong>. It predicts that wherever there is a generative space of possibilities plus iterative feedback, we should see:</p>
+    <ul>
+    <li><p>path dependence and skewed outcome distributions,</p></li>
+    <li><p>increasing integration as constraints accumulate, and</p></li>
+    <li><p>collapse signatures such as redundancy driving agreement (S₁), neutrality slowing resolution and producing bistability (S₂), and constraint sweeps generating hysteresis and attractors (S₃).</p></li>
+    </ul>
+    <p>Hints of these patterns already appear in networks from cosmology to ecosystems to cognition; the task is to test them deliberately, with preregistered analyses and public data/code.</p>
+    <p><strong>Does UCT imply teleology or cosmic purpose?</strong></p>
+    <p>It may be tempting to read collapse as the universe “choosing” complexity or consciousness. UCT posits a <strong>bias toward coherent outcomes</strong> because such outcomes persist, but it does not assert an intentional cosmic goal. Instead, it suggests that intent itself is a natural outgrowth of collapse. As constraints become more self-referential—first in living systems with built-in survival pressures, and later in minds that can represent and update their own constraints (FRLB)—collapse events begin to look like acts of will. From simple tropisms to complex agency, the evolution of intention can be seen as collapse turning inward. By the time we reach humans, the collapse process has bootstrapped into self-aware choices. Our intentions help collapse potential futures; collectively, we participate in the universe’s ongoing formation, not merely observe it.</p>
+    <p>In closing, UCT invites a shift in perspective: to see reality not as a finished inventory of things, but as a story that is constantly editing itself. Each “edit”—each collapse—is a point where the plot could have diverged but did not, leaving implicit traces of unrealized alternatives. The narrative is not written in advance by an external Author; it is co-written by every physical interaction, every adaptive threshold, every conscious decision. The practical contribution of this paper is to present a single engine and test suite that yield comparable, falsifiable signatures across domains. Galaxies forming, DNA mutating, neurons firing, and symbols being written obey the same higher-order logic of creation by selection under constraint.</p>
+    <p>By recognizing this unity, we gain a more integrated understanding of how physical, biological, and cognitive phenomena relate without collapsing them into a single substance or principle. UCT treats mind and matter not as opposites, but as successive phases in which the same collapse kernel operates under increasingly rich constraint structures.</p>
+    <p>From this perspective, long-standing cross-disciplinary questions are not answered directly, but reframed. Instead of asking why particular outcomes exist at all, UCT asks how specific outcomes were selected from structured possibilities under the constraints available at the time:</p>
+    <p><strong>How did these particular collapses happen, and what constraints shaped them?</strong></p>
+    <p>Like any framework that bridges domains, UCT will evolve through criticism, new data, and conceptual refinement. The aim is not to replace established science, but to complement it with an overarching structural lens: a candidate <strong>Law of Coherence</strong> expressed through constraint-guided collapse. WP01 has sought to clarify this kernel, trim redundancies, and ground its propositions in contemporary work in physics, biology, and cognitive science. The remaining white papers take up the program phase by phase, asking whether this law-like pattern genuinely runs through physics (WP02), life (WP03), mind (WP04), and, in WP05, whether it deserves recognition as a general law.</p>
+    <p><strong>References</strong></p>
+    <p>Bassi, Angelo, Kinjalk Lochan, Seema Satin, Tejinder P. Singh, and Hendrik Ulbricht. 2013. “Models of Wave-Function Collapse, Underlying Theories, and Experimental Tests.” <em>Reviews of Modern Physics</em> 85 (2): 471–527.</p>
+    <p>Clark, Andy. 2013. “Whatever Next? Predictive Brains, Situated Agents, and the Future of Cognitive Science.” <em>Behavioral and Brain Sciences</em> 36 (3): 181–204.</p>
+    <p>Conway Morris, Simon. 2010. “Evolution: Like Any Other Science It Is Predictable.” <em>Philosophical Transactions of the Royal Society B: Biological Sciences</em> 365 (1537): 133–145.</p>
+    <p>Conway Morris, Simon. 2015. <em>The Runes of Evolution: How the Universe Became Self-Aware</em>. West Conshohocken, PA: Templeton Press.</p>
+    <p>Dawkins, Richard. 1986. The Blind Watchmaker: Why the Evidence of Evolution Reveals a Universe without Design. New York: W. W. Norton.</p>
+    <p>Dehaene, Stanislas, and Jean-Pierre Changeux. 2011. “Experimental and Theoretical Approaches to Conscious Processing.” <em>Neuron</em> 70 (2): 200–227.</p>
+    <p>Devia, Crist, Miguel Concha-Miranda, and Eugenio Rodríguez. 2022. “Bi-Stable Perception: Self-Coordinating Brain Regions to Make-Up the Mind.” <em>Frontiers in Neuroscience</em> 10.3389/fnins.2021.805690.</p>
+    <p>Friston, Karl. 2010. “The Free-Energy Principle: A Unified Brain Theory?” <em>Nature Reviews Neuroscience</em> 11 (2): 127–138.</p>
+    <p>Gould, Stephen Jay. 1989. Wonderful Life: The Burgess Shale and the Nature of History. New York: W. W. Norton.</p>
+    <p>Grant, Peter R., and B. Rosemary Grant. 2002. “Unpredictable Evolution in a 30-Year Study of Darwin’s Finches.” <em>Science</em> 296 (5568): 707–711.</p>
+    <p>Jones, Jeremy C. 2025. <em>Universal Collapse Theory</em>. HoldingLight LLC.</p>
+    <p>Maynard Smith, John, and Eörs Szathmáry. 1995. The Major Transitions in Evolution. Oxford: W. H. Freeman/Spektrum.</p>
+    <p>Nicolis, Gregoire, and Ilya Prigogine. 1977. Self-Organization in Nonequilibrium Systems: From Dissipative Structures to Order through Fluctuations. New York: Wiley.</p>
+    <p>Pothos, Emmanuel M., and Jerome R. Busemeyer. 2013. “Can Quantum Probability Provide a New Direction for Cognitive Modeling?” <em>Behavioral and Brain Sciences</em> 36 (3): 255–274.</p>
+    <p>Pross, Addy. 2013. “The Evolutionary Origin of Biological Function and Complexity.” <em>Journal of Molecular Evolution</em> 76 (4): 185–191.</p>
+    <p>Pross, Addy, and Robert Pascal. 2013. “The Origin of Life: What We Know, What We Can Know and What We Will Never Know.” <em>Open Biology</em> 3 (3): 120190.</p>
+    <p>Tononi, Giulio, and Christof Koch. 2015. “Consciousness: Here, There and Everywhere?” <em>Philosophical Transactions of the Royal Society B: Biological Sciences</em> 370 (1668): 20140167.</p>
+    <p>Yearsley, James M., and Jerome R. Busemeyer. 2016. “Quantum Cognition and Decision Theories: A Tutorial.” <em>Journal of Mathematical Psychology</em> 74: 99–116.</p>
+    <p>Zhu, Zitian, Kiera Salice, Akram Touil, et al. 2025. “Observation of Quantum Darwinism and the Origin of Classicality with Superconducting Circuits.” <em>Science Advances</em>. https://doi.org/10.1126/sciadv.adx6857. </p>
+    <p>Zurek, Wojciech H. 2014. “Quantum Darwinism, Classical Reality, and the Randomness of Quantum Jumps.” <em>Physics Today</em> 67 (10): 44–50.</p>
+    <p><strong>Additional Resources</strong></p>
+    <p>WP01 (Series Overview and Foundations) – https://doi.org/10.17605/OSF.IO/Z6GQ8</p>
+    <p>Starter Pack bundle – https://doi.org/10.17605/OSF.IO/UWRS3</p>
+    <p>Physics Starter Pack – https://doi.org/10.17605/OSF.IO/XRE7B</p>
+    <p>Biology Starter Pack – https://doi.org/10.17605/OSF.IO/M8S39</p>
+    <p>Mind Starter Pack – <a href="https://doi.org/10.17605/OSF.IO/QCWN8">https://doi.org/10.17605/OSF.IO/QCWN8</a></p>
+    <p><strong>Appendix A: Law Kernel and Universal Postulates (Series-Level)</strong></p>
+    <p>This appendix summarizes the core kernel and universal postulates used across the UCT white paper series. Structural Physics and WP02 develop additional physics-specific axioms and tests; here we restrict ourselves to cross-domain structure.</p>
+    <p><strong>A.1 Notation (kernel recap)</strong></p>
+    <ul>
+    <li><p><strong>Ω</strong> — latent structured potential: the space of possible configurations for a given system, given prior history.</p></li>
+    <li><p><strong>K</strong> — active constraint set: the effective rules, boundary conditions, priors, and structural biases that currently shape which configurations are admissible.</p></li>
+    <li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi mathvariant="bold-italic">𝑪</mi><mi mathvariant="bold-italic">𝑲</mi></msup><annotation encoding="application/x-tex">\mathbf{C}^{\mathbf{K}}</annotation></semantics></math>— constraint-conditioned collapse operator: a mapping from (Ω, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>) to a realized outcome x*, i.e. <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>x</mi><mtext mathvariant="normal">*</mtext></msup><mo>=</mo><msup><mi>C</mi><mi mathvariant="script">𝒦</mi></msup><mo stretchy="false" form="prefix">(</mo><mi mathvariant="normal">Ω</mi><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">x^{\text{*}} = C^{\mathcal{K}}(\Omega).</annotation></semantics></math></p></li>
+    <li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi mathvariant="bold-italic">𝒙</mi><mi mathvariant="bold-italic">𝒊</mi><mi mathvariant="bold-italic">*</mi></msubsup><annotation encoding="application/x-tex">\mathbf{x}_{\mathbf{i}}^{\mathbf{*}}</annotation></semantics></math>— realized outcome at collapse event <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>i</mi><annotation encoding="application/x-tex">i</annotation></semantics></math> (the <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi><mo>−</mo></mrow><annotation encoding="application/x-tex">i -</annotation></semantics></math>th resolution along a trajectory).</p></li>
+    <li><p><strong>Rᵢ</strong> — records written by collapse at event <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>i</mi><annotation encoding="application/x-tex">i</annotation></semantics></math> (physical traces, memory states, institutional artifacts, etc.).</p></li>
+    <li><p><strong>Sᵢ</strong> — residue of collapse at event <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>i</mi><annotation encoding="application/x-tex">i</annotation></semantics></math> (entropy understood as the record / residue of pruning).</p></li>
+    <li><p><strong>T</strong> — record-time or collapse depth:</p></li>
+    </ul>
+    <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>=</mo><munderover><mo>∑</mo><mi>i</mi><mrow></mrow></munderover><msub><mi>R</mi><mi>i</mi></msub><mo>,</mo></mrow><annotation encoding="application/x-tex">T = \sum_{i}^{}R_{i},</annotation></semantics></math></p>
+    <p>an ordered depth parameter counting successive collapse-and-record events rather than an independent background axis.</p>
+    <ul>
+    <li><p><strong>U</strong> — constraint update map:</p></li>
+    </ul>
+    <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>K</mi><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><mi>U</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>K</mi><mi>i</mi></msub><mo>,</mo><msub><mi>R</mi><mi>i</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">K_{i + 1} = U\left( K_{i},R_{i} \right),</annotation></semantics></math></p>
+    <p>describing how constraints evolve in response to realized outcomes and their records.</p>
+    <p>Together, these give the minimal UCT kernel:</p>
+    <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>x</mi><mi>i</mi><mtext mathvariant="normal">*</mtext></msubsup><mo>=</mo><msup><mi>C</mi><msub><mi mathvariant="script">𝒦</mi><mi mathvariant="script">𝒾</mi></msub></msup><mo stretchy="false" form="prefix">(</mo><mi mathvariant="normal">Ω</mi><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mspace width="1.0em"></mspace><msub><mi>K</mi><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><mi>U</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>K</mi><mi>i</mi></msub><mo>,</mo><msub><mi>R</mi><mi>i</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">x_{i}^{\text{*}} = C^{\mathcal{K}_{\mathcal{i}}}(\Omega),\quad K_{i + 1} = U\left( K_{i},R_{i} \right).</annotation></semantics></math></p>
+    <p>UCT assumes a <strong>single-world ontology</strong>: at each event <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>i</mi><annotation encoding="application/x-tex">i</annotation></semantics></math>, one outcome <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>x</mi><mi>i</mi><mo>*</mo></msubsup><annotation encoding="application/x-tex">x_{i}^{*}</annotation></semantics></math> is realized.</p>
+    <p><strong>A.2 Universal Postulates (cross-domain)</strong></p>
+    <p>These postulates are intended to hold across physics, biology, mind, and later synthetic systems. Domain-specific axioms are introduced where needed in WP02–WP04.</p>
+    <p><strong>P1 — Collapse–Actualization (Mechanism).</strong></p>
+    <p>Latent potential resolves via collapse under <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math> into realized outcomes <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>x</mi><mo>*</mo></msup><annotation encoding="application/x-tex">x^{*}</annotation></semantics></math>. Each collapse writes records <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>R</mi><annotation encoding="application/x-tex">R</annotation></semantics></math>, produces residue <em>S</em>, and updates <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math> according to</p>
+    <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>K</mi><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><mi>U</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>K</mi><mi>i</mi></msub><mo>,</mo><msub><mi>R</mi><mi>i</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">K_{i + 1} = U\left( K_{i},R_{i} \right).</annotation></semantics></math></p>
+    <p>This process is recursive and single-world: one realized outcome per event.</p>
+    <p><strong>P2 — Coherence (Bias / Ontology).</strong></p>
+    <p>Order is ontological: what lasts is coherent collapse. Under relatively stable <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>, trajectories tend to converge toward constraint-compatible, compressible structures (attractors, equilibria, invariant measures), while incompatible configurations are pruned. Entropy <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>S</mi><annotation encoding="application/x-tex">S</annotation></semantics></math> is interpreted as the <strong>record of collapse expressed as residue</strong> — the structured tally of excluded possibilities, often carried forward via dissipative channels. Structure and entropy rise together as structured potential is pruned.</p>
+    <p><strong>P3 — Recursive Adaptation (Intelligence).</strong></p>
+    <p>Where plastic memory and feedback exist, systems can recursively adapt <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math> to improve compression, prediction, control, and transfer. This gives rise to <strong>operational intelligence</strong>, measurable by how well updated constraints track and exploit regularities in Ω. Biological evolution, learning, and FRLB-based mind dynamics are treated as concrete realizations of P3.</p>
+    <p><strong>P4 — Constraint Architecture (Laws).</strong></p>
+    <p>“Laws” are stabilized constraint architectures: regularities in how (Ω, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>, Cᴷ, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>R</mi><annotation encoding="application/x-tex">R</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>U</mi><annotation encoding="application/x-tex">U</annotation></semantics></math>) behave that have survived contact with reality. On this view, laws are <strong>residues of constraint</strong>, not primitive dictates. Established physical laws (including relativity’s constraint-dependence of time and length) are interpreted as entrenched patterns in <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>. UCT generalizes this stance to all law-like structure: from conservation rules and effective potentials to developmental constraints, cognitive priors, and institutional norms.</p>
+    <p><em>Remark.</em> Structural Physics and WP02 extend these postulates with physics-specific axioms (e.g., Structural Potential Energy, Constraint Primacy) and cosmological tests (records–entropy proxies, redshift structure, etc.). WP01 remains agnostic about those domain details; its role is to fix the cross-domain kernel and universal postulates P1–P4 that underwrite the rest of the series.</p>
+    </section>
+
+    <a href="#top" class="backtotop">&uarr; Back to top</a>
+  </article>
+
+</div>
+
+<script>
+(function () {
+  var bar = document.getElementById('progress');
+  function onScroll() {
+    var h = document.documentElement;
+    var pct = h.scrollTop / (h.scrollHeight - h.clientHeight);
+    bar.style.width = (pct * 100).toFixed(1) + '%';
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav.toc a'));
+  var targets = links.map(function (a) {
+    return document.getElementById(decodeURIComponent(a.getAttribute('href')).slice(1));
+  });
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      var i = targets.indexOf(e.target);
+      if (i < 0) return;
+      links.forEach(function (l) { l.classList.remove('active'); });
+      links[i].classList.add('active');
+    });
+  }, { rootMargin: '-10% 0px -80% 0px' });
+  targets.forEach(function (t) { if (t) obs.observe(t); });
+
+  var btn = document.getElementById('toc-toggle');
+  var nav = document.getElementById('toc');
+  btn.addEventListener('click', function () {
+    var c = nav.getAttribute('data-collapsed') === 'true';
+    nav.setAttribute('data-collapsed', String(!c));
+    btn.setAttribute('aria-expanded', String(c));
+    btn.textContent = c ? 'Hide contents' : 'Show contents';
+  });
+
+  document.querySelectorAll('article section[id] > h1, article section[id] > h2').forEach(function (h) {
+    var a = document.createElement('a');
+    a.className = 'anchor';
+    a.href = '#' + h.parentNode.id;
+    a.textContent = '#';
+    a.setAttribute('aria-label', 'Link to this section');
+    h.appendChild(a);
+  });
+})();
+</script>
+
+</body>
+</html>
