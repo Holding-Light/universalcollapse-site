@@ -52,17 +52,12 @@ def library_links():
     if not f.exists():
         return None, []
     h = f.read_text(encoding="utf-8")
-    # every card and the first href inside it
-    cards = re.findall(r'<a[^>]+class="[^"]*paper-card[^"]*"[^>]*href="([^"]+)"', h)
-    if not cards:
-        cards = re.findall(r'class="[^"]*paper-card[^"]*"[^>]*>.*?href="([^"]+)"', h, re.S)
-    if not cards:
-        # cards may wrap the link rather than be one
-        blocks = re.split(r'(?=class="[^"]*paper-card)', h)[1:]
-        cards = []
-        for b in blocks:
-            m = re.search(r'href="([^"]+)"', b)
-            cards.append(m.group(1) if m else "(no link)")
+    # The real markup is  <a href="..." ... class="paper-card">  — href BEFORE class.
+    # An earlier version of this function looked for class-before-href, fell through to
+    # a fallback that grabbed the NEXT card's href, and reported every card's neighbour.
+    # Off-by-one that looked plausible because cards cluster by tier. Match both orders.
+    cards = re.findall(r'<a\s+href="([^"]+)"[^>]*\bclass="[^"]*\bpaper-card\b', h)
+    cards += re.findall(r'<a\s[^>]*\bclass="[^"]*\bpaper-card\b[^>]*\shref="([^"]+)"', h)
     return h, cards
 
 
