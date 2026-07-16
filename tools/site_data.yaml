@@ -97,6 +97,7 @@ papers:
     desc: Cosmology, measurement, records, entropy, decoherence.
 
   - slug: wp03
+    pdf_sha256: "5fa2dc59ac6ad5b5805f205a6372496c4780b587f4387bc2134277f6792b99e7"
     pdf_file: "UCT_WP03_Biological_Collapse_v1.0.pdf"
     src_file: "UCT_WP03_Biological_Collapse_v1.0_2026_05.docx"
     subtitle: "Life-Phase Organization, Genetic Records, Evolution, Development, and Proto-intent"
@@ -112,6 +113,7 @@ papers:
     desc: Abiogenesis, evolution, and the major transitions read as constrained collapse.
 
   - slug: cim_foundational
+    pdf_sha256: "0ff98bc52b94400acefb051f1280174551f9421ac1ef5c622cb6b69e99d02d9e"
     pdf_file: "UCT_T15_CIM_Foundational_v1.0.pdf"
     src_file: "UCT_T15_CIM_Foundational_v1.0_2026_05.docx"
     subtitle: "Internalization, Cognitive Scale, and the Substrate of Cumulative Meaning"
@@ -129,6 +131,7 @@ papers:
       environments mind builds. The substrate-independence claim.
 
   - slug: collapse_reframed
+    pdf_sha256: "32737760c5004be3d334e6fcda29bbbdbaecf663b5b2968afe5f5e6803762199"
     pdf_file: "UCT_T15_Collapse_Reframed_v1.0.pdf"
     src_file: "UCT_T15_Collapse_Reframed_v1.0_2026-02-12.docx"
     subtitle: "Kernel Specification and Signature-Mapped Predictions for a Coherence-First Research Program"
@@ -144,6 +147,7 @@ papers:
     desc: Quantum structural reinterpretation. The physics entry ramp.
 
   - slug: schrodinger
+    pdf_sha256: "db57597b3bb2b726354ea7ec9e50766f1c0f6da6a635ac06c63bcabd5765bf1c"
     pdf_file: "UCT_T15_Schrodinger_Mathematical_Experience_v1.0.pdf"
     src_file: "UCT_T15_Schrodinger_Mathematical_Experience_v1.0_2026_02.docx"
     subtitle: "Resolving the Schrödinger Confusion"
@@ -159,6 +163,7 @@ papers:
     desc: Mathematics as record-bearing formal system rather than substrate.
 
   - slug: bfs
+    pdf_sha256: "5dbb4a5a3c89594cfe8015cc3b6c364ac7e156462056ae8e0620a3ed00c8c7aa"
     pdf_file: "UCT_T15_Biological_Faith_Systems_v1.0.pdf"
     src_file: "UCT_T15_Biological_Faith_Systems_v1.0_2026_04.docx"
     subtitle: "How Living Systems Commit Before Certainty"
@@ -174,6 +179,7 @@ papers:
     desc: Commitment under uncertainty in biology.
 
   - slug: self_ego
+    pdf_sha256: "ef489da660311809580045a23965f20317935117df02ee0c52ddf466bce362b7"
     pdf_file: "UCT_T15_Self_the_Ego_Did_Not_Build_v1.0.pdf"
     src_file: "UCT_T15_Self_the_Ego_Did_Not_Build_v1.0_2026_03.docx"
     subtitle: "A Structural Account of Perception, Accumulated Constraint, and the Limits of Ego Awareness"
@@ -189,6 +195,7 @@ papers:
     desc: Identity formation through CIM-mediated experience.
 
   - slug: ai_synthetic
+    pdf_sha256: "b6cb83fd62110cd64f809e012f97da666d6ef4cf1880868663e76f68c8675f9b"
     pdf_file: "UCT_T15_AI_as_Synthetic_Collapse_v1.0.pdf"
     src_file: "UCT_T15_AI_as_Synthetic_Collapse_v1_0_2026_06.docx"
     subtitle: "A Consciousness-Induced Material Account of the Recursive Phase of Externalized Cognition"
@@ -206,6 +213,7 @@ papers:
       externalized cognition.
 
   - slug: records
+    pdf_sha256: "4078ea4a2ef3d8412096b2a0eb0c350bb7dbcae0e84157c7eaee6eb1d7da63b8"
     pdf_file: "UCT_Standards_Records_v2.0.pdf"
     src_file: "UCT_Standards_Records_v2.0_2026_04.docx"
     version: "2.0"
@@ -225,6 +233,7 @@ papers:
       Framework-agnostic — useful without accepting UCT.
 
   - slug: soe
+    pdf_sha256: "e12a1b71e0576613d3f71901bf8c5606adec4a4afa62b545d2090b658f7bddff"
     pdf_file: "UCT_Structuralization_of_Empiricism_v1.0.pdf"
     src_file: "UCT_Structuralization_of_Empiricism_v1.0_2026_04.docx"
     subtitle: "Formalizing the Structural Conditions Under Which Empiricism Stabilizes Knowledge"
@@ -240,6 +249,7 @@ papers:
     desc: The structural conditions under which empiricism stabilizes knowledge.
 
   - slug: uis
+    pdf_sha256: "0565bdfb2f0cf41d3ce39a4f0a19a6eee12d583900c61382aa31270328fe0195"
     pdf_file: "UCT_Update_Integrity_Standard_v1.0.pdf"
     src_file: "UCT_Update_Integrity_Standard_v1.0_2026_04.docx"
     subtitle: "A structural ethic for preserving corrigibility in record‑based systems"
@@ -257,6 +267,7 @@ papers:
       preserving corrigibility in record-based systems.
 
   - slug: soai
+    pdf_sha256: "0aa0ed409c74061f7c436b7e02d069d94f4304b7cc797fe0bab445aed371a0a0"
     pdf_file: "UCT_T15_Structuralization_of_AI_v1.0.pdf"
     src_file: "UCT_T15_Structuralization_of_AI_v1_0_2026_06.docx"
     subtitle: "Formalizing the Structural Conditions for Coherent Description of Record-Carrying AI Systems"
@@ -274,6 +285,7 @@ papers:
       oriented locus, and S1/S2/S3 for AI systems.
 
   - slug: rice
+    pdf_sha256: "6f7e32f692dcbcd6dba1a19a74b628442a387de04187ed816717911a99fca990"
     pdf_file: "UCT_T16_Bio_Constraint_Sweep_Rice_v1.0.pdf"
     date: "2026/04"
     src_file: "UCT_T16_Bio_Constraint_Sweep_Rice_FINAL.docx"
@@ -290,6 +302,7 @@ papers:
     desc: Biology wing. S3 hysteresis under constraint sweep.
 
   - slug: cogitate
+    pdf_sha256: "b60deb0b11c032da4dbb5b4e5fc5e4a05c3aa4b55b0322ab02e7bd32fc0fe206"
     pdf_file: "UCT_T16_Constraint_Dependent_Perceptual_Resolution_COGITATE_v1.0.pdf"
     date: "2026/04"
     src_file: "UCT_T16_Constraint_Dependent_Perceptual_Resolution_COGITATE_v1.0.docx"
@@ -306,6 +319,7 @@ papers:
     desc: Mind wing. Pre-specified reanalysis of the COGITATE iEEG dataset.
 
   - slug: ai_sig_deployed
+    pdf_sha256: "d35bc3839074643beed88567b9510781fd300aa0a3a2720814ebc12b989b66f9"
     pdf_file: "UCT_T16_AI_Empirical_Demo_v1.0.pdf"
     src_file: "UCT_T16_AI_Empirical_Demo_v1_0_2026_05.docx"
     subtitle: "Empirical Demonstration of S1, S2, and S3 in AI Substrates"
