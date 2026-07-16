@@ -82,6 +82,7 @@ papers:
       S1-S3, and cross-domain probes.
 
   - slug: wp02
+    pdf_sha256: "c90ba642497ddd49a25df4dd74f47cbd458c5f77559336b3dc16676bb0896368"
     pdf_file: "UCT_WP02_Collapse_in_Physics_Coherence_as_Law_from_Cosmology_to_Matter_v1.0.pdf"
     src_file: "UCT_WP02_Collapse_in_Physics_Coherence_as_Law_from_Cosmology_to_Matter_v1.0_2025_11_11.docx"
     subtitle: "Structural Physics and Cosmic Records in a Coherence-First Law Program"
