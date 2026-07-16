@@ -90,6 +90,31 @@ def norm(u):
     return u
 
 
+def load_paper_slugs(path):
+    """Rule 3: site_data.yaml is the single source — the lint asks it which pages
+    are papers rather than guessing. Returns None if unavailable (checks all)."""
+    if not path:
+        return None
+    try:
+        import yaml
+        d = yaml.safe_load(open(path))
+        return {p["slug"] for p in d.get("papers", []) if p.get("built")}
+    except Exception as e:
+        print(f"  (note: could not read {path} — {e}; landing checks apply to all)")
+        return None
+
+
+def _is_landing(name, args):
+    """A landing page is a paper slug at root — not index/library/architecture/roadmap,
+    and not a /read/ page (those carry no citation tags by design; see handoff §3)."""
+    stem = Path(name).stem
+    if "/read/" in name.replace("\\", "/"):
+        return False
+    if args.paper_slugs is None:
+        return stem not in {"index", "library", "architecture", "roadmap"}
+    return stem in args.paper_slugs
+
+
 def lint(name, html, args, sitemap_locs=None):
     errors, warns = [], []
     vis = visible_text(html)
@@ -123,15 +148,15 @@ def lint(name, html, args, sitemap_locs=None):
                 f"but page is {args.url} (crawlers will treat this page as a duplicate)"
             )
 
-    # 4 — citation tags
-    if args.landing:
+    # 4 — citation tags (landing pages only)
+    if args.landing and _is_landing(name, args):
         found = {m.group(1).lower() for m in RE_CITATION.finditer(html)}
         for req in REQUIRED_CITATION:
             if req not in found:
                 errors.append(f"CITATION: missing required citation_{req}")
         for w in WARN_CITATION:
             if w not in found:
-                warns.append(f"CITATION: missing citation_{w} (Scholar full-text indexing)")
+                warns.append(f"CITATION: missing citation_{w} (needs a PDF at /pdf/ first)")
 
     # 5 — sitemap agreement
     if sitemap_locs is not None and canonical:
@@ -151,8 +176,13 @@ def main():
     ap.add_argument("--self-canonical", action="store_true",
                     help="require canonical == page's own URL (use with --url)")
     ap.add_argument("--landing", action="store_true",
-                    help="apply Scholar citation-tag checks (landing pages)")
+                    help="apply Scholar citation-tag checks to paper landing pages")
+    ap.add_argument("--papers-from", default=None,
+                    help="site_data.yaml — tells --landing which pages are papers "
+                         "(Rule 3: one source). Without it, falls back to excluding "
+                         "index/library/architecture/roadmap.")
     a = ap.parse_args()
+    a.paper_slugs = load_paper_slugs(a.papers_from)
 
     if not a.files and not a.url:
         ap.print_help()

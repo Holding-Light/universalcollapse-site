@@ -147,27 +147,45 @@ Greek, and subscripts throughout the corpus that will hit the same path.
 
 ---
 
-## 5. The finding that resizes Phase 1: landings are authored
+## 5. The finding that resizes Phase 1: landings are authored — CONFIRMED
 
 `landing_kernelfirst.html` is 14K of bespoke editorial prose — "Kernel-first, not
 primitive-first", "The Observer's Fallacy", "What would make it wrong", the §9
 claim-ledger pointer. **None of it is in the read page** (grep: 2 hits landing,
 0 read). It is not pandoc output. `build_paper.sh` builds `/read/` only.
 
-Consequences:
-1. `citation_pdf_url` at 2/17 is explained — hand-maintained pages drift.
-2. The blueprint's design principle takes a crack: *"if a page can't be
-   regenerated from deposits + ledgers, it shouldn't exist."* The 17 landings
-   **can't** be regenerated. They're authored. They're closer to records than views.
-3. Phase 1 is bigger than "batch the read pages."
+### 5.1 — RESOLVED 2026-07-16: there is no landing generator
 
-**UNKNOWN, and the first task worth doing:** memory records a `build_data.py` +
-`generate_pages.py` pipeline for landings. Determine whether it sources the
-per-paper prose from a data file — in which case the prose is already data and
-Rule 3 is close — or whether landings are hand-maintained. **Check before
-assuming.** This determines whether §7.2 is a real decision or a non-problem.
+This file previously listed the landing pipeline as UNKNOWN and asked CC to check
+`tools/build_data.py` and `tools/generate_pages.py`. **Those files do not exist.**
+`ls tools/` returns only `build_paper.sh`, `kernel_first.env`, `uct-paper.html`
+(plus the three added this session). Memory recorded a `build_data.py` +
+`generate_pages.py` landing pipeline; that record is wrong.
 
-**Until determined: do not regenerate a landing page.**
+**Consequence: Rule 3 genuinely does not hold for landings.** The 17 landings are
+hand-authored and not regenerable from any source in this repo. §7.2 is a live
+operator decision, not a non-problem. Phase 1 is the bigger job.
+
+### 5.2 — CORRECTION: "hand-maintained pages drift" was FALSE
+
+This file previously argued that `citation_pdf_url` at 2/17 was evidence of drift.
+**That was wrong.** `public/pdf/` contains exactly two files:
+
+```
+UCT_T0_Kernel_First_v1.0.pdf
+UCT_WP01_Foundations_of_Collapse_v2.0.pdf
+```
+
+Those are **exactly** the two landings carrying `citation_pdf_url`. The tag is
+present precisely where a PDF exists and absent precisely where one does not. The
+hand-written pages are **correct**, not drifting.
+
+**The real gap is 15 missing PDFs, not 15 missing tags.** The tag cannot be added
+until the file exists at `/pdf/`. The PDFs are already deposited on OSF — this is
+an export-and-name task, not authoring, and it is cheap. Add the tag as each PDF
+lands.
+
+**Until §7.2 is decided: do not regenerate a landing page.**
 
 ---
 
@@ -196,23 +214,58 @@ git add -A && git commit -m "Phase 0: sitemap coverage 8->22, llms.txt, site_dat
 
 ---
 
-## 7. Suggested first tasks for CC
+## 7. Status: Phase 0 DEPLOYED 2026-07-16
 
-1. **Determine the landing pipeline** (§5). Read `tools/build_data.py` and
-   `tools/generate_pages.py`. Report whether landing prose is data-sourced or
-   hand-maintained. Everything about Phase 1 scope depends on this.
-2. **Confirm the real template** (§2.2). Read `tools/uct-paper.html` in the repo.
-   Verify the canonical line reads `$landing_url$` and report its SHA.
+Pushed and verified in production:
+
+```
+curl -s https://universalcollapse.com/sitemap.xml | grep -c "<loc>"   -> 22
+curl -s -o /dev/null -w "%{http_code}" .../llms.txt                   -> 200
+```
+
+`git diff --stat public/sitemap.xml` → **84 insertions, 0 deletions** = 14 URLs ×
+6 lines. Zero deletions confirms the original 8 entries survived byte-identical —
+no churned `lastmod`, no false update signals to crawlers.
+
+Lint at push: 21 pages, 18 PASS, 3 errors — all pre-existing, none introduced.
+
+### 7.1 — New findings from the lint pass
+
+- **`public/index.html` and `public/architecture.html` declare no `rel=canonical`.**
+  Neither was built from the template. Cheap to fix, with one trap:
+  `architecture.html` is a **compiled React bundle** (source of record:
+  `UCT_Architecture_Map_v4.jsx`; rebuild procedure in
+  `Session_Handoff_Architecture_Map_2026_06_29.md`). The canonical must go into the
+  **HTML shell**, not the deployed file, or the next rebuild silently drops it.
+  **Do not hand-edit `public/architecture.html`.**
+- **`public/read/kernel_first.html` fails on the encoding artifact** (§4). Correct
+  behaviour — the gate is catching it. Fix rides the Phase 1 rebuild so read pages
+  aren't built twice.
+- **Lint glob gap:** `public/*.html` does not descend. `public/roadmap/index.html`
+  was not linted. Use `public/*.html public/read/*.html public/roadmap/*.html`.
+
+## 7.2 — Suggested tasks for CC
+
+1. **`citation_pdf_url` → export the 15 missing PDFs** (§5.2). Not a tag bug — a
+   file gap. PDFs exist on OSF; export, name per the `/pdf/` convention
+   (`UCT_T0_Kernel_First_v1.0.pdf`, `UCT_WP01_Foundations_of_Collapse_v2.0.pdf`),
+   add the tag as each lands.
+2. **Canonical on `index.html`** — direct edit, safe.
+   **Canonical on `architecture.html`** — shell only, per the trap above.
 3. **Diff `~/Downloads/uct_pages/*.html` against `public/*.html`.** Identical →
    dead copy. Differs → unpushed work or stale draft; **report, do not delete.**
-   That diff is the whole inventory job.
-4. **Land the Phase 0 five** (§6), lint, push, then re-curl the sitemap and confirm
-   22/22 resolve.
-5. **`citation_pdf_url` on 15 landings** — blocked on whether the PDFs exist at
-   `/pdf/`. Check `public/pdf/` and report coverage.
+   Note: `~/Downloads` also holds three read-page generations under two slug
+   conventions and the dead `kernelfirst.env`. The repo is already clean of these —
+   only `kernel_first.env` is present. Downloads is the graveyard, not the repo.
+4. **Phase 1 read-page batch** — 16 papers. Batch with the §4 encoding fix and, if
+   elected, the §3 canonical change, so read pages are built once not three times.
+5. **Root-level one-off scripts** (`normalize.py`, `repoint.py`,
+   `repoint_roadmap.py`, `inject_backlink.py`) — repo root is not served, so they
+   are inert. Names suggest the slug migration and the `.html` → extensionless pass.
+   Leave them; catalogue if convenient.
 
 Do **not** do without operator sign-off: the canonical revert (§3), the landing
-prose decision (§5), any deletion in Downloads (§7.3 of CLAUDE.md).
+prose decision (§5.1 / CLAUDE.md §7.2), any deletion in Downloads.
 
 ---
 
