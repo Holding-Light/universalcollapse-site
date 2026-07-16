@@ -72,7 +72,7 @@ papers:
     lastmod: "2025-11-11"
     priority: "0.9"
     built: true
-    read: false
+    read: true
     pdf: true
     desc: >-
       Canonical entry to the spine. The formal kernel, the three portable signatures
@@ -88,7 +88,7 @@ papers:
     lastmod: "2025-11-11"
     priority: "0.8"
     built: true
-    read: false
+    read: true
     pdf: false
     desc: Cosmology, measurement, records, entropy, decoherence.
 
@@ -102,7 +102,7 @@ papers:
     lastmod: "2026-07-09"
     priority: "0.8"
     built: true
-    read: false
+    read: true
     pdf: false
     desc: Abiogenesis, evolution, and the major transitions read as constrained collapse.
 
@@ -116,7 +116,7 @@ papers:
     lastmod: "2026-07-09"
     priority: "0.8"
     built: true
-    read: false
+    read: true
     pdf: false
     desc: >-
       Defines the CIM category — mind, the products of mind, and the recursive
@@ -132,7 +132,7 @@ papers:
     lastmod: "2026-07-09"
     priority: "0.7"
     built: true
-    read: false
+    read: true
     pdf: false
     desc: Quantum structural reinterpretation. The physics entry ramp.
 
@@ -146,7 +146,7 @@ papers:
     lastmod: "2026-07-09"
     priority: "0.7"
     built: true
-    read: false
+    read: true
     pdf: false
     desc: Mathematics as record-bearing formal system rather than substrate.
 
@@ -160,7 +160,7 @@ papers:
     lastmod: "2026-07-09"
     priority: "0.7"
     built: true
-    read: false
+    read: true
     pdf: false
     desc: Commitment under uncertainty in biology.
 
@@ -174,7 +174,7 @@ papers:
     lastmod: "2026-07-09"
     priority: "0.7"
     built: true
-    read: false
+    read: true
     pdf: false
     desc: Identity formation through CIM-mediated experience.
 
@@ -188,7 +188,7 @@ papers:
     lastmod: "2026-07-09"
     priority: "0.8"
     built: true
-    read: false
+    read: true
     pdf: false
     desc: >-
       The recursive phase — AI as an instance of CIM, operating on accumulated
@@ -206,7 +206,7 @@ papers:
     lastmod: "2026-07-09"
     priority: "0.8"
     built: true
-    read: false
+    read: true
     pdf: false
     desc: >-
       The persistence layer of collapse. Cross-domain record structure.
@@ -222,7 +222,7 @@ papers:
     lastmod: "2026-07-09"
     priority: "0.8"
     built: true
-    read: false
+    read: true
     pdf: false
     desc: The structural conditions under which empiricism stabilizes knowledge.
 
@@ -236,7 +236,7 @@ papers:
     lastmod: "2026-07-09"
     priority: "0.8"
     built: true
-    read: false
+    read: true
     pdf: false
     desc: >-
       Corruptors, integrity indicators, repair protocols. A structural ethic for
@@ -252,7 +252,7 @@ papers:
     lastmod: "2026-07-09"
     priority: "0.8"
     built: true
-    read: false
+    read: true
     pdf: false
     desc: >-
       Kernel application to AI — active phase, accumulated constraint architecture,
@@ -269,7 +269,7 @@ papers:
     lastmod: "2026-07-09"
     priority: "0.7"
     built: true
-    read: false
+    read: true
     pdf: false
     desc: Biology wing. S3 hysteresis under constraint sweep.
 
@@ -284,7 +284,7 @@ papers:
     lastmod: "2026-07-09"
     priority: "0.7"
     built: true
-    read: false
+    read: true
     pdf: false
     desc: Mind wing. Pre-specified reanalysis of the COGITATE iEEG dataset.
 
@@ -298,7 +298,7 @@ papers:
     lastmod: "2026-07-09"
     priority: "0.7"
     built: true
-    read: false
+    read: true
     pdf: false
     desc: >-
       AI wing parent demonstration. Five pre-specified substrate strata under
