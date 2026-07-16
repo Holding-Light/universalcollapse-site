@@ -45,6 +45,8 @@ pages:
 # lastmod preserves existing sitemap values where present (no false-update churn).
 papers:
   - slug: kernel_first
+    src_file: "UCT_T0_Kernel_First_Collapse_Without_Reification_v1_0_2026_06.docx"
+    pdf_file: "UCT_T0_Kernel_First_v1.0.pdf"
     subtitle: "What Universal Collapse Theory Is — and Is Not"
     title: "Kernel First: Collapse Without Reification"
     tier: "Tier 0 — Orientation"
@@ -61,6 +63,7 @@ papers:
       constrained actualization, not substance; the Observer's Fallacy.
 
   - slug: wp01
+    pdf_file: "UCT_WP01_Foundations_of_Collapse_v2.0.pdf"
     src_file: "UCT_WP01_Foundations_of_Collapse_v2.0_2025_11_11.docx"
     version: "2.0"
     subtitle: "Latent Potential, Constraint, and Collapse as a Candidate Law of Coherence"
@@ -79,6 +82,7 @@ papers:
       S1-S3, and cross-domain probes.
 
   - slug: wp02
+    pdf_file: "UCT_WP02_Collapse_in_Physics_Coherence_as_Law_from_Cosmology_to_Matter_v1.0.pdf"
     src_file: "UCT_WP02_Collapse_in_Physics_Coherence_as_Law_from_Cosmology_to_Matter_v1.0_2025_11_11.docx"
     subtitle: "Structural Physics and Cosmic Records in a Coherence-First Law Program"
     title: "WP02 — Collapse in Physics"
@@ -93,6 +97,7 @@ papers:
     desc: Cosmology, measurement, records, entropy, decoherence.
 
   - slug: wp03
+    pdf_file: "UCT_WP03_Biological_Collapse_v1.0.pdf"
     src_file: "UCT_WP03_Biological_Collapse_v1.0_2026_05.docx"
     subtitle: "Life-Phase Organization, Genetic Records, Evolution, Development, and Proto-intent"
     title: "WP03 — Biological Collapse"
@@ -107,6 +112,7 @@ papers:
     desc: Abiogenesis, evolution, and the major transitions read as constrained collapse.
 
   - slug: cim_foundational
+    pdf_file: "UCT_T15_CIM_Foundational_v1.0.pdf"
     src_file: "UCT_T15_CIM_Foundational_v1.0_2026_05.docx"
     subtitle: "Internalization, Cognitive Scale, and the Substrate of Cumulative Meaning"
     title: "Consciousness-Induced Material: A Structural Ontology of Externalized Cognition"
@@ -123,6 +129,7 @@ papers:
       environments mind builds. The substrate-independence claim.
 
   - slug: collapse_reframed
+    pdf_file: "UCT_T15_Collapse_Reframed_v1.0.pdf"
     src_file: "UCT_T15_Collapse_Reframed_v1.0_2026-02-12.docx"
     subtitle: "Kernel Specification and Signature-Mapped Predictions for a Coherence-First Research Program"
     title: Collapse Reframed
@@ -137,6 +144,7 @@ papers:
     desc: Quantum structural reinterpretation. The physics entry ramp.
 
   - slug: schrodinger
+    pdf_file: "UCT_T15_Schrodinger_Mathematical_Experience_v1.0.pdf"
     src_file: "UCT_T15_Schrodinger_Mathematical_Experience_v1.0_2026_02.docx"
     subtitle: "Resolving the Schrödinger Confusion"
     title: "Schrödinger Reframe: Mathematical Experience"
@@ -151,6 +159,7 @@ papers:
     desc: Mathematics as record-bearing formal system rather than substrate.
 
   - slug: bfs
+    pdf_file: "UCT_T15_Biological_Faith_Systems_v1.0.pdf"
     src_file: "UCT_T15_Biological_Faith_Systems_v1.0_2026_04.docx"
     subtitle: "How Living Systems Commit Before Certainty"
     title: Biological Faith Systems
@@ -165,6 +174,7 @@ papers:
     desc: Commitment under uncertainty in biology.
 
   - slug: self_ego
+    pdf_file: "UCT_T15_Self_the_Ego_Did_Not_Build_v1.0.pdf"
     src_file: "UCT_T15_Self_the_Ego_Did_Not_Build_v1.0_2026_03.docx"
     subtitle: "A Structural Account of Perception, Accumulated Constraint, and the Limits of Ego Awareness"
     title: "Self, the Ego Did Not Build"
@@ -179,6 +189,7 @@ papers:
     desc: Identity formation through CIM-mediated experience.
 
   - slug: ai_synthetic
+    pdf_file: "UCT_T15_AI_as_Synthetic_Collapse_v1.0.pdf"
     src_file: "UCT_T15_AI_as_Synthetic_Collapse_v1_0_2026_06.docx"
     subtitle: "A Consciousness-Induced Material Account of the Recursive Phase of Externalized Cognition"
     title: AI as Synthetic Collapse
@@ -195,6 +206,7 @@ papers:
       externalized cognition.
 
   - slug: records
+    pdf_file: "UCT_Standards_Records_v2.0.pdf"
     src_file: "UCT_Standards_Records_v2.0_2026_04.docx"
     version: "2.0"
     subtitle: "The persistence layer of collapse in nature, life, and mind"
@@ -213,6 +225,7 @@ papers:
       Framework-agnostic — useful without accepting UCT.
 
   - slug: soe
+    pdf_file: "UCT_Structuralization_of_Empiricism_v1.0.pdf"
     src_file: "UCT_Structuralization_of_Empiricism_v1.0_2026_04.docx"
     subtitle: "Formalizing the Structural Conditions Under Which Empiricism Stabilizes Knowledge"
     title: The Structuralization of Empiricism
@@ -227,6 +240,7 @@ papers:
     desc: The structural conditions under which empiricism stabilizes knowledge.
 
   - slug: uis
+    pdf_file: "UCT_Update_Integrity_Standard_v1.0.pdf"
     src_file: "UCT_Update_Integrity_Standard_v1.0_2026_04.docx"
     subtitle: "A structural ethic for preserving corrigibility in record‑based systems"
     title: Update Integrity Standard (UIS)
@@ -243,6 +257,7 @@ papers:
       preserving corrigibility in record-based systems.
 
   - slug: soai
+    pdf_file: "UCT_T15_Structuralization_of_AI_v1.0.pdf"
     src_file: "UCT_T15_Structuralization_of_AI_v1_0_2026_06.docx"
     subtitle: "Formalizing the Structural Conditions for Coherent Description of Record-Carrying AI Systems"
     title: The Structuralization of AI
@@ -259,6 +274,7 @@ papers:
       oriented locus, and S1/S2/S3 for AI systems.
 
   - slug: rice
+    pdf_file: "UCT_T16_Bio_Constraint_Sweep_Rice_v1.0.pdf"
     date: "2026/04"
     src_file: "UCT_T16_Bio_Constraint_Sweep_Rice_FINAL.docx"
     subtitle: "A reproducible, theory-neutral test on GEO GSE74793"
@@ -274,6 +290,7 @@ papers:
     desc: Biology wing. S3 hysteresis under constraint sweep.
 
   - slug: cogitate
+    pdf_file: "UCT_T16_Constraint_Dependent_Perceptual_Resolution_COGITATE_v1.0.pdf"
     date: "2026/04"
     src_file: "UCT_T16_Constraint_Dependent_Perceptual_Resolution_COGITATE_v1.0.docx"
     subtitle: "A Pre-Specified Reanalysis of the COGITATE iEEG Dataset"
@@ -289,6 +306,7 @@ papers:
     desc: Mind wing. Pre-specified reanalysis of the COGITATE iEEG dataset.
 
   - slug: ai_sig_deployed
+    pdf_file: "UCT_T16_AI_Empirical_Demo_v1.0.pdf"
     src_file: "UCT_T16_AI_Empirical_Demo_v1_0_2026_05.docx"
     subtitle: "Empirical Demonstration of S1, S2, and S3 in AI Substrates"
     title: "Empirical Demonstration of S1, S2, and S3 in Deployed AI Systems"

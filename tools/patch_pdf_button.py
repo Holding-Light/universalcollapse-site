@@ -44,18 +44,12 @@ CSS_RULE = """
 RE_CTA = re.compile(r'<div class="cta-row">.*?</div>', re.S)
 RE_STYLE_END = re.compile(r"</style>")
 
-# Explicit map — only these two PDFs exist. No fuzzy matching; a wrong PDF under
-# a DOI is exactly the failure the read-page hash guard exists to prevent, and
-# the PDF path has no such guard.
-LOCAL_PDF = {
-    "kernel_first": "UCT_T0_Kernel_First_v1.0.pdf",
-    "wp01": "UCT_WP01_Foundations_of_Collapse_v2.0.pdf",
-}
-
-
 def pdf_target(paper, on_disk):
-    slug = paper["slug"]
-    f = LOCAL_PDF.get(slug)
+    """Local PDF always wins. The filename comes from site_data's `pdf_file`
+    (Rule 3) — never guessed. A wrong PDF under a DOI is precisely the failure
+    the read-page hash guard prevents, and the PDF path has no such guard, so
+    nothing here is inferred."""
+    f = paper.get("pdf_file")
     if f and f in on_disk:
         return f"/pdf/{f}", "Download PDF", False
     if paper.get("philarchive"):
@@ -100,12 +94,22 @@ def main():
         row = m_cta.group(0)
 
         href, label, external = pdf_target(paper, on_disk)
-        if "cta-secondary" in row:
-            btn_state = "present"
+        attrs = ' target="_blank" rel="noopener"' if external else ""
+        btn = f'<a class="cta cta-secondary" href="{href}"{attrs}>{label}</a>'
+
+        m_sec = re.search(r'<a class="cta cta-secondary"[^>]*>.*?</a>', row, re.S)
+        if m_sec:
+            if m_sec.group(0) == btn:
+                btn_state = "present"
+            else:
+                # re-target: a PDF may have landed since the last run
+                new_row = row[:m_sec.start()] + btn + row[m_sec.end():]
+                out = out[:m_cta.start()] + new_row + out[m_cta.end():]
+                was_off = "philarchive" in m_sec.group(0) or "osf.io" in m_sec.group(0)
+                btn_state = f"RETARGET{' -> local' if was_off and not external else ''}"
+                did_btn = True
         else:
-            attrs = ' target="_blank" rel="noopener"' if external else ""
-            btn = f'\n        <a class="cta cta-secondary" href="{href}"{attrs}>{label}</a>'
-            new_row = row.replace("</div>", btn + "\n      </div>")
+            new_row = row.replace("</div>", "\n        " + btn + "\n      </div>")
             out = out[:m_cta.start()] + new_row + out[m_cta.end():]
             btn_state = label
             did_btn = True
@@ -124,8 +128,9 @@ def main():
           f"unchanged: {skipped}   refused: {refused}")
     if not apply:
         print("  dry run — nothing written. Re-run with --apply")
-    print("  NOTE: as PDFs land in public/pdf/, add them to LOCAL_PDF and re-run —")
-    print("        local always wins over an off-site link.")
+    print("  NOTE: as PDFs land in public/pdf/ with the name recorded in site_data's")
+    print("        pdf_file, re-run --apply. Existing off-site buttons are RE-TARGETED")
+    print("        to local automatically; local always wins.")
     return 1 if refused else 0
 
 
