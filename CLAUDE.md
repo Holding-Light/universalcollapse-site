@@ -267,7 +267,10 @@ about a world that has two.**
   compute it at build time; never ask a human to declare it at 2 AM.
 - **Commands handed to the operator must be paste-ready.** Concrete paths, real
   filenames, no `<placeholders>` — zsh parses `<` as a redirect and errors before
-  the command runs (2026-07-17).
+  the command runs (2026-07-17). And trace every glob before handing it over:
+  brace expansion is string concatenation, not a numeric range — `000{7,10}`
+  expands to `0007` and `00010` — and one no-match aborts the entire line
+  (2026-07-17, hours after this rule was first written).
 - **The edge lies politely.** See §1: origin first; the `?v=` buster is a placebo
   on this zone.
 
