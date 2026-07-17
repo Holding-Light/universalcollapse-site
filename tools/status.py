@@ -25,6 +25,11 @@ try:
 except ImportError:
     sys.exit("needs pyyaml")
 
+# One backlog definition. status.py showed 27 across twenty-four shipped papers
+# because it read the yaml's declared list; live_backlog prunes every DOI that
+# appears in a built paper, so it self-corrects on every ship.
+from build_site_meta import live_backlog
+
 DATA = Path("tools/site_data.yaml")
 PUB = Path("public")
 
@@ -127,15 +132,14 @@ def main():
                     print(f"    {u}")
 
     if only in (None, "--queue"):
-        bl = d.get("backlog") or d.get("phase1_backlog") or []
+        bl = live_backlog(d)
         if bl:
             print()
             print("=" * 74)
             print(f"BACKLOG — {len(bl)} live DOI(s) with no page")
             print("=" * 74)
             for b in bl:
-                label = b if isinstance(b, str) else b.get("doi", str(b))
-                print(f"  {label}")
+                print(f"  {b}")
 
     print()
     print("  NOTE: a library card routing off-site is not debt — it points at the")
