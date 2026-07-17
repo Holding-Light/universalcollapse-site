@@ -564,6 +564,86 @@ papers:
     built: true
     read: false
     pdf: false
+
+  - slug: pr00_coherence
+    src_file: "UCT_T30_PR00_Prime_Coherence_v1_0_2026_06.docx"
+    pdf_file: "UCT_T30_PR00_Prime_Coherence_v1_0_2026_06.pdf"
+    title: "Order as the Default Outcome Under Constraint"
+    subtitle: "Coherence as Constraint-Visible Structure"
+    doi: "J2XSQ"
+    tier: "Tier 30 — Primes"
+    version: "1.0"
+    philarchive: "JONOAT-4"
+    lastmod: "2026-07-16"
+    priority: "0.7"
+    desc: "Coherence is not something added by intelligence, teleology, or luck — it is what typically falls out of constraint. The positive ground of the Primes series."
+    built: true
+    read: false
+    pdf: false
+
+  - slug: pr01_randomness
+    src_file: "UCT_T30_PR01_Prime_Randomness_v1_0_2026_06.docx"
+    pdf_file: "UCT_T30_PR01_Prime_Randomness_v1_0_2026_06.pdf"
+    title: "Against Randomness-First"
+    subtitle: "Randomness as a Provisional Label for Unmodeled Structure"
+    doi: "Y678R"
+    tier: "Tier 30 — Primes"
+    version: "1.0"
+    philarchive: "JONARP"
+    lastmod: "2026-07-16"
+    priority: "0.7"
+    desc: "'Random' is a scoped residual label, not an ontological primitive — refutable by one discovered regularity, and never certifiable by any finite search."
+    built: true
+    read: false
+    pdf: false
+
+  - slug: pr02_chaos
+    src_file: "UCT_T30_PR02_Prime_Chaos_v1_0_2026_06.docx"
+    pdf_file: "UCT_T30_PR02_Prime_Chaos_v1_0_2026_06.pdf"
+    title: "Against Chaos-First"
+    subtitle: "Chaos as Structured Unpredictability (Not Disorder)"
+    doi: "A6EJN"
+    tier: "Tier 30 — Primes"
+    version: "1.0"
+    philarchive: "JONACW-6"
+    lastmod: "2026-07-16"
+    priority: "0.7"
+    desc: "Chaos is structured unpredictability, not disorder — a reason to change what you predict and report the horizon, not to declare structure absent."
+    built: true
+    read: false
+    pdf: false
+
+  - slug: pr03_intelligence
+    src_file: "UCT_T30_PR03_Prime_Intelligence_v1_0_2026_06.docx"
+    pdf_file: "UCT_T30_PR03_Prime_Intelligence_v1_0_2026_06.pdf"
+    title: "Against Intelligence-First"
+    subtitle: "Intelligence as Plastic Feedback and Constraint Navigation (Not Mystical Agency)"
+    doi: "RN3TH"
+    tier: "Tier 30 — Primes"
+    version: "1.0"
+    philarchive: "JONAIX"
+    lastmod: "2026-07-16"
+    priority: "0.7"
+    desc: "Intelligence is an endogenous plastic update loop, measurable against a non-learning baseline — not a primitive essence, and possible without consciousness."
+    built: true
+    read: false
+    pdf: false
+
+  - slug: pr04_nothingness
+    src_file: "UCT_T30_PR04_Prime_Nothingness_v1_0_2026_06.docx"
+    pdf_file: "UCT_T30_PR04_Prime_Nothingness_v1_0_2026_06.pdf"
+    title: "Against Nothingness-First"
+    subtitle: "Vacuum Is Not Nothing (Ground Hygiene for Coherence-First Reasoning)"
+    doi: "YHQ5F"
+    tier: "Tier 30 — Primes"
+    version: "1.0"
+    philarchive: "JONANH-2"
+    lastmod: "2026-07-16"
+    priority: "0.7"
+    desc: "Vacuum is not nothing. 'Nothing' cannot serve as an explanatory ground — if it has a rule, it is not nothing; if it has no rule, it explains nothing."
+    built: true
+    read: false
+    pdf: false
 backlog:
   - { doi: 92RQ5, title: "How Minds Resolve", note: "philarchive JONHMR; registry open item" }
   - { doi: 2RC4D, title: "Entropy as Record" }

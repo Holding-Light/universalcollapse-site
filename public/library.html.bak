@@ -544,7 +544,7 @@
       <h2 class="section-heading">Clearing the Ground</h2>
       <div class="papers-grid">
 
-        <a href="/pr00_coherence" class="paper-card">
+        <a href="https://philarchive.org/rec/JONOAT-4" target="_blank" rel="noopener" class="paper-card">
           <span class="paper-number">PR00</span>
           <div class="paper-info">
             <span class="paper-title">Order as the Default Outcome Under Constraint</span>
@@ -554,7 +554,7 @@
           <span class="paper-arrow">&rarr;</span>
         </a>
 
-        <a href="/pr01_randomness" class="paper-card">
+        <a href="https://philarchive.org/rec/JONARP" target="_blank" rel="noopener" class="paper-card">
           <span class="paper-number">PR01</span>
           <div class="paper-info">
             <span class="paper-title">Against Randomness-First</span>
@@ -564,7 +564,7 @@
           <span class="paper-arrow">&rarr;</span>
         </a>
 
-        <a href="/pr02_chaos" class="paper-card">
+        <a href="https://philarchive.org/rec/JONACW-6" target="_blank" rel="noopener" class="paper-card">
           <span class="paper-number">PR02</span>
           <div class="paper-info">
             <span class="paper-title">Against Chaos-First</span>
@@ -574,7 +574,7 @@
           <span class="paper-arrow">&rarr;</span>
         </a>
 
-        <a href="/pr03_intelligence" class="paper-card">
+        <a href="https://philarchive.org/rec/JONAIX" target="_blank" rel="noopener" class="paper-card">
           <span class="paper-number">PR03</span>
           <div class="paper-info">
             <span class="paper-title">Against Intelligence-First</span>
@@ -584,7 +584,7 @@
           <span class="paper-arrow">&rarr;</span>
         </a>
 
-        <a href="/pr04_nothingness" class="paper-card">
+        <a href="https://philarchive.org/rec/JONANH-2" target="_blank" rel="noopener" class="paper-card">
           <span class="paper-number">PR04</span>
           <div class="paper-info">
             <span class="paper-title">Against Nothingness-First</span>

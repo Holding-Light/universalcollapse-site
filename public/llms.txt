@@ -77,10 +77,15 @@ Notation is normative: the collapse operator is **C^K_t** — K superscript, t s
 - [Objectivity from Records: An Exponential Consensus Bound](https://universalcollapse.com/tn_s1): The S1 bound, proved: when an outcome is redundantly recorded in conditionally independent fragments, observers converge exponentially in the number of fragments read.
 - [Neutrality Delays Resolution: An Expected Resolution-Time Bound](https://universalcollapse.com/tn_s2): The S2 bound, proved: expected resolution time is strictly maximized at zero bias and falls monotonically as constraint asymmetry grows, in closed form.
 - [Records Amplify Hysteresis: A Loop-Area Lemma](https://universalcollapse.com/tn_s3): The S3 lemma, proved: hysteresis loop area grows linearly with accumulated record state — and its sharpest point is what it denies.
+- [Order as the Default Outcome Under Constraint](https://universalcollapse.com/pr00_coherence): Coherence is not something added by intelligence, teleology, or luck — it is what typically falls out of constraint. The positive ground of the Primes series.
+- [Against Randomness-First](https://universalcollapse.com/pr01_randomness): 'Random' is a scoped residual label, not an ontological primitive — refutable by one discovered regularity, and never certifiable by any finite search.
+- [Against Chaos-First](https://universalcollapse.com/pr02_chaos): Chaos is structured unpredictability, not disorder — a reason to change what you predict and report the horizon, not to declare structure absent.
+- [Against Intelligence-First](https://universalcollapse.com/pr03_intelligence): Intelligence is an endogenous plastic update loop, measurable against a non-learning baseline — not a primitive essence, and possible without consciousness.
+- [Against Nothingness-First](https://universalcollapse.com/pr04_nothingness): Vacuum is not nothing. 'Nothing' cannot serve as an explanatory ground — if it has a rule, it is not nothing; if it has no rule, it explains nothing.
 
 ## Optional
 
 - Resolving a DOI: every `10.17605/OSF.IO/XXXXX` above resolves via `https://doi.org/` to the OSF deposit, which carries the full text plus reproducibility material (data, code, verification packs) not mirrored on this site.
-- PhilArchive records exist for 12 of the philosophy-facing papers at `https://philarchive.org/rec/{handle}` — handles: JONKFC, JONUCT-2, JONUCT-3, JONUCT-4, JONCMA-5, JONCRF, JONWAN, JONBFS, JONTST-4, JONAAS-4, JONRAN-2, JONTSO-28.
+- PhilArchive records exist for 17 of the philosophy-facing papers at `https://philarchive.org/rec/{handle}` — handles: JONKFC, JONUCT-2, JONUCT-3, JONUCT-4, JONCMA-5, JONCRF, JONWAN, JONBFS, JONTST-4, JONAAS-4, JONRAN-2, JONTSO-28, JONOAT-4, JONARP, JONACW-6, JONAIX, JONANH-2.
 
-Note: 17 of 31 papers currently have full-text `/read/` pages; the rest are being added. Additional deposited papers not yet listed here are on OSF and resolve by DOI.
+Note: 17 of 36 papers currently have full-text `/read/` pages; the rest are being added. Additional deposited papers not yet listed here are on OSF and resolve by DOI.

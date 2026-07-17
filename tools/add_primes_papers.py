@@ -106,7 +106,10 @@ def main():
     for slug, block in BLOCKS:
         if re.search(rf"^  - slug: {re.escape(slug)}\s*$", s, re.M):
             print(f"  skip  {slug} — already in site_data"); continue
-        missing = [f for f in REQUIRED if f"    {f}:" not in block]
+        # `slug` appears as "  - slug:", not "    slug:" — the list-item marker.
+        # Checking only the 4-space form makes this guard refuse every valid block.
+        missing = [f for f in REQUIRED
+                   if f"    {f}:" not in block and f"- {f}:" not in block]
         if missing:
             sys.exit(f"  REFUSE — {slug} missing {missing}")
         print(f"  ADD   {slug}")
