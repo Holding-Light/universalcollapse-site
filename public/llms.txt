@@ -61,9 +61,15 @@ Notation is normative: the collapse operator is **C^K_t** — K superscript, t s
 - [Update Integrity Standard (UIS)](https://universalcollapse.com/read/uis): Corruptors, integrity indicators, repair protocols. A structural ethic for preserving corrigibility in record-based systems. Full text. DOI 10.17605/OSF.IO/DWM29
 - [The Structuralization of AI](https://universalcollapse.com/read/soai): Kernel application to AI — active phase, accumulated constraint architecture, oriented locus, and S1/S2/S3 for AI systems. Full text. DOI 10.17605/OSF.IO/6M7VW
 
+## Other
+
+- [Program Map: Universal Collapse Theory as a Coherence-First Research Program](https://universalcollapse.com/program_map): What the program is — every layer placed, claim levels stated, falsification entry points identified. Read after Kernel First.
+- [Failure Modes and Falsification Standards for Universal Collapse Theory](https://universalcollapse.com/falsification_standards): Where the program can fail — per claim, per layer, and as a whole. The consolidated falsification standard for Universal Collapse Theory.
+- [Two Worked Demonstrations: The Research Stack and the Applied Stack](https://universalcollapse.com/worked_demonstrations): One research-stack vertical — S2 from proved bound to live run, including a recorded failure — and one applied-stack reverse-audit, with the firewall between them stated.
+
 ## Optional
 
 - Resolving a DOI: every `10.17605/OSF.IO/XXXXX` above resolves via `https://doi.org/` to the OSF deposit, which carries the full text plus reproducibility material (data, code, verification packs) not mirrored on this site.
 - PhilArchive records exist for 12 of the philosophy-facing papers at `https://philarchive.org/rec/{handle}` — handles: JONKFC, JONUCT-2, JONUCT-3, JONUCT-4, JONCMA-5, JONCRF, JONWAN, JONBFS, JONTST-4, JONAAS-4, JONRAN-2, JONTSO-28.
 
-Note: 17 of 17 papers currently have full-text `/read/` pages; the rest are being added. Additional deposited papers not yet listed here are on OSF and resolve by DOI.
+Note: 17 of 20 papers currently have full-text `/read/` pages; the rest are being added. Additional deposited papers not yet listed here are on OSF and resolve by DOI.

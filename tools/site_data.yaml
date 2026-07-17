@@ -344,6 +344,9 @@ papers:
 # ---------------------------------------------------------------------------
 
   - slug: program_map
+    lastmod: "2026-07-16"
+    priority: "0.8"
+    pdf: false
     src_file: "UCT_AG_Program_Map_v1_0_2026_06.docx"
     pdf_file: "UCT_AG_Program_Map_v1.0.pdf"
     title: "Program Map: Universal Collapse Theory as a Coherence-First Research Program"
@@ -357,6 +360,9 @@ papers:
     read: false
 
   - slug: falsification_standards
+    lastmod: "2026-07-16"
+    priority: "0.8"
+    pdf: false
     src_file: "UCT_AG_Falsification_Standards_v1_0_2026_06.docx"
     pdf_file: "UCT_AG_Falsification_Standards_v1.0.pdf"
     title: "Failure Modes and Falsification Standards for Universal Collapse Theory"
@@ -370,6 +376,9 @@ papers:
     read: false
 
   - slug: worked_demonstrations
+    lastmod: "2026-07-16"
+    priority: "0.8"
+    pdf: false
     src_file: "UCT_AG_Two_Worked_Demonstrations_v1_0_2026_06.docx"
     pdf_file: "UCT_AG_Two_Worked_Demonstrations_v1.0.pdf"
     title: "Two Worked Demonstrations: The Research Stack and the Applied Stack"
