@@ -1,10 +1,14 @@
 <!DOCTYPE html>
+<!-- tools/architecture_shell.html — HTML shell for the Architecture Map.
+     Carries the two shell-level fixes: canonical tag + generated no-JS static block.
+     Rebuild via tools/build_architecture.sh. NEVER hand-edit public/architecture.html. -->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Architecture Map — Universal Collapse Theory</title>
   <meta name="description" content="An orientation map for Universal Collapse Theory: how the kernel sorts domains, neighboring traditions, and UCT-derived frameworks by structural role. A sorting grammar, not a replacement theory.">
+  <link rel="canonical" href="https://universalcollapse.com/architecture">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@300;400;500&family=Outfit:wght@200;300;400;500&display=swap" rel="stylesheet">
@@ -53,12 +57,99 @@
     footer { padding: 3rem 0 2.5rem; text-align: center; position: relative; z-index: 1; }
     .footer-text { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.15em; color: var(--text-tertiary); }
   </style>
+  <style id="static-map-style">
+    /* No-JS / crawler summary. Replaced by the interactive map when the inline
+       bundle mounts (React root.render clears #root). Generated content — see
+       tools/gen_static_block.mjs; do not hand-edit. */
+    .static-map { max-width: 820px; margin: 0 auto; padding: 40px 18px 64px;
+      font-family: 'Outfit', system-ui, sans-serif; font-weight: 300;
+      color: var(--text-primary); line-height: 1.65; }
+    .static-map h1, .static-map h2, .static-map h3 {
+      font-family: 'EB Garamond', Georgia, serif; font-weight: 500; line-height: 1.25; }
+    .static-map h1 { font-size: 2rem; margin-bottom: 6px; }
+    .static-map h2 { font-size: 1.35rem; color: var(--accent); margin: 34px 0 10px;
+      padding-top: 18px; border-top: 1px solid var(--rule); }
+    .static-map h3 { font-size: 1.08rem; margin: 22px 0 4px; }
+    .static-map p { margin: 0 0 12px; font-size: 0.95rem; }
+    .static-map .sm-sub { color: var(--text-tertiary); font-size: 0.85rem; margin-bottom: 22px; }
+    .static-map .sm-kernel { font-family: var(--mono); font-size: 0.82rem; color: var(--accent); }
+    .static-map .sm-papers, .static-map .sm-schools, .static-map .sm-id { color: var(--text-tertiary); font-size: 0.85rem; }
+    .static-map .sm-handoff { border-left: 2px solid var(--rule); padding-left: 12px; font-size: 0.9rem; }
+    .static-map sup, .static-map sub { font-size: 0.72em; }
+  </style>
 </head>
 <body>
   <div class="page-chrome">
     <div class="topbar"><a class="home-link" href="/">&larr; universalcollapse.com</a></div>
   </div>
-  <div id="root"></div>
+  <div id="root">
+<section class="static-map" aria-label="Architecture map — static summary">
+<h1>Architecture Map</h1>
+<p class="sm-sub">Universal Collapse Theory — an orientation map. Interactive version requires JavaScript; the summary below carries the full structure.</p>
+<p>In this map, UCT is used as a sorting grammar, not a replacement theory. The kernel — possibility, constraint, collapse, resolution, record, residue, record-time, and update — is the structure accumulated human knowledge gets organized through here. Schools below remain themselves. The map locates them; it doesn't replace them.</p>
+<p class="sm-kernel">Phase cards show a compact shorthand of the kernel (e.g. Ω → C<sup>K</sup> → x* → R → U); the canonical kernel carries all eight elements — Ω, K, C<sup>K</sup>, x*, R, S, T, U.</p>
+<h2>The Phase Stack — six domain layers</h2>
+<h3>PHYSICS — Constraint as Law</h3>
+<p class="sm-kernel">Ω → C<sup>K</sup> → x* → R → U</p>
+<p>The physical domain. Constraint narrows possibility into actual structure. Records accumulate as physical state. The Big Bang is the earliest collapse event we can point to — where the observable record begins, not a claim about a first cause.</p>
+<p class="sm-papers">UCT papers: WP01 — Foundations; WP02 — Collapse in Physics.</p>
+<p class="sm-schools">Sorted here: Quantum Mechanics; Thermodynamics / Statistical Mechanics; General Relativity; Cosmology (ΛCDM); Information Theory (Shannon).</p>
+<p class="sm-handoff">Handoff — First Biological Collapse: Chemical networks begin regenerating their own components. Constraint shifts from externally imposed to internally managed.</p>
+<h3>BIOLOGY — Commitment Under Uncertainty</h3>
+<p class="sm-kernel">Ω<sub>bio</sub> → C<sup>K</sup><sub>bio</sub> → x*<sub>bio</sub> → R<sub>bio</sub> → U<sub>bio</sub></p>
+<p>Where collapse begins managing its own constraint from within. Constraint becomes internally regulated rather than externally imposed. Organisms must commit before certainty is available.</p>
+<p class="sm-papers">UCT papers: WP03 — Biological Collapse; Biological Faith Systems (T15); Structural Biology (T20) · forthcoming.</p>
+<p class="sm-schools">Sorted here: Modern / Extended Evolutionary Synthesis; Autopoiesis (Maturana &amp; Varela); Homeostasis / Allostasis; Systems Biology; Origin of Life Research; Epigenetics; Biological Faith Systems (BFS) (UCT-derived).</p>
+<p class="sm-handoff">Handoff — The Gate Opens: In some biological systems, constraint architecture begins routing content into globally available form. Biology hands the baton toward conscious resolution — without the map settling where consciousness first begins.</p>
+<h3>PERCEPTION — The Gate</h3>
+<p class="sm-kernel">Ω<sub>p</sub> → C<sup>K</sup><sub>p</sub> → x*<sub>p</sub> → R → U</p>
+<p>Where biological constraint is routed into available content. Accumulated constraint shapes what reaches awareness before deliberation begins.</p>
+<p class="sm-papers">UCT papers: The Self the Ego Did Not Build (T15); COGITATE Reanalysis (T16).</p>
+<p class="sm-schools">Sorted here: Predictive Processing / Free Energy Principle; Bayesian Brain Hypothesis; Biased Competition (Desimone &amp; Duncan); Signal Detection Theory; Phenomenology (Merleau-Ponty); The Self the Ego Did Not Build (T15) (UCT-derived).</p>
+<p class="sm-handoff">Handoff — Content Feeds FRLB: What the gate admits becomes what the mind resolves. Perceptual collapse provides the raw content FRLB cycles on.</p>
+<h3>MIND — Symbolic Resolution Engine</h3>
+<p class="sm-kernel">F → Re → L → B → (new F)</p>
+<p>The conscious update engine. Faith → Reason → Logic → Belief. Generative when F starts the loop. Supplanted when conclusions become premises.</p>
+<p class="sm-papers">UCT papers: WP04 — Conscious Collapse · forthcoming; How Minds Resolve (FRLB01, T15) · forthcoming; Structural Mind (T20) · forthcoming.</p>
+<p class="sm-schools">Sorted here: Cognitive Behavioral Therapy; Dual Process Theory (Kahneman); Developmental Epistemic Trust (Fonagy); Paradigm Theory (Kuhn); Bayesian Cognition / Belief Updating; Acceptance and Commitment Therapy (ACT); Faith → Reason → Logic → Belief (FRLB) (UCT-derived).</p>
+<p class="sm-handoff">Handoff — Collapse Externalized: Conscious minds externalize their collapses — into speech, writing, tools, institutions, code. Individual collapse becomes shared structure for other minds.</p>
+<h3>CIM — Consciousness-Induced Material</h3>
+<p class="sm-kernel">Ω<sub>CIM</sub> → C<sup>K</sup><sub>soc</sub> → x*<sub>CIM</sub> → R<sub>soc</sub> → U<sub>soc</sub></p>
+<p>Meaning made material. When conscious collapse is externalized into speech, writing, tools, institutions, code — it becomes constraint for future minds.</p>
+<p class="sm-papers">UCT papers: WP04 §7 · forthcoming; CIM Foundational (T15).</p>
+<p class="sm-schools">Sorted here: Distributed Cognition (Hutchins); Extended Mind Thesis (Clark &amp; Chalmers); Institutional Theory / Sociology; Media Theory (McLuhan, Ong, Postman); Cultural Evolution (Henrich, Boyd &amp; Richerson); Library &amp; Information Science; CIM Theory (Consciousness-Induced Material) (UCT-derived).</p>
+<p class="sm-handoff">Handoff — CIM Becomes Recursive: When externalized collapse artifacts gain the capacity to process other CIM. AI is where CIM starts doing what minds do, structurally, without being one.</p>
+<h3>RECURSIVE CIM — AI — Meaning Made Machine</h3>
+<p class="sm-kernel">CIM processing CIM</p>
+<p>CIM that processes CIM. Participates in collapse structurally but not volitionally. Where humanity currently stands — engaging with one of its most powerful CIM artifacts.</p>
+<p class="sm-papers">UCT papers: AI as Synthetic Collapse (T15); The Structuralization of AI (T15); AI in the Meaning Layer (T15) · forthcoming.</p>
+<p class="sm-schools">Sorted here: Large Language Models / Transformers; RLHF (Reinforcement Learning from Human Feedback); AI Alignment Research; Philosophy of AI (Searle, Dreyfus, Floridi); Prompt Engineering / AI Literacy; Synthetic Collapse (AI as recursive CIM) (UCT-derived).</p>
+<h2>Three registers</h2>
+<p><strong>Sorted Material (33 entries).</strong> Existing schools and traditions placed by what they structurally do. They came before UCT; UCT locates them within the kernel.</p>
+<p><strong>UCT-Derived Frameworks (5 entries).</strong> Frameworks generated by applying the kernel to a domain — BFS, FRLB, CIM, Synthetic Collapse. Outputs of the sorting discipline, not independent primitives, and not proof of the law-level programme.</p>
+<p><strong>Methodology &amp; Governance.</strong> The sorting structure itself — the orientation discipline. How updates work, what counts as a structural improvement vs. an opinion swap, and how the map's claims are kept separate from the law-level programme.</p>
+<h2>Neighbors — where UCT itself sits</h2>
+<p>Where the phase stack sorts domain work into the kernel, this view does the reverse: it locates UCT itself among the frameworks it is kin to. The same verb — locating — at a higher altitude. Placement here is positioning, not a claim that these traditions are secretly UCT.</p>
+<h3>Philosophical Lineage</h3>
+<p>Where UCT sits in metaphysics and epistemology — the families it extends and the neighbors it answers to. Stated in Kernel First.</p>
+<p><strong>Structural Realism — Extends.</strong> Shares: The realist force of structure over isolated substances — structure is real, not a projection of language or mind. Diverges: Refuses to promote structure into a base substrate, and is not the weaker epistemic thesis that we know only structure while the rest stays hidden. It adds how structures actualize, persist, and revise future constraints.</p>
+<p><strong>Process Philosophy — Extends.</strong> Shares: The primacy of becoming and occurrence over static substance. Diverges: Specifies a kernel where process thought asserts becoming — what possibility space, what constraints, what resolution, what records, what update — and refuses to crown process itself as base.</p>
+<p><strong>Pragmatism — Neighbor.</strong> Shares: The link between knowing, practice, and fallibilist inquiry — concepts clarified by their consequences. Diverges: Adds record integrity and update conditions that make intersubjective convergence auditable, rather than merely perspective-relative.</p>
+<p><strong>Popper / Lakatos — Programme.</strong> Shares: Falsifiability and programme-level evaluation — a hard core kept in view, judged progressive or degenerating. Diverges: Operationalizes falsifiability with the signature family, methods papers, and update-integrity standard — failure conditions built in, not merely professed. A progressive programme makes new domains legible; a degenerating one relabels them.</p>
+<h3>Systems-Theoretic Kin</h3>
+<p>The 20th-century projects that also reached for cross-domain structural law. UCT shares the ambition; the divergences are where the kernel does work they do not.</p>
+<p><strong>General Systems Theory (von Bertalanffy) — Ancestor.</strong> Shares: The search for structural pattern recurring across physics, biology, and society. Diverges: Claims one grammar specialized per domain with explicit anti-false-analogy discipline, not isomorphism by resemblance — and crowns no organizing principle as base.</p>
+<p><strong>Cybernetics (Wiener, Ashby; second-order: von Foerster) — Kin.</strong> Shares: Feedback, control, regulation, and self-reference — systems steering under constraint. Diverges: Adds the explicit record and residue ledger (R, S) and record-time (T) as an accumulating coordinate. The update map U is feedback specified as constraint-revision through records — the loop with a persistence substrate.</p>
+<p><strong>Complexity &amp; Self-Organization (Prigogine, Kauffman, Santa Fe) — Kin.</strong> Shares: Emergence and order-from-constraint — structure arising far from equilibrium rather than by design. Diverges: Attempts to supply its own falsification discipline — the signature family and auditing standards — so that broad cross-domain pattern claims do not become merely analogical or self-sealing. The residue term S connects to the dissipation language without crowning entropy as base.</p>
+<p>Autopoiesis (Maturana &amp; Varela) already sits in the map as a biology-layer school — what it does in biology. Here it would appear at the systems-theory altitude as the account of self-producing organization. Same framework, two altitudes, no contradiction.</p>
+<h2>Operating posture</h2>
+<p><strong>Tier 0 — assumed and cleared first.</strong> Kernel First — the kernel is the load-bearing commitment; everything else is downstream of it. Faith Without Fideism — a constitutive starting commitment is unavoidable, but it stays revisable, not protected. Sealed Inquiry / No-Loss Fallacy — an inquiry that cannot lose isn't testing anything. The Tether — claims stay anchored to what can actually be checked.</p>
+<p><strong>Tier 30 — Primes (ground-clearing).</strong> Coherence — constraint-visible order, the default outcome under constraint — is not intelligence, agency, or teleology. Randomness is not a first principle or an end-of-inquiry verdict; it names residual unpredictability under stated constraints, model class, diagnostics, and search budget. Chaos is structured unpredictability, not disorder. Intelligence is plastic, feedback-driven constraint-navigation, not mystical agency. Nothingness is not the vacuum, the null, or the merely unknown.</p>
+<h2>Claim level</h2>
+<p>This map is an orientation artifact, not evidence for UCT by itself. Placing a tradition inside the kernel shows where it sits; it doesn't confirm the kernel. The mapping stays at the level of structural interpretation until it yields a discriminator, a method, a falsifiable prediction, or a ledgered empirical result — and those live in the empirical and governance tiers, not on this map.</p>
+<p class="sm-id">Author-steward, not system-owner. Librarian as much as theorist. The work is doing the sort carefully and consistently, not winning a debate about reality. Critique is welcome. Opinion is free. But if you see a better build, allow another update. The version history is the audit trail.</p>
+</section>
+  </div>
   <footer>
     <p class="footer-text">© 2025–2026 HoldingLight LLC — All rights reserved</p>
   </footer>
@@ -142,7 +233,7 @@ lucide-react/dist/esm/icons/network.mjs:
 lucide-react/dist/esm/icons/x.mjs:
 lucide-react/dist/esm/lucide-react.mjs:
   (**
-   * @license lucide-react v1.22.0 - ISC
+   * @license lucide-react v1.24.0 - ISC
    *
    * This source code is licensed under the ISC license.
    * See the LICENSE file in the root directory of this source tree.
