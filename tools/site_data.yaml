@@ -94,7 +94,7 @@ papers:
     priority: "0.8"
     built: true
     read: true
-    pdf: false
+    pdf: true
     desc: Cosmology, measurement, records, entropy, decoherence.
 
   - slug: wp03
@@ -110,7 +110,7 @@ papers:
     priority: "0.8"
     built: true
     read: true
-    pdf: false
+    pdf: true
     desc: Abiogenesis, evolution, and the major transitions read as constrained collapse.
 
   - slug: cim_foundational
@@ -126,7 +126,7 @@ papers:
     priority: "0.8"
     built: true
     read: true
-    pdf: false
+    pdf: true
     desc: >-
       Defines the CIM category — mind, the products of mind, and the recursive
       environments mind builds. The substrate-independence claim.
@@ -144,7 +144,7 @@ papers:
     priority: "0.7"
     built: true
     read: true
-    pdf: false
+    pdf: true
     desc: Quantum structural reinterpretation. The physics entry ramp.
 
   - slug: schrodinger
@@ -160,7 +160,7 @@ papers:
     priority: "0.7"
     built: true
     read: true
-    pdf: false
+    pdf: true
     desc: Mathematics as record-bearing formal system rather than substrate.
 
   - slug: bfs
@@ -176,7 +176,7 @@ papers:
     priority: "0.7"
     built: true
     read: true
-    pdf: false
+    pdf: true
     desc: Commitment under uncertainty in biology.
 
   - slug: self_ego
@@ -192,7 +192,7 @@ papers:
     priority: "0.7"
     built: true
     read: true
-    pdf: false
+    pdf: true
     desc: Identity formation through CIM-mediated experience.
 
   - slug: ai_synthetic
@@ -208,7 +208,7 @@ papers:
     priority: "0.8"
     built: true
     read: true
-    pdf: false
+    pdf: true
     desc: >-
       The recursive phase — AI as an instance of CIM, operating on accumulated
       externalized cognition.
@@ -228,7 +228,7 @@ papers:
     priority: "0.8"
     built: true
     read: true
-    pdf: false
+    pdf: true
     desc: >-
       The persistence layer of collapse. Cross-domain record structure.
       Framework-agnostic — useful without accepting UCT.
@@ -246,7 +246,7 @@ papers:
     priority: "0.8"
     built: true
     read: true
-    pdf: false
+    pdf: true
     desc: The structural conditions under which empiricism stabilizes knowledge.
 
   - slug: uis
@@ -262,7 +262,7 @@ papers:
     priority: "0.8"
     built: true
     read: true
-    pdf: false
+    pdf: true
     desc: >-
       Corruptors, integrity indicators, repair protocols. A structural ethic for
       preserving corrigibility in record-based systems.
@@ -280,7 +280,7 @@ papers:
     priority: "0.8"
     built: true
     read: true
-    pdf: false
+    pdf: true
     desc: >-
       Kernel application to AI — active phase, accumulated constraint architecture,
       oriented locus, and S1/S2/S3 for AI systems.
@@ -299,7 +299,7 @@ papers:
     priority: "0.7"
     built: true
     read: true
-    pdf: false
+    pdf: true
     desc: Biology wing. S3 hysteresis under constraint sweep.
 
   - slug: cogitate
@@ -316,7 +316,7 @@ papers:
     priority: "0.7"
     built: true
     read: true
-    pdf: false
+    pdf: true
     desc: Mind wing. Pre-specified reanalysis of the COGITATE iEEG dataset.
 
   - slug: ai_sig_deployed
@@ -332,7 +332,7 @@ papers:
     priority: "0.7"
     built: true
     read: true
-    pdf: false
+    pdf: true
     desc: >-
       AI wing parent demonstration. Five pre-specified substrate strata under
       black-box (Tier C) access.
@@ -347,7 +347,7 @@ papers:
     pdf_sha256: "ce4a1a4cd7cea5adbe130e45f9d368b9a6b1f67665481a5dfb959da48d78a669"
     lastmod: "2026-07-16"
     priority: "0.8"
-    pdf: false
+    pdf: true
     src_file: "UCT_AG_Program_Map_v1_0_2026_06.docx"
     pdf_file: "UCT_AG_Program_Map_v1.0.pdf"
     title: "Program Map: Universal Collapse Theory as a Coherence-First Research Program"
@@ -358,13 +358,13 @@ papers:
     philarchive: null
     desc: "What the program is — every layer placed, claim levels stated, falsification entry points identified. Read after Kernel First."
     built: true
-    read: false
+    read: true
 
   - slug: falsification_standards
     pdf_sha256: "e3cba877165547d3322e760b62e04b40e2120bd9e028c075a3b43ff15c7f9c79"
     lastmod: "2026-07-16"
     priority: "0.8"
-    pdf: false
+    pdf: true
     src_file: "UCT_AG_Falsification_Standards_v1_0_2026_06.docx"
     pdf_file: "UCT_AG_Falsification_Standards_v1.0.pdf"
     title: "Failure Modes and Falsification Standards for Universal Collapse Theory"
@@ -375,13 +375,13 @@ papers:
     philarchive: null
     desc: "Where the program can fail — per claim, per layer, and as a whole. The consolidated falsification standard for Universal Collapse Theory."
     built: true
-    read: false
+    read: true
 
   - slug: worked_demonstrations
     pdf_sha256: "a6fb47a59ab8a498cc165e40a04482a65d658039c790e40ba623badc459852b2"
     lastmod: "2026-07-16"
     priority: "0.8"
-    pdf: false
+    pdf: true
     src_file: "UCT_AG_Two_Worked_Demonstrations_v1_0_2026_06.docx"
     pdf_file: "UCT_AG_Two_Worked_Demonstrations_v1.0.pdf"
     title: "Two Worked Demonstrations: The Research Stack and the Applied Stack"
@@ -392,7 +392,7 @@ papers:
     philarchive: null
     desc: "One research-stack vertical — S2 from proved bound to live run, including a recorded failure — and one applied-stack reverse-audit, with the firewall between them stated."
     built: true
-    read: false
+    read: true
 
   - slug: entropy_as_record
     pdf_sha256: "18d316468a611ceadf233762d0e14303295643c808e4af95888bc1ed98eed18a"
@@ -408,8 +408,8 @@ papers:
     priority: "0.8"
     desc: "Physics wing of the T1.6 corpus — does the assembled cosmic entropy ledger grow the way a record-accumulation reading expects? A locked-source, pre-specified shape test."
     built: true
-    read: false
-    pdf: false
+    read: true
+    pdf: true
 
   - slug: cmb_records
     pdf_sha256: "701dc05d39d7a292777df1454bddef62b7851e97715fc00ca6d699ad767558ea"
@@ -425,8 +425,8 @@ papers:
     priority: "0.8"
     desc: "How quickly disagreement shrinks when redundant record channels are averaged — a reproducible consensus diagnostic on Planck PR3, stating exactly what the agreement licenses."
     built: true
-    read: false
-    pdf: false
+    read: true
+    pdf: true
 
   - slug: f2_positive_control
     pdf_sha256: "ded5ef99de6d410f5a6ca522bf8649e3becb4299a8939cdd15f4368ca27f97cc"
@@ -442,8 +442,8 @@ papers:
     priority: "0.8"
     desc: "The training-layer arm of the T1.6 positive controls — a structural grammar installed by LoRA fine-tuning, counter-trained back, and measured for install–remove hysteresis at K_train."
     built: true
-    read: false
-    pdf: false
+    read: true
+    pdf: true
 
   - slug: s3_calibration
     pdf_sha256: "7652b10fdae77172bbd8baddfe37114d1a56ad6a0caac2260eb938a6667a15ee"
@@ -459,8 +459,8 @@ papers:
     priority: "0.8"
     desc: "The missing positive control for the S₃ detector — planted constraint-reinstatement events of pre-registered intensity, recovered by a frozen instrument at characterized sensitivity and specificity."
     built: true
-    read: false
-    pdf: false
+    read: true
+    pdf: true
 
   - slug: s3_rag
     pdf_sha256: "efde8569968ffe9583ef9d67db7a9b545b4a5c069aff11f0051c76ab9baae759"
@@ -476,8 +476,8 @@ papers:
     priority: "0.8"
     desc: "The retrieval-channel companion — S₃ hysteresis tested on a search-grounded RAG system under controlled pack-swap conditions, reporting a bounded clean-record result."
     built: true
-    read: false
-    pdf: false
+    read: true
+    pdf: true
 
   - slug: methods_s1
     pdf_sha256: "bd0008d7862fbe652283761dae48011a23a8de8cbff0ca36e50b41f530c416e6"
@@ -493,8 +493,8 @@ papers:
     priority: "0.7"
     desc: "How to test independence rather than assume it — an agreement-curve audit separating genuine redundancy from channels that share upstream structure."
     built: true
-    read: false
-    pdf: false
+    read: true
+    pdf: true
 
   - slug: methods_s2
     pdf_sha256: "eb836c842fb175bf3e0f225a9e5eedd37468b2052fc54dab59e09a50b699509f"
@@ -510,8 +510,8 @@ papers:
     priority: "0.7"
     desc: "How to tell neutrality-induced delay from confound-induced delay — a five-axis latency-curve audit that catches the circular-fit failure mode by design."
     built: true
-    read: false
-    pdf: false
+    read: true
+    pdf: true
 
   - slug: methods_s3
     pdf_sha256: "4a31b3ef5b65aeaf08903918bc0518ac9ddf3c5e957656078e04ce2bd25885f0"
@@ -527,8 +527,8 @@ papers:
     priority: "0.7"
     desc: "How to tell record-driven path dependence from rate lag — a loop-scaling audit against an independently measured record state."
     built: true
-    read: false
-    pdf: false
+    read: true
+    pdf: true
 
   - slug: tn_s1
     pdf_sha256: "bd6c512ce9099084c871b65244760a143fa837b04608e9f3934ecdbead610d10"
@@ -544,8 +544,8 @@ papers:
     priority: "0.7"
     desc: "The S1 bound, proved: when an outcome is redundantly recorded in conditionally independent fragments, observers converge exponentially in the number of fragments read."
     built: true
-    read: false
-    pdf: false
+    read: true
+    pdf: true
 
   - slug: tn_s2
     pdf_sha256: "8ebc221a9d17bbef0db1d81ab84e0c2aeb9e3ecaeb6a840e0d176ba4374c667e"
@@ -561,8 +561,8 @@ papers:
     priority: "0.7"
     desc: "The S2 bound, proved: expected resolution time is strictly maximized at zero bias and falls monotonically as constraint asymmetry grows, in closed form."
     built: true
-    read: false
-    pdf: false
+    read: true
+    pdf: true
 
   - slug: tn_s3
     pdf_sha256: "4ef6641fd3ad8317ae33b64a72dd53c5fb0c43812a564c9e866435d2fe8222f5"
@@ -578,8 +578,8 @@ papers:
     priority: "0.7"
     desc: "The S3 lemma, proved: hysteresis loop area grows linearly with accumulated record state — and its sharpest point is what it denies."
     built: true
-    read: false
-    pdf: false
+    read: true
+    pdf: true
 
   - slug: pr00_coherence
     pdf_sha256: "0ed0aa36d7c5e6173d45377a547c68fe3e67b5d3c34293113ddb334b3484e578"
@@ -595,8 +595,8 @@ papers:
     priority: "0.7"
     desc: "Coherence is not something added by intelligence, teleology, or luck — it is what typically falls out of constraint. The positive ground of the Primes series."
     built: true
-    read: false
-    pdf: false
+    read: true
+    pdf: true
 
   - slug: pr01_randomness
     pdf_sha256: "a444478a50e2b761d0d94172c9cf5fe6cd8014bc95de53ad097055c98228f980"
@@ -612,8 +612,8 @@ papers:
     priority: "0.7"
     desc: "'Random' is a scoped residual label, not an ontological primitive — refutable by one discovered regularity, and never certifiable by any finite search."
     built: true
-    read: false
-    pdf: false
+    read: true
+    pdf: true
 
   - slug: pr02_chaos
     pdf_sha256: "bd0b12db0c60836a35cf3157a1e29ba73b5855bc1cc22620149c305a343288d7"
@@ -629,8 +629,8 @@ papers:
     priority: "0.7"
     desc: "Chaos is structured unpredictability, not disorder — a reason to change what you predict and report the horizon, not to declare structure absent."
     built: true
-    read: false
-    pdf: false
+    read: true
+    pdf: true
 
   - slug: pr03_intelligence
     pdf_sha256: "2817e6c969d33875f6e71479c8af62a40caf9befd933f12d25130965d98e50fb"
@@ -646,8 +646,8 @@ papers:
     priority: "0.7"
     desc: "Intelligence is an endogenous plastic update loop, measurable against a non-learning baseline — not a primitive essence, and possible without consciousness."
     built: true
-    read: false
-    pdf: false
+    read: true
+    pdf: true
 
   - slug: pr04_nothingness
     pdf_sha256: "2090f4103a72c4783e542d12ebe468c2d1b8319707fdc26d2a64577de1e23ac4"
@@ -663,8 +663,8 @@ papers:
     priority: "0.7"
     desc: "Vacuum is not nothing. 'Nothing' cannot serve as an explanatory ground — if it has a rule, it is not nothing; if it has no rule, it explains nothing."
     built: true
-    read: false
-    pdf: false
+    read: true
+    pdf: true
 
   - slug: sbom
     pdf_sha256: "9d566baa8f8f4abf568b172c2527533ad2b0aaa0bceada56605bbca4c26ced96"
@@ -680,8 +680,8 @@ papers:
     priority: "0.7"
     desc: "The biology layer made usable — postulates, protocols, a reporting standard, and worked examples from glucose regulation to evolutionary scaffolding."
     built: true
-    read: false
-    pdf: false
+    read: true
+    pdf: true
 
   - slug: how_minds_resolve
     pdf_sha256: "016cd32e6433af13c5547b5083aadb213e301b70d28953e6d95f9ff346fb56e4"
@@ -697,8 +697,8 @@ papers:
     priority: "0.8"
     desc: "The operative layer most frameworks leave unstated — how an individual mind enters a framework, tests it under feedback, and stabilizes a position into the next cycle."
     built: true
-    read: false
-    pdf: false
+    read: true
+    pdf: true
 
   - slug: starter_physics
     title: "Universal Collapse Theory — Physics Starter Pack"

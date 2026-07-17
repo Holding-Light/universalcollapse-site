@@ -13,6 +13,7 @@ Usage:
     python3 build_site_meta.py --data site_data.yaml --out public/ --check
 """
 import argparse
+import re
 import sys
 from pathlib import Path
 
@@ -39,6 +40,88 @@ def load(path):
 
 def built_papers(d):
     return [p for p in d.get("papers", []) if p.get("built")]
+
+
+def resolve_state(d, out_root):
+    """`read` and `pdf` are facts about the filesystem, not declarations.
+
+    Derive them from disk, report every drift, and never fill in a declared
+    artifact that is absent. A stale flag is how 21 live papers went dark.
+    """
+    root = Path(out_root)
+    drift = []
+    for p in d.get("papers", []):
+        slug = p["slug"]
+
+        on_disk = (root / "read" / f"{slug}.html").is_file()
+        if p.get("read") != on_disk:
+            drift.append(f"  read  {slug:26s} yaml={str(p.get('read')):5s} -> disk={on_disk}")
+        p["read"] = on_disk
+
+        pdf_file = p.get("pdf_file")
+        if pdf_file:
+            on_disk = (root / "pdf" / pdf_file).is_file()
+            if not on_disk:
+                sys.exit(
+                    f"FAIL  {slug}: declares pdf_file '{pdf_file}'\n"
+                    f"      not on disk at {root / 'pdf' / pdf_file}\n"
+                    f"      A declared artifact that is absent is a defect, not a false flag.\n"
+                    f"      Adjudicate. Do not override."
+                )
+        else:
+            on_disk = False
+        if p.get("pdf") != on_disk:
+            drift.append(f"  pdf   {slug:26s} yaml={str(p.get('pdf')):5s} -> disk={on_disk}")
+        p["pdf"] = on_disk
+    return drift
+
+
+def live_backlog(d):
+    """Deposited DOIs with no entry built yet. Auto-prunes when a paper ships.
+
+    Backlog entries may be a bare DOI string or a mapping carrying one. Anything
+    else is reported, not guessed — a wrong count here is how this sat at 27
+    across twenty-four shipped papers.
+    """
+    shipped = {p.get("doi") for p in built_papers(d)}
+    out = []
+    for item in d.get("backlog", []):
+        if isinstance(item, str):
+            doi = item
+        elif isinstance(item, dict) and "doi" in item:
+            doi = item["doi"]
+        else:
+            sys.exit(
+                f"FAIL  backlog entry shape not recognized: {item!r}\n"
+                f"      Expected a DOI string, or a mapping with a 'doi' key.\n"
+                f"      Paste the backlog block rather than widening this guess."
+            )
+        if doi not in shipped:
+            out.append(doi)
+    return out
+
+
+def sync_flags(path, d):
+    """Line-level flag write-back. A pyyaml round-trip would eat the Sync Law comment."""
+    lines = Path(path).read_text(encoding="utf-8").split("\n")
+    want = {p["slug"]: {"read": p["read"], "pdf": p["pdf"]} for p in d.get("papers", [])}
+    cur, n = None, 0
+    for i, ln in enumerate(lines):
+        m = re.match(r"^\s*-\s+slug:\s*(\S+)\s*$", ln)
+        if m:
+            cur = m.group(1)
+            continue
+        if cur not in want:
+            continue
+        for field in ("read", "pdf"):
+            m2 = re.match(r"^(\s*)" + field + r":\s*(true|false)\s*$", ln)
+            if m2:
+                new = "true" if want[cur][field] else "false"
+                if m2.group(2) != new:
+                    lines[i] = f"{m2.group(1)}{field}: {new}"
+                    n += 1
+    Path(path).write_text("\n".join(lines), encoding="utf-8")
+    return n
 
 
 def build_sitemap(d):
@@ -202,10 +285,20 @@ def main():
     ap.add_argument("--data", default="site_data.yaml")
     ap.add_argument("--out", default="public")
     ap.add_argument("--check", action="store_true",
-                    help="Print outputs and a summary; write nothing.")
+                    help="Print outputs and a summary; write nothing. Wins over --sync-flags.")
+    ap.add_argument("--sync-flags", action="store_true",
+                    help="Persist derived read/pdf flags back into the yaml.")
     a = ap.parse_args()
 
     d = load(a.data)
+
+    drift = resolve_state(d, a.out)
+    if drift:
+        print(f"flag drift — disk is authoritative ({len(drift)} corrected):")
+        for line in drift:
+            print(line)
+        print()
+
     sm = build_sitemap(d)
     lm = build_llms(d)
 
@@ -217,10 +310,16 @@ def main():
     print(f"papers built   : {len(papers)}")
     print(f"read pages     : {len(reads)}")
     print(f"sitemap URLs   : {n_urls}")
-    print(f"phase-1 backlog: {len(d.get('backlog', []))} live DOIs with no page yet")
+    print(f"phase-1 backlog: {len(live_backlog(d))} live DOIs with no page yet")
 
     if a.check:
+        if a.sync_flags and drift:
+            print(f"\n--check wins: would sync {len(drift)} flag(s), wrote nothing")
         return 0
+
+    if a.sync_flags:
+        n = sync_flags(a.data, d)
+        print(f"synced {n} flag(s) into {a.data}")
 
     out = Path(a.out)
     out.mkdir(parents=True, exist_ok=True)
