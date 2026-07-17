@@ -58,7 +58,8 @@ PUB = Path("public")
 MARK_BEGIN = "<!-- jsonld: derived by patch_landing_jsonld.py from site_data + this page's citation tags. Edit sources and rerun; do not hand-edit. -->"
 MARK_END = "<!-- /jsonld -->"
 
-RE_BLOCK = re.compile(re.escape(MARK_BEGIN) + r".*?" + re.escape(MARK_END) + r"\n?", re.S)
+RE_BLOCK = re.compile(r"^[ \t]*" + re.escape(MARK_BEGIN) + r".*?" + re.escape(MARK_END)
+                      + r"\n?", re.S | re.M)
 RE_META = lambda k: re.compile(rf'<meta name="{k}" content="([^"]*)"')
 RE_CANON = re.compile(r'<link rel="canonical" href="([^"]*)"')
 ANCHOR_OG = re.compile(r"^([ \t]*)<!-- Open Graph", re.M)

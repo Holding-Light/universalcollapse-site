@@ -45,8 +45,10 @@ CSS_END = "/* /position-block */"
 HTML_BEGIN = "<!-- position: derived by patch_position_blocks.py from site_data relations. Edit site_data, rerun; do not hand-edit. -->"
 HTML_END = "<!-- /position -->"
 
-RE_CSS_BLOCK = re.compile(re.escape(CSS_BEGIN) + r".*?" + re.escape(CSS_END) + r"\n?", re.S)
-RE_HTML_BLOCK = re.compile(re.escape(HTML_BEGIN) + r".*?" + re.escape(HTML_END) + r"\n?", re.S)
+RE_CSS_BLOCK = re.compile(r"^[ \t]*" + re.escape(CSS_BEGIN) + r".*?" + re.escape(CSS_END)
+                          + r"\n?", re.S | re.M)
+RE_HTML_BLOCK = re.compile(r"^[ \t]*" + re.escape(HTML_BEGIN) + r".*?" + re.escape(HTML_END)
+                           + r"\n?", re.S | re.M)
 RE_CITE_ANCHOR = re.compile(r'^([ \t]*)<div class="section-label">Cite</div>', re.M)
 RE_STYLE_END = re.compile(r"^([ \t]*)</style>", re.M)
 
