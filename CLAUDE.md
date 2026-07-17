@@ -23,13 +23,21 @@ regenerate anything).
   us before (2026-06-29: split-brain, files copied to root and never served).
 - **Deploy:** `git push` → auto-build ~1–2 min. Confirm the push printed
   `main -> main`, not "Everything up-to-date."
-- **Deploy verification, in order (2026-07-17):** origin first —
-  `curl -s https://raw.githubusercontent.com/Holding-Light/universalcollapse-site/main/public/architecture.html | grep -c forthcoming`
-  is the honest instrument for "did it land." Then give the edge its 1–2 min.
-  **The `?v=` query buster is a placebo on this zone** — `cf-cache-status: HIT`
-  comes back on never-seen query strings, so the cache key ignores them. It
-  never busted anything; it "worked" once because the wait outlasted the build.
-  `curl -sI` + `cf-cache-status` tells you which world you're reading.
+- **Deploy verification (2026-07-17, third revision the day it was written):**
+  1. The push output IS the landing confirmation — `old..new  main -> main`
+     means the objects are on origin; the git protocol does not print that
+     otherwise.
+  2. Zero-cache content check, runnable the same second:
+     `git show origin/main:public/wp01.html | grep -c "ld+json"`
+     — reads the object store; no HTTP cache exists on that path.
+  3. `raw.githubusercontent.com` carries `cache-control: max-age=300` — a
+     five-minute CDN cache you can SELF-PRIME: fetch a URL pre-push and your
+     edge serves you the stale copy post-push. It reported 0 on a completed
+     push the day this entry was written.
+  4. The live edge last: deploy lag ~1–2 min, and **the `?v=` query buster is
+     a placebo on this zone** — `cf-cache-status: HIT` comes back on never-seen
+     query strings, so the cache key ignores them. `curl -sI` +
+     `cf-cache-status` tells you which world you're reading.
 
 ---
 
