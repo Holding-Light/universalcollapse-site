@@ -42,6 +42,7 @@ Notation is normative: the collapse operator is **C^K_t** — K superscript, t s
 - [Schrödinger Reframe: Mathematical Experience](https://universalcollapse.com/read/schrodinger): Mathematics as record-bearing formal system rather than substrate. Full text. DOI 10.17605/OSF.IO/GPYWJ
 - [Biological Faith Systems](https://universalcollapse.com/read/bfs): Commitment under uncertainty in biology. Full text. DOI 10.17605/OSF.IO/D37Q5
 - [Self, the Ego Did Not Build](https://universalcollapse.com/read/self_ego): Identity formation through CIM-mediated experience. Full text. DOI 10.17605/OSF.IO/ZGRD4
+- [How Minds Resolve: The Faith-Reason-Logic-Belief Cycle](https://universalcollapse.com/read/how_minds_resolve): The operative layer most frameworks leave unstated — how an individual mind enters a framework, tests it under feedback, and stabilizes a position into the next cycle. Full text. DOI 10.17605/OSF.IO/92RQ5
 
 ## Tier 1.6 — Empirical Demonstrations
 
@@ -66,27 +67,44 @@ Notation is normative: the collapse operator is **C^K_t** — K superscript, t s
 - [Update Integrity Standard (UIS)](https://universalcollapse.com/read/uis): Corruptors, integrity indicators, repair protocols. A structural ethic for preserving corrigibility in record-based systems. Full text. DOI 10.17605/OSF.IO/DWM29
 - [The Structuralization of AI](https://universalcollapse.com/read/soai): Kernel application to AI — active phase, accumulated constraint architecture, oriented locus, and S1/S2/S3 for AI systems. Full text. DOI 10.17605/OSF.IO/6M7VW
 
-## Other
+## Architecture — Governance
 
-- [Program Map: Universal Collapse Theory as a Coherence-First Research Program](https://universalcollapse.com/read/program_map): What the program is — every layer placed, claim levels stated, falsification entry points identified. Read after Kernel First.
-- [Failure Modes and Falsification Standards for Universal Collapse Theory](https://universalcollapse.com/read/falsification_standards): Where the program can fail — per claim, per layer, and as a whole. The consolidated falsification standard for Universal Collapse Theory.
-- [Two Worked Demonstrations: The Research Stack and the Applied Stack](https://universalcollapse.com/read/worked_demonstrations): One research-stack vertical — S2 from proved bound to live run, including a recorded failure — and one applied-stack reverse-audit, with the firewall between them stated.
-- [Auditing Independence in Multi-Channel Measurement](https://universalcollapse.com/read/methods_s1): How to test independence rather than assume it — an agreement-curve audit separating genuine redundancy from channels that share upstream structure.
-- [Auditing Constraint Asymmetry in Latency-Based Resolution Tests](https://universalcollapse.com/read/methods_s2): How to tell neutrality-induced delay from confound-induced delay — a five-axis latency-curve audit that catches the circular-fit failure mode by design.
-- [Auditing Record State in Constraint-Sweep Hysteresis Tests](https://universalcollapse.com/read/methods_s3): How to tell record-driven path dependence from rate lag — a loop-scaling audit against an independently measured record state.
-- [Objectivity from Records: An Exponential Consensus Bound](https://universalcollapse.com/read/tn_s1): The S1 bound, proved: when an outcome is redundantly recorded in conditionally independent fragments, observers converge exponentially in the number of fragments read.
-- [Neutrality Delays Resolution: An Expected Resolution-Time Bound](https://universalcollapse.com/read/tn_s2): The S2 bound, proved: expected resolution time is strictly maximized at zero bias and falls monotonically as constraint asymmetry grows, in closed form.
-- [Records Amplify Hysteresis: A Loop-Area Lemma](https://universalcollapse.com/read/tn_s3): The S3 lemma, proved: hysteresis loop area grows linearly with accumulated record state — and its sharpest point is what it denies.
-- [Order as the Default Outcome Under Constraint](https://universalcollapse.com/read/pr00_coherence): Coherence is not something added by intelligence, teleology, or luck — it is what typically falls out of constraint. The positive ground of the Primes series.
-- [Against Randomness-First](https://universalcollapse.com/read/pr01_randomness): 'Random' is a scoped residual label, not an ontological primitive — refutable by one discovered regularity, and never certifiable by any finite search.
-- [Against Chaos-First](https://universalcollapse.com/read/pr02_chaos): Chaos is structured unpredictability, not disorder — a reason to change what you predict and report the horizon, not to declare structure absent.
-- [Against Intelligence-First](https://universalcollapse.com/read/pr03_intelligence): Intelligence is an endogenous plastic update loop, measurable against a non-learning baseline — not a primitive essence, and possible without consciousness.
-- [Against Nothingness-First](https://universalcollapse.com/read/pr04_nothingness): Vacuum is not nothing. 'Nothing' cannot serve as an explanatory ground — if it has a rule, it is not nothing; if it has no rule, it explains nothing.
-- [Structural Biology: Operating Manual](https://universalcollapse.com/read/sbom): The biology layer made usable — postulates, protocols, a reporting standard, and worked examples from glucose regulation to evolutionary scaffolding.
-- [How Minds Resolve: The Faith-Reason-Logic-Belief Cycle](https://universalcollapse.com/read/how_minds_resolve): The operative layer most frameworks leave unstated — how an individual mind enters a framework, tests it under feedback, and stabilizes a position into the next cycle.
-- [Universal Collapse Theory — Physics Starter Pack](https://universalcollapse.com/starter_physics): Run the three portable signatures yourself in about a minute — physics framing, same engine as the other two packs. Built to fail visibly if the predictions are wrong.
-- [Universal Collapse Theory — Biology Starter Pack](https://universalcollapse.com/starter_biology): Run the three portable signatures yourself in about a minute — biology framing, same engine as the other two packs. Built to fail visibly if the predictions are wrong.
-- [Universal Collapse Theory — Mind Starter Pack](https://universalcollapse.com/starter_mind): Run the three portable signatures yourself in about a minute — mind framing, same engine as the other two packs. Built to fail visibly if the predictions are wrong.
+- [Program Map: Universal Collapse Theory as a Coherence-First Research Program](https://universalcollapse.com/read/program_map): What the program is — every layer placed, claim levels stated, falsification entry points identified. Read after Kernel First. Full text. DOI 10.17605/OSF.IO/CFASB
+- [Failure Modes and Falsification Standards for Universal Collapse Theory](https://universalcollapse.com/read/falsification_standards): Where the program can fail — per claim, per layer, and as a whole. The consolidated falsification standard for Universal Collapse Theory. Full text. DOI 10.17605/OSF.IO/TN7Z3
+- [Two Worked Demonstrations: The Research Stack and the Applied Stack](https://universalcollapse.com/read/worked_demonstrations): One research-stack vertical — S2 from proved bound to live run, including a recorded failure — and one applied-stack reverse-audit, with the firewall between them stated. Full text. DOI 10.17605/OSF.IO/Z7HY2
+
+## Methods & Theoretical Notes
+
+- [Auditing Independence in Multi-Channel Measurement](https://universalcollapse.com/read/methods_s1): How to test independence rather than assume it — an agreement-curve audit separating genuine redundancy from channels that share upstream structure. Full text. DOI 10.17605/OSF.IO/7U8SK
+- [Auditing Constraint Asymmetry in Latency-Based Resolution Tests](https://universalcollapse.com/read/methods_s2): How to tell neutrality-induced delay from confound-induced delay — a five-axis latency-curve audit that catches the circular-fit failure mode by design. Full text. DOI 10.17605/OSF.IO/HRKWT
+- [Auditing Record State in Constraint-Sweep Hysteresis Tests](https://universalcollapse.com/read/methods_s3): How to tell record-driven path dependence from rate lag — a loop-scaling audit against an independently measured record state. Full text. DOI 10.17605/OSF.IO/CQGTD
+- [Objectivity from Records: An Exponential Consensus Bound](https://universalcollapse.com/read/tn_s1): The S1 bound, proved: when an outcome is redundantly recorded in conditionally independent fragments, observers converge exponentially in the number of fragments read. Full text. DOI 10.17605/OSF.IO/6M7N3
+- [Neutrality Delays Resolution: An Expected Resolution-Time Bound](https://universalcollapse.com/read/tn_s2): The S2 bound, proved: expected resolution time is strictly maximized at zero bias and falls monotonically as constraint asymmetry grows, in closed form. Full text. DOI 10.17605/OSF.IO/6WRQV
+- [Records Amplify Hysteresis: A Loop-Area Lemma](https://universalcollapse.com/read/tn_s3): The S3 lemma, proved: hysteresis loop area grows linearly with accumulated record state — and its sharpest point is what it denies. Full text. DOI 10.17605/OSF.IO/QJMSZ
+
+## Tier 30 — Primes
+
+- [Order as the Default Outcome Under Constraint](https://universalcollapse.com/read/pr00_coherence): Coherence is not something added by intelligence, teleology, or luck — it is what typically falls out of constraint. The positive ground of the Primes series. Full text. DOI 10.17605/OSF.IO/J2XSQ
+- [Against Randomness-First](https://universalcollapse.com/read/pr01_randomness): 'Random' is a scoped residual label, not an ontological primitive — refutable by one discovered regularity, and never certifiable by any finite search. Full text. DOI 10.17605/OSF.IO/Y678R
+- [Against Chaos-First](https://universalcollapse.com/read/pr02_chaos): Chaos is structured unpredictability, not disorder — a reason to change what you predict and report the horizon, not to declare structure absent. Full text. DOI 10.17605/OSF.IO/A6EJN
+- [Against Intelligence-First](https://universalcollapse.com/read/pr03_intelligence): Intelligence is an endogenous plastic update loop, measurable against a non-learning baseline — not a primitive essence, and possible without consciousness. Full text. DOI 10.17605/OSF.IO/RN3TH
+- [Against Nothingness-First](https://universalcollapse.com/read/pr04_nothingness): Vacuum is not nothing. 'Nothing' cannot serve as an explanatory ground — if it has a rule, it is not nothing; if it has no rule, it explains nothing. Full text. DOI 10.17605/OSF.IO/YHQ5F
+
+## Tier 2 — Operating Manuals
+
+- [Structural Biology: Operating Manual](https://universalcollapse.com/read/sbom): The biology layer made usable — postulates, protocols, a reporting standard, and worked examples from glucose regulation to evolutionary scaffolding. Full text. DOI 10.17605/OSF.IO/CPKNX
+
+## Starter Pack — Physics
+
+- [Universal Collapse Theory — Physics Starter Pack](https://universalcollapse.com/starter_physics): Run the three portable signatures yourself in about a minute — physics framing, same engine as the other two packs. Built to fail visibly if the predictions are wrong. Abstract; full text via DOI. DOI 10.17605/OSF.IO/ADM6U
+
+## Starter Pack — Biology
+
+- [Universal Collapse Theory — Biology Starter Pack](https://universalcollapse.com/starter_biology): Run the three portable signatures yourself in about a minute — biology framing, same engine as the other two packs. Built to fail visibly if the predictions are wrong. Abstract; full text via DOI. DOI 10.17605/OSF.IO/F7NBY
+
+## Starter Pack — Mind
+
+- [Universal Collapse Theory — Mind Starter Pack](https://universalcollapse.com/starter_mind): Run the three portable signatures yourself in about a minute — mind framing, same engine as the other two packs. Built to fail visibly if the predictions are wrong. Abstract; full text via DOI. DOI 10.17605/OSF.IO/A25CV
 
 ## Optional
 

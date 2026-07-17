@@ -353,7 +353,7 @@ papers:
     title: "Program Map: Universal Collapse Theory as a Coherence-First Research Program"
     subtitle: "Architecture, Claims, and Falsification"
     doi: "CFASB"
-    tier: "Architecture &mdash; Governance"
+    tier: "Architecture — Governance"
     version: "1.0"
     philarchive: null
     desc: "What the program is — every layer placed, claim levels stated, falsification entry points identified. Read after Kernel First."
@@ -370,7 +370,7 @@ papers:
     title: "Failure Modes and Falsification Standards for Universal Collapse Theory"
     subtitle: "Where the Program Can Fail — Per Claim, Per Layer, and as a Whole"
     doi: "TN7Z3"
-    tier: "Architecture &mdash; Governance"
+    tier: "Architecture — Governance"
     version: "1.0"
     philarchive: null
     desc: "Where the program can fail — per claim, per layer, and as a whole. The consolidated falsification standard for Universal Collapse Theory."
@@ -387,7 +387,7 @@ papers:
     title: "Two Worked Demonstrations: The Research Stack and the Applied Stack"
     subtitle: "The Research Stack and the Applied Stack, Worked — and the Line Between Them"
     doi: "Z7HY2"
-    tier: "Architecture &mdash; Governance"
+    tier: "Architecture — Governance"
     version: "1.0"
     philarchive: null
     desc: "One research-stack vertical — S2 from proved bound to live run, including a recorded failure — and one applied-stack reverse-audit, with the firewall between them stated."
@@ -690,7 +690,7 @@ papers:
     title: "How Minds Resolve: The Faith-Reason-Logic-Belief Cycle"
     subtitle: "The Faith-Reason-Logic-Belief Cycle"
     doi: "92RQ5"
-    tier: "Tier 1.5 — Bridges"
+    tier: "Tier 1.5 — Interpretive Bridges"
     version: "1.0"
     philarchive: "JONHMR"
     lastmod: "2026-07-16"

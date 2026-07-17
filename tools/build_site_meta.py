@@ -42,6 +42,36 @@ def built_papers(d):
     return [p for p in d.get("papers", []) if p.get("built")]
 
 
+def tier_sequence(papers):
+    """Every tier, in order. TIER_ORDER first; unlisted tiers follow in site_data order.
+
+    TIER_ORDER used to be a gate: a tier not named there dumped its papers into
+    an "Other" bucket that emitted no DOI. It is now a sequence override only.
+    A paper with no tier cannot be placed and is reported rather than dropped.
+    """
+    missing = [p["slug"] for p in papers if not p.get("tier")]
+    if missing:
+        sys.exit(
+            f"FAIL  papers with no tier: {', '.join(missing)}\n"
+            f"      A paper with no tier cannot be placed in llms.txt.\n"
+            f"      Adjudicate. Do not default."
+        )
+    seq = [t for t in TIER_ORDER if any(p.get("tier") == t for p in papers)]
+    for p in papers:
+        if p["tier"] not in seq:
+            seq.append(p["tier"])
+    return seq
+
+
+def paper_line(p, base):
+    """One paper, one line, always with its DOI. The single emit path."""
+    target = f"{base}/read/{p['slug']}" if p.get("read") else f"{base}/{p['slug']}"
+    desc = " ".join(p["desc"].split())
+    full = " Full text." if p.get("read") else " Abstract; full text via DOI."
+    doi = f" DOI 10.17605/OSF.IO/{p['doi']}"
+    return f"- [{p['title']}]({target}): {desc}{full}{doi}"
+
+
 def resolve_state(d, out_root):
     """`read` and `pdf` are facts about the filesystem, not declarations.
 
@@ -228,30 +258,13 @@ def build_llms(d):
     )
     L.append("")
 
-    # Group papers by tier, in reading order
-    seen = set()
-    for tier in TIER_ORDER:
+    # Every tier, its own section, one emit path. No leftover bucket.
+    for tier in tier_sequence(papers):
         group = [p for p in papers if p.get("tier") == tier]
-        if not group:
-            continue
-        seen.add(tier)
         L.append(f"## {tier}")
         L.append("")
         for p in group:
-            target = f"{base}/read/{p['slug']}" if p.get("read") else f"{base}/{p['slug']}"
-            desc = " ".join(p["desc"].split())
-            doi = f" DOI 10.17605/OSF.IO/{p['doi']}"
-            full = " Full text." if p.get("read") else " Abstract; full text via DOI."
-            L.append(f"- [{p['title']}]({target}): {desc}{full}{doi}")
-        L.append("")
-
-    leftover = [p for p in papers if p.get("tier") not in seen]
-    if leftover:
-        L.append("## Other")
-        L.append("")
-        for p in leftover:
-            target = f"{base}/read/{p['slug']}" if p.get("read") else f"{base}/{p['slug']}"
-            L.append(f"- [{p['title']}]({target}): {' '.join(p['desc'].split())}")
+            L.append(paper_line(p, base))
         L.append("")
 
     L.append("## Optional")
