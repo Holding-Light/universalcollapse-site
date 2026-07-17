@@ -5,3 +5,4 @@
 *.pre_atomic
 *.pre_tier
 tools/_arch_build/
+tools/__pycache__/
