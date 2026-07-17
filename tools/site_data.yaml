@@ -676,6 +676,48 @@ papers:
     built: true
     read: false
     pdf: false
+
+  - slug: starter_physics
+    title: "Universal Collapse Theory — Physics Starter Pack"
+    subtitle: "A runnable on-ramp — three portable signatures, one shared engine"
+    doi: "ADM6U"
+    tier: "Starter Pack — Physics"
+    version: "1.0"
+    philarchive: null
+    lastmod: "2026-07-16"
+    priority: "0.7"
+    desc: "Run the three portable signatures yourself in about a minute — physics framing, same engine as the other two packs. Built to fail visibly if the predictions are wrong."
+    built: true
+    read: false
+    pdf: false
+
+  - slug: starter_biology
+    title: "Universal Collapse Theory — Biology Starter Pack"
+    subtitle: "A runnable on-ramp — three portable signatures, one shared engine"
+    doi: "F7NBY"
+    tier: "Starter Pack — Biology"
+    version: "1.0"
+    philarchive: null
+    lastmod: "2026-07-16"
+    priority: "0.7"
+    desc: "Run the three portable signatures yourself in about a minute — biology framing, same engine as the other two packs. Built to fail visibly if the predictions are wrong."
+    built: true
+    read: false
+    pdf: false
+
+  - slug: starter_mind
+    title: "Universal Collapse Theory — Mind Starter Pack"
+    subtitle: "A runnable on-ramp — three portable signatures, one shared engine"
+    doi: "A25CV"
+    tier: "Starter Pack — Mind"
+    version: "1.0"
+    philarchive: null
+    lastmod: "2026-07-16"
+    priority: "0.7"
+    desc: "Run the three portable signatures yourself in about a minute — mind framing, same engine as the other two packs. Built to fail visibly if the predictions are wrong."
+    built: true
+    read: false
+    pdf: false
 backlog:
   - { doi: 92RQ5, title: "How Minds Resolve", note: "philarchive JONHMR; registry open item" }
   - { doi: 2RC4D, title: "Entropy as Record" }
