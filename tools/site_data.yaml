@@ -405,6 +405,7 @@ papers:
     read: true
 
   - slug: falsification_standards
+    short_title: "Falsification Standards"
     pdf_sha256: "e3cba877165547d3322e760b62e04b40e2120bd9e028c075a3b43ff15c7f9c79"
     lastmod: "2026-07-16"
     priority: "0.8"
@@ -742,6 +743,7 @@ papers:
     pdf: true
 
   - slug: how_minds_resolve
+    short_title: "How Minds Resolve"
     pdf_sha256: "016cd32e6433af13c5547b5083aadb213e301b70d28953e6d95f9ff346fb56e4"
     src_file: "UCT_T15_How_Minds_Resolve_v1_0_2026_07.docx"
     pdf_file: "UCT_T15_How_Minds_Resolve_v1_0_2026_07.pdf"
