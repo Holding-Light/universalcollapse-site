@@ -58,17 +58,26 @@ def main():
         if not doi:
             continue
         landing = PUB / f"{slug}.html"
-        doi_url = f"https://doi.org/10.17605/OSF.IO/{doi}"
 
         # already local?
         if re.search(rf'<a\s+href="/{re.escape(slug)}"[^>]*class="[^"]*paper-card', h):
             already += 1
             continue
 
-        # find the card pointing at this DOI
-        pat = re.compile(
-            rf'<a\s+href="{re.escape(doi_url)}"((?:[^>]*?))class="([^"]*paper-card[^"]*)"')
-        m = pat.search(h)
+        # A card may point at EITHER the DOI or PhilArchive. The Primes are
+        # PhilArchive-carded; everything else is doi.org. An earlier version of this
+        # script matched doi.org only, so it silently found nothing on the Primes and
+        # reported "no card" — the failure looked like success.
+        candidates = [f"https://doi.org/10.17605/OSF.IO/{doi}"]
+        if p.get("philarchive"):
+            candidates.append(f"https://philarchive.org/rec/{p['philarchive']}")
+        m = None
+        for u in candidates:
+            pat = re.compile(
+                rf'<a\s+href="{re.escape(u)}"((?:[^>]*?))class="([^"]*paper-card[^"]*)"')
+            m = pat.search(h)
+            if m:
+                break
         if not m:
             print(f"{slug:<24}{doi:<8}no DOI card in library (nothing to flip)")
             notfound += 1
