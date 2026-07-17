@@ -82,10 +82,12 @@ Notation is normative: the collapse operator is **C^K_t** — K superscript, t s
 - [Against Chaos-First](https://universalcollapse.com/pr02_chaos): Chaos is structured unpredictability, not disorder — a reason to change what you predict and report the horizon, not to declare structure absent.
 - [Against Intelligence-First](https://universalcollapse.com/pr03_intelligence): Intelligence is an endogenous plastic update loop, measurable against a non-learning baseline — not a primitive essence, and possible without consciousness.
 - [Against Nothingness-First](https://universalcollapse.com/pr04_nothingness): Vacuum is not nothing. 'Nothing' cannot serve as an explanatory ground — if it has a rule, it is not nothing; if it has no rule, it explains nothing.
+- [Structural Biology: Operating Manual](https://universalcollapse.com/sbom): The biology layer made usable — postulates, protocols, a reporting standard, and worked examples from glucose regulation to evolutionary scaffolding.
+- [How Minds Resolve: The Faith-Reason-Logic-Belief Cycle](https://universalcollapse.com/how_minds_resolve): The operative layer most frameworks leave unstated — how an individual mind enters a framework, tests it under feedback, and stabilizes a position into the next cycle.
 
 ## Optional
 
 - Resolving a DOI: every `10.17605/OSF.IO/XXXXX` above resolves via `https://doi.org/` to the OSF deposit, which carries the full text plus reproducibility material (data, code, verification packs) not mirrored on this site.
-- PhilArchive records exist for 17 of the philosophy-facing papers at `https://philarchive.org/rec/{handle}` — handles: JONKFC, JONUCT-2, JONUCT-3, JONUCT-4, JONCMA-5, JONCRF, JONWAN, JONBFS, JONTST-4, JONAAS-4, JONRAN-2, JONTSO-28, JONOAT-4, JONARP, JONACW-6, JONAIX, JONANH-2.
+- PhilArchive records exist for 18 of the philosophy-facing papers at `https://philarchive.org/rec/{handle}` — handles: JONKFC, JONUCT-2, JONUCT-3, JONUCT-4, JONCMA-5, JONCRF, JONWAN, JONBFS, JONTST-4, JONAAS-4, JONRAN-2, JONTSO-28, JONOAT-4, JONARP, JONACW-6, JONAIX, JONANH-2, JONHMR.
 
-Note: 17 of 36 papers currently have full-text `/read/` pages; the rest are being added. Additional deposited papers not yet listed here are on OSF and resolve by DOI.
+Note: 17 of 38 papers currently have full-text `/read/` pages; the rest are being added. Additional deposited papers not yet listed here are on OSF and resolve by DOI.

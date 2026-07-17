@@ -644,6 +644,38 @@ papers:
     built: true
     read: false
     pdf: false
+
+  - slug: sbom
+    src_file: "UCT_T20_Structural_Biology_Operating_Manual_v1_0_2026_05.docx"
+    pdf_file: "UCT_T20_Structural_Biology_Operating_Manual_v1_0_2026_05.pdf"
+    title: "Structural Biology: Operating Manual"
+    subtitle: "Domain Companion to UCT WP03 (Biological Collapse)"
+    doi: "CPKNX"
+    tier: "Tier 2 — Operating Manuals"
+    version: "1.0"
+    philarchive: null
+    lastmod: "2026-07-16"
+    priority: "0.7"
+    desc: "The biology layer made usable — postulates, protocols, a reporting standard, and worked examples from glucose regulation to evolutionary scaffolding."
+    built: true
+    read: false
+    pdf: false
+
+  - slug: how_minds_resolve
+    src_file: "UCT_T15_How_Minds_Resolve_v1_0_2026_07.docx"
+    pdf_file: "UCT_T15_How_Minds_Resolve_v1_0_2026_07.pdf"
+    title: "How Minds Resolve: The Faith-Reason-Logic-Belief Cycle"
+    subtitle: "The Faith-Reason-Logic-Belief Cycle"
+    doi: "92RQ5"
+    tier: "Tier 1.5 — Bridges"
+    version: "1.0"
+    philarchive: "JONHMR"
+    lastmod: "2026-07-16"
+    priority: "0.8"
+    desc: "The operative layer most frameworks leave unstated — how an individual mind enters a framework, tests it under feedback, and stabilizes a position into the next cycle."
+    built: true
+    read: false
+    pdf: false
 backlog:
   - { doi: 92RQ5, title: "How Minds Resolve", note: "philarchive JONHMR; registry open item" }
   - { doi: 2RC4D, title: "Entropy as Record" }
