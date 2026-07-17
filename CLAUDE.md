@@ -22,7 +22,14 @@ regenerate anything).
 - **Web root is `public/`.** Files at repo root are **not served.** This has bitten
   us before (2026-06-29: split-brain, files copied to root and never served).
 - **Deploy:** `git push` → auto-build ~1–2 min. Confirm the push printed
-  `main -> main`, not "Everything up-to-date." Hard-refresh (Cmd+Shift+R).
+  `main -> main`, not "Everything up-to-date."
+- **Deploy verification, in order (2026-07-17):** origin first —
+  `curl -s https://raw.githubusercontent.com/Holding-Light/universalcollapse-site/main/public/architecture.html | grep -c forthcoming`
+  is the honest instrument for "did it land." Then give the edge its 1–2 min.
+  **The `?v=` query buster is a placebo on this zone** — `cf-cache-status: HIT`
+  comes back on never-seen query strings, so the cache key ignores them. It
+  never busted anything; it "worked" once because the wait outlasted the build.
+  `curl -sI` + `cf-cache-status` tells you which world you're reading.
 
 ---
 
@@ -127,20 +134,27 @@ export LC_ALL=en_US.UTF-8
 | `tools/build_paper.sh` | docx → read page (pandoc + hash guard + lint) |
 | `tools/uct-paper.html` | read-page template |
 | `tools/{slug}.env` | per-paper build config |
-| `tools/site_data.yaml` | **Rule 3 single source** — 17 live papers + 27-DOI backlog |
-| `tools/build_site_meta.py` | site_data.yaml → sitemap.xml + llms.txt |
-| `tools/uct_lint_html.py` | Rule 4 web gate (notation, encoding, canonical, citation tags, sitemap agreement) |
-| `tools/build_data.py`, `tools/generate_pages.py` | landing pipeline — **status unknown, see §6** |
+| `tools/site_data.yaml` | **Rule 3 single source** — 41 built papers; `read`/`pdf` flags derived from disk; backlog pruned live (6 as of 2026-07-17) |
+| `tools/build_site_meta.py` | site_data.yaml → sitemap.xml + llms.txt; `--check` = drift gate |
+| `tools/status.py` | disk-derived status table; backlog via shared `live_backlog` |
+| `tools/uct_lint_html.py` | Rule 4 web gate (notation, encoding, canonical, citation tags, ledger cross-check, library-card DOI display, sitemap agreement) |
+| `tools/build_architecture.sh` | JSX → architecture.html (esbuild, generated static block, jsdom e2e gate) |
+| `tools/patch_*.py`, `tools/fix_*.py` | one-shot landing/library patchers — the landing mechanics pipeline. **No landing generator exists; see §6** |
 
 ```bash
-python3 tools/build_site_meta.py --data tools/site_data.yaml --out public/
-python3 tools/uct_lint_html.py --landing public/*.html
-python3 tools/uct_lint_html.py --url https://universalcollapse.com/read/kernel_first --self-canonical
+python3 tools/build_site_meta.py --data tools/site_data.yaml --out public/ --check
+python3 tools/uct_lint_html.py public/*.html public/read/*.html --landing \
+    --papers-from tools/site_data.yaml --sitemap public/sitemap.xml
+python3 tools/lint_doi_shadow.py
 ```
 
-`site_data.yaml` never invents a DOI. Truth is `UCT_DOI_Registry_v2_3_2026_07.md`.
+Without `--papers-from`, the ledger cross-checks silently skip — a bare
+`--landing` run passes pages the full invocation would fail.
+
+`site_data.yaml` never invents a DOI. Truth is `UCT_DOI_Registry_v2_6_2026_07.md`.
 All 17 entries were cross-checked against each live page's own `citation_doi` tag
-on 2026-07-16: 17/17 match.
+on 2026-07-16: 17/17 match. As of 2026-07-17 the same check runs on every lint
+pass via `check_against_ledger` — 41/41, gated not recalled.
 
 ---
 
@@ -171,26 +185,23 @@ facts that should never be typed twice. Regenerating a landing costs a review
 pass, not authorship. It is not sacred, but do not do it casually and never
 without showing the operator the diff.
 
+The working pattern (proven 2026-07): mechanical facts are injected by one-shot
+patchers deriving from `site_data.yaml` — `patch_landings.py`,
+`patch_citation_pdf.py`, `patch_library_cards.py`, `fix_landing_read_cta.py` —
+hash-guarded, dry-run-by-default. New mechanical surfaces (landing JSON-LD,
+relationship blocks) take this route until §7.2 is adjudicated.
+
 ## 7. Open adjudications — DO NOT DECIDE THESE
 
 Operator (Jeremy) is sole adjudicator. Surface findings; do not act.
 
-**7.1 — Canonical policy.** Read pages canonicalize to their landing
-(`rel=canonical` = `$landing_url$`). This was a **deliberate change**, not a bug:
-an older build (`kernelfirst.html`) emitted `$public_url$` (self-canonical), and
-the template was changed since. The current design is coherent — landing carries
-all 8 `citation_*` tags including `citation_pdf_url`; read pages carry none;
-canonical consolidates to the citation surface.
-
-Cost: it tells crawlers the only full-text page is a duplicate, which works against
-the site's stated AI-retrieval goal. If the operator elects Option A, the change is
-one line in `tools/uct-paper.html`:
-```
-- <link rel="canonical" href="$landing_url$">
-+ <link rel="canonical" href="$public_url$">
-```
-Leave `og:url` alone (already `$public_url$`, correct). Do **not** add citation
-tags to read pages — Scholar indexes off the landing regardless.
+**7.1 — Canonical policy — RESOLVED, Option A shipped (verified live 2026-07-17).**
+Read pages are self-canonical (`rel=canonical` = their own `/read/` URL) and carry
+the full `citation_*` set plus JSON-LD, via `patch_read_metadata.py` →
+`tools/uct-paper.html`; landings keep their Scholar tags. Verified on
+`/read/wp01`: canonical `/read/wp01`, 8 citation tags, JSON-LD parses. The prior
+design (read pages canonicalize to the landing, carry no tags) is history — do
+not restore it, and treat any page still emitting it as unrebuilt.
 
 **7.2 — Landing prose.** Move it into `site_data.yaml` as per-paper fields so
 Rule 3 holds (17 papers of work), or amend Rule 3 to exempt landings as an
@@ -229,6 +240,36 @@ contact@universalcollapse.com
 CC BY 4.0 · © 2025–2026 HoldingLight LLC
 Theme: bg #08090c · accent #c9a96e · EB Garamond / Outfit / JetBrains Mono
 ```
+
+---
+
+## 10. Traps (earned)
+
+Each cost real time. Same shape throughout: **a tool encoding one assumption
+about a world that has two.**
+
+- **Project `.docx` files in the Claude project mount are markdown with a
+  `.docx` extension** — `read_text()`, never pandoc/zipfile. Real docx live in
+  `~/Desktop/Papers/**/`.
+- **Git is the backup.** Patch scripts never write `.orig`/`.bak` into a tracked
+  tree. `.gitignore` carries the patterns anyway; `git add -A` sweeps everything
+  it can see.
+- **A default that is always overridden has never been tested.** Grep for
+  fallbacks whose override is universal. (`make_envs.py` TEMPLATE default: wrong
+  from day one, unreachable until 21 new envs fell straight through it.)
+- **A check that has never failed has never been tested.** Every new lint gets a
+  doctored input that must FAIL before its PASS means anything. (Library-card
+  DOI check: proven against the historical UWRS3 shape before first trust.)
+- **`grep -c` counts lines, not structure.** Read the matched lines before
+  concluding — a count of 2 was once read as "the citation block exists"; both
+  hits were display code.
+- **Derived fields must derive.** If a field states a fact about the filesystem,
+  compute it at build time; never ask a human to declare it at 2 AM.
+- **Commands handed to the operator must be paste-ready.** Concrete paths, real
+  filenames, no `<placeholders>` — zsh parses `<` as a redirect and errors before
+  the command runs (2026-07-17).
+- **The edge lies politely.** See §1: origin first; the `?v=` buster is a placebo
+  on this zone.
 
 ---
 
