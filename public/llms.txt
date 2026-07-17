@@ -71,10 +71,16 @@ Notation is normative: the collapse operator is **C^K_t** — K superscript, t s
 - [Program Map: Universal Collapse Theory as a Coherence-First Research Program](https://universalcollapse.com/program_map): What the program is — every layer placed, claim levels stated, falsification entry points identified. Read after Kernel First.
 - [Failure Modes and Falsification Standards for Universal Collapse Theory](https://universalcollapse.com/falsification_standards): Where the program can fail — per claim, per layer, and as a whole. The consolidated falsification standard for Universal Collapse Theory.
 - [Two Worked Demonstrations: The Research Stack and the Applied Stack](https://universalcollapse.com/worked_demonstrations): One research-stack vertical — S2 from proved bound to live run, including a recorded failure — and one applied-stack reverse-audit, with the firewall between them stated.
+- [Auditing Independence in Multi-Channel Measurement](https://universalcollapse.com/methods_s1): How to test independence rather than assume it — an agreement-curve audit separating genuine redundancy from channels that share upstream structure.
+- [Auditing Constraint Asymmetry in Latency-Based Resolution Tests](https://universalcollapse.com/methods_s2): How to tell neutrality-induced delay from confound-induced delay — a five-axis latency-curve audit that catches the circular-fit failure mode by design.
+- [Auditing Record State in Constraint-Sweep Hysteresis Tests](https://universalcollapse.com/methods_s3): How to tell record-driven path dependence from rate lag — a loop-scaling audit against an independently measured record state.
+- [Objectivity from Records: An Exponential Consensus Bound](https://universalcollapse.com/tn_s1): The S1 bound, proved: when an outcome is redundantly recorded in conditionally independent fragments, observers converge exponentially in the number of fragments read.
+- [Neutrality Delays Resolution: An Expected Resolution-Time Bound](https://universalcollapse.com/tn_s2): The S2 bound, proved: expected resolution time is strictly maximized at zero bias and falls monotonically as constraint asymmetry grows, in closed form.
+- [Records Amplify Hysteresis: A Loop-Area Lemma](https://universalcollapse.com/tn_s3): The S3 lemma, proved: hysteresis loop area grows linearly with accumulated record state — and its sharpest point is what it denies.
 
 ## Optional
 
 - Resolving a DOI: every `10.17605/OSF.IO/XXXXX` above resolves via `https://doi.org/` to the OSF deposit, which carries the full text plus reproducibility material (data, code, verification packs) not mirrored on this site.
 - PhilArchive records exist for 12 of the philosophy-facing papers at `https://philarchive.org/rec/{handle}` — handles: JONKFC, JONUCT-2, JONUCT-3, JONUCT-4, JONCMA-5, JONCRF, JONWAN, JONBFS, JONTST-4, JONAAS-4, JONRAN-2, JONTSO-28.
 
-Note: 17 of 25 papers currently have full-text `/read/` pages; the rest are being added. Additional deposited papers not yet listed here are on OSF and resolve by DOI.
+Note: 17 of 31 papers currently have full-text `/read/` pages; the rest are being added. Additional deposited papers not yet listed here are on OSF and resolve by DOI.

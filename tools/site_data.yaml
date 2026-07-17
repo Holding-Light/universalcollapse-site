@@ -468,6 +468,102 @@ papers:
     built: true
     read: false
     pdf: false
+
+  - slug: methods_s1
+    src_file: "UCT_Methods_S1_Auditing_Independence_v1_0_2026_05.docx"
+    pdf_file: "UCT_Methods_S1_Auditing_Independence_v1_0_2026_05.pdf"
+    title: "Auditing Independence in Multi-Channel Measurement"
+    subtitle: "An Agreement-Curve Diagnostic for Genuine versus Correlated Redundancy"
+    doi: "7U8SK"
+    tier: "Methods & Theoretical Notes"
+    version: "1.0"
+    philarchive: null
+    lastmod: "2026-07-16"
+    priority: "0.7"
+    desc: "How to test independence rather than assume it — an agreement-curve audit separating genuine redundancy from channels that share upstream structure."
+    built: true
+    read: false
+    pdf: false
+
+  - slug: methods_s2
+    src_file: "UCT_Methods_S2_Auditing_Constraint_Asymmetry_v1_0_2026_05.docx"
+    pdf_file: "UCT_Methods_S2_Auditing_Constraint_Asymmetry_v1_0_2026_05.pdf"
+    title: "Auditing Constraint Asymmetry in Latency-Based Resolution Tests"
+    subtitle: "A Latency-Curve Diagnostic for Neutrality versus Confound-Induced Delay"
+    doi: "HRKWT"
+    tier: "Methods & Theoretical Notes"
+    version: "1.0"
+    philarchive: null
+    lastmod: "2026-07-16"
+    priority: "0.7"
+    desc: "How to tell neutrality-induced delay from confound-induced delay — a five-axis latency-curve audit that catches the circular-fit failure mode by design."
+    built: true
+    read: false
+    pdf: false
+
+  - slug: methods_s3
+    src_file: "UCT_Methods_S3_Auditing_Record_State_v1_0_2026_05.docx"
+    pdf_file: "UCT_Methods_S3_Auditing_Record_State_v1_0_2026_05.pdf"
+    title: "Auditing Record State in Constraint-Sweep Hysteresis Tests"
+    subtitle: "A Loop-Scaling Diagnostic for Record-Driven versus Confound-Induced Path Dependence"
+    doi: "CQGTD"
+    tier: "Methods & Theoretical Notes"
+    version: "1.0"
+    philarchive: null
+    lastmod: "2026-07-16"
+    priority: "0.7"
+    desc: "How to tell record-driven path dependence from rate lag — a loop-scaling audit against an independently measured record state."
+    built: true
+    read: false
+    pdf: false
+
+  - slug: tn_s1
+    src_file: "UCT_TN_S1_Objectivity_from_Records_v1_0_2026_05.docx"
+    pdf_file: "UCT_TN_S1_Objectivity_from_Records_v1_0_2026_05.pdf"
+    title: "Objectivity from Records: An Exponential Consensus Bound"
+    subtitle: "A Technical Note on the S1 Signature"
+    doi: "6M7N3"
+    tier: "Methods & Theoretical Notes"
+    version: "1.0"
+    philarchive: null
+    lastmod: "2026-07-16"
+    priority: "0.7"
+    desc: "The S1 bound, proved: when an outcome is redundantly recorded in conditionally independent fragments, observers converge exponentially in the number of fragments read."
+    built: true
+    read: false
+    pdf: false
+
+  - slug: tn_s2
+    src_file: "UCT_TN_S2_Neutrality_Delays_Resolution_v1_0_2026_05.docx"
+    pdf_file: "UCT_TN_S2_Neutrality_Delays_Resolution_v1_0_2026_05.pdf"
+    title: "Neutrality Delays Resolution: An Expected Resolution-Time Bound"
+    subtitle: "A Technical Note on the S2 Signature"
+    doi: "6WRQV"
+    tier: "Methods & Theoretical Notes"
+    version: "1.0"
+    philarchive: null
+    lastmod: "2026-07-16"
+    priority: "0.7"
+    desc: "The S2 bound, proved: expected resolution time is strictly maximized at zero bias and falls monotonically as constraint asymmetry grows, in closed form."
+    built: true
+    read: false
+    pdf: false
+
+  - slug: tn_s3
+    src_file: "UCT_TN_S3_Records_Amplify_Hysteresis_v1_0_2026_05.docx"
+    pdf_file: "UCT_TN_S3_Records_Amplify_Hysteresis_v1_0_2026_05.pdf"
+    title: "Records Amplify Hysteresis: A Loop-Area Lemma"
+    subtitle: "A Technical Note on the S3 Signature"
+    doi: "QJMSZ"
+    tier: "Methods & Theoretical Notes"
+    version: "1.0"
+    philarchive: null
+    lastmod: "2026-07-16"
+    priority: "0.7"
+    desc: "The S3 lemma, proved: hysteresis loop area grows linearly with accumulated record state — and its sharpest point is what it denies."
+    built: true
+    read: false
+    pdf: false
 backlog:
   - { doi: 92RQ5, title: "How Minds Resolve", note: "philarchive JONHMR; registry open item" }
   - { doi: 2RC4D, title: "Entropy as Record" }
