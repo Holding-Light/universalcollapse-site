@@ -37,6 +37,16 @@ Enforces:
       DISPLAYS — four Starter Pack cards once showed dead DOIs in the label
       while every href resolved fine.)
 
+  7. LANDING JSON-LD — every paper landing must carry a parsing JSON-LD block
+     of @type ScholarlyArticle or SoftwareSourceCode whose identifier equals
+     the ledger DOI and whose url equals the page canonical         -> ERROR
+     (patch_landing_jsonld.py emits it; this gate keeps it honest.)
+
+  8. EXTENSION HOPS (--sitemap) — an internal href="/X.html" whose
+     extensionless path is a sitemap loc names a second URL for a
+     canonical page                                                 -> ERROR
+     (fix_extension_hops.py rewrites them; 167 existed on 2026-07-17.)
+
 Usage:
   python3 uct_lint_html.py public/**/*.html
   python3 uct_lint_html.py --url https://universalcollapse.com/read/kernel_first
@@ -46,6 +56,7 @@ Usage:
 Exit: 0 = PASS (warnings ok), 1 = FAIL (errors), 2 = usage/IO.
 """
 import argparse
+import json
 import re
 import sys
 import subprocess
@@ -297,9 +308,42 @@ def lint(name, html, args, sitemap_locs=None):
         # 4c — every class used must have a rule behind it
         errors.extend(check_css_classes(html))
 
+        # 4d — landing JSON-LD: present, parses, agrees with ledger + canonical
+        blocks = re.findall(
+            r'<script type="application/ld\+json">\s*(.*?)\s*</script>', html, re.S)
+        parsed = []
+        for b in blocks:
+            try:
+                parsed.append(json.loads(b.replace("<\\/", "</")))
+            except Exception:
+                errors.append("JSONLD: block present but does not parse")
+        arts = [x for x in parsed
+                if x.get("@type") in ("ScholarlyArticle", "SoftwareSourceCode")]
+        if not arts:
+            errors.append("JSONLD: no ScholarlyArticle/SoftwareSourceCode block "
+                          "(run patch_landing_jsonld.py)")
+        elif paper:
+            got = ((arts[0].get("identifier") or {}).get("value", ""))
+            want = f"10.17605/OSF.IO/{paper['doi']}"
+            if got != want:
+                errors.append(f"JSONLD: identifier {got!r} != ledger {want!r}")
+            if canonical and arts[0].get("url", "").rstrip("/") != canonical.rstrip("/"):
+                errors.append(f"JSONLD: url {arts[0].get('url')!r} != canonical {canonical!r}")
+
     # 6 — library cards: displayed DOI must match the ledger
     if Path(name).name == "library.html":
         errors.extend(check_library_cards(html, args.papers_by_slug))
+
+    # 8 — extension hops: internal .html href shadowing a canonical page
+    if sitemap_locs is not None:
+        canon_paths = {re.sub(r"^https?://[^/]+", "", u).rstrip("/") or "/"
+                       for u in sitemap_locs}
+        hops = sorted({m.group(1) for m in
+                       re.finditer(r'href="(/[A-Za-z0-9_/\-]+)\.html"', html)
+                       if m.group(1) in canon_paths})
+        if hops:
+            errors.append(f"HOP: internal .html link(s) to canonical page(s): "
+                          f"{', '.join(hops)} (run fix_extension_hops.py)")
 
     # 5 — sitemap agreement
     if sitemap_locs is not None and canonical:
