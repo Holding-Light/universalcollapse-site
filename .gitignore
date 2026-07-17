@@ -4,3 +4,4 @@
 *.pre_meta
 *.pre_atomic
 *.pre_tier
+tools/_arch_build/
