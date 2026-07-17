@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Two Worked Demonstrations: The Research Stack and the Applied Stack — Universal Collapse Theory</title>
+  <meta name="description" content="One research-stack vertical — S2 from proved bound to live run, including a recorded failure — and one applied-stack reverse-audit, with the firewall between them stated.">
+
+  <!-- Full-text reading copy. The citable record is the landing page;
+       canonical points there so Scholar and search consolidate on one URL. -->
+  <link rel="canonical" href="https://universalcollapse.com/read/worked_demonstrations">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Two Worked Demonstrations: The Research Stack and the Applied Stack — Universal Collapse Theory">
+  <meta property="og:description" content="One research-stack vertical — S2 from proved bound to live run, including a recorded failure — and one applied-stack reverse-audit, with the firewall between them stated.">
+  <meta property="og:url" content="https://universalcollapse.com/read/worked_demonstrations">
+  <meta property="og:site_name" content="Universal Collapse Theory">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@300;400&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg-deep: #08090c;
+      --bg-surface: #0e1017;
+      --bg-elevated: #161820;
+      --text-primary: #e8e6e1;
+      --text-secondary: #9b978f;
+      --text-tertiary: #5e5b54;
+      --accent: #c9a96e;
+      --accent-dim: #8a7245;
+      --rule: rgba(201, 169, 110, 0.12);
+      --serif: 'EB Garamond', Georgia, serif;
+      --sans: 'Outfit', system-ui, sans-serif;
+      --mono: 'JetBrains Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg-deep);
+      color: var(--text-primary);
+      font-family: var(--sans);
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    #progress {
+      position: fixed; top: 0; left: 0; height: 2px; width: 0%;
+      background: var(--accent); z-index: 100; transition: width 0.1s linear;
+    }
+
+    .topbar {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(8, 9, 12, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--rule);
+      padding: 0.75rem 1.5rem;
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 0.8rem;
+    }
+    .topbar a { color: var(--text-secondary); text-decoration: none; }
+    .topbar a:hover { color: var(--accent); }
+    .topbar .cite { color: var(--text-tertiary); font-family: var(--mono); font-size: 0.7rem; }
+
+    .shell {
+      max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem 6rem;
+      display: grid; grid-template-columns: minmax(0, 220px) minmax(0, 1fr); gap: 3rem;
+    }
+
+    nav.toc {
+      position: sticky; top: 5rem; align-self: start;
+      max-height: calc(100vh - 8rem); overflow-y: auto;
+      font-size: 0.8rem; line-height: 1.6;
+    }
+    nav.toc > p {
+      color: var(--text-tertiary); text-transform: uppercase;
+      letter-spacing: 0.12em; font-size: 0.65rem; margin-bottom: 0.75rem;
+    }
+    nav.toc ul { list-style: none; }
+    nav.toc ul ul { padding-left: 0.85rem; }
+    nav.toc li { margin: 0.3rem 0; }
+    nav.toc a {
+      color: var(--text-secondary); text-decoration: none;
+      display: block; padding-left: 0.6rem;
+      border-left: 1px solid transparent;
+    }
+    nav.toc a:hover { color: var(--text-primary); }
+    nav.toc a.active { color: var(--accent); border-left-color: var(--accent); }
+
+    article { min-width: 0; }
+
+    .paper-head { border-bottom: 1px solid var(--rule); padding-bottom: 1.75rem; margin-bottom: 2.5rem; }
+    .paper-head .tier {
+      font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.15em;
+      color: var(--accent-dim); text-transform: uppercase;
+    }
+    .paper-head h1 {
+      font-family: var(--serif); font-weight: 500; font-size: 2.1rem;
+      line-height: 1.2; margin: 0.75rem 0 0.5rem; color: var(--text-primary);
+    }
+    .paper-head .sub { font-family: var(--serif); font-style: italic; color: var(--text-secondary); font-size: 1.05rem; }
+    .paper-head .meta { margin-top: 1.1rem; font-size: 0.78rem; color: var(--text-tertiary); }
+    .paper-head .meta a { color: var(--accent-dim); text-decoration: none; }
+
+    article h1, article h2, article h3 {
+      font-family: var(--serif); font-weight: 600; line-height: 1.3;
+      color: var(--text-primary); scroll-margin-top: 5rem;
+    }
+    article h1 { font-size: 1.5rem; margin: 3rem 0 1rem; }
+    article h2 { font-size: 1.2rem; margin: 2rem 0 0.75rem; color: var(--text-secondary); }
+    article h3 { font-size: 1.05rem; margin: 1.5rem 0 0.5rem; color: var(--text-secondary); }
+
+    article h1 .anchor, article h2 .anchor {
+      opacity: 0; margin-left: 0.5rem; color: var(--accent-dim);
+      text-decoration: none; font-size: 0.7em; font-family: var(--sans);
+    }
+    article h1:hover .anchor, article h2:hover .anchor { opacity: 1; }
+
+    article p {
+      font-family: var(--serif); font-size: 1.12rem; font-weight: 400;
+      line-height: 1.75; margin: 0 0 1.15rem; color: var(--text-primary);
+    }
+    article ul, article ol { font-family: var(--serif); font-size: 1.12rem; margin: 0 0 1.15rem 1.5rem; }
+    article li { margin-bottom: 0.4rem; }
+    article strong { font-weight: 600; color: var(--text-primary); }
+    article em { font-style: italic; }
+    article a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--rule); }
+    article blockquote {
+      border-left: 2px solid var(--accent-dim); padding-left: 1.25rem;
+      margin: 1.5rem 0; color: var(--text-secondary); font-style: italic;
+      border-radius: 0;
+    }
+
+    math { font-size: 1.05em; color: var(--text-primary); }
+
+    .backtotop {
+      display: inline-block; margin-top: 3rem; padding-top: 1.5rem;
+      border-top: 1px solid var(--rule); width: 100%;
+      font-size: 0.8rem; color: var(--text-tertiary); text-decoration: none;
+    }
+    .backtotop:hover { color: var(--accent); }
+
+    #toc-toggle { display: none; }
+
+    @media (max-width: 820px) {
+      .shell { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; padding: 1.25rem 1.1rem 4rem; }
+      nav.toc {
+        position: static; max-height: none; order: -1;
+        border: 1px solid var(--rule); border-radius: 6px; padding: 0.9rem 1rem;
+      }
+      nav.toc[data-collapsed="true"] ul { display: none; }
+      #toc-toggle { display: block; background: none; border: none; color: var(--text-secondary);
+        font-family: var(--sans); font-size: 0.75rem; cursor: pointer; padding: 0; }
+      .paper-head h1 { font-size: 1.6rem; }
+      article p, article ul, article ol { font-size: 1.08rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<div class="topbar">
+  <a href="https://universalcollapse.com/worked_demonstrations">&larr; Two Worked Demonstrations</a>
+  <span class="cite">10.17605/OSF.IO/Z7HY2</span>
+</div>
+
+<div class="shell">
+
+  <nav class="toc" id="toc" data-collapsed="false">
+    <p>Contents</p>
+    <button id="toc-toggle" aria-expanded="true">Hide contents</button>
+    
+  </nav>
+
+  <article>
+    <header class="paper-head">
+      <span class="tier">Architecture &amp;mdash; Governance</span>
+      <h1>Two Worked Demonstrations: The Research Stack and the Applied Stack</h1>
+      <p class="sub">The Research Stack and the Applied Stack, Worked — and the Line Between Them</p>
+      <p class="meta">
+        Jeremy C. Jones &middot; HoldingLight LLC &middot; 2026/06 &middot; CC BY 4.0<br>
+        Cite as <a href="https://doi.org/10.17605/OSF.IO/Z7HY2">10.17605/OSF.IO/Z7HY2</a>
+        
+      </p>
+    </header>
+
+    <p><strong>Universal Collapse Theory: Two Worked Demonstrations</strong></p>
+    <p><em>The Research Stack and the Applied Stack, Worked — and the Line Between Them</em></p>
+    <p>Flagship Demonstration · read alongside the <em>Program Map</em></p>
+    <p><strong>Jeremy C. Jones</strong></p>
+    <p>HoldingLight LLC — ORCID 0009-0007-2515-3774 — universalcollapse.com</p>
+    <p>Version: v1.0 (2026-06) | License: CC BY 4.0</p>
+    <p>DOI: 10.17605/OSF.IO/Z7HY2</p>
+    <p><strong>What this document is</strong></p>
+    <p>A program map states a program’s architecture; a worked demonstration shows the architecture doing something. This document is the second. It walks two cases end to end — one on the research side of Universal Collapse Theory (UCT), one on the applied side — so a reader can see, concretely, how the same coherence-audit logic operates in each, and why the two are kept on opposite sides of a deliberate line.</p>
+    <p>Part A is the <strong>research-stack</strong> flagship. It follows one structural signature — S₂ — down its full vertical: a formal bound proved under stated assumptions, an audit protocol that turns the bound into a field test with a sharp falsifier, and a live empirical run on real data. It is chosen deliberately because that run recorded a <em>failure</em> alongside its support, which is what a research flagship should show.</p>
+    <p>Part B is the <strong>applied-stack</strong> flagship. It walks one reverse-audit from the AI Integrity Protocol (AIP) — the same coherence-audit logic translated into a diagnostic for deployed AI and algorithmic socio-technical systems — applied to a public, recognizable case. It shows what the method surfaces that a narrower review is not designed to adjudicate, and the claim discipline it runs under.</p>
+    <p>Between them sits the line. The two demonstrations use related machinery, but they do <em>not</em> have the same evidentiary role: Part A counts toward the program’s research ledger; Part B does not, unless independently audited under the same public standards. Showing both, with the line stated between them, is the point of pairing them — it demonstrates the firewall the program asserts elsewhere, rather than merely claiming it.</p>
+    <table>
+    <colgroup>
+    <col style="width: 100%" />
+    </colgroup>
+    <tbody>
+    <tr>
+    <td><p><strong>What this document does not claim</strong></p>
+    <p>This document does not prove the UCT kernel or validate the Law of Coherence. Part A reports one empirical run — including a failed prediction — not a confirmed theory. Part B reports a structural diagnostic, not a legal, regulatory, or fairness finding, and its commercial-side results are not offered as evidence for the research program. The pairing demonstrates how the program separates evidence from application; it does not collapse the two.</p></td>
+    </tr>
+    </tbody>
+    </table>
+    <p><strong>The two demonstrations at a glance</strong></p>
+    <p>Before the worked detail, the whole document in one table. The rightmost columns are the point: the two demonstrations have different evidentiary roles, and this is where the firewall is stated plainly.</p>
+    <table>
+    <colgroup>
+    <col style="width: 12%" />
+    <col style="width: 11%" />
+    <col style="width: 15%" />
+    <col style="width: 18%" />
+    <col style="width: 22%" />
+    <col style="width: 19%" />
+    </colgroup>
+    <thead>
+    <tr>
+    <th style="text-align: left;"><strong>Demonstration</strong></th>
+    <th style="text-align: left;"><strong>Stack</strong></th>
+    <th style="text-align: left;"><strong>Claim type</strong></th>
+    <th style="text-align: left;"><strong>Counts toward research ledger?</strong></th>
+    <th style="text-align: left;"><strong>What it shows</strong></th>
+    <th style="text-align: left;"><strong>What it does not show</strong></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td style="text-align: left;"><p><strong>Part A</strong></p>
+    <p>S₂ / COGITATE</p></td>
+    <td style="text-align: left;">Research</td>
+    <td style="text-align: left;">Level-3 empirical run</td>
+    <td style="text-align: left;"><strong>Yes</strong></td>
+    <td style="text-align: left;">Proof → protocol → data, with a recorded failure inside it.</td>
+    <td style="text-align: left;">Does not validate UCT; it is one run.</td>
+    </tr>
+    <tr>
+    <td style="text-align: left;"><p><strong>Part B</strong></p>
+    <p>AIP / Apple Card</p></td>
+    <td style="text-align: left;">Applied</td>
+    <td style="text-align: left;">Structural diagnostic</td>
+    <td style="text-align: left;"><p><strong>No</strong></p>
+    <p>unless converted under the stated rule</p></td>
+    <td style="text-align: left;">Field utility and claim discipline on a real case.</td>
+    <td style="text-align: left;">Not a legal, fairness, or regulatory verdict.</td>
+    </tr>
+    </tbody>
+    </table>
+    <p><strong>Part A — The research stack, worked: S₂ from bound to data</strong></p>
+    <p>The program’s empirical core is a repeated three-layer structure: a formal bound, an audit protocol that operationalizes it, and an empirical run that can come out against it. Part A follows the S₂ signature — the claim that, in systems resolving competing outcomes by evidence accumulation under constraint, weaker effective bias yields longer expected resolution — down all three layers, on one dataset.</p>
+    <p><strong>A.1 The formal bound</strong></p>
+    <p>The S₂ bound is proved in the Technical Note <em>Neutrality Delays Resolution</em>. The simplest case is modeled as a one-dimensional drift-diffusion process with fixed symmetric absorbing boundaries and start point z = 0. As the drift magnitude |μ| decreases toward zero, the expected first-passage time E[τ] increases strictly monotonically and attains the diffusion-only ceiling a²/σ² at zero drift. The proof is self-contained from the Kolmogorov backward equation. This is a Level-3 (domain-discriminator) result, and it can fail in two distinct ways that the program keeps separate: the formal bound fails mathematically if the first-passage analysis is incorrect or the monotonicity does not follow under its stated assumptions; the domain claim fails empirically if the assumptions hold but the observed field behavior does not match. A.2 and A.3 expose it to the second kind of failure.</p>
+    <p><strong>A.2 The audit protocol</strong></p>
+    <p>The Methods paper <em>Auditing Constraint Asymmetry</em> turns that bound into a field test. The standard mistake it guards against is circular: fitting the drift parameter to the same response-time distribution it is then used to explain. Instead, constraint asymmetry ΔK is specified independently, and two identifiable objects are estimated from non-circular channels — the latency ceiling C = a²/σ² and the drift-link parameter λ. Four features of the predicted latency curve E[τ](ΔK) = C·tanh(λΔK)/(λΔK) (with the ΔK = 0 value defined by the continuous limit, E = C) are then compared against observation: the ceiling at ΔK = 0, the near-ceiling curvature, symmetry around zero, and full-curve shape — with a fifth axis handling a known confound. The audit’s sharp falsifier is the failure of the observed latency curve to peak near neutrality, or to match the predicted shape under the stated model and an independently audited asymmetry. The protocol is valid only when ΔK, the response coordinate, the formalism, and the predicted curve are specified without circularity.</p>
+    <p><strong>A.2a Mapping note: why this is an S₂ test</strong></p>
+    <p>The bridge from the formal claim to the empirical predictions is specific, and the demonstration should show enough of it that a reader need not leave the document. On the constraint-architecture model, finer discrimination under higher constraint load resolves later — the perceptual analog of S₂, where a signal near a constraint boundary collapses more slowly. Task relevance supplies the constraint: a task-relevant non-target must be discriminated against the target within its own stimulus category — a finer, higher-load decision near the target/non-target boundary — whereas the same stimulus when task-irrelevant carries no such boundary. The prediction (A) is therefore directional and controlled: within the <em>same stimulus category and the same electrode</em>, the relevant case should show later high-gamma (70–150 Hz) onset than the irrelevant case. The within-category, within-electrode design is what makes this an S₂ test rather than a generic latency comparison — it holds stimulus identity fixed, making task-imposed constraint the targeted variation rather than a category artifact. A clean disconfirmation of the <em>mapping</em> (as distinct from a null statistic) would be the effect reversing in direction, or vanishing once stimulus identity is controlled — either of which would show the latency difference was a category artifact, not a constraint effect.</p>
+    <p><strong>A.3 The empirical run</strong></p>
+    <p>The audit is run in the Tier-1.6 paper <em>Constraint-Dependent Perceptual Resolution</em>, a pre-specified reanalysis of the open COGITATE intracranial-EEG dataset (34 analyzable patients) — the dataset the COGITATE adversarial collaboration released after challenging key predictions of both Integrated Information Theory and Global Neuronal Workspace Theory. Three predictions were registered before analysis.</p>
+    <table>
+    <colgroup>
+    <col style="width: 16%" />
+    <col style="width: 54%" />
+    <col style="width: 29%" />
+    </colgroup>
+    <thead>
+    <tr>
+    <th style="text-align: left;"><strong>Prediction</strong></th>
+    <th style="text-align: left;"><strong>Pre-specified claim</strong></th>
+    <th style="text-align: left;"><strong>Outcome</strong></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td style="text-align: left;"><strong>A</strong></td>
+    <td style="text-align: left;">Task-relevant stimuli resolve later than the same category when task-irrelevant.</td>
+    <td style="text-align: left;"><strong>Supported</strong> — 25/34; p = 0.007; +14.1 ms</td>
+    </tr>
+    <tr>
+    <td style="text-align: left;"><strong>B</strong></td>
+    <td style="text-align: left;">Hysteresis across miniblock transitions.</td>
+    <td style="text-align: left;"><strong>Not supported</strong> — p = 0.748</td>
+    </tr>
+    <tr>
+    <td style="text-align: left;"><strong>C</strong></td>
+    <td style="text-align: left;">Task modulation of duration-tracking.</td>
+    <td style="text-align: left;"><strong>Inconclusive</strong> — comparison-level only</td>
+    </tr>
+    </tbody>
+    </table>
+    <p>Prediction A was supported: task-relevant non-target stimuli showed later high-gamma onset than the same stimulus category when task-irrelevant (25 of 34 patients in the predicted direction; Wilcoxon on subject means p = 0.007; subject-level median +14.1 ms; bootstrap 95% CI on the mean [+3.6, +19.8] ms), and the effect held across all four stimulus categories. Prediction B, concerning hysteresis across miniblock transitions, was <em>not</em> supported (p = 0.748). Prediction C showed a comparison-level effect but no subject-level effect, and was reported as inconclusive.</p>
+    <p><strong>A.4 What Part A demonstrates</strong></p>
+    <p>The point of Part A is not that S₂ “won.” It is that the full vertical ran, on real data, with a result that could have come out otherwise — and partly did. One prediction was supported, one failed, one was inconclusive, and <strong>all three are reported as first-class outcomes</strong>. A flagship with a recorded failure inside it is doing the thing the program claims to do: exposing the layer to disconfirmation and keeping the full result, rather than curating the win. The supported result means something precisely because the failed one was published beside it. That is the research stack working as designed — and it is the kind of outcome that counts toward the program’s ledger.</p>
+    <p><strong>The line between the two demonstrations</strong></p>
+    <p>Part A and Part B run related machinery. The AIP method that Part B applies contains, as its own internal layers, the same update-integrity audit and the same S-signature battery that the research stack formalizes — the connection is structural, not rhetorical. But relatedness of machinery is not equivalence of evidentiary role, and the program is explicit about the difference.</p>
+    <table>
+    <colgroup>
+    <col style="width: 100%" />
+    </colgroup>
+    <tbody>
+    <tr>
+    <td><p><strong>Evidence versus application</strong></p>
+    <p><strong>Part A is research evidence.</strong> It is a public, versioned, pre-specified empirical test with a recorded failure; it counts toward the program’s research ledger and is subject to the program’s falsification standards.</p>
+    <p><strong>Part B is application.</strong> It is a diagnostic translation of the same logic into a deployed-systems setting. It demonstrates that the method does real work in the field, but it is not evidence for the law-level program unless it is independently audited, versioned, and entered into the public ledger under the same standards as Part A. A commercial diagnostic result is not a research result.</p></td>
+    </tr>
+    </tbody>
+    </table>
+    <p>Stating this line is what lets the two demonstrations sit in one document without contaminating each other. AIP is linked to UCT — a reader can now see that the audit method has commercial reach and that the research has applied consequence — but neither is absorbed into the other. The research is not validated by the commercial work; the commercial work requires no acceptance of the research program. The line is the membrane that makes the link safe.</p>
+    <p>The membrane is not one-way by accident; it has a stated crossing. <strong>An applied audit becomes research evidence only if</strong> its protocol is public and versioned, its analysis is independently reproducible, its predictions are pre-specified where the case allows, and its outcome is entered into the public ledger with failures, nulls, inaccessible layers, and inconclusives recorded under the same rules as Part A. Until those conditions are met, an applied result stays applied. That is the conversion rule, and it is deliberately strict: it is what keeps “the method works in the field” from quietly becoming “the theory is true.”</p>
+    <p><strong>Part B — The applied stack, worked: a reverse-audit of Apple Card</strong></p>
+    <p>The AI Integrity Protocol is the coherence-audit logic translated into a third-party diagnostic for deployed AI and algorithmic socio-technical systems. It runs four layers: a Structural Inventory, an Update Integrity Audit (the UIS corruptor set), an S-Signature Test Battery, and an Integrity Ledger. Part B walks one worked application of that method — reverse-audit RA-001, applied to a public, recognizable algorithmic consumer-credit ecosystem at Tier D (public-record access only). The failures at issue are structural — in routing, record-handling, and update pathways — not claims about model behavior; the method audits the system around the model as much as the model itself.</p>
+    <p><strong>B.1 Why this case</strong></p>
+    <p>The Apple Card consumer-credit program (Apple Inc. / Goldman Sachs Bank USA, reviewed August 2019 through 2024) is a clarifying case because it separates two questions that are routinely conflated. One review looked at <em>underwriting</em>: in March 2021, the New York State Department of Financial Services analyzed underwriting data for roughly 400,000 New York applicants and found no fair-lending violation. A later enforcement action looked at <em>servicing</em>: in October 2024, the Consumer Financial Protection Bureau identified distinct servicing, dispute-routing, and dispute-investigation failures, ordering a $25 million civil penalty against Apple (File No. 2024-CFPB-0012) and a $45 million penalty plus $19.8 million in consumer redress against Goldman (File No. 2024-CFPB-0011). These belong to the same deployed product ecosystem, but they sit at <strong>different layers</strong> and test different integrity questions: a clean fair-lending finding at the underwriting layer does not speak to the integrity of the servicing and dispute layer, or the reverse.</p>
+    <p>This is the answer to the question a skeptic puts to any framework: <em>what does it let me see that I could not already?</em> A fairness-only review asks whether outcomes discriminate. The structural audit asks a different question — whether the system’s records, dispute routing, explanation pathways, and update mechanisms remain coherent under disconfirming evidence — and that question surfaces failures a fairness-only review is not designed to adjudicate.</p>
+    <p><strong>B.2 The structural findings</strong></p>
+    <p>Applied to the public record, the audit located concrete update-integrity failures. Some were identifiable at or before the August 20, 2019 launch: an August 16, 2019 presentation to Goldman’s board — four days before launch — reported that the disputes system was “not fully ready” due to technological issues (CFPB Goldman order ¶ 4), against a partnership incentive structure that penalized launch delay. Others surfaced later in the dispute-handling and record-preservation pathways. These are read through the Update Integrity Standard’s named corruptor set — the same failure modes the research-side standard specifies — and reported per corruptor, with each finding tied to a documented public source. The mini-ledger below shows the structure of that sourcing; the full per-finding ledger is in RA-001.</p>
+    <table>
+    <colgroup>
+    <col style="width: 30%" />
+    <col style="width: 19%" />
+    <col style="width: 25%" />
+    <col style="width: 23%" />
+    </colgroup>
+    <thead>
+    <tr>
+    <th style="text-align: left;"><strong>Structural finding</strong></th>
+    <th style="text-align: left;"><strong>UIS corruptor</strong></th>
+    <th style="text-align: left;"><strong>Public source</strong></th>
+    <th style="text-align: left;"><strong>What remains inaccessible (Tier D)</strong></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td style="text-align: left;">Disputes system not fully ready at launch.</td>
+    <td style="text-align: left;">Constraint freezing</td>
+    <td style="text-align: left;">CFPB Goldman order ¶ 4 (recites Aug 16, 2019 board presentation).</td>
+    <td style="text-align: left;">Internal readiness assessments and remediation timelines.</td>
+    </tr>
+    <tr>
+    <td style="text-align: left;">Dispute routing and investigation failures.</td>
+    <td style="text-align: left;">Selective update</td>
+    <td style="text-align: left;">CFPB consent orders, Apple and Goldman, Oct 2024.</td>
+    <td style="text-align: left;">Internal routing logic and case-handling logs.</td>
+    </tr>
+    <tr>
+    <td style="text-align: left;">Record-preservation gaps in dispute handling.</td>
+    <td style="text-align: left;">Record falsification / loss</td>
+    <td style="text-align: left;">CFPB consent orders, Oct 2024.</td>
+    <td style="text-align: left;">System-level record schemas and retention policy.</td>
+    </tr>
+    </tbody>
+    </table>
+    <p><em>UIS corruptor labels name structural failure modes; they do not imply intent unless the public record independently supports that claim.</em></p>
+    <p><strong>Boundary note.</strong> The NY DFS fair-lending finding (no violation, underwriting layer) is <em>not</em> a structural finding and is deliberately excluded from the ledger above. It is recorded here only to mark what the structural audit does <em>not</em> adjudicate: it concerns a different layer (underwriting), reviewed by a different body, on a different question. The ledger makes the discipline visible — each structural finding is tied to a public source and paired with what Tier-D access cannot see. The audit reads structure off the record; it does not infer internal intent.</p>
+    <p><strong>B.3 The claim discipline</strong></p>
+    <p>What makes the audit a diagnostic rather than an accusation is the discipline it runs under, and the report states it on every axis:</p>
+    <ul>
+    <li><p><strong>Structural, not legal.</strong> The findings do not constitute a fair-lending violation, a regulatory-compliance finding, or a finding of unlawful discrimination. They are findings about whether specified structural failure modes appeared in the public record.</p></li>
+    <li><p><strong>Inaccessible is a finding.</strong> At Tier D, internal systems are not observable. The report has a dedicated Inaccessible-Layer section: what could not be seen is named, not guessed at or quietly assumed.</p></li>
+    <li><p><strong>Inconclusive is a finding.</strong> Where the public record does not settle a question, the result is recorded as inconclusive rather than resolved in either direction — a first-class outcome with its own section.</p></li>
+    <li><p><strong>The adjudicator holds the decision.</strong> The protocol produces no score and no certification. It produces auditable structural findings; the deciding judgment about what they mean remains with a human reviewer.</p></li>
+    </ul>
+    <p><strong>B.4 What Part B demonstrates</strong></p>
+    <p>Part B shows the same audit discipline the research stack runs on the bench, translated into the field: specifying failure modes in advance, testing against them, and reporting what it finds — including what it cannot see and cannot settle. It is worth separating the three kinds of value the demonstration produces, because they are easy to run together and the firewall depends on keeping them apart:</p>
+    <ul>
+    <li><p><strong>Diagnostic value.</strong> It surfaces structural integrity failures — in records, routing, and update pathways — that a fairness-only review is not designed to adjudicate, on a case the public already knows.</p></li>
+    <li><p><strong>Applied / commercial value.</strong> That diagnostic reach is real and useful in deployment regardless of whether the law-level program ultimately succeeds, because the method is judged by whether its structural findings reproduce, not by the fate of the kernel that inspired it.</p></li>
+    <li><p><strong>Research value.</strong> None — unless the audit is independently reproduced, versioned, and entered into the public ledger under the conversion rule stated above. As a standalone applied demonstration, it does not count toward the research ledger.</p></li>
+    </ul>
+    <p>Holding those three apart is the whole point of running Part B inside this document rather than letting it stand alone: it shows the method has genuine field reach <em>and</em> shows exactly why that reach is not, by itself, evidence for the theory.</p>
+    <p><strong>Limitations and next tests</strong></p>
+    <p>A flagship is strengthened, not weakened, by stating plainly what each demonstration does not establish and what would extend it.</p>
+    <ul>
+    <li><p><strong>Part A</strong> is one signature, one dataset, and one empirical run. It supports ledger inclusion, not program validation. Its next test is replication or extension under the same S₂ audit conditions — an independent reanalysis, or another dataset meeting the same constraint-asymmetry specification. It would be counted against the demonstration if Prediction A failed to replicate under those conditions, or if the independent ΔK audit were shown to be circular or confounded.</p></li>
+    <li><p><strong>Part B</strong> is a Tier-D public-record diagnostic. It cannot see internal systems, cannot establish legal liability, and does not count as research evidence unless converted under the rule above. Its next test is reproducibility across cases and reviewers. It would be counted against the demonstration if independent auditors could not reproduce the structural findings from the same public record, or if any finding were shown to depend on inference beyond what Tier-D access supports.</p></li>
+    </ul>
+    <p>Both next-tests are the per-layer falsification discipline of the <em>Program Map</em> applied to this document: a demonstration in good standing is one whose characteristic failure has been named and looked for.</p>
+    <p><strong>What the pairing shows</strong></p>
+    <p>Read together, the two demonstrations make one structural point that neither makes alone. The same coherence-audit logic runs on both sides of the program: as pre-specified empirical test on the research side, and as field diagnostic on the applied side. The machinery is shared — update-integrity auditing and the S-signature battery appear in both. But the two are held in different roles, and the document keeps them there: research evidence that counts toward the ledger, and applied translation that does not unless separately audited to the same standard.</p>
+    <p>That separation, demonstrated rather than asserted, is the credibility move. A program with a commercial wing invites the suspicion that the commercial work is being used to prop up the theory, or the theory to market the product. The pairing answers the suspicion concretely: here is the research stack, with a failure recorded inside it; here is the applied stack, doing real diagnostic work; and here is the line that keeps each from standing in for the other. The link between UCT and AIP is made visible — a connection a reader would otherwise miss — without either collapsing into the other.</p>
+    <p>Neither demonstration settles the program. Part A is one run; the verdict on the research is longitudinal, read off the accumulating ledger over many such runs. Part B is one application; the method’s standing is read off whether its structural findings reproduce. What the pairing settles is narrower and worth settling on its own: that the program can show its logic working, on real cases, on both sides of its own firewall — and can keep the sides apart while doing it. The pairing is therefore evidence of architectural discipline, not evidence that the law-level program is true.</p>
+    <p><strong>Referenced artifacts and source base</strong></p>
+    <p>Every artifact and public event this demonstration relies on, with its role and identifier, so the worked chain can be traced without leaving the document.</p>
+    <table>
+    <colgroup>
+    <col style="width: 39%" />
+    <col style="width: 30%" />
+    <col style="width: 29%" />
+    </colgroup>
+    <thead>
+    <tr>
+    <th style="text-align: left;"><strong>Item</strong></th>
+    <th style="text-align: left;"><strong>Role in this paper</strong></th>
+    <th style="text-align: left;"><strong>Identifier / source</strong></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td style="text-align: left;"><em>TN-S₂ — Neutrality Delays Resolution</em></td>
+    <td style="text-align: left;">Formal bound (Part A)</td>
+    <td style="text-align: left;">10.17605/OSF.IO/6WRQV</td>
+    </tr>
+    <tr>
+    <td style="text-align: left;"><em>Methods-S₂ — Auditing Constraint Asymmetry</em></td>
+    <td style="text-align: left;">Audit protocol (Part A)</td>
+    <td style="text-align: left;">10.17605/OSF.IO/HRKWT</td>
+    </tr>
+    <tr>
+    <td style="text-align: left;"><em>Constraint-Dependent Perceptual Resolution (COGITATE reanalysis)</em></td>
+    <td style="text-align: left;">Empirical run (Part A)</td>
+    <td style="text-align: left;">10.17605/OSF.IO/MXYU2</td>
+    </tr>
+    <tr>
+    <td style="text-align: left;"><em>AIP RA-001 — Apple Card (Tier D)</em></td>
+    <td style="text-align: left;">Applied reverse-audit (Part B)</td>
+    <td style="text-align: left;">10.17605/OSF.IO/K63UQ</td>
+    </tr>
+    <tr>
+    <td style="text-align: left;">NY DFS — Report on the Apple Card Investigation</td>
+    <td style="text-align: left;">Public fairness-review source (Part B; underwriting layer)</td>
+    <td style="text-align: left;"><p>NY Dept. of Financial Services, Mar 2021</p>
+    <p>dfs.ny.gov — rpt_202103_apple_card_investigation</p></td>
+    </tr>
+    <tr>
+    <td style="text-align: left;">CFPB — Apple Inc. consent order</td>
+    <td style="text-align: left;">Public enforcement source (Part B; servicing layer)</td>
+    <td style="text-align: left;"><p>File No. 2024-CFPB-0012, Oct 23, 2024</p>
+    <p>consumerfinance.gov/enforcement/actions/apple-inc</p></td>
+    </tr>
+    <tr>
+    <td style="text-align: left;">CFPB — Goldman Sachs Bank USA consent order</td>
+    <td style="text-align: left;">Public enforcement source (Part B; servicing layer)</td>
+    <td style="text-align: left;"><p>File No. 2024-CFPB-0011, Oct 23, 2024</p>
+    <p>consumerfinance.gov/enforcement/actions/goldman-sachs-bank-usa</p></td>
+    </tr>
+    </tbody>
+    </table>
+    <p>Research artifacts (TN-S₂, Methods-S₂, the COGITATE reanalysis) are live OSF deposits. The applied artifact (RA-001) is published through the AI Integrity Protocol and carries its own full per-finding ledger and source index. Regulatory items are public-record documents cited by issuing body and date.</p>
+    <p><strong>UCT Library</strong></p>
+    <p>This document is part of the Universal Collapse Theory library maintained by Jeremy C. Jones and HoldingLight LLC. It is the flagship demonstration companion to the Program Map; the research artifacts it walks (TN-S₂, Methods-S₂, the COGITATE reanalysis) are live deposits, and the applied artifact (AIP RA-001) is published through the AI Integrity Protocol. Roadmap: universalcollapse.com/roadmap</p>
+    <p><strong>AI Disclosure</strong></p>
+    <p>AI tools were used to assist with manuscript preparation, drafting, organization, and editorial refinement. The underlying theory, structural decisions, analysis, and conclusions are the author’s own.</p>
+    <p><strong>Suggested Citation</strong></p>
+    <p>Jones, J. C. (2026). Universal Collapse Theory: Two Worked Demonstrations — The Research Stack and the Applied Stack (v1.0). HoldingLight LLC. https://doi.org/10.17605/OSF.IO/Z7HY2</p>
+    <p>© 2026 Jeremy C. Jones — HoldingLight LLC · CC BY 4.0</p>
+
+    <a href="#top" class="backtotop">&uarr; Back to top</a>
+  </article>
+
+</div>
+
+<script>
+(function () {
+  var bar = document.getElementById('progress');
+  function onScroll() {
+    var h = document.documentElement;
+    var pct = h.scrollTop / (h.scrollHeight - h.clientHeight);
+    bar.style.width = (pct * 100).toFixed(1) + '%';
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav.toc a'));
+  var targets = links.map(function (a) {
+    return document.getElementById(decodeURIComponent(a.getAttribute('href')).slice(1));
+  });
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      var i = targets.indexOf(e.target);
+      if (i < 0) return;
+      links.forEach(function (l) { l.classList.remove('active'); });
+      links[i].classList.add('active');
+    });
+  }, { rootMargin: '-10% 0px -80% 0px' });
+  targets.forEach(function (t) { if (t) obs.observe(t); });
+
+  var btn = document.getElementById('toc-toggle');
+  var nav = document.getElementById('toc');
+  btn.addEventListener('click', function () {
+    var c = nav.getAttribute('data-collapsed') === 'true';
+    nav.setAttribute('data-collapsed', String(!c));
+    btn.setAttribute('aria-expanded', String(c));
+    btn.textContent = c ? 'Hide contents' : 'Show contents';
+  });
+
+  document.querySelectorAll('article section[id] > h1, article section[id] > h2').forEach(function (h) {
+    var a = document.createElement('a');
+    a.className = 'anchor';
+    a.href = '#' + h.parentNode.id;
+    a.textContent = '#';
+    a.setAttribute('aria-label', 'Link to this section');
+    h.appendChild(a);
+  });
+})();
+</script>
+
+</body>
+</html>

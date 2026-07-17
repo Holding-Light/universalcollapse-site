@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neutrality Delays Resolution: An Expected Resolution-Time Bound — Universal Collapse Theory</title>
+  <meta name="description" content="The S2 bound, proved: expected resolution time is strictly maximized at zero bias and falls monotonically as constraint asymmetry grows, in closed form.">
+
+  <!-- Full-text reading copy. The citable record is the landing page;
+       canonical points there so Scholar and search consolidate on one URL. -->
+  <link rel="canonical" href="https://universalcollapse.com/read/tn_s2">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Neutrality Delays Resolution: An Expected Resolution-Time Bound — Universal Collapse Theory">
+  <meta property="og:description" content="The S2 bound, proved: expected resolution time is strictly maximized at zero bias and falls monotonically as constraint asymmetry grows, in closed form.">
+  <meta property="og:url" content="https://universalcollapse.com/read/tn_s2">
+  <meta property="og:site_name" content="Universal Collapse Theory">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@300;400&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg-deep: #08090c;
+      --bg-surface: #0e1017;
+      --bg-elevated: #161820;
+      --text-primary: #e8e6e1;
+      --text-secondary: #9b978f;
+      --text-tertiary: #5e5b54;
+      --accent: #c9a96e;
+      --accent-dim: #8a7245;
+      --rule: rgba(201, 169, 110, 0.12);
+      --serif: 'EB Garamond', Georgia, serif;
+      --sans: 'Outfit', system-ui, sans-serif;
+      --mono: 'JetBrains Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg-deep);
+      color: var(--text-primary);
+      font-family: var(--sans);
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    #progress {
+      position: fixed; top: 0; left: 0; height: 2px; width: 0%;
+      background: var(--accent); z-index: 100; transition: width 0.1s linear;
+    }
+
+    .topbar {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(8, 9, 12, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--rule);
+      padding: 0.75rem 1.5rem;
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 0.8rem;
+    }
+    .topbar a { color: var(--text-secondary); text-decoration: none; }
+    .topbar a:hover { color: var(--accent); }
+    .topbar .cite { color: var(--text-tertiary); font-family: var(--mono); font-size: 0.7rem; }
+
+    .shell {
+      max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem 6rem;
+      display: grid; grid-template-columns: minmax(0, 220px) minmax(0, 1fr); gap: 3rem;
+    }
+
+    nav.toc {
+      position: sticky; top: 5rem; align-self: start;
+      max-height: calc(100vh - 8rem); overflow-y: auto;
+      font-size: 0.8rem; line-height: 1.6;
+    }
+    nav.toc > p {
+      color: var(--text-tertiary); text-transform: uppercase;
+      letter-spacing: 0.12em; font-size: 0.65rem; margin-bottom: 0.75rem;
+    }
+    nav.toc ul { list-style: none; }
+    nav.toc ul ul { padding-left: 0.85rem; }
+    nav.toc li { margin: 0.3rem 0; }
+    nav.toc a {
+      color: var(--text-secondary); text-decoration: none;
+      display: block; padding-left: 0.6rem;
+      border-left: 1px solid transparent;
+    }
+    nav.toc a:hover { color: var(--text-primary); }
+    nav.toc a.active { color: var(--accent); border-left-color: var(--accent); }
+
+    article { min-width: 0; }
+
+    .paper-head { border-bottom: 1px solid var(--rule); padding-bottom: 1.75rem; margin-bottom: 2.5rem; }
+    .paper-head .tier {
+      font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.15em;
+      color: var(--accent-dim); text-transform: uppercase;
+    }
+    .paper-head h1 {
+      font-family: var(--serif); font-weight: 500; font-size: 2.1rem;
+      line-height: 1.2; margin: 0.75rem 0 0.5rem; color: var(--text-primary);
+    }
+    .paper-head .sub { font-family: var(--serif); font-style: italic; color: var(--text-secondary); font-size: 1.05rem; }
+    .paper-head .meta { margin-top: 1.1rem; font-size: 0.78rem; color: var(--text-tertiary); }
+    .paper-head .meta a { color: var(--accent-dim); text-decoration: none; }
+
+    article h1, article h2, article h3 {
+      font-family: var(--serif); font-weight: 600; line-height: 1.3;
+      color: var(--text-primary); scroll-margin-top: 5rem;
+    }
+    article h1 { font-size: 1.5rem; margin: 3rem 0 1rem; }
+    article h2 { font-size: 1.2rem; margin: 2rem 0 0.75rem; color: var(--text-secondary); }
+    article h3 { font-size: 1.05rem; margin: 1.5rem 0 0.5rem; color: var(--text-secondary); }
+
+    article h1 .anchor, article h2 .anchor {
+      opacity: 0; margin-left: 0.5rem; color: var(--accent-dim);
+      text-decoration: none; font-size: 0.7em; font-family: var(--sans);
+    }
+    article h1:hover .anchor, article h2:hover .anchor { opacity: 1; }
+
+    article p {
+      font-family: var(--serif); font-size: 1.12rem; font-weight: 400;
+      line-height: 1.75; margin: 0 0 1.15rem; color: var(--text-primary);
+    }
+    article ul, article ol { font-family: var(--serif); font-size: 1.12rem; margin: 0 0 1.15rem 1.5rem; }
+    article li { margin-bottom: 0.4rem; }
+    article strong { font-weight: 600; color: var(--text-primary); }
+    article em { font-style: italic; }
+    article a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--rule); }
+    article blockquote {
+      border-left: 2px solid var(--accent-dim); padding-left: 1.25rem;
+      margin: 1.5rem 0; color: var(--text-secondary); font-style: italic;
+      border-radius: 0;
+    }
+
+    math { font-size: 1.05em; color: var(--text-primary); }
+
+    .backtotop {
+      display: inline-block; margin-top: 3rem; padding-top: 1.5rem;
+      border-top: 1px solid var(--rule); width: 100%;
+      font-size: 0.8rem; color: var(--text-tertiary); text-decoration: none;
+    }
+    .backtotop:hover { color: var(--accent); }
+
+    #toc-toggle { display: none; }
+
+    @media (max-width: 820px) {
+      .shell { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; padding: 1.25rem 1.1rem 4rem; }
+      nav.toc {
+        position: static; max-height: none; order: -1;
+        border: 1px solid var(--rule); border-radius: 6px; padding: 0.9rem 1rem;
+      }
+      nav.toc[data-collapsed="true"] ul { display: none; }
+      #toc-toggle { display: block; background: none; border: none; color: var(--text-secondary);
+        font-family: var(--sans); font-size: 0.75rem; cursor: pointer; padding: 0; }
+      .paper-head h1 { font-size: 1.6rem; }
+      article p, article ul, article ol { font-size: 1.08rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<div class="topbar">
+  <a href="https://universalcollapse.com/tn_s2">&larr; Neutrality Delays Resolution</a>
+  <span class="cite">10.17605/OSF.IO/6WRQV</span>
+</div>
+
+<div class="shell">
+
+  <nav class="toc" id="toc" data-collapsed="false">
+    <p>Contents</p>
+    <button id="toc-toggle" aria-expanded="true">Hide contents</button>
+    
+  </nav>
+
+  <article>
+    <header class="paper-head">
+      <span class="tier">Methods &amp; Theoretical Notes</span>
+      <h1>Neutrality Delays Resolution: An Expected Resolution-Time Bound</h1>
+      <p class="sub">A Technical Note on the S2 Signature</p>
+      <p class="meta">
+        Jeremy C. Jones &middot; HoldingLight LLC &middot; 2026/05 &middot; CC BY 4.0<br>
+        Cite as <a href="https://doi.org/10.17605/OSF.IO/6WRQV">10.17605/OSF.IO/6WRQV</a>
+        
+      </p>
+    </header>
+
+    <p><strong>Neutrality Delays Resolution: An Expected Resolution-Time Bound</strong></p>
+    <p><em>A Technical Note on the S₂ Signature</em></p>
+    <p><strong>Jeremy C. Jones</strong></p>
+    <p>HoldingLight LLC — ORCID 0009-0007-2515-3774 — <a href="https://universalcollapse.com">universalcollapse.com</a></p>
+    <p>Series: Universal Collapse Theory — Technical Note • <em>Version v1.0 • 2026-05 • CC BY 4.0</em></p>
+    <p><strong>Abstract</strong></p>
+    <p><strong>Principle.</strong> In systems where competing outcomes resolve through evidence accumulation under constraints, weak effective bias should produce longer expected resolution times; this is the operational content of the S₂ stabilization signature. <strong>Result.</strong> We formalize the simplest case as a one-dimensional drift-diffusion process with fixed symmetric absorbing boundaries and start point z = 0: as the drift magnitude |μ| decreases toward zero, the expected first-passage time E[τ] increases strictly monotonically and attains the diffusion-only ceiling a²/σ² at zero drift. The proof is self-contained from the Kolmogorov backward equation. The result yields a cross-domain latency curve testable wherever outcome resolution can be modeled as evidence accumulation against absorbing thresholds and the constraint asymmetry can be measured independently of latency. Sequential testing, metastability, and absorbing-Markov-chain pictures are noted as analogies, not as parallel bounds. The claim is conditional on the stated formalism; it is operational, not philosophical.</p>
+    <p><strong>Review target</strong></p>
+    <blockquote>
+    <p><strong>Acceptance criterion.</strong> Acceptance of this note commits the reader only to the following: under the stated one-dimensional drift-diffusion model with constant drift, constant noise, fixed symmetric absorbing boundaries, and start point z = 0, expected first-passage time is strictly maximized at zero drift and decreases monotonically as drift magnitude increases. Acceptance does not commit the reader to Universal Collapse Theory as a metaphysical framework, to the universality of <em>S₂</em> across domains, or to any empirical claim unless the domain independently justifies the stated formalism and independently measures constraint asymmetry.</p>
+    <p><strong>Rejection criterion.</strong> The note should be rejected or revised if the first-passage theorem is mathematically incorrect, if the drift-diffusion formalism is structurally inadequate for its intended use as an <em>S₂</em> test template, if constraint asymmetry cannot be measured independently of latency, or if the proposed latency curve cannot distinguish neutrality-induced delay from changes in boundary placement, effective noise, starting-point bias, or hidden asymmetry.</p>
+    </blockquote>
+    <p><strong>Stack placement</strong></p>
+    <p>This note serves a single role in the Universal Collapse Theory library: it provides a citable conditional lemma for the <em>S₂</em> stabilization signature, paralleling <em>Objectivity from Records</em> (Jones, 2026d) for <em>S₁</em>. Three downstream documents reference <em>S₂</em> and need a formal anchor — <em>Records Across Nature, Life, and Mind</em> (Jones, 2026a) names <em>S₂</em> as a portable empirical signature, <em>The Structuralization of Empiricism</em> (Jones, 2026b) uses <em>S₂</em> to describe how weakly biased constraint fields extend resolution latency, and the <em>Update Integrity Standard</em> (Jones, 2026c) treats <em>S₂</em> plateau duration as a candidate stopping criterion under independence-audit discipline. This note supplies the simplest first-passage bound those documents can cite. Operational pair: Methods-S₂ (<em>Auditing Constraint Asymmetry in Latency-Based Resolution Tests</em>). Together they constitute the <em>S₂</em> formal–protocol pair — this Technical Note proves the formal bound; the paired Methods Paper translates it into a deployable audit protocol. Readers not evaluating the broader UCT corpus may treat this section as orientation only; it is not load-bearing for the mathematical claim in §2.</p>
+    <p><strong>1. Setup and definitions</strong></p>
+    <p><strong>Process.</strong> Let <em>Z<sub>t</sub></em> be a one-dimensional drift-diffusion process satisfying</p>
+    <p><em>dZₜ = μ dt + σ dWₜ, Z₀ = 0,</em></p>
+    <p>with drift <em>μ ∈ ℝ</em>, noise scale <em>σ &gt; 0</em>, and <em>W<sub>t</sub></em> a standard Brownian motion. <strong>Resolution boundaries.</strong> The process resolves when <em>Z<sub>t</sub></em> reaches either of the absorbing boundaries at <em>±a</em> with <em>a &gt; 0</em>:</p>
+    <p><em>τ = inf { t ≥ 0 : |Zₜ| = a }.</em></p>
+    <p><strong>Bias.</strong> The drift <em>μ</em> represents the effective constraint bias toward one resolution boundary. <em>μ = 0</em> is full neutrality (symmetric resolution); <em>|μ| &gt; 0</em> is asymmetric constraint pressure favoring one outcome.</p>
+    <p><strong>S₂ claim.</strong> Expected resolution time <em>E[τ]</em> is a monotone non-increasing function of <em>|μ|</em>, and is maximized at <em>μ = 0</em> with the diffusion-only value <em>E[τ | μ=0] = a² / σ²</em>.</p>
+    <p><strong>2. Theorem 1 (drift-diffusion case)</strong></p>
+    <blockquote>
+    <p><strong>Theorem 1 (Neutrality Maximizes Expected Resolution Time).</strong> Let <em>Z<sub>t</sub></em> be the drift-diffusion process above, with <em>μ ∈ ℝ</em>, <em>σ &gt; 0</em>, absorbing boundaries at <em>±a</em>, and <em>Z₀ = 0</em>. Then:</p>
+    <p>(a) The expected first-passage time admits the closed form</p>
+    </blockquote>
+    <p><em>E[τ] = (a / μ) tanh( aμ / σ² ) for μ ≠ 0, and E[τ | μ = 0] = a² / σ².</em></p>
+    <blockquote>
+    <p>(b) <em>E[τ]</em> is a strictly decreasing function of <em>|μ|</em>, with maximum <em>a² / σ²</em> at <em>μ = 0</em>.</p>
+    <p><strong>(c) Explicit threshold.</strong> For any <em>0 &lt; ε &lt; a²/σ²</em>, there exists a unique critical bias <em>μ</em><sub>ε</sub> such that <em>|μ| ≥ μ</em><sub>ε</sub> implies <em>E[τ] ≤ a² / σ² − ε</em>. Equivalently, μ_ε = (σ²/a)·x_ε, where x_ε is the unique positive solution of (tanh x)/x = 1 − εσ²/a²; for small ε, μ_ε ≈ (σ³/a²)·√(3ε).</p>
+    </blockquote>
+    <p><strong>Proof.</strong></p>
+    <p><strong>Statement (a).</strong> Let u(z) = E[τ | Z₀ = z] for z ∈ [−a, a]. By the standard Kolmogorov backward equation for expected exit times (see Karatzas &amp; Shreve, 1991, §2.8; Redner, 2001, §1.5),</p>
+    <p><em>(σ²/2) u″(z) + μ u′(z) = −1, u(±a) = 0.</em></p>
+    <p>A particular solution to the inhomogeneous equation is u_p(z) = −z/μ. The homogeneous equation has roots r = 0 and r = −2μ/σ², giving the general form u(z) = A + B·exp(−2μz/σ²) − z/μ. Imposing u(±a) = 0 and writing α = 2aμ/σ² yields A = (a/μ) coth α and B = −a/(μ sinh α). Evaluating at z = 0 and using (cosh α − 1)/sinh α = tanh(α/2),</p>
+    <p><em>E[τ] = u(0) = (a/μ) tanh(aμ/σ²) for μ ≠ 0.</em></p>
+    <p>Letting μ → 0 in this expression recovers E[τ | μ = 0] = a²/σ² via tanh(x)/x → 1. ▢</p>
+    <p><strong>Statement (b).</strong> Let x = aμ/σ² and h(x) = tanh(x)/x for x ≠ 0, h(0) = 1. Then E[τ] = (a²/σ²) · h(x). By symmetry h(x) = h(−x), so it suffices to show h is strictly decreasing on (0, ∞). Differentiating,</p>
+    <p><em>h′(x) = (x sech²x − tanh x) / x²,</em></p>
+    <p>so the sign of h′(x) is the sign of q(x) = x sech²x − tanh x. We have q(0) = 0 and</p>
+    <p><em>q′(x) = −2x sech²x · tanh x.</em></p>
+    <p>For x &gt; 0, every factor on the right-hand side has unambiguous sign — −2x &lt; 0, sech²x &gt; 0, tanh x &gt; 0 — so q′(x) &lt; 0 on (0, ∞). Hence q is strictly decreasing on (0, ∞), and since q(0) = 0 we have q(x) &lt; 0 on (0, ∞), giving h′(x) &lt; 0 on (0, ∞). E[τ] is therefore strictly decreasing in |μ|, with maximum a²/σ² at μ = 0. ▢</p>
+    <p><strong>Statement (c).</strong> Strict monotonicity of h on [0, ∞), together with h(0) = 1 and h(x) → 0 as x → ∞, gives a unique x_ε ∈ (0, ∞) with h(x_ε) = 1 − εσ²/a² for any 0 &lt; ε &lt; a²/σ². Setting μ_ε = (σ²/a) x_ε then yields the explicit threshold of part (c). The small-ε asymptotic follows from the expansion h(x) = 1 − x²/3 + O(x⁴), giving x_ε ≈ √(3εσ²/a²) and μ_ε ≈ (σ³/a²) √(3ε). ▢</p>
+    <p><strong>3. Remarks and extensions</strong></p>
+    <p><strong>Sequential-testing interpretation.</strong> Wald’s sequential probability ratio test (SPRT) gives an analogous result for discrete-time evidence accumulation: under hypotheses with low Kullback–Leibler divergence (low effective drift), the expected number of samples to commit grows roughly inversely in the divergence (Wald, 1947). The present continuous-time bound and Wald’s discrete-time bound describe the same phenomenon — neutrality slows resolution — in different formalisms.</p>
+    <p><strong>Metastability / Kramers interpretation.</strong> For a one-dimensional gradient system dZₜ = −V′(Zₜ) dt + σ dWₜ with double-well potential V, classical Kramers theory predicts that escape times grow exponentially in the barrier-height-to-noise ratio (Kramers, 1940; Hänggi, Talkner &amp; Borkovec, 1990). When competing wells have comparable effective stability, commitment probabilities become less biased and resolution may be delayed depending on potential geometry and initial ensemble. Drift-diffusion can approximate local biased diffusion along a one-dimensional reaction coordinate in suitable regimes, but Kramers escape and Theorem 1 remain distinct metastability statements rather than parallel bounds.</p>
+    <p><strong>Markov chain interpretation.</strong> For a finite absorbing Markov chain with transient transition submatrix Q, expected absorption times are computed from the fundamental matrix N = (I − Q)⁻¹ (Kemeny &amp; Snell, 1960). Eigenvalues of Q near 1 — equivalently, small spectral gaps — produce long expected absorption times, giving a discrete-state analogue of delayed resolution under near-symmetric transitions. The exact bound depends on the transition structure; the connection to Theorem 1 is again qualitative, not a derivation.</p>
+    <p><strong>Beyond one dimension.</strong> In higher dimensions, expected first-passage time depends on the geometry of the resolution set and on the full drift vector, not on a scalar bias. The qualitative S₂ hypothesis — that resolution time grows as effective constraint asymmetry decreases — may extend beyond this one-dimensional setting, but rigorous bounds require problem-specific analysis.</p>
+    <p><strong>4. Empirical signature (latency curve)</strong></p>
+    <p><strong>Prediction.</strong> In any system where outcome resolution can be modeled as evidence accumulation against absorbing decision thresholds, expected resolution latency satisfies <em>E[τ] ≈ g(|ΔK|)</em> where <em>ΔK</em> is the audited constraint asymmetry between alternatives and <em>g</em> is monotone non-increasing in <em>|ΔK|</em> with a finite ceiling at <em>ΔK = 0</em> under the formalism’s symmetric-absorbing-boundary assumptions.</p>
+    <p><strong>Protocol.</strong> Vary <em>ΔK</em> across conditions. Estimate or audit the effective constraint asymmetry independently of the latency measurement (avoiding circular inference). Fit <em>E[τ]</em> vs <em>|ΔK|</em> against the drift-diffusion form or a domain-appropriate analogue; report the ceiling and the slope at small <em>|ΔK|</em>.</p>
+    <p><strong>Identification requirements.</strong> The latency curve is interpretable as <em>S₂</em> evidence only if (i) ΔK is estimated independently of latency, (ii) decision boundaries are fixed across conditions or separately estimated, (iii) effective noise is measured or modeled, (iv) starting-point bias is controlled or fitted, and (v) censoring or timeout rules are reported. A monotone latency increase near |ΔK| = 0 is insufficient by itself; the fitted model must rule out boundary expansion, reduced noise, changing initial conditions, or unmeasured task difficulty as alternative explanations. The TN-S₁ independence-audit discipline applies here as well: the constraint asymmetry that drives the latency prediction must be identified by an evidence channel separable from the latency it is asked to explain.</p>
+    <p><strong>Failure condition.</strong> For the latency version of <em>S₂</em> formalized here, the signature fails locally if independently measured constraint symmetry does not increase expected resolution latency under the specified domain model, or if the latency curve saturates without reaching a ceiling that scales with the diffusion or noise scale of the system. Broader <em>S₂</em> observables, such as plateau duration or state-distribution entropy, require their own domain-specific formalization.</p>
+    <p><strong>Domains.</strong> Primary instance where the drift-diffusion formalism is directly underwritten: perceptual decision latency under near-threshold stimuli (Ratcliff &amp; McKoon, 2008). Closely related first-passage instances include developmental or cellular event timing under stochastic threshold-crossing models, provided the domain model independently specifies the state variable, boundary, drift, and noise terms. Candidate instances requiring a formalism extension (Kramers escape, absorbing Markov, or analogous): phenotypic switching under fluctuating selection, neutral-network traversal in genotype-phenotype maps, and institutional commitment delay under symmetric policy alternatives. The lemma underwrites the latency curve only where the modeling assumptions are independently justified for the domain in question; downstream T16 empirical demonstrations carry that justification on a per-domain basis.</p>
+    <p><img src="media/f5f573842ff8e03283e21fa3488ccc312eceb98a.png" title="Figure 1" style="width:5.625in;height:3.54167in" alt="Plot of expected first-passage time versus absolute drift magnitude for a one-dimensional drift-diffusion process with absorbing boundaries at ±1 and noise sigma = 1. The theoretical curve and Monte Carlo estimates show expected resolution time near 1 at zero drift and decreasing monotonically as drift magnitude increases." /></p>
+    <blockquote>
+    <p><strong>Figure 1.</strong> Expected resolution time for a one-dimensional drift-diffusion process with absorbing boundaries at ±a = ±1, σ = 1, and z₀ = 0. Euler-discretized Monte Carlo estimates (8,000 trials per μ) approximate the theoretical curve E[τ] = (a/μ) tanh(aμ/σ²) (dashed); slight upward bias near μ = 0 reflects finite-time-step boundary detection in the Euler simulation. At zero drift, expected resolution time attains the diffusion-only ceiling a²/σ² = 1; it decreases monotonically as |μ| grows. Simulation code is in Appendix A.</p>
+    </blockquote>
+    <p><strong>5. Connection to UCT framework</strong></p>
+    <p>In the Universal Collapse Theory kernel, realization is collapse under constraints: a constraint set <em>K</em> selects admissible outcomes from <em>Ω</em> via a map <em>C</em><sup>K</sup>. When <em>K</em> weakly differentiates between admissible outcomes, the collapse process samples the symmetric region for longer before committing. Theorem 1 makes this quantitative in the simplest formalism: drift-diffusion under absorbing boundaries.</p>
+    <p>This is <em>operational</em> S₂: a measurable monotone latency response to constraint symmetry, under a stated formalism. It is not a claim that all decision latency reflects neutrality, that the formalism captures every domain, or that latency is the only signature of S₂. The independence audit — whether <em>ΔK</em> is measured cleanly rather than inferred from latency itself — is what does the work in any real domain.</p>
+    <p><strong>6. Limitations</strong></p>
+    <p>The theorem is conditional on the drift-diffusion formalism with constant drift, constant noise, and fixed symmetric absorbing boundaries. Real systems may exhibit time-varying drift, multiplicative noise, asymmetric or moving boundaries, or higher-dimensional state spaces. The qualitative S₂ hypothesis may extend beyond this setting, but rigorous bounds in those settings require domain-specific analysis. The <em>formalism choice</em> itself is also a load-bearing decision in this note: drift-diffusion is the cleanest one-line lemma, but Wald sequential analysis, Kramers escape, and Markov spectral-gap bounds each give competing characterizations of S₂. A future v1.x extension may either retain drift-diffusion as primary, with the others as bridging remarks, or formally state and compare bounds across all four formalisms.</p>
+    <p><strong>7. Open extensions</strong></p>
+    <p>Items reserved for future extension (paralleling the v1.0 → v1.x trajectory of TN-S₁):</p>
+    <p><strong>• Formalism choice.</strong> Drift-diffusion is the primary formalism in this note; Wald, Kramers, and absorbing Markov are retained as analogies in §3, not parallel bounds. A future v1.x extension could present a comparison table of S₂-style bounds across all four formalisms.</p>
+    <p><strong>• Theorem rigor.</strong> The first-passage formula is derived self-contained from the Kolmogorov backward equation in §2, and monotonicity is proved via the sign of h′(x) where h(x) = tanh(x)/x. Karatzas &amp; Shreve and Redner are retained as reference texts, not as load-bearing citations.</p>
+    <p><strong>• Reference list.</strong> The reference list anchors first-passage theory (Redner), DDM in cognition (Ratcliff &amp; McKoon), absorbing Markov chains (Kemeny &amp; Snell), and metastability (Hänggi/Talkner/Borkovec); DOIs are included for all non-trivial references. Domain-specific sources for stochastic biology (Gillespie, Balázsi/van Oudenaarden/Collins) or genotype-phenotype neutral networks (Ahnert) remain candidates for a future v1.x version that gives those candidate-instance domains in §4 non-trivial weight.</p>
+    <p><strong>• Sample-complexity statement.</strong> Theorem 1(c) gives μ_ε explicitly as (σ²/a)·x_ε, with x_ε defined by an implicit transcendental equation, plus a small-ε asymptotic μ_ε ≈ (σ³/a²)·√(3ε). Since (tanh x)/x has no elementary closed-form inverse, a future v1.x extension could provide a numerical recipe for x_ε or add a conservative analytic inequality for small ε.</p>
+    <p><strong>• Cross-citation.</strong> A future T16 S₂ demonstration (e.g., COGITATE-style perceptual-resolution latency, developmental fate-timing study) cites this note as the formal lemma being tested.</p>
+    <p><strong>Appendix A. Reproduction code</strong></p>
+    <p>The following Python script reproduces the simulation and theoretical curve underlying Figure 1 (drift-diffusion first-passage simulation, <em>a = 1</em>, <em>σ = 1</em>, <em>dt = 5×10⁻⁴</em>, 8,000 trials per <em>μ</em>); minor visual styling may differ from the embedded manuscript figure. Dependencies: NumPy and Matplotlib only.</p>
+    <blockquote>
+    <p>import numpy as np</p>
+    <p>import matplotlib.pyplot as plt</p>
+    <p>def simulate_fp(mu, sigma=1.0, a=1.0, dt=5e-4, max_t=20.0, n_trials=8000, seed=0):</p>
+    <p>rng = np.random.default_rng(seed)</p>
+    <p>n_steps = int(max_t / dt)</p>
+    <p>z = np.zeros(n_trials)</p>
+    <p>tau = np.full(n_trials, max_t)</p>
+    <p>resolved = np.zeros(n_trials, dtype=bool)</p>
+    <p>sqrt_dt = np.sqrt(dt)</p>
+    <p>for t in range(n_steps):</p>
+    <p>if resolved.all(): break</p>
+    <p>incs = mu * dt + sigma * sqrt_dt * rng.standard_normal(n_trials)</p>
+    <p>z[~resolved] += incs[~resolved]</p>
+    <p>newly = (np.abs(z) &gt;= a) &amp; (~resolved)</p>
+    <p>tau[newly] = (t + 1) * dt</p>
+    <p>resolved |= newly</p>
+    <p>return tau.mean()</p>
+    <p>def E_tau_theory(mu, sigma=1.0, a=1.0):</p>
+    <p>if abs(mu) &lt; 1e-9: return a*a / (sigma*sigma)</p>
+    <p>return (a / mu) * np.tanh(a * mu / (sigma * sigma))</p>
+    <p>mus = np.array([0.0, 0.05, 0.1, 0.2, 0.3, 0.5, 0.75, 1.0, 1.5, 2.0, 3.0])</p>
+    <p>emp = [simulate_fp(m, seed=int(m*1000)+1) for m in mus]</p>
+    <p>mus_fine = np.linspace(0, 3, 200)</p>
+    <p>plt.plot(mus_fine, [E_tau_theory(m) for m in mus_fine], "--",</p>
+    <p>label=r"Theory: $E[\tau]=(a/\mu)\tanh(a\mu/\sigma^2)$")</p>
+    <p>plt.plot(np.abs(mus), emp, "o", label="Simulation (8,000 trials per μ)")</p>
+    <p>plt.axhline(1.0, linestyle=":", linewidth=1)</p>
+    <p>plt.text(0.05, 1.025, r"$a^2/\sigma^2$ ($\mu=0$ ceiling)")</p>
+    <p>plt.grid(True, alpha=0.25)</p>
+    <p>plt.xlabel(r"Constraint bias $|\mu|$"); plt.ylabel(r"Expected resolution time $E[\tau]$")</p>
+    <p>plt.title(r"S$_2$: Resolution time grows as bias $\to$ 0 (neutrality maximum)")</p>
+    <p>plt.legend(); plt.tight_layout(); plt.show()</p>
+    </blockquote>
+    <p><strong>References</strong></p>
+    <p>Jones, J. C. (2026a). <em>Records Across Nature, Life, and Mind</em>. HoldingLight LLC. <a href="https://doi.org/10.17605/OSF.IO/7H6DY">https://doi.org/10.17605/OSF.IO/7H6DY</a></p>
+    <p>Jones, J. C. (2026b). <em>The Structuralization of Empiricism</em>. HoldingLight LLC. <a href="https://doi.org/10.17605/OSF.IO/J4GZ9">https://doi.org/10.17605/OSF.IO/J4GZ9</a></p>
+    <p>Jones, J. C. (2026c). <em>Update Integrity Standard (UIS v1.0)</em>. HoldingLight LLC. <a href="https://doi.org/10.17605/OSF.IO/DWM29">https://doi.org/10.17605/OSF.IO/DWM29</a></p>
+    <p>Jones, J. C. (2026d). <em>Objectivity from Records: An Exponential Consensus Bound</em> (UCT Technical Note v1.0). HoldingLight LLC. <a href="https://doi.org/10.17605/OSF.IO/6M7N3">https://doi.org/10.17605/OSF.IO/6M7N3</a></p>
+    <p>Hänggi, P., Talkner, P., &amp; Borkovec, M. (1990). Reaction-rate theory: fifty years after Kramers. <em>Reviews of Modern Physics, 62</em>(2), 251–341. <a href="https://doi.org/10.1103/RevModPhys.62.251">https://doi.org/10.1103/RevModPhys.62.251</a></p>
+    <p>Karatzas, I., &amp; Shreve, S. E. (1991). <em>Brownian Motion and Stochastic Calculus</em> (2nd ed.). Springer. <a href="https://doi.org/10.1007/978-1-4612-0949-2">https://doi.org/10.1007/978-1-4612-0949-2</a></p>
+    <p>Kemeny, J. G., &amp; Snell, J. L. (1960). <em>Finite Markov Chains</em>. Van Nostrand.</p>
+    <p>Kramers, H. A. (1940). Brownian motion in a field of force and the diffusion model of chemical reactions. <em>Physica, 7</em>(4), 284–304. <a href="https://doi.org/10.1016/S0031-8914(40)90098-2">https://doi.org/10.1016/S0031-8914(40)90098-2</a></p>
+    <p>Ratcliff, R., &amp; McKoon, G. (2008). The diffusion decision model: theory and data for two-choice decision tasks. <em>Neural Computation, 20</em>(4), 873–922. <a href="https://doi.org/10.1162/neco.2008.12-06-420">https://doi.org/10.1162/neco.2008.12-06-420</a></p>
+    <p>Redner, S. (2001). <em>A Guide to First-Passage Processes</em>. Cambridge University Press. <a href="https://doi.org/10.1017/CBO9780511606014">https://doi.org/10.1017/CBO9780511606014</a></p>
+    <p>Wald, A. (1947). <em>Sequential Analysis</em>. Wiley.</p>
+    <p>This paper is part of the Universal Collapse Theory library. For a reading guide and full architecture, visit <a href="https://universalcollapse.com/roadmap"><em>universalcollapse.com/roadmap</em></a>.</p>
+    <p><strong>AI Disclosure</strong></p>
+    <p>AI tools were used to assist with manuscript preparation. The underlying theory, arguments, and interpretive claims are the author’s own, and the author takes full responsibility for the content.</p>
+    <p><strong>Citation</strong></p>
+    <p>Jones, J. C. (2026). <em>Neutrality Delays Resolution: An Expected Resolution-Time Bound</em> (UCT Technical Note v1.0). HoldingLight LLC.</p>
+
+    <a href="#top" class="backtotop">&uarr; Back to top</a>
+  </article>
+
+</div>
+
+<script>
+(function () {
+  var bar = document.getElementById('progress');
+  function onScroll() {
+    var h = document.documentElement;
+    var pct = h.scrollTop / (h.scrollHeight - h.clientHeight);
+    bar.style.width = (pct * 100).toFixed(1) + '%';
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav.toc a'));
+  var targets = links.map(function (a) {
+    return document.getElementById(decodeURIComponent(a.getAttribute('href')).slice(1));
+  });
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      var i = targets.indexOf(e.target);
+      if (i < 0) return;
+      links.forEach(function (l) { l.classList.remove('active'); });
+      links[i].classList.add('active');
+    });
+  }, { rootMargin: '-10% 0px -80% 0px' });
+  targets.forEach(function (t) { if (t) obs.observe(t); });
+
+  var btn = document.getElementById('toc-toggle');
+  var nav = document.getElementById('toc');
+  btn.addEventListener('click', function () {
+    var c = nav.getAttribute('data-collapsed') === 'true';
+    nav.setAttribute('data-collapsed', String(!c));
+    btn.setAttribute('aria-expanded', String(c));
+    btn.textContent = c ? 'Hide contents' : 'Show contents';
+  });
+
+  document.querySelectorAll('article section[id] > h1, article section[id] > h2').forEach(function (h) {
+    var a = document.createElement('a');
+    a.className = 'anchor';
+    a.href = '#' + h.parentNode.id;
+    a.textContent = '#';
+    a.setAttribute('aria-label', 'Link to this section');
+    h.appendChild(a);
+  });
+})();
+</script>
+
+</body>
+</html>

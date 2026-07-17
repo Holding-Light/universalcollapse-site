@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Auditing Constraint Asymmetry in Latency-Based Resolution Tests — Universal Collapse Theory</title>
+  <meta name="description" content="How to tell neutrality-induced delay from confound-induced delay — a five-axis latency-curve audit that catches the circular-fit failure mode by design.">
+
+  <!-- Full-text reading copy. The citable record is the landing page;
+       canonical points there so Scholar and search consolidate on one URL. -->
+  <link rel="canonical" href="https://universalcollapse.com/read/methods_s2">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Auditing Constraint Asymmetry in Latency-Based Resolution Tests — Universal Collapse Theory">
+  <meta property="og:description" content="How to tell neutrality-induced delay from confound-induced delay — a five-axis latency-curve audit that catches the circular-fit failure mode by design.">
+  <meta property="og:url" content="https://universalcollapse.com/read/methods_s2">
+  <meta property="og:site_name" content="Universal Collapse Theory">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@300;400&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg-deep: #08090c;
+      --bg-surface: #0e1017;
+      --bg-elevated: #161820;
+      --text-primary: #e8e6e1;
+      --text-secondary: #9b978f;
+      --text-tertiary: #5e5b54;
+      --accent: #c9a96e;
+      --accent-dim: #8a7245;
+      --rule: rgba(201, 169, 110, 0.12);
+      --serif: 'EB Garamond', Georgia, serif;
+      --sans: 'Outfit', system-ui, sans-serif;
+      --mono: 'JetBrains Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg-deep);
+      color: var(--text-primary);
+      font-family: var(--sans);
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    #progress {
+      position: fixed; top: 0; left: 0; height: 2px; width: 0%;
+      background: var(--accent); z-index: 100; transition: width 0.1s linear;
+    }
+
+    .topbar {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(8, 9, 12, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--rule);
+      padding: 0.75rem 1.5rem;
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 0.8rem;
+    }
+    .topbar a { color: var(--text-secondary); text-decoration: none; }
+    .topbar a:hover { color: var(--accent); }
+    .topbar .cite { color: var(--text-tertiary); font-family: var(--mono); font-size: 0.7rem; }
+
+    .shell {
+      max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem 6rem;
+      display: grid; grid-template-columns: minmax(0, 220px) minmax(0, 1fr); gap: 3rem;
+    }
+
+    nav.toc {
+      position: sticky; top: 5rem; align-self: start;
+      max-height: calc(100vh - 8rem); overflow-y: auto;
+      font-size: 0.8rem; line-height: 1.6;
+    }
+    nav.toc > p {
+      color: var(--text-tertiary); text-transform: uppercase;
+      letter-spacing: 0.12em; font-size: 0.65rem; margin-bottom: 0.75rem;
+    }
+    nav.toc ul { list-style: none; }
+    nav.toc ul ul { padding-left: 0.85rem; }
+    nav.toc li { margin: 0.3rem 0; }
+    nav.toc a {
+      color: var(--text-secondary); text-decoration: none;
+      display: block; padding-left: 0.6rem;
+      border-left: 1px solid transparent;
+    }
+    nav.toc a:hover { color: var(--text-primary); }
+    nav.toc a.active { color: var(--accent); border-left-color: var(--accent); }
+
+    article { min-width: 0; }
+
+    .paper-head { border-bottom: 1px solid var(--rule); padding-bottom: 1.75rem; margin-bottom: 2.5rem; }
+    .paper-head .tier {
+      font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.15em;
+      color: var(--accent-dim); text-transform: uppercase;
+    }
+    .paper-head h1 {
+      font-family: var(--serif); font-weight: 500; font-size: 2.1rem;
+      line-height: 1.2; margin: 0.75rem 0 0.5rem; color: var(--text-primary);
+    }
+    .paper-head .sub { font-family: var(--serif); font-style: italic; color: var(--text-secondary); font-size: 1.05rem; }
+    .paper-head .meta { margin-top: 1.1rem; font-size: 0.78rem; color: var(--text-tertiary); }
+    .paper-head .meta a { color: var(--accent-dim); text-decoration: none; }
+
+    article h1, article h2, article h3 {
+      font-family: var(--serif); font-weight: 600; line-height: 1.3;
+      color: var(--text-primary); scroll-margin-top: 5rem;
+    }
+    article h1 { font-size: 1.5rem; margin: 3rem 0 1rem; }
+    article h2 { font-size: 1.2rem; margin: 2rem 0 0.75rem; color: var(--text-secondary); }
+    article h3 { font-size: 1.05rem; margin: 1.5rem 0 0.5rem; color: var(--text-secondary); }
+
+    article h1 .anchor, article h2 .anchor {
+      opacity: 0; margin-left: 0.5rem; color: var(--accent-dim);
+      text-decoration: none; font-size: 0.7em; font-family: var(--sans);
+    }
+    article h1:hover .anchor, article h2:hover .anchor { opacity: 1; }
+
+    article p {
+      font-family: var(--serif); font-size: 1.12rem; font-weight: 400;
+      line-height: 1.75; margin: 0 0 1.15rem; color: var(--text-primary);
+    }
+    article ul, article ol { font-family: var(--serif); font-size: 1.12rem; margin: 0 0 1.15rem 1.5rem; }
+    article li { margin-bottom: 0.4rem; }
+    article strong { font-weight: 600; color: var(--text-primary); }
+    article em { font-style: italic; }
+    article a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--rule); }
+    article blockquote {
+      border-left: 2px solid var(--accent-dim); padding-left: 1.25rem;
+      margin: 1.5rem 0; color: var(--text-secondary); font-style: italic;
+      border-radius: 0;
+    }
+
+    math { font-size: 1.05em; color: var(--text-primary); }
+
+    .backtotop {
+      display: inline-block; margin-top: 3rem; padding-top: 1.5rem;
+      border-top: 1px solid var(--rule); width: 100%;
+      font-size: 0.8rem; color: var(--text-tertiary); text-decoration: none;
+    }
+    .backtotop:hover { color: var(--accent); }
+
+    #toc-toggle { display: none; }
+
+    @media (max-width: 820px) {
+      .shell { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; padding: 1.25rem 1.1rem 4rem; }
+      nav.toc {
+        position: static; max-height: none; order: -1;
+        border: 1px solid var(--rule); border-radius: 6px; padding: 0.9rem 1rem;
+      }
+      nav.toc[data-collapsed="true"] ul { display: none; }
+      #toc-toggle { display: block; background: none; border: none; color: var(--text-secondary);
+        font-family: var(--sans); font-size: 0.75rem; cursor: pointer; padding: 0; }
+      .paper-head h1 { font-size: 1.6rem; }
+      article p, article ul, article ol { font-size: 1.08rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<div class="topbar">
+  <a href="https://universalcollapse.com/methods_s2">&larr; Auditing Constraint Asymmetry in Latency-Based Resolution Tests</a>
+  <span class="cite">10.17605/OSF.IO/HRKWT</span>
+</div>
+
+<div class="shell">
+
+  <nav class="toc" id="toc" data-collapsed="false">
+    <p>Contents</p>
+    <button id="toc-toggle" aria-expanded="true">Hide contents</button>
+    
+  </nav>
+
+  <article>
+    <header class="paper-head">
+      <span class="tier">Methods &amp; Theoretical Notes</span>
+      <h1>Auditing Constraint Asymmetry in Latency-Based Resolution Tests</h1>
+      <p class="sub">A Latency-Curve Diagnostic for Neutrality versus Confound-Induced Delay</p>
+      <p class="meta">
+        Jeremy C. Jones &middot; HoldingLight LLC &middot; 2026/05 &middot; CC BY 4.0<br>
+        Cite as <a href="https://doi.org/10.17605/OSF.IO/HRKWT">10.17605/OSF.IO/HRKWT</a>
+        
+      </p>
+    </header>
+
+    <p>Auditing Constraint Asymmetry in Latency-Based Resolution Tests</p>
+    <p>A Latency-Curve Diagnostic for Neutrality versus Confound-Induced Delay</p>
+    <p><strong>Jeremy C. Jones</strong></p>
+    <p>HoldingLight LLC — ORCID 0009-0007-2515-3774 — <a href="https://universalcollapse.com"><u>universalcollapse.com</u></a></p>
+    <p><em>Series: Universal Collapse Theory — Methods Paper • Version v1.0 • 2026-05 • CC BY 4.0</em></p>
+    <p><strong>Abstract</strong></p>
+    <p><strong>Principle.</strong> Latency-based resolution tests are ubiquitous across the behavioral, biological, and physical sciences: drift-diffusion modeling of perceptual decisions (Ratcliff &amp; McKoon 2008; Ratcliff et al. 2016), evidence-accumulation models more broadly (Forstmann et al. 2016; Evans &amp; Wagenmakers 2020), first-passage-time models of biological commitment, and Kramers-escape pictures of metastable transition (Kramers 1940; Hänggi, Talkner &amp; Borkovec 1990). Standard practice fits the drift parameter μ to the same response-time distribution it then helps explain. This is appropriate for model description and within-model comparison but not, by itself, a test of an external constraint-asymmetry claim: the resulting per-condition μ cannot serve as independent evidence that constraint neutrality is what produced the observed delay.</p>
+    <p><strong>Result.</strong> We propose a latency-curve diagnostic with a four-axis falsifier comparison plus a fifth confound case. Independently specify constraint asymmetry ΔK and a functional form μ = β·ΔK; estimate two identifiable objects from non-circular channels: the latency ceiling C = a²/σ², which has units of time under the chosen DDM scale convention, and the drift-link parameter λ = aβ/σ², which fixes the curve width in audited-ΔK units. Where an external evidence-state channel is available, separate (a, σ) estimates can be obtained, but (C, λ) suffice for the four-axis test. Compare four predicted features of the latency curve against the closed-form prediction E[τ](ΔK) = C·tanh(λΔK)/(λΔK): ceiling at ΔK = 0 against C; near-ceiling curvature / fractional-drop scale — the bias scale |ΔK|_ρ ≈ √(3ρ)/|λ| at which the curve drops by a fraction ρ of the ceiling; symmetry around ΔK = 0; full-curve shape. A fifth axis — the non-decision-time check, comparing raw RT against decision time T_er-corrected per condition — catches conditions where stimulus encoding, motor execution, or reporting delay shifts vary across ΔK. Distinct confounds produce distinct deviation patterns; the protocol is demonstrated on synthetic drift-diffusion cases including a circular-fit failure mode in which fitting μ from RT and choice under an assumed scale convention partially but does not cleanly disambiguate confounds. Application to perceptual-decision iEEG data is specified for execution conditional on the dataset providing speeded RT, choice, and a near-threshold ΔK ladder. The result is operational, not philosophical: it characterizes when a latency-versus-asymmetry curve is evidence of constraint-asymmetry-driven resolution under stated independence and scale conditions.</p>
+    <p><strong>Keywords:</strong> <em>drift-diffusion; first-passage time; constraint asymmetry; perceptual decision; circular fitting; reproducibility; non-decision time; scale identifiability; drift-link parameter; neutrality.</em></p>
+    <p><strong>Review target</strong></p>
+    <p>The review target is split into two acceptance levels, paralleling the structure suggested by external review.</p>
+    <p><strong>Specification acceptance</strong></p>
+    <blockquote>
+    <p><em>Acceptance of v1.0 of this Methods Paper means the reviewer agrees that the proposed audit structure is well-defined: independently specify ΔK and a functional form μ = β·ΔK (or pre-registered f); estimate β by holdout, choice-only at mid-to-high |ΔK|, or pre-registered specification; estimate the ceiling C = a²/σ² and drift-link λ = aβ/σ² from channels not using the latency feature being tested; where externally calibrated, obtain separate (a, σ) estimates additionally; report non-decision time T_er per condition; compare the audited-ΔK = 0 ceiling, near-ceiling curvature / fractional-drop scale, symmetry around ΔK = 0, full-curve shape, and decision-time-versus-raw-RT consistency against the NDR closed-form (Jones 2026d) prediction; test named confound alternatives. The structural specification can be accepted independently of whether the diagnostic outperforms standard DDM goodness-of-fit on any specific dataset.</em></p>
+    </blockquote>
+    <p><strong>Performance acceptance</strong></p>
+    <blockquote>
+    <p><em>Acceptance of the protocol’s performance — a stronger claim than acceptance of the specification — requires the frozen synthetic demonstrations and a downstream real-data application that satisfies the dataset prerequisites listed in §5. v1.0 presents the synthetic demonstrations; real-data execution against an actual dataset is the work of a future T16 demonstration paper.</em></p>
+    </blockquote>
+    <p><strong>Rejection criterion</strong></p>
+    <blockquote>
+    <p><em>The protocol should be revised or rejected if ΔK, C = a²/σ², λ = aβ/σ², z₀, non-decision time, or the ΔK → μ mapping cannot be estimated without circular use of the latency curve being explained, or if controlled synthetic cases fail to distinguish neutrality-induced delay from the five named confounds (boundary expansion, reduced effective noise, starting-point bias, hidden asymmetry, non-decision-time shift) and from circular per-condition drift fitting. Acceptance does not require that all confounds be disambiguated from RT/choice data alone; some require external scale-setting or external T_er calibration, and the protocol’s sharpness is conditional on those external channels being available.</em></p>
+    </blockquote>
+    <p><strong>Stack placement</strong></p>
+    <p>This paper is a Universal Collapse Theory Methods Paper for S₂ applications. Records Across Nature, Life, and Mind (Jones 2026a) defines records as the persistence layer and states the latency signature S₂ ("weak effective bias → longer expected resolution time") as a portable empirical claim. The Structuralization of Empiricism (Jones 2026b) treats S₂ as a stabilization test for resolution under near-symmetric constraint fields. The Update Integrity Standard (Jones 2026c) requires an independence audit before S₂ latency curves can support a Level 3 claim. Neutrality Delays Resolution (NDR; Jones 2026d) supplies the formal drift-diffusion bound: Theorem 1 establishes that under one-dimensional drift-diffusion with constant drift, constant noise, fixed symmetric absorbing boundaries, and start point z = 0, expected first-passage time E[τ] is strictly maximized at μ = 0 with diffusion-only ceiling a²/σ². Auditing Independence in Multi-Channel Measurement (Jones 2026e) is the parallel S₁ Methods Paper this paper takes as architectural template. The present paper translates the S₂ commitments into a field-deployable latency-curve diagnostic and is a citable bridge between the formal lemma and downstream T16 empirical demonstrations. Formal pair: TN-S₂ (Neutrality Delays Resolution). Together they constitute the S₂ formal–protocol pair — the paired Technical Note proves the formal bound; this Methods Paper translates it into a deployable audit protocol. It is a Methods Paper, not a standard.</p>
+    <p><strong>1. Introduction</strong></p>
+    <p>Resolution latency under near-symmetric alternatives is a recurring observable in the behavioral, biological, and physical sciences. Perceptual decisions slow down at near-threshold stimulus values; cell-fate commitment is delayed when conflicting morphogen gradients near-balance; chemical reactions exhibit Kramers escape times that grow exponentially in the barrier-to-noise ratio (Kramers 1940; Hänggi, Talkner &amp; Borkovec 1990). The qualitative regularity — weakly differentiating constraint fields produce longer expected resolution times — is what the Universal Collapse Theory library calls the S₂ stabilization signature.</p>
+    <p>Standard practice for fitting evidence-accumulation models to behavioral data is well established: hierarchical drift-diffusion (Wiecki, Sofer &amp; Frank 2013; Vandekerckhove, Tuerlinckx &amp; Lee 2011), fast-dm (Voss &amp; Voss 2007), the Ratcliff toolboxes (Ratcliff &amp; McKoon 2008; Ratcliff et al. 2016), and EZ-DDM-style closed-form fits (Wagenmakers, van der Maas &amp; Grasman 2007) all infer drift, threshold, and starting-point parameters jointly from observed RT distributions. Posterior-predictive checks, deviance-information criteria, and Vincentile plots assess whether the fitted model reproduces the RT distribution. These procedures are appropriate for model description, parameter estimation under stated scale conventions, and within-family model comparison. They are not, by themselves, an independent test of an external constraint-asymmetry claim: a fitted μ that reproduces the RT distribution does not constitute evidence that stimulus or condition coding caused the inferred drift.</p>
+    <p>This is the methodological gap the present note addresses. Two distinct generating processes can produce nearly indistinguishable RT distributions and indistinguishable per-condition DDM fits:</p>
+    <ul>
+    <li><p>(i) Genuine constraint-asymmetry-driven resolution. The drift μ tracks an independently specified ΔK (stimulus coherence, morphogen ratio, contrast level, evidence weight). As ΔK → 0, the latency curve approaches the diffusion-only ceiling C = a²/σ² with the closed-form tanh shape parameterized by λ = aβ/σ².</p></li>
+    <li><p>(ii) Confound-induced delay. Boundary expansion, reduced effective noise, starting-point bias, hidden asymmetry, or non-decision-time shift produces lengthened RTs that per-condition DDM fits absorb into adjusted parameter estimates. Per-condition goodness-of-fit can match the genuine case under plausible parameter substitutions, but the latency-versus-ΔK curve scales differently and — critically — violates the closed-form ceiling, curvature, symmetry, and shape predictions when (ΔK, C, λ, z₀, T_er) are specified independently of the RT data.</p></li>
+    </ul>
+    <p>The diagnostic proposed here is a comparison of the observed latency curve against the closed-form prediction under independently specified (ΔK, β, C) and externally measured (z₀, T_er, optionally σ separately). Five observable features admit independent comparison: ceiling, near-ceiling curvature / fractional-drop scale, symmetry, full-curve shape, and decision-time-versus-raw-RT consistency. Confounds produce distinct, predictable deviation patterns across these axes.</p>
+    <p>The contribution of this paper is methodological:</p>
+    <ul>
+    <li><p>(1) A latency-curve protocol applicable to drift-diffusion-natural domains, with the same four-step structure used in Auditing Independence (Jones 2026e) for S₁, extended with an explicit non-decision-time audit.</p></li>
+    <li><p>(2) A confound catalog with predicted curve-shape signatures: boundary expansion, reduced effective noise, starting-point bias, hidden asymmetry, non-decision-time shift, and the partial-circular-fit failure mode.</p></li>
+    <li><p>(3) A model-conditional diagnostic (sharper to the extent that β, C, λ, z₀, and T_er are estimated independently of the latency curve). The diagnostic is sharp when (β, C, λ) come from holdout or non-latency channels and when (z₀, T_er) come from external calibration or distributional fits respecting their identifiability constraints. It is a model-conditional comparison otherwise.</p></li>
+    </ul>
+    <p>The sharpness comes from comparison against a prediction computed without using the latency curve being explained. This breaks the circularity that affects diagnostics calibrated against the same data they purport to validate. The methodological problem is structurally identical to the one Bland and Altman (1986) flagged for method-comparison correlation in clinical measurement: a goodness-of-fit summary computed on the same data the model was tuned to is not evidence about the data-generating process.</p>
+    <p>The paper is organized as follows. Section 2 states the formal results: the closed-form prediction (§2.1), the four diagnostic axes plus the non-decision-time check (§2.2), the DDM scale-identifiability constraint (§2.3), the circular-fit trap (§2.4), and a comparison to existing diagnostics (§2.5). Section 3 specifies the protocol. Section 4 demonstrates the protocol on six synthetic cases including the circular-fit failure. Section 5 specifies the application to perceptual-decision iEEG data, conditional on dataset prerequisites. Sections 6–7 discuss applicable domains and limitations. Section 8 provides a reporting template. Section 9 places the protocol in the broader UCT context. Appendix A provides the simulator core; the full plotting script is archived as the companion file methods_s2_v10_figures.py.</p>
+    <p><strong>2. Theory: latency curves under independent ΔK identification</strong></p>
+    <p><strong>2.1 The closed-form prediction</strong></p>
+    <p><strong>Setup.</strong> Let Zₜ be a one-dimensional drift-diffusion process</p>
+    <p><em>dZₜ = μ dt + σ dWₜ, Z₀ = 0,</em></p>
+    <p>with drift μ ∈ ℝ, noise scale σ &gt; 0, and Wₜ standard Brownian motion. The process resolves at τ = inf{ t ≥ 0 : |Zₜ| = a } where a &gt; 0 is the absorbing boundary. The drift μ represents the effective constraint bias, with μ = 0 corresponding to full neutrality.</p>
+    <p><strong>Theorem 1 (NDR; Jones 2026d).</strong> Under the above setup with μ ∈ ℝ, σ &gt; 0, absorbing boundaries at ±a, and Z₀ = 0, the expected first-passage time admits the closed form</p>
+    <p><em>E[τ] = (a / μ) tanh( aμ / σ² ) for μ ≠ 0, E[τ | μ = 0] = a² / σ².</em></p>
+    <p>E[τ] is a strictly decreasing function of |μ|, with maximum a²/σ² at μ = 0. Full proof from the Kolmogorov backward equation is in Jones 2026d.</p>
+    <p><strong>Two identifiable objects.</strong> It is convenient to introduce two parameters that organize the diagnostic axes. The <em>latency ceiling</em> C, defined as</p>
+    <p><em>C := a² / σ²,</em></p>
+    <p>has units of time under the chosen DDM scale convention (with σ conventionally fixed to set the evidence-state scale, C is in the same time units as τ) and fixes the height of the latency curve at neutrality. Under the constraint-coding map μ = β·ΔK, the</p>
+    <p><em>drift-link parameter</em> λ is defined as</p>
+    <p><em>λ := aβ / σ²,</em></p>
+    <p>with units inverse to those of ΔK, fixing the curve width in audited-ΔK units. The latency curve as a function of audited asymmetry then admits the compact form</p>
+    <p><em>E[τ](ΔK) = C · tanh(λ ΔK) / (λ ΔK), E[τ | ΔK = 0] = C.</em></p>
+    <p>For a sharp audit, C and λ must be estimated from channels not using the latency feature being tested: C from speed-accuracy manipulation, cross-dataset calibration, or external evidence-state scale information; λ from independently specified β, held-out choice/accuracy data, or mid-to-high-|ΔK| choice-proportion information. If C is estimated from the same near-neutrality ceiling that Axis 1 later tests, or λ from the same latency-curve width that Axis 2 later tests, the result is descriptive curve fitting rather than a falsifier.</p>
+    <p><strong>Starting-point extension.</strong> For Z₀ = z₀ with |z₀| &lt; a, the zero-drift expected first-passage time admits the simpler closed form E[τ | μ = 0, z₀] = (a² − z₀²)/σ². This makes starting-point bias analytically transparent: a nonzero z₀ depresses the zero-drift ceiling by z₀²/σ² relative to the centered case. The full μ-dependent expression for z₀ ≠ 0 (Karatzas &amp; Shreve 1991, §2.8) is also even-symmetry-breaking, providing an independent check on Axis 3.</p>
+    <p><strong>2.2 The four diagnostic axes plus non-decision-time check</strong></p>
+    <p>The closed-form expression in §2.1 admits four observable features that can be compared independently against fitted values from data, plus a fifth check on raw RT versus decision time. Each axis tests a different facet of the model fit, and each has different scale-convention requirements (§2.3).</p>
+    <p><em><strong>Axis 1: Ceiling at ΔK = 0</strong></em></p>
+    <p>At ΔK = 0 the prediction is E[τ | 0] = C = a²/σ². This is the identifiable ratio — a single number, not a separate (a, σ) estimate. Independent estimation of C is possible from speed-accuracy tradeoff manipulations within the dataset, from across-dataset calibration, or from non-latency neural readouts. Observed ceiling values systematically above predicted C indicate effective boundary expansion or noise reduction (not separable from RT/choice alone, see §2.3); values systematically below indicate hidden asymmetry, starting-point bias (where E[τ | 0, z₀] = (a² − z₀²)/σ² &lt; C), or decision-time-versus-RT confusion. The Axis 1 comparison uses the pre-specified audited ΔK = 0 condition, not the empirical maximum over conditions, since hidden asymmetry can shift the peak away from ΔK = 0 while preserving its height (§4.5). The empirical maximum and its ΔK location are reported separately as a peak-shift diagnostic feeding Axis 3.</p>
+    <p><em><strong>Axis 2: Near-ceiling curvature / fractional-drop scale</strong></em></p>
+    <p>Axis 2 tests the independently estimated drift-link parameter λ = aβ/σ², equivalently the bias scale 1/|λ| = σ²/(a|β|). The ceiling C fixes the height of the curve; λ fixes its width in audited-ΔK units. Under E[τ](ΔK) = C·tanh(λΔK)/(λΔK), the function h(x) = tanh(x)/x admits the expansion h(x) = 1 − x²/3 + O(x⁴), so the curve is even in ΔK and the first derivative at ΔK = 0 is zero; the diagnostic is the second derivative (−2/3)·C·λ² at the maximum, equivalently the bias scale at which the curve drops below C by a stated fraction. For a fractional decrement ρ of the ceiling — i.e., E[τ] ≤ (1 − ρ)·C — the bias scale is</p>
+    <p><em>|ΔK|_ρ ≈ √(3ρ) / |λ|.</em></p>
+    <p>This is the operational quantity to compare: when Axis 1 passes, the ΔK bias level at which the empirical latency curve has dropped 100ρ% below the predicted ceiling C — equivalently, below the audited-ΔK = 0 value within confidence. When Axis 1 fails, the same calculation is informative as a shape diagnostic but is no longer an independent fractional-drop falsifier and should be reported both relative to predicted C and relative to the observed audited-ΔK = 0 value. Fitted |ΔK|_ρ inconsistent with the right-hand-side prediction (where λ comes from independent estimation) diagnoses misspecification of any of (a, β, σ). Crucially, Axis 2 is sharp only when λ, or the components defining it, are estimated by holdout, choice-only, or external channels; absent independent identification of λ, the test reduces to model-conditional curve fitting. NDR (Jones 2026d, Theorem 1c) gives the absolute-decrement form μ_ε ≈ (σ³/a²)√(3ε); the fractional form here expresses the same content in inverse drift-link units.</p>
+    <p><em><strong>Axis 3: Symmetry around ΔK = 0 (scale-invariant, but not confound-free)</strong></em></p>
+    <p>Under z₀ = 0 (centered start point), and with response-mapping symmetric across ±ΔK conditions, E[τ] is an even function of μ: E[τ](μ) = E[τ](−μ). Asymmetry of the empirical latency curve around ΔK = 0 — specifically, E[τ(+ΔK)] / E[τ(−ΔK)] departing from unity across audited ΔK levels — diagnoses starting-point bias z₀ ≠ 0 or hidden asymmetry in the constraint-coding channel.</p>
+    <p>Axis 3 has a methodological property the other axes lack: it is invariant under the DDM scale convention. Whatever convention is used to fix σ, the symmetry ratio E[τ(+ΔK)] / E[τ(−ΔK)] depends only on the symmetry of the underlying generating process, not on the choice of measurement scale. Axis 3 is therefore the cleanest of the falsifiers from a scale-identifiability perspective, but it is not confound-free: response-side asymmetries (e.g., motor-side mappings, response-key biases, unequal stimulus encoding delays for + vs. − ΔK conditions, or condition-asymmetric T_er) can also distort the symmetry ratio. A systematic ±ΔK latency asymmetry indicates z₀ ≠ 0 or hidden asymmetry only after response-mapping symmetry and T_er asymmetry have been ruled out by external evidence (e.g., counterbalanced response keys, motor-task control conditions, or symmetric encoding-time markers).</p>
+    <p>Boundary expansion and reduced effective noise both preserve symmetry; they cannot be detected by Axis 3 alone. Axis 3 specifically tests starting-point bias, hidden asymmetry, response-side asymmetry, and T_er asymmetry, jointly.</p>
+    <p><em><strong>Axis 4: Full-curve shape</strong></em></p>
+    <p>The complete observed E[τ] vs |ΔK| curve admits comparison against the closed-form C·tanh(λΔK)/(λΔK) shape using a pre-registered residual statistic, calibrated by parametric bootstrap, subject-level bootstrap, or posterior predictive simulation under the independently fixed (C, λ, z₀, T_er) values. Large calibrated residuals diagnose either formalism inadequacy (drift-diffusion is the wrong model — collapsing bounds, urgency signals, time-varying drift) or unmeasured confound. This axis catches confound combinations that individually pass Axes 1–3 — e.g., boundary expansion that is partially compensated by reduced effective noise to keep the ceiling at the predicted value while distorting the curve width.</p>
+    <p><em><strong>Axis 5: Non-decision-time check</strong></em></p>
+    <p>Standard DDM decomposes total response time as RT_total = T_er + τ_decision, where T_er is non-decision time absorbing stimulus encoding, motor execution, and reporting delay (Ratcliff &amp; McKoon 2008; Ratcliff &amp; Tuerlinckx 2002). If T_er varies across ΔK conditions — because stimulus encoding is harder at low coherence, because motor execution is influenced by response certainty, or because task switching introduces a condition-dependent overhead — raw RT will appear lengthened in conditions where decision time itself was unaffected. The latency curve fit to raw RT will then exhibit ceiling and curve-shape distortions that have nothing to do with constraint asymmetry.</p>
+    <p>Raw RT equals decision time plus an additive T_er(ΔK) term. If T_er is constant across conditions, raw and corrected curves differ only by a vertical offset; if T_er varies with ΔK, the raw curve is shape-distorted as well as offset, and the corrected curve should be used for Axes 1–4. The diagnostic check is to estimate T_er(ΔK) per condition (from RT-distribution shape via the Ratcliff &amp; Tuerlinckx 2002 protocol, from explicit motor-task control conditions, or from neural markers of stimulus encoding versus response onset where available) and audit the protocol on RT_total − T_er(ΔK). If the four-axis comparison passes on T_er-corrected decision time but fails on raw RT, the confound is non-decision-time shift; if it fails on both, the confound is decision-time-internal. Reporting both (corrected and uncorrected) latency curves is the standard.</p>
+    <p><strong>2.3 DDM scale identifiability</strong></p>
+    <p>In standard DDM fitting, exactly one parameter must be fixed by convention to set the measurement scale of the evidence state (Ratcliff &amp; McKoon 2008; Ratcliff et al. 2016; HDDM documentation, Wiecki et al. 2013). The most common convention sets the diffusion scale σ = 1 (or σ = 0.1 in some toolboxes); a is then estimated in those units. Under this convention, the identifiable objects from RT/choice data are the ratio C = a²/σ² (the ceiling) and the drift-link λ = aβ/σ² (the curve width), not a, β, and σ separately.</p>
+    <p>This has direct consequences for the diagnostic. Axis 1 tests C — the identifiable ratio — against the observed ceiling. Axis 2 tests λ via the curvature / fractional-drop scale. Axis 4 tests the full-curve shape under the stated convention. Axis 3 is scale-invariant. Axis 5 is independent of scale convention but depends on T_er identifiability.</p>
+    <p>Boundary expansion and reduced effective noise are not uniquely separable from RT/choice data alone unless β, C, and λ are independently constrained strongly enough to fix the evidence-state scale. Axis 1 detects elevation of C; Axes 2 and 4 add leverage through λ, but clean separation requires an external estimate of at least one of a, σ, or β. With independently known β, the joint pair (C, λ) constrains a and σ; without independent β, the boundary-vs-noise ambiguity remains, since C, λ, and the choice-data calibration of β all sit on the same evidence-state scale. The protocol audits the identifiable quantities (C and λ under the stated convention; signed-μ recovery via EZ-DDM at mid-to-high |ΔK|) and reports the residual scale ambiguity honestly. This is a real limitation, not a flaw, and stating it explicitly makes the protocol harder to reject.</p>
+    <p><strong>2.4 The circular-fit trap</strong></p>
+    <p>Standard practice in DDM fitting infers μ, a, and z₀ jointly from the same RT distribution that is then asked to validate the model. With a stated scale convention and joint use of RT and choice data (e.g., the EZ-DDM closed-form recovery of Wagenmakers et al. 2007: μ ≈ (σ²/(2a)) log[P(upper)/P(lower)]), the per-condition fit is no longer perfectly tautological — the two-channel joint fit constrains the parameters more tightly than either channel alone. But the fit still embeds the assumed scale convention. Under boundary-expansion or reduced-noise data with the wrong scale assumption, the per-condition (E[τ], μ_fit) pairs depart from the prediction curve in characteristic ways (§4.7), but the departure is not as clean as the honest comparison against independently audited ΔK (§4.7, Figure 2A).</p>
+    <p>The diagnostic proposed here breaks the residual circularity by requiring ΔK to be specified by a separate channel, distinct from both RT and choice data: stimulus coherence levels in random-dot motion paradigms (Britten et al. 1992; Roitman &amp; Shadlen 2002; Palmer, Huk &amp; Shadlen 2005), contrast levels in detection tasks, evidence ratios in token-collection tasks, morphogen ratios in developmental fate-timing studies, externally measured rate constants in chemical transition systems. The diagnostic also requires (C, λ, z₀, T_er) to be identified independently of the latency curve being explained. Without independent identification of these quantities, the four-axis comparison reduces to per-condition curve-fitting under a stated convention, and the falsifier becomes a model-conditional diagnostic rather than a sharp test.</p>
+    <p>The structural problem here parallels the disjoint-subset trap in S₁ (Jones 2026e, §2.3): an audit that reuses the same data it is supposed to validate cannot discriminate between regimes that share that data. The S₁ case requires disjoint fragments; the S₂ case requires an independent ΔK channel and either holdout or non-latency estimation of β. Both audits fail trivially when this discipline is dropped, and both audits become model-conditional when partial discipline is maintained.</p>
+    <p><strong>2.5 Diagnostic comparison</strong></p>
+    <p>Standard DDM goodness-of-fit (deviance-information criteria, posterior predictive checks, Vincentile-plot agreement, parameter-recovery simulations) tests whether the fitted DDM reproduces the empirical RT distribution under a stated scale convention. The proposed diagnostic tests something different: whether the scaling of E[τ] with independently specified ΔK matches the closed-form prediction under independent identification of (β, C, λ, z₀, T_er). The two are complementary, not substitutes. Posterior-predictive checks catch gross model misspecification (the wrong distributional family, the wrong tail structure); the four-axis-plus-T_er comparison catches confounds that preserve distributional structure but violate the scaling prediction. A clean dataset should pass both; a confounded dataset may pass posterior-predictive checks while failing the proposed comparison.</p>
+    <p>Method-comparison practice in clinical measurement (Bland &amp; Altman 1986) makes the same structural argument: high correlation between two measurement methods does not imply agreement between them, because correlation measures co-variation while agreement measures absolute scaling. The proposed comparison is the resolution-time analogue: DDM goodness-of-fit measures within-condition distributional match, while the four-axis comparison measures across-condition scaling match against an external reference.</p>
+    <p>Statistical-testing approaches to drift-diffusion (Fudenberg, Newey, Strack &amp; Strzalecki 2020) provide additional rigor for testing DDM-like models against alternatives within the model family. The present diagnostic is concerned with a specific external claim (μ tracks an independently specified ΔK) rather than with model selection per se; the two approaches address adjacent but distinct questions.</p>
+    <p><strong>3. The protocol</strong></p>
+    <p>The protocol has four steps plus an explicit scale-convention statement. The first three operate on data and on independent channels; the fourth is the falsifier comparison. The structure parallels Auditing Independence §3 (Jones 2026e), with the channel-characterization step replaced by constraint-asymmetry-channel specification, the effective-sample-size audit replaced by ceiling-and-drift-link audit, and an explicit non-decision-time substep added.</p>
+    <p><strong>3.1 Step 1: Independent ΔK channel and β specification</strong></p>
+    <p>Specify the constraint-asymmetry channel before any RT analysis begins. The ΔK channel must produce a quantitative ordering of conditions independently of the RT data it will be compared against. Acceptable channels include: stimulus parameters (motion coherence, luminance contrast, evidence count), externally measured neural drift-rate proxies (e.g., LIP firing-rate ramp slope under fixed stimulus conditions, where the proxy is calibrated against an independent dataset), externally measured physical or chemical rate constants, externally specified condition codings (with explicit pre-registration of ΔK assignments). Unacceptable channels include: μ values fit to the same RT data, condition codings derived post hoc from RT pattern, or any quantity computed from the response data.</p>
+    <p>Specify the functional form μ = f(ΔK; θ). The simplest and most defensible choice is the linear form μ = β·ΔK, with β a single global scaling parameter. Estimate β from choice/accuracy data in held-out nonzero-ΔK conditions, preferably using mid-to-high |ΔK| levels that avoid both ceiling latency (where τ is dominated by diffusion variance and β is weakly identified) and saturated choice proportions (where P(upper) approaches 0 or 1 and the EZ-DDM logit estimate becomes unstable). Acceptable channels: (a) non-latency evidence such as neural drift-rate slopes calibrated on an independent dataset; (b) choice/accuracy data alone via the EZ-DDM closed form P(upper) = 1/(1 + exp(−2aμ/σ²)) at mid-to-high-|ΔK| conditions; (c) cross-validation across held-out ΔK levels (fit β on |ΔK| ≥ ΔK_train, test on |ΔK| &lt; ΔK_train). Estimating β by latency-curve fit on the same data is acceptable only as a model-conditional exercise, not as a sharp test.</p>
+    <p><strong>3.2 Step 2: Latency curve construction</strong></p>
+    <p>For each condition c with specified ΔK_c, estimate E[τ_c] from RT data using a robust mean-RT estimator with bootstrap confidence intervals (10³ resamples standard). Plot E[τ] vs ΔK, preserving sign of ΔK (the curve should be plotted on signed ΔK, not folded to |ΔK|, so Axis 3 can be evaluated). Constructing the latency curve uses RT data; fitting the closed-form prediction does not. The two are separated explicitly so the comparison in Step 4 is between an empirical curve and a model-derived prediction, not between two fits to the same data.</p>
+    <p><strong>3.3 Step 3: Scale convention, ceiling and drift-link audit, external channels</strong></p>
+    <p>State the scale convention explicitly: which of (a, σ) is fixed and at what value. The standard choice in cognitive DDM practice is σ = 1 (or σ = 0.1; either is fine as long as it is stated). Estimate the ceiling C = a²/σ² from speed-accuracy tradeoff manipulations, cross-dataset calibration, external evidence-state scale information, or a held-out high-|ΔK| training subset not used in the Axis 1–4 latency-curve test. If same-experiment behavioral fits are used without holdout, report the result as model-conditional rather than as a sharp audit. Estimate λ = aβ/σ² either directly from held-out choice proportions, which identify aμ/σ² = λΔK under the fixed-boundary DDM, or from an independently estimated β together with C under the explicitly stated scale convention. If β is not in the same evidence-state scale convention as C, λ is not identified without an additional estimate of a, σ, or a/σ². Both estimates should come from channels not using the latency feature being tested in Step 4 (§2.1).</p>
+    <p>Where an external evidence-state calibration is available — e.g., a neural readout of effective trial-to-trial noise that fixes σ absolutely, or a speed-accuracy manipulation that fixes a explicitly — separate (a, σ) estimates can be obtained, and the boundary-expansion / reduced-effective-noise confounds become separately diagnosable. Where such calibration is not available, the protocol audits C as a single quantity, audits λ separately for additional leverage when β is independently constrained, and reports the residual ambiguity honestly per §2.3.</p>
+    <p>Estimate non-decision time T_er per condition. Acceptable estimators: minimum-RT or fast RT-quantile (in the spirit of Ratcliff &amp; Tuerlinckx 2002), explicit motor-task control conditions, neural markers of stimulus encoding versus response onset, or an EZ-DDM joint fit that returns T_er per condition. Report both raw RT and T_er-corrected decision time; the four-axis comparison runs on the corrected curve.</p>
+    <p>Estimate starting-point z₀ from choice-proportion bias at ΔK = 0 (where P(upper) departs from 0.5 only if z₀ ≠ 0 and the zero-ΔK stimulus is externally validated as drift-neutral; absent such validation, the same choice-proportion shift may reflect hidden asymmetry rather than starting-point bias) or from explicit response-bias manipulations within the dataset. Report z₀ estimates with confidence intervals and disclose any external drift-neutrality validation step.</p>
+    <p><strong>3.4 Step 4: Falsifier comparison</strong></p>
+    <p>Compare five predicted features against fitted values:</p>
+    <ul>
+    <li><p>Axis 1 — Ceiling. Predicted: C = a²/σ² from independent estimate, or (a² − z₀²)/σ² if z₀ ≠ 0. Observed: E[τ] at the pre-specified audited ΔK = 0 condition, or a pre-registered fitted intercept at ΔK = 0 if no exact zero condition is present, in either case computed on T_er-corrected decision time. Also report the empirical maximum and its ΔK location as a separate peak-shift diagnostic feeding Axis 3, since hidden asymmetry can yield a peak at the correct ceiling height but at ΔK ≠ 0. Test: |observed − predicted| within bootstrap confidence interval.</p></li>
+    <li><p>Axis 2 — Near-ceiling curvature / fractional-drop scale. Predicted: |ΔK|_ρ ≈ √(3ρ)/|λ| for stated fractional drop ρ (e.g., ρ = 0.1), with λ = aβ/σ² from independent estimation. Observed: if Axis 1 passes, the empirical ΔK bias level at which the latency curve falls 100ρ% below the predicted ceiling C — equivalently, below the audited-ΔK = 0 estimate within confidence. If Axis 1 fails, report Axis 2 both relative to predicted C and relative to the observed audited-ΔK = 0 value; the latter is descriptive shape information, not an independent fractional-drop falsifier. Test: ratio observed/predicted within confidence band; ratio &lt; 1 diagnoses a higher effective |λ| than the independent estimate.</p></li>
+    <li><p>Axis 3 — Symmetry (scale-invariant). Predicted: E[τ](+ΔK) / E[τ](−ΔK) = 1 across audited ΔK levels. Observed: empirical ratio at each ΔK, plus the peak-shift quantity from Axis 1. Test: ratio confidence intervals consistent with unity. Systematic departure diagnoses z₀ ≠ 0 or hidden asymmetry only after response-mapping symmetry and T_er asymmetry are independently ruled out; otherwise the asymmetry diagnosis remains ambiguous between these four sources. This axis requires no scale convention and no external (a, σ) channel; it does require external response-side and T_er audit.</p></li>
+    <li><p>Axis 4 — Full-curve shape. Predicted: E[τ](ΔK) = C·tanh(λΔK)/(λΔK) with (C, λ) fixed at independent values. Observed: residual statistic of the empirical curve against the closed form. Test: a pre-registered residual statistic, calibrated by parametric bootstrap, subject-level bootstrap, or posterior predictive simulation under the independently fixed (C, λ, z₀, T_er) values. Large calibrated residuals diagnose formalism inadequacy or unmeasured confound.</p></li>
+    <li><p>Axis 5 — Non-decision-time check. Predicted: raw RT = decision time + T_er(ΔK) per condition; if T_er is constant across conditions, raw and corrected curves differ only by a vertical offset; if T_er varies with ΔK, the raw curve is shape-distorted as well as offset. Observed: raw-RT curve, T_er-corrected decision-time curve, and per-condition T_er(ΔK) estimate. Test: corrected curve passes Axes 1–4 while raw curve fails diagnoses non-decision-time shift; both failing diagnoses decision-time-internal confound.</p></li>
+    </ul>
+    <p>Pass the diagnostic if all five axes are within confidence; flag for confound diagnosis if one or more axes deviate. The confound catalog in §4 maps deviation patterns to candidate confounds. Failure of multiple axes simultaneously indicates either complete model misspecification, that the constraint-asymmetry channel itself is invalid, or that multiple confounds are present and require disentanglement.</p>
+    <p><strong>4. Synthetic demonstrations</strong></p>
+    <p>Six synthetic cases demonstrate the protocol — a clean baseline plus five named confounds. All simulations use one-dimensional drift-diffusion with Euler discretization, dt = 5×10⁻⁴, 8,000 trials per ΔK level, and ΔK ∈ {±2.0, ±1.5, ±1.0, ±0.75, ±0.5, ±0.3, ±0.2, ±0.1, ±0.05, 0}. Reference parameters under the analyst’s assumed model are a = 1, σ = 1 (stated convention), z₀ = 0, T_er = 0, with β = 1 such that ΔK = μ in the simulations. The analyst’s prediction is therefore E[τ] = (1/μ) tanh(μ) with C = 1.000 and λ = 1.000. Reproduction code is in Appendix A and in the companion file methods_s2_v10_figures.py.</p>
+    <p><strong>4.1 Clean DDM (passes all five axes)</strong></p>
+    <p>Clean drift-diffusion with stimulus-coded ΔK = μ, a = 1, σ = 1, z₀ = 0, T_er = 0. Observed ceiling at ΔK = 0: 1.024 (predicted 1.000; small upward bias is the finite-time-step boundary-detection bias of Euler simulation, present in NDR Figure 1 as well). Symmetry ratio: within 5% across audited ΔK levels. Curve-shape residual: consistent with the tanh prediction. T_er-corrected curve identical to raw RT (no offset). All five axes pass. Figure 1A.</p>
+    <p><strong>4.2 Boundary-expansion confound</strong></p>
+    <p>True a = 1.3 instead of analyst-estimated a = 1.0; σ = 1, z₀ = 0, T_er = 0, ΔK = μ. True C = 1.69; observed ceiling 1.732 (consistent with the true ratio modulo Euler bias). Analyst’s predicted ceiling 1.00 violated by 73%. True λ = 1.3, so |ΔK|_0.1 ≈ √0.3/1.3 ≈ 0.42 vs. analyst-predicted 0.55 — the curve narrows. Symmetry preserved (Axis 3 passes). Axes 1, 2, and 4 fail; Axes 3 and 5 pass. Diagnostic signature: ceiling overshoot with narrowed curve; symmetry preserved. Without an external evidence-state channel or independent β, this signature is degenerate with reduced effective noise (§4.3); see §2.3. Figure 1B.</p>
+    <p><strong>4.3 Reduced-effective-noise confound</strong></p>
+    <p>True σ = 0.7 instead of analyst-estimated σ = 1.0; a = 1, z₀ = 0, T_er = 0, ΔK = μ. True C = 2.04; observed ceiling 2.081. Analyst’s predicted ceiling 1.00 violated by 104%. True λ = 1/0.49 ≈ 2.04, so |ΔK|_0.1 ≈ √0.3/2.04 ≈ 0.27 vs. predicted 0.55 — the curve narrows much more than under boundary expansion. The full curve is above the prediction and sharper than the boundary-expansion case. Symmetry preserved. Axes 1, 2, and 4 fail; Axes 3 and 5 pass. Diagnostic signature: ceiling overshoot inversely proportional to σ² with sharper curve narrowing than boundary-expansion. Figure 1C. The (Axis 1) elevation alone is degenerate with boundary expansion; Axes 2 and 4 add leverage through λ (which scales as 1/σ² vs. as a linearly), but clean separation requires an external estimate of one of (a, σ, β) per §2.3.</p>
+    <p><strong>4.4 Starting-point bias</strong></p>
+    <p>True z₀ = 0.4 instead of analyst-assumed z₀ = 0; a = 1, σ = 1, T_er = 0, ΔK = μ. The closed-form zero-drift prediction is E[τ | μ = 0, z₀] = (a² − z₀²)/σ² = (1 − 0.16)/1 = 0.84. Observed at ΔK = 0: 0.877 (consistent with 0.84 modulo Euler bias). The latency-curve maximum shifts away from ΔK = 0 toward negative ΔK, since with z₀ &gt; 0 a small negative drift compensates for the bias toward the upper boundary and maximizes residence time. The compensating drift depends on (a, σ, z₀, β); for the parameters here it is numerically near −0.4 but is not in general equal to −z₀. Symmetry ratio E[τ(+ΔK)] / E[τ(−ΔK)] departs from unity across the audited range. Axis 1 fails (ceiling below predicted 1.00 by exactly z₀² in noise units); Axis 3 fails (asymmetric); Axes 2 and 4 fail with a distinctive shape residual. Axis 5 passes (no T_er issue). Diagnostic signature: ceiling depressed by z₀²/σ² with asymmetric curve. Figure 1D.</p>
+    <p><strong>4.5 Hidden asymmetry</strong></p>
+    <p>Generated with μ_true = β·(ΔK + δ) where δ = 0.25; fitted with assumed μ = β·ΔK (i.e., the analyst’s coding underestimates the constraint-asymmetry origin). a = 1, σ = 1, z₀ = 0, T_er = 0. At audited ΔK = 0, the true drift is 0.25, so observed E[τ | audited 0] ≈ (1/0.25) tanh(0.25) = 0.978; observed 1.012 (consistent modulo Euler bias). The latency-curve maximum shifts to audited ΔK ≈ −δ = −0.25 (marked by the vertical guide in Figure 1E), where the apparent and true drift cancel. This is precisely why Axis 1 uses the audited ΔK = 0 condition rather than the empirical maximum: under hidden asymmetry the maximum can sit close to the predicted ceiling height but at the wrong ΔK. The audited-zero ceiling is depressed (here from C = 1.00 to about 0.98) while the peak-shift diagnostic (Axis 3) flags the offset. Axes 2, 3, and 4 fail; Axis 1 marginally passes on ceiling magnitude but the peak-shift diagnostic flags the confound. Axis 5 passes. Diagnostic signature: peak shifted off ΔK = 0; audited-zero ceiling slightly depressed; symmetry violated. Figure 1E.</p>
+    <p><strong>4.6 Non-decision-time shift</strong></p>
+    <p>T_er(ΔK) = 0.4 + 0.15·|ΔK| applied to RT_total; analyst plots raw RT without subtracting T_er. a = 1, σ = 1, z₀ = 0, true μ = ΔK. At ΔK = 0, observed raw RT = 1.419 (decision time 1.024 + T_er 0.4 ≈ 1.42). The raw-RT curve is offset by ≈0.4 plus a |ΔK|-dependent additive shift that mimics curve-shape deviation, since T_er(ΔK) is not constant across conditions. Axes 1, 2, and 4 appear to fail on raw RT but pass on T_er-corrected decision time. Axis 5 (the non-decision-time check) is what detects this confound: the residual between raw-RT and T_er-corrected curves matches the estimated T_er(ΔK) profile exactly. Diagnostic signature: raw-RT failures disappear under T_er correction. Figure 1F.</p>
+    <p><img src="media/521ca975154676120a10c7d4b0bc95f02efc3b4d.png" title="Figure 1 - Confound discrimination" style="width:6.2in;height:6.82in" alt="Six-panel plot comparing a clean drift-diffusion latency curve with five confounds: boundary expansion, reduced effective noise, starting-point bias, hidden asymmetry, and non-decision-time shift. Each panel plots expected decision time or raw response time against audited Delta-K, showing distinct deviation patterns from the clean a = sigma = 1 prediction. Panel E includes a vertical guide at audited Delta-K = -delta marking the predicted off-zero peak under hidden asymmetry." /></p>
+    <blockquote>
+    <p><em>Figure 1. Confound discrimination via the latency curve. Each panel shows the predicted E[τ] curve under the analyst’s assumed model (dashed grey, a = σ = 1, ceiling C = 1) against simulated observations (blue points, 8,000 trials per ΔK level). Panels: (A) clean DDM, (B) boundary expansion, (C) reduced effective noise, (D) starting-point bias, (E) hidden asymmetry (red vertical guide marks the predicted off-zero peak at audited ΔK = −δ), (F) non-decision time (raw RT). Per-panel parameters and pass/fail patterns are discussed in §4.1–4.6.</em></p>
+    </blockquote>
+    <p><strong>4.7 The circular-fit failure mode</strong></p>
+    <p>Each of the three primary confound regimes in §4.2–4.3 plus the clean baseline produces RT distributions and choice proportions at each ΔK level. The honest comparison plots E[τ] versus the audited ΔK (Figure 2A); the three regimes are clearly separable. The circular fit recovers signed μ per condition from choice proportions under the EZ-DDM closed-form μ ≈ (σ²/(2a)) log[P(upper)/P(lower)] (Wagenmakers et al. 2007), with the analyst’s assumed (a = 1, σ = 1). Plotting E[τ] versus this fitted μ (Figure 2B) shifts the regimes’ placement relative to Panel A but does not collapse them onto the prediction. Under boundary-expansion data, choice proportions are driven by the true a·μ/σ² ratio; the analyst’s assumed (a, σ) gives μ_fit = (true a)/(assumed a) · true μ, and the (μ_fit, E[τ_obs]) points sit clearly above the prediction. Reduced-noise data behaves analogously.</p>
+    <p>The methodologically honest reading is: the circular fit using both RT and choice constrains the parameters more tightly than RT alone, and confounded data is not perfectly tautologically explained — the (μ_fit, E[τ]) points still depart from the prediction in characteristic ways. But the departure is more compressed than in Panel A, and the signature of the underlying confound is harder to read off the circular-fit plot than off the audited-ΔK plot. The independent ΔK channel and stated scale convention together are what make the comparison sharp; the circular fit alone is a model-conditional check that complements but does not replace the four-axis comparison.</p>
+    <p>An audit that uses only the data twice (once to fit μ, once to validate the fit) remains weaker as evidence than an audit that uses an external ΔK channel. The diagnostic proposed in this paper requires ΔK to come from outside the RT/choice data stream. The same applies to the independent-channel discipline of S₁ (Jones 2026e, §2.3) and to method-comparison studies more broadly (Bland &amp; Altman 1986).</p>
+    <p><img src="media/8f84d8c920a47938f3433b356d1382f94e2755bb.png" title="Figure 2 - Circular-fit trap with signed-mu recovery" style="width:6.4in;height:2.688in" alt="Two-panel plot comparing honest audited-Delta-K evaluation with circular signed-mu recovery from choice proportions. The clean DDM follows the predicted curve, while boundary-expansion and reduced-noise confounds remain above the prediction, especially in the audited-Delta-K panel." /></p>
+    <blockquote>
+    <p><em>Figure 2. The circular-fit trap with signed-μ recovery via choice proportions. (A) Honest comparison plots mean decision time against independently audited ΔK; clean DDM points follow the predicted curve, while boundary-expansion and reduced-noise confounds sit above it. (B) Circular comparison plots the same observations against μ_fit recovered from choice proportions under the analyst’s assumed a = σ = 1. Confounded points shift along the x-axis but do not collapse onto the prediction. The circular fit is therefore a model-conditional check, not a sharp test.</em></p>
+    </blockquote>
+    <p><strong>5. Application: perceptual-decision iEEG (specification, conditional on dataset prerequisites)</strong></p>
+    <p>We specify the application of the protocol to perceptual-decision iEEG data, paralleling the way Auditing Independence §5 (Jones 2026e) specifies application to Planck PR3 component-separated CMB maps. Full execution against a real dataset is the work of a downstream T16 demonstration paper; the present specification is the analysis plan, conditional on the dataset providing the required ingredients.</p>
+    <p><strong>5.1 Dataset prerequisites</strong></p>
+    <p>A dataset is a candidate application for this protocol only if it satisfies all of the following: (1) speeded response times with explicit time pressure or a stated speed-vs-accuracy regime; (2) recorded choice outcomes (which alternative was selected on each trial); (3) a near-threshold stimulus ladder spanning at least three ΔK levels including a near-zero condition; (4) both signs of ΔK available (or a paradigm in which the symmetry axis can be tested across other axes of the design); (5) an externally specified stimulus parameter (motion coherence, luminance contrast, evidence count, etc.) providing the ΔK channel; (6) sufficient trial count per condition for stable mean-RT estimates with bootstrap confidence intervals.</p>
+    <p>Datasets that lack any of these prerequisites cannot use this protocol as specified. Free-response paradigms without time pressure, paradigms that record only RT without choice, or paradigms that vary stimulus parameters in ways that do not deliver a clean ΔK ladder all require formalism extensions and are deferred.</p>
+    <p><strong>5.2 Candidate dataset families</strong></p>
+    <p>Random-dot motion paradigms (Britten et al. 1992; Roitman &amp; Shadlen 2002; Palmer, Huk &amp; Shadlen 2005) are the canonical fit: motion coherence c ∈ {0%, 3.2%, 6.4%, 12.8%, 25.6%, 51.2%} provides a monotone, externally specified ΔK channel that is independent of RT. Equivalent paradigms (luminance-contrast detection, evidence-token accumulation, lexical-decision frequency manipulation) admit the same protocol provided they meet the prerequisites in §5.1.</p>
+    <p>Consciousness-theory iEEG corpora such as the COGITATE multi-center dataset (Cogitate Consortium 2025; see also the consortium’s adversarial-collaboration protocol, Melloni et al. 2023) are candidate applications only where the specific paradigm within the dataset includes speeded RT, choice outcomes, and an independently coded ΔK ladder suitable for evidence-accumulation modeling. Not every paradigm in such a corpus satisfies these prerequisites; the dataset must be screened against §5.1 before the protocol is applied.</p>
+    <p><strong>5.3 Analysis plan (for a satisfying dataset)</strong></p>
+    <p>(1) Pre-register the ΔK channel (stimulus parameter levels) and the functional form μ = β·ΔK. (2) For each subject and ΔK level, estimate mean RT and choice proportion with bootstrap CIs. (3) Estimate β from mid-to-high-|ΔK| conditions (avoiding both ceiling latency and saturated choice proportions) via either choice proportions alone or held-out cross-validation. (4) State the scale convention (e.g., σ = 1) and estimate C = a²/σ² from speed-accuracy tradeoff manipulations within the dataset where available; otherwise from a single-convention DDM fit on high-|ΔK| trials. Compute λ = aβ/σ² from β and C, both estimated from channels not using the latency feature being tested. (5) Estimate T_er per condition via the Ratcliff &amp; Tuerlinckx 2002 protocol or motor-task control conditions. (6) Estimate z₀ from choice-proportion bias at ΔK = 0, conditional on external validation that the zero-ΔK stimulus is drift-neutral. (7) Predict ceiling, |ΔK|_ρ = √(3ρ)/|λ| for stated ρ (e.g., 0.1), and curve shape from the independent estimates. (8) Compare observed latency curve (on T_er-corrected decision time) against prediction across all five axes.</p>
+    <p><strong>5.4 Falsifier</strong></p>
+    <p>The clean S₂ interpretation for this paradigm fails if any axis deviates beyond its pre-specified confidence band. If the deviation pattern matches one of the named confounds in §4, the result is diagnosed as confounded rather than as evidence against the drift-diffusion formalism itself. If the deviation pattern does not match a named confound, the likely causes are formalism inadequacy, an invalid ΔK channel, or multiple interacting confounds. Combined-confound deviations (e.g., partial boundary expansion compensated by partial noise reduction; non-decision-time shift on top of starting-point bias) are diagnosable from the curve-width residual in Axis 4 and the corrected-vs-raw comparison in Axis 5, but with reduced sharpness and the explicit caveats of §2.3.</p>
+    <p><strong>6. Discussion</strong></p>
+    <p><strong>6.1 Domains where the diagnostic applies directly</strong></p>
+    <p>The drift-diffusion formalism is directly underwritten in perceptual decision-making (Ratcliff &amp; McKoon 2008; Ratcliff et al. 2016; Forstmann, Ratcliff &amp; Wagenmakers 2016) and in lexical decision and value-based choice paradigms with two-alternative response structure (Krajbich, Armel &amp; Rangel 2010; Ratcliff 1978 for memory retrieval). In these domains the protocol applies as specified.</p>
+    <p>Closely related but requiring formalism adaptation: developmental fate-timing under stochastic threshold-crossing (cell-fate commitment with morphogen-ratio-coded ΔK, Gillespie-style stochastic simulation following Gillespie 1977 rather than drift-diffusion), phenotypic switching under fluctuating selection (Süel et al. 2007; Balázsi, van Oudenaarden &amp; Collins 2011), absorbing-Markov-chain models in genotype-phenotype neutral-network traversal (Kemeny &amp; Snell 1976; Ahnert 2017), and Kramers-escape regimes in chemical metastability (Kramers 1940; Hänggi, Talkner &amp; Borkovec 1990). These domains are plausible candidate instances of the qualitative S₂ hypothesis but require their own Methods Paper for sharp falsification, since the closed-form drift-diffusion ceiling does not transfer directly.</p>
+    <p><strong>6.2 The independent ΔK channel as the load-bearing step</strong></p>
+    <p>Step 1 of the protocol — specifying ΔK from a channel separable from the RT/choice data — is the load-bearing step. Without it, the diagnostic collapses to model-conditional curve-fitting under a stated convention, and §4.7 applies: the fitted curves shift but do not cleanly disambiguate confounds. This parallels the independence-audit discipline in S₁ (Jones 2026e, §6.2): the formal lemma is not what does the evidential work in any real domain; the audit is.</p>
+    <p>In practice, ΔK specification is often the part most resistant to formalization. Stimulus parameters are clean. Behavioral condition codings are less clean but still acceptable when pre-registered. Post hoc ΔK assignments derived from RT pattern are not acceptable. Composite ΔK channels (combining stimulus parameters with subject-rated difficulty) require explicit pre-registration of the combination rule. The protocol does not enforce a particular ΔK specification; it enforces that the specification be made before the latency curve is constructed.</p>
+    <p><strong>6.3 Comparison to alternative diagnostics</strong></p>
+    <p>Standard DDM diagnostics (posterior-predictive checks, deviance-information criteria, Vincentile plots, parameter-recovery simulations) test model-fit adequacy on the same RT distribution the model was fit to. The proposed diagnostic tests something distinct: scaling of the latency curve against an independent channel, under stated scale convention and with explicit T_er audit. Standard goodness-of-fit is appropriate for model description and within-family comparison; it is not by itself an independent test of an external constraint-asymmetry claim. The two are complementary, not substitutes.</p>
+    <p>Statistical tests of DDM-like models against alternatives (Fudenberg, Newey, Strack &amp; Strzalecki 2020) provide additional rigor for testing model adequacy within the evidence-accumulation family. The present protocol addresses an adjacent question: not whether DDM fits the data, but whether a specific external claim about constraint asymmetry is supported by the latency curve’s scaling. Both tools are useful; they answer different questions.</p>
+    <p>Method-comparison practice in clinical measurement (Bland &amp; Altman 1986) makes the same structural argument: high correlation between two measurement methods does not imply agreement between them, because correlation measures co-variation while agreement measures absolute scaling. The proposed comparison is the resolution-time analogue.</p>
+    <p><strong>7. Limitations</strong></p>
+    <p>Formalism scope. The protocol is restricted to one-dimensional drift-diffusion with constant drift, constant noise, and fixed symmetric absorbing boundaries. Real DDM extensions — collapsing bounds (Hawkins et al. 2015), urgency signals (Cisek et al. 2009), time-varying drift, hierarchical-DDM with subject-level random effects — require formalism extension. The five-axis comparison can in principle accommodate these extensions: each extension produces a different closed-form (or numerically computed) prediction for the axes, and the diagnostic generalizes by replacing the tanh-shaped prediction with the appropriate alternative. v1.0 development should formalize the collapsing-bounds extension as a high-priority extension target.</p>
+    <p>Scale separability. As discussed in §2.3, separating a from σ individually requires either an external evidence-state channel or independent constraint of β sharp enough to fix the scale via the joint pair (C, λ). Boundary-expansion and reduced-effective-noise confounds are not uniquely separable from RT/choice data alone in the absence of such external constraint; the protocol audits the identifiable quantities and reports the residual ambiguity honestly.</p>
+    <p>Heterogeneous-condition and hierarchical settings. Where (a, σ, z₀, T_er) vary across conditions, per-condition independent estimates are required. Pooled estimates introduce an additional confound channel (variability across conditions absorbed into fitted μ). v1.0 development should formalize the heterogeneous case explicitly, paralleling the heterogeneous-fragments treatment in TN-S₁ (Jones 2026f).</p>
+    <p>Contaminant RTs and lapse trials. Real RT data contains contaminants (very fast guesses, very slow lapses, attention-failure trials) that distort mean-RT estimates and DDM parameter recovery (Ratcliff &amp; Tuerlinckx 2002). The protocol assumes that contaminant trials are screened or modeled before the latency curve is constructed; v1.0 should formalize this preprocessing step.</p>
+    <p>Quantum-decision analogues. Quantum-cognitive models of decision (Pothos &amp; Busemeyer 2009; Busemeyer &amp; Bruza 2012) reframe the underlying state space and the resolution process; the drift-diffusion formalism does not directly apply. A separate Methods Paper would be required.</p>
+    <p>Kramers-escape and absorbing-Markov regimes. Developmental fate-timing, phenotypic switching, neutral-network traversal, and chemical metastability are S₂ candidate domains where the drift-diffusion ceiling does not transfer. The qualitative S₂ hypothesis may have analogues in these regimes, but the falsifier shape differs (e.g., Kramers-rate scaling exp(−E_b/k_BT) for chemical metastability; expected-hitting-time bounds on absorbing-Markov chains for neutral-network traversal). These are deferred to a future Methods Paper.</p>
+    <p><strong>8. Reporting template</strong></p>
+    <p>Authors using this protocol should report the following items. Items marked (R) are required for the comparison to be evaluable; items marked (S) sharpen the diagnostic but are not strictly required.</p>
+    <ul>
+    <li><p>(R) The ΔK channel: source, scale, pre-registration status, dates of pre-registration.</p></li>
+    <li><p>(R) The functional form μ = f(ΔK; θ) and how β (or other θ) was estimated: holdout, choice-only at mid-to-high |ΔK| (avoiding saturation), non-latency channel, or model-conditional.</p></li>
+    <li><p>(R) Stated scale convention (e.g., σ = 1, σ = 0.1), independent estimate of C = a²/σ² with method, source dataset, and confidence intervals, and independent estimate of λ = aβ/σ². Estimates must come from channels not using the latency feature being tested. Where available, separate (a, σ) estimates from external channels.</p></li>
+    <li><p>(R) Per-condition T_er estimates with method (Ratcliff-Tuerlinckx fit, motor-control condition, neural marker, EZ-DDM joint fit, etc.). Both raw-RT and T_er-corrected decision-time curves; explicit statement of whether T_er(ΔK) is constant or varies with ΔK.</p></li>
+    <li><p>(R) z₀ estimate from choice-proportion bias at ΔK = 0 with confidence interval, including disclosure of any external drift-neutrality validation step.</p></li>
+    <li><p>(R) Mean E[τ_c] for each condition c with bootstrap CI (10³ resamples standard).</p></li>
+    <li><p>(R) Predicted ceiling C (or (a² − z₀²)/σ² if z₀ ≠ 0), predicted |ΔK|_ρ = √(3ρ)/|λ| for stated ρ, and predicted curve shape from independent estimates.</p></li>
+    <li><p>(R) Five-axis comparison: ceiling at audited ΔK = 0 (with empirical max + ΔK location reported separately as peak-shift diagnostic), fractional-drop scale, symmetry ratio, curve-shape residual, raw-vs-corrected RT consistency. Report each with confidence interval and pass/fail status. For Axis 3, also report response-side and T_er asymmetry audit results.</p></li>
+    <li><p>(R) Confound diagnosis where any axis fails: which confound pattern in the catalog of §4 best matches the deviation, and why.</p></li>
+    <li><p>(S) Posterior-predictive checks of the per-condition DDM fit, demonstrating that the fitted model reproduces the RT distribution. The five-axis comparison is complementary to this, not a replacement.</p></li>
+    <li><p>(S) Sensitivity analysis: re-run the comparison under perturbations of (C, λ, z₀, T_er) within their confidence intervals. Report which axes pass robustly and which are marginal.</p></li>
+    </ul>
+    <p><strong>9. Broader context</strong></p>
+    <p>S₂ is one of three portable empirical signatures in the Universal Collapse Theory library (Jones 2026a, 2026b). S₁ (redundancy implies consensus) has its formal support in TN-S₁ / Objectivity from Records (Jones 2026f) and its Methods Paper in Auditing Independence (Jones 2026e). The present paper is the Methods Paper for S₂, paralleling that architecture. S₃ (constraint-stable updates produce hysteresis) remains in development.</p>
+    <p>The structural pattern across these Methods Papers is consistent: the technical note establishes a closed-form bound under load-bearing assumptions; the standard demands an audit of those assumptions before downstream claims can be made; the Methods Paper supplies the field-deployable audit protocol with synthetic demonstrations and a specified real-data application. The downstream T16 demonstration carries the domain-native execution. The Methods Paper is the bridge between the formal lemma and the field claim, and the audit it specifies is what does the evidential work in any real domain.</p>
+    <p><strong>Appendix A. Reproduction code</strong></p>
+    <p>Appendix A reproduces the simulator core used for Figures 1 and 2. The full plotting script, including panel layout, annotations, and the vertical guide on Panel E of Figure 1, is archived as the companion file methods_s2_v10_figures.py (archived in this component). The script is about 500 lines, NumPy + Matplotlib only, with no SciPy dependency. The simulator tracks both first-passage time and choice (which boundary was hit), enabling signed-μ recovery in the circular-fit demonstration via the EZ-DDM closed form rather than numerical inversion.</p>
+    <blockquote>
+    <p>import numpy as np</p>
+    <p>def simulate_dd(mu, sigma=1.0, a=1.0, z0=0.0, t_er=0.0,</p>
+    <p>dt=5e-4, max_t=20.0, n_trials=8000, seed=0):</p>
+    <p>"""1D drift-diffusion with absorbing boundaries at +/- a.</p>
+    <p>Returns (mean_RT, mean_decision_time, P(upper))."""</p>
+    <p>rng = np.random.default_rng(seed)</p>
+    <p>n_steps = int(max_t / dt)</p>
+    <p>z = np.full(n_trials, float(z0))</p>
+    <p>dt_arr = np.full(n_trials, max_t)</p>
+    <p>upper = np.zeros(n_trials, dtype=bool)</p>
+    <p>resolved = np.zeros(n_trials, dtype=bool)</p>
+    <p>sqrt_dt = np.sqrt(dt)</p>
+    <p>for t in range(n_steps):</p>
+    <p>if resolved.all(): break</p>
+    <p>incs = mu*dt + sigma*sqrt_dt*rng.standard_normal(n_trials)</p>
+    <p>z[~resolved] += incs[~resolved]</p>
+    <p>hit_up = (z &gt;= a) &amp; (~resolved)</p>
+    <p>hit_lo = (z &lt;= -a) &amp; (~resolved)</p>
+    <p>newly = hit_up | hit_lo</p>
+    <p>dt_arr[newly] = (t+1) * dt</p>
+    <p>upper[hit_up] = True</p>
+    <p>resolved |= newly</p>
+    <p>mean_dt = dt_arr.mean()</p>
+    <p>return mean_dt + t_er, mean_dt, upper.mean()</p>
+    <p>def E_tau_theory(mu, sigma=1.0, a=1.0):</p>
+    <p>if abs(mu) &lt; 1e-9: return a*a / (sigma*sigma)</p>
+    <p>return (a / mu) * np.tanh(a * mu / (sigma * sigma))</p>
+    <p>def mu_from_choice(p_upper, a=1.0, sigma=1.0):</p>
+    <p>"""Signed mu recovery from choice proportion (EZ-DDM)."""</p>
+    <p>p = np.clip(p_upper, 1e-4, 1 - 1e-4)</p>
+    <p>return (sigma**2 / (2*a)) * np.log(p / (1-p))</p>
+    <p># Vary the simulation parameters per confound:</p>
+    <p># (A) clean: a=1, sigma=1, z0=0, t_er=0</p>
+    <p># (B) bound: a=1.3, sigma=1, z0=0, t_er=0</p>
+    <p># (C) noise: a=1, sigma=0.7, z0=0, t_er=0</p>
+    <p># (D) sp_bias: a=1, sigma=1, z0=0.4, t_er=0</p>
+    <p># (E) hidden: a=1, sigma=1, z0=0, t_er=0; pass mu = DeltaK + 0.25</p>
+    <p># (F) nondec: a=1, sigma=1, z0=0, t_er = 0.4 + 0.15*|DeltaK|</p>
+    </blockquote>
+    <p><strong>References</strong></p>
+    <p>Ahnert, S. E. (2017). Structural properties of genotype-phenotype maps. Journal of the Royal Society Interface, 14(132), 20170275. <a href="https://doi.org/10.1098/rsif.2017.0275"><u>https://doi.org/10.1098/rsif.2017.0275</u></a></p>
+    <p>Balázsi, G., van Oudenaarden, A., &amp; Collins, J. J. (2011). Cellular decision making and biological noise: from microbes to mammals. Cell, 144(6), 910–925. <a href="https://doi.org/10.1016/j.cell.2011.01.030"><u>https://doi.org/10.1016/j.cell.2011.01.030</u></a></p>
+    <p>Bland, J. M., &amp; Altman, D. G. (1986). Statistical methods for assessing agreement between two methods of clinical measurement. The Lancet, 327(8476), 307–310. <a href="https://doi.org/10.1016/S0140-6736(86)90837-8"><u>https://doi.org/10.1016/S0140-6736(86)90837-8</u></a></p>
+    <p>Britten, K. H., Shadlen, M. N., Newsome, W. T., &amp; Movshon, J. A. (1992). The analysis of visual motion: a comparison of neuronal and psychophysical performance. Journal of Neuroscience, 12(12), 4745–4765. <a href="https://doi.org/10.1523/JNEUROSCI.12-12-04745.1992"><u>https://doi.org/10.1523/JNEUROSCI.12-12-04745.1992</u></a></p>
+    <p>Busemeyer, J. R., &amp; Bruza, P. D. (2012). Quantum Models of Cognition and Decision. Cambridge University Press. <a href="https://doi.org/10.1017/CBO9780511997716"><u>https://doi.org/10.1017/CBO9780511997716</u></a></p>
+    <p>Cisek, P., Puskas, G. A., &amp; El-Murr, S. (2009). Decisions in changing conditions: the urgency-gating model. Journal of Neuroscience, 29(37), 11560–11571. <a href="https://doi.org/10.1523/JNEUROSCI.1844-09.2009"><u>https://doi.org/10.1523/JNEUROSCI.1844-09.2009</u></a></p>
+    <p>Cogitate Consortium (2025). Adversarial testing of global neuronal workspace and integrated information theories of consciousness. Nature, 642, 133–142. <a href="https://doi.org/10.1038/s41586-025-08888-1"><u>https://doi.org/10.1038/s41586-025-08888-1</u></a></p>
+    <p>Evans, N. J., &amp; Wagenmakers, E.-J. (2020). Evidence accumulation models: current limitations and future directions. The Quantitative Methods for Psychology, 16(2), 73–90. <a href="https://doi.org/10.20982/tqmp.16.2.p073"><u>https://doi.org/10.20982/tqmp.16.2.p073</u></a></p>
+    <p>Forstmann, B. U., Ratcliff, R., &amp; Wagenmakers, E.-J. (2016). Sequential sampling models in cognitive neuroscience: advantages, applications, and extensions. Annual Review of Psychology, 67, 641–666. <a href="https://doi.org/10.1146/annurev-psych-122414-033645"><u>https://doi.org/10.1146/annurev-psych-122414-033645</u></a></p>
+    <p>Fudenberg, D., Newey, W., Strack, P., &amp; Strzalecki, T. (2020). Testing the drift-diffusion model. Proceedings of the National Academy of Sciences, 117(52), 33141–33148. <a href="https://doi.org/10.1073/pnas.2011446117"><u>https://doi.org/10.1073/pnas.2011446117</u></a></p>
+    <p>Gillespie, D. T. (1977). Exact stochastic simulation of coupled chemical reactions. The Journal of Physical Chemistry, 81(25), 2340–2361. <a href="https://doi.org/10.1021/j100540a008"><u>https://doi.org/10.1021/j100540a008</u></a></p>
+    <p>Hänggi, P., Talkner, P., &amp; Borkovec, M. (1990). Reaction-rate theory: fifty years after Kramers. Reviews of Modern Physics, 62(2), 251–341. <a href="https://doi.org/10.1103/RevModPhys.62.251"><u>https://doi.org/10.1103/RevModPhys.62.251</u></a></p>
+    <p>Hawkins, G. E., Forstmann, B. U., Wagenmakers, E.-J., Ratcliff, R., &amp; Brown, S. D. (2015). Revisiting the evidence for collapsing boundaries and urgency signals in perceptual decision-making. Journal of Neuroscience, 35(6), 2476–2484. <a href="https://doi.org/10.1523/JNEUROSCI.2410-14.2015"><u>https://doi.org/10.1523/JNEUROSCI.2410-14.2015</u></a></p>
+    <p>HDDM documentation. (n.d.). HDDM: hierarchical Bayesian estimation of the drift-diffusion model in Python (online documentation). <a href="https://hddm.readthedocs.io/"><u>https://hddm.readthedocs.io/</u></a></p>
+    <p>Jones, J. C. (2026a). Records Across Nature, Life, and Mind. HoldingLight LLC. <a href="https://doi.org/10.17605/OSF.IO/7H6DY"><u>https://doi.org/10.17605/OSF.IO/7H6DY</u></a></p>
+    <p>Jones, J. C. (2026b). The Structuralization of Empiricism. HoldingLight LLC. <a href="https://doi.org/10.17605/OSF.IO/J4GZ9"><u>https://doi.org/10.17605/OSF.IO/J4GZ9</u></a></p>
+    <p>Jones, J. C. (2026c). Update Integrity Standard (UIS v1.0). HoldingLight LLC. <a href="https://doi.org/10.17605/OSF.IO/DWM29"><u>https://doi.org/10.17605/OSF.IO/DWM29</u></a></p>
+    <p>Jones, J. C. (2026d). Neutrality Delays Resolution: An Expected Resolution-Time Bound (UCT Technical Note v1.0). HoldingLight LLC. <a href="https://doi.org/10.17605/OSF.IO/6WRQV"><u>https://doi.org/10.17605/OSF.IO/6WRQV</u></a></p>
+    <p>Jones, J. C. (2026e). Auditing Independence in Multi-Channel Measurement (UCT Methods Paper v1.0). HoldingLight LLC. <a href="https://doi.org/10.17605/OSF.IO/7U8SK"><u>https://doi.org/10.17605/OSF.IO/7U8SK</u></a></p>
+    <p>Jones, J. C. (2026f). Objectivity from Records: An Exponential Consensus Bound (UCT Technical Note v1.0). HoldingLight LLC. <a href="https://doi.org/10.17605/OSF.IO/6M7N3"><u>https://doi.org/10.17605/OSF.IO/6M7N3</u></a></p>
+    <p>Karatzas, I., &amp; Shreve, S. E. (1991). Brownian Motion and Stochastic Calculus (2nd ed.). Springer. <a href="https://doi.org/10.1007/978-1-4612-0949-2"><u>https://doi.org/10.1007/978-1-4612-0949-2</u></a></p>
+    <p>Kemeny, J. G., &amp; Snell, J. L. (1976). Finite Markov Chains. Springer.</p>
+    <p>Krajbich, I., Armel, C., &amp; Rangel, A. (2010). Visual fixations and the computation and comparison of value in simple choice. Nature Neuroscience, 13(10), 1292–1298. <a href="https://doi.org/10.1038/nn.2635"><u>https://doi.org/10.1038/nn.2635</u></a></p>
+    <p>Kramers, H. A. (1940). Brownian motion in a field of force and the diffusion model of chemical reactions. Physica, 7(4), 284–304. <a href="https://doi.org/10.1016/S0031-8914(40)90098-2"><u>https://doi.org/10.1016/S0031-8914(40)90098-2</u></a></p>
+    <p>Melloni, L., Mudrik, L., Pitts, M., Bendtz, K., Ferrante, O., Gorska, U., et al. (2023). An adversarial collaboration protocol for testing contrasting predictions of global neuronal workspace and integrated information theory. PLOS ONE, 18(2), e0268577. <a href="https://doi.org/10.1371/journal.pone.0268577"><u>https://doi.org/10.1371/journal.pone.0268577</u></a></p>
+    <p>Palmer, J., Huk, A. C., &amp; Shadlen, M. N. (2005). The effect of stimulus strength on the speed and accuracy of a perceptual decision. Journal of Vision, 5(5), 376–404. <a href="https://doi.org/10.1167/5.5.1"><u>https://doi.org/10.1167/5.5.1</u></a></p>
+    <p>Pothos, E. M., &amp; Busemeyer, J. R. (2009). A quantum probability explanation for violations of “rational” decision theory. Proceedings of the Royal Society B, 276(1665), 2171–2178. <a href="https://doi.org/10.1098/rspb.2009.0121"><u>https://doi.org/10.1098/rspb.2009.0121</u></a></p>
+    <p>Ratcliff, R. (1978). A theory of memory retrieval. Psychological Review, 85(2), 59–108. <a href="https://doi.org/10.1037/0033-295X.85.2.59"><u>https://doi.org/10.1037/0033-295X.85.2.59</u></a></p>
+    <p>Ratcliff, R., &amp; McKoon, G. (2008). The diffusion decision model: theory and data for two-choice decision tasks. Neural Computation, 20(4), 873–922. <a href="https://doi.org/10.1162/neco.2008.12-06-420"><u>https://doi.org/10.1162/neco.2008.12-06-420</u></a></p>
+    <p>Ratcliff, R., Smith, P. L., Brown, S. D., &amp; McKoon, G. (2016). Diffusion decision model: current issues and history. Trends in Cognitive Sciences, 20(4), 260–281. <a href="https://doi.org/10.1016/j.tics.2016.01.007"><u>https://doi.org/10.1016/j.tics.2016.01.007</u></a></p>
+    <p>Ratcliff, R., &amp; Tuerlinckx, F. (2002). Estimating parameters of the diffusion model: approaches to dealing with contaminant reaction times and parameter variability. Psychonomic Bulletin &amp; Review, 9(3), 438–481. <a href="https://doi.org/10.3758/BF03196302"><u>https://doi.org/10.3758/BF03196302</u></a></p>
+    <p>Roitman, J. D., &amp; Shadlen, M. N. (2002). Response of neurons in the lateral intraparietal area during a combined visual discrimination reaction time task. Journal of Neuroscience, 22(21), 9475–9489. <a href="https://doi.org/10.1523/JNEUROSCI.22-21-09475.2002"><u>https://doi.org/10.1523/JNEUROSCI.22-21-09475.2002</u></a></p>
+    <p>Süel, G. M., Kulkarni, R. P., Dworkin, J., Garcia-Ojalvo, J., &amp; Elowitz, M. B. (2007). Tunability and noise dependence in differentiation dynamics. Science, 315(5819), 1716–1719. <a href="https://doi.org/10.1126/science.1137455"><u>https://doi.org/10.1126/science.1137455</u></a></p>
+    <p>Vandekerckhove, J., Tuerlinckx, F., &amp; Lee, M. D. (2011). Hierarchical diffusion models for two-choice response times. Psychological Methods, 16(1), 44–62. <a href="https://doi.org/10.1037/a0021765"><u>https://doi.org/10.1037/a0021765</u></a></p>
+    <p>Voss, A., &amp; Voss, J. (2007). Fast-dm: A free program for efficient diffusion model analysis. Behavior Research Methods, 39(4), 767–775. <a href="https://doi.org/10.3758/BF03192967"><u>https://doi.org/10.3758/BF03192967</u></a></p>
+    <p>Wagenmakers, E.-J., van der Maas, H. L. J., &amp; Grasman, R. P. P. P. (2007). An EZ-diffusion model for response time and accuracy. Psychonomic Bulletin &amp; Review, 14(1), 3–22. <a href="https://doi.org/10.3758/BF03194023"><u>https://doi.org/10.3758/BF03194023</u></a></p>
+    <p>Wiecki, T. V., Sofer, I., &amp; Frank, M. J. (2013). HDDM: hierarchical Bayesian estimation of the drift-diffusion model in Python. Frontiers in Neuroinformatics, 7, 14. <a href="https://doi.org/10.3389/fninf.2013.00014"><u>https://doi.org/10.3389/fninf.2013.00014</u></a></p>
+    <p>This paper is part of the Universal Collapse Theory library. For a reading guide and full architecture, visit <a href="https://universalcollapse.com/roadmap"><u>universalcollapse.com/roadmap</u></a>.</p>
+    <p><strong>AI Disclosure</strong></p>
+    <p>AI tools were used to assist with manuscript preparation. The underlying theory, arguments, and interpretive claims are the author’s own, and the author takes full responsibility for the content.</p>
+    <p><strong>Citation</strong></p>
+    <p>Jones, J. C. (2026). Auditing Constraint Asymmetry in Latency-Based Resolution Tests: A Latency-Curve Diagnostic for Neutrality versus Confound-Induced Delay (UCT Methods Paper v1.0). HoldingLight LLC.</p>
+
+    <a href="#top" class="backtotop">&uarr; Back to top</a>
+  </article>
+
+</div>
+
+<script>
+(function () {
+  var bar = document.getElementById('progress');
+  function onScroll() {
+    var h = document.documentElement;
+    var pct = h.scrollTop / (h.scrollHeight - h.clientHeight);
+    bar.style.width = (pct * 100).toFixed(1) + '%';
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav.toc a'));
+  var targets = links.map(function (a) {
+    return document.getElementById(decodeURIComponent(a.getAttribute('href')).slice(1));
+  });
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      var i = targets.indexOf(e.target);
+      if (i < 0) return;
+      links.forEach(function (l) { l.classList.remove('active'); });
+      links[i].classList.add('active');
+    });
+  }, { rootMargin: '-10% 0px -80% 0px' });
+  targets.forEach(function (t) { if (t) obs.observe(t); });
+
+  var btn = document.getElementById('toc-toggle');
+  var nav = document.getElementById('toc');
+  btn.addEventListener('click', function () {
+    var c = nav.getAttribute('data-collapsed') === 'true';
+    nav.setAttribute('data-collapsed', String(!c));
+    btn.setAttribute('aria-expanded', String(c));
+    btn.textContent = c ? 'Hide contents' : 'Show contents';
+  });
+
+  document.querySelectorAll('article section[id] > h1, article section[id] > h2').forEach(function (h) {
+    var a = document.createElement('a');
+    a.className = 'anchor';
+    a.href = '#' + h.parentNode.id;
+    a.textContent = '#';
+    a.setAttribute('aria-label', 'Link to this section');
+    h.appendChild(a);
+  });
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Against Chaos-First — Universal Collapse Theory</title>
+  <meta name="description" content="Chaos is structured unpredictability, not disorder — a reason to change what you predict and report the horizon, not to declare structure absent.">
+
+  <!-- Full-text reading copy. The citable record is the landing page;
+       canonical points there so Scholar and search consolidate on one URL. -->
+  <link rel="canonical" href="https://universalcollapse.com/read/pr02_chaos">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Against Chaos-First — Universal Collapse Theory">
+  <meta property="og:description" content="Chaos is structured unpredictability, not disorder — a reason to change what you predict and report the horizon, not to declare structure absent.">
+  <meta property="og:url" content="https://universalcollapse.com/read/pr02_chaos">
+  <meta property="og:site_name" content="Universal Collapse Theory">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@300;400&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg-deep: #08090c;
+      --bg-surface: #0e1017;
+      --bg-elevated: #161820;
+      --text-primary: #e8e6e1;
+      --text-secondary: #9b978f;
+      --text-tertiary: #5e5b54;
+      --accent: #c9a96e;
+      --accent-dim: #8a7245;
+      --rule: rgba(201, 169, 110, 0.12);
+      --serif: 'EB Garamond', Georgia, serif;
+      --sans: 'Outfit', system-ui, sans-serif;
+      --mono: 'JetBrains Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg-deep);
+      color: var(--text-primary);
+      font-family: var(--sans);
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    #progress {
+      position: fixed; top: 0; left: 0; height: 2px; width: 0%;
+      background: var(--accent); z-index: 100; transition: width 0.1s linear;
+    }
+
+    .topbar {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(8, 9, 12, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--rule);
+      padding: 0.75rem 1.5rem;
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 0.8rem;
+    }
+    .topbar a { color: var(--text-secondary); text-decoration: none; }
+    .topbar a:hover { color: var(--accent); }
+    .topbar .cite { color: var(--text-tertiary); font-family: var(--mono); font-size: 0.7rem; }
+
+    .shell {
+      max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem 6rem;
+      display: grid; grid-template-columns: minmax(0, 220px) minmax(0, 1fr); gap: 3rem;
+    }
+
+    nav.toc {
+      position: sticky; top: 5rem; align-self: start;
+      max-height: calc(100vh - 8rem); overflow-y: auto;
+      font-size: 0.8rem; line-height: 1.6;
+    }
+    nav.toc > p {
+      color: var(--text-tertiary); text-transform: uppercase;
+      letter-spacing: 0.12em; font-size: 0.65rem; margin-bottom: 0.75rem;
+    }
+    nav.toc ul { list-style: none; }
+    nav.toc ul ul { padding-left: 0.85rem; }
+    nav.toc li { margin: 0.3rem 0; }
+    nav.toc a {
+      color: var(--text-secondary); text-decoration: none;
+      display: block; padding-left: 0.6rem;
+      border-left: 1px solid transparent;
+    }
+    nav.toc a:hover { color: var(--text-primary); }
+    nav.toc a.active { color: var(--accent); border-left-color: var(--accent); }
+
+    article { min-width: 0; }
+
+    .paper-head { border-bottom: 1px solid var(--rule); padding-bottom: 1.75rem; margin-bottom: 2.5rem; }
+    .paper-head .tier {
+      font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.15em;
+      color: var(--accent-dim); text-transform: uppercase;
+    }
+    .paper-head h1 {
+      font-family: var(--serif); font-weight: 500; font-size: 2.1rem;
+      line-height: 1.2; margin: 0.75rem 0 0.5rem; color: var(--text-primary);
+    }
+    .paper-head .sub { font-family: var(--serif); font-style: italic; color: var(--text-secondary); font-size: 1.05rem; }
+    .paper-head .meta { margin-top: 1.1rem; font-size: 0.78rem; color: var(--text-tertiary); }
+    .paper-head .meta a { color: var(--accent-dim); text-decoration: none; }
+
+    article h1, article h2, article h3 {
+      font-family: var(--serif); font-weight: 600; line-height: 1.3;
+      color: var(--text-primary); scroll-margin-top: 5rem;
+    }
+    article h1 { font-size: 1.5rem; margin: 3rem 0 1rem; }
+    article h2 { font-size: 1.2rem; margin: 2rem 0 0.75rem; color: var(--text-secondary); }
+    article h3 { font-size: 1.05rem; margin: 1.5rem 0 0.5rem; color: var(--text-secondary); }
+
+    article h1 .anchor, article h2 .anchor {
+      opacity: 0; margin-left: 0.5rem; color: var(--accent-dim);
+      text-decoration: none; font-size: 0.7em; font-family: var(--sans);
+    }
+    article h1:hover .anchor, article h2:hover .anchor { opacity: 1; }
+
+    article p {
+      font-family: var(--serif); font-size: 1.12rem; font-weight: 400;
+      line-height: 1.75; margin: 0 0 1.15rem; color: var(--text-primary);
+    }
+    article ul, article ol { font-family: var(--serif); font-size: 1.12rem; margin: 0 0 1.15rem 1.5rem; }
+    article li { margin-bottom: 0.4rem; }
+    article strong { font-weight: 600; color: var(--text-primary); }
+    article em { font-style: italic; }
+    article a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--rule); }
+    article blockquote {
+      border-left: 2px solid var(--accent-dim); padding-left: 1.25rem;
+      margin: 1.5rem 0; color: var(--text-secondary); font-style: italic;
+      border-radius: 0;
+    }
+
+    math { font-size: 1.05em; color: var(--text-primary); }
+
+    .backtotop {
+      display: inline-block; margin-top: 3rem; padding-top: 1.5rem;
+      border-top: 1px solid var(--rule); width: 100%;
+      font-size: 0.8rem; color: var(--text-tertiary); text-decoration: none;
+    }
+    .backtotop:hover { color: var(--accent); }
+
+    #toc-toggle { display: none; }
+
+    @media (max-width: 820px) {
+      .shell { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; padding: 1.25rem 1.1rem 4rem; }
+      nav.toc {
+        position: static; max-height: none; order: -1;
+        border: 1px solid var(--rule); border-radius: 6px; padding: 0.9rem 1rem;
+      }
+      nav.toc[data-collapsed="true"] ul { display: none; }
+      #toc-toggle { display: block; background: none; border: none; color: var(--text-secondary);
+        font-family: var(--sans); font-size: 0.75rem; cursor: pointer; padding: 0; }
+      .paper-head h1 { font-size: 1.6rem; }
+      article p, article ul, article ol { font-size: 1.08rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<div class="topbar">
+  <a href="https://universalcollapse.com/pr02_chaos">&larr; Against Chaos-First</a>
+  <span class="cite">10.17605/OSF.IO/A6EJN</span>
+</div>
+
+<div class="shell">
+
+  <nav class="toc" id="toc" data-collapsed="false">
+    <p>Contents</p>
+    <button id="toc-toggle" aria-expanded="true">Hide contents</button>
+    
+  </nav>
+
+  <article>
+    <header class="paper-head">
+      <span class="tier">Tier 30 &amp;mdash; Primes</span>
+      <h1>Against Chaos-First</h1>
+      <p class="sub">Chaos as Structured Unpredictability (Not Disorder)</p>
+      <p class="meta">
+        Jeremy C. Jones &middot; HoldingLight LLC &middot; 2026/06 &middot; CC BY 4.0<br>
+        Cite as <a href="https://doi.org/10.17605/OSF.IO/A6EJN">10.17605/OSF.IO/A6EJN</a>
+        
+      </p>
+    </header>
+
+    <p><strong>Against Chaos-First</strong></p>
+    <p><em>Chaos as Structured Unpredictability (Not Disorder)</em></p>
+    <p>T30 · Prime 2 · Structural Clarifier</p>
+    <p>Jeremy C. Jones (ORCID 0009-0007-2515-3774)</p>
+    <p>HoldingLight LLC · universalcollapse.com</p>
+    <p>Version: v1.0 (2026-06) | License: CC BY 4.0</p>
+    <p>DOI: https://doi.org/10.17605/OSF.IO/A6EJN</p>
+    <p>© 2026 Jeremy C. Jones — HoldingLight LLC</p>
+    <p><strong>Purpose (lens reset).</strong> Prevent a recurring interpretive failure: treating “chaos” as a synonym for randomness, disorder, or lawlessness, and therefore as an end-of-inquiry verdict. This Prime separates pointwise unpredictability from ensemble-level structure, clarifies what chaos does and does not imply, and supplies a concise, kernel-compatible vocabulary for reasoning about chaotic systems without turning them into metaphysical excuses. It does not dispute the reality of sensitive dependence; it disputes the inference from sensitivity to disorder.</p>
+    <p><strong>Abstract</strong></p>
+    <p>Deterministic chaos limits long-horizon point prediction, but it does not erase structure. Chaotic systems often preserve invariant geometry, constrained phase-space structure, or stable statistics even while nearby trajectories diverge exponentially. A “chaos-first” posture mistakes sensitivity for disorder: it treats unpredictability of individual paths as proof that nothing reliable can be said. This Prime corrects that category error. In UCT kernel terms (Ω, K, Cᴷₜ, xₜ*, Rₜ, Sₜ, T, U), chaos is best understood as structured unpredictability: evolution under a fixed constraint regime can generate richly patterned records even when fine-grained forecasting fails beyond a finite precision horizon. The practical consequence is a discipline shift: when chaos is present, move from pointwise questions (“where exactly will it be?”) to distributional and invariant questions (“what set does it live on, and with what stable frequencies?”), and report predictability limits explicitly.</p>
+    <p><strong>1. The Recurring Confusion This Prime Corrects</strong></p>
+    <p>Chaos-first is not the mathematical study of chaos. It is the interpretive move that treats chaos as a primitive explanation: “it is chaotic, therefore it is basically random, therefore no structural statement is possible.” The downstream effects are predictable:</p>
+    <ul>
+    <li><p><strong>Category error:</strong> equating trajectory-level unpredictability with absence of invariant structure.</p></li>
+    <li><p><strong>Premature resignation:</strong> abandoning model search (coordinates, invariants, ensembles) because point prediction fails.</p></li>
+    <li><p><strong>Misreading coherence-first claims:</strong> treating chaos as a refutation of coherence, rather than one of the regimes in which coherence shows up statistically.</p></li>
+    <li><p><strong>Overclaiming:</strong> using “chaos” as a rhetorical substitute for measurement limits (“we did not measure K well enough”) or for unmodeled forcing.</p></li>
+    </ul>
+    <p>Prime 2 resets the lens: chaos is a reason to change what you predict, not a reason to declare structure absent.</p>
+    <table style="width:100%;">
+    <colgroup>
+    <col style="width: 99%" />
+    </colgroup>
+    <tbody>
+    <tr>
+    <td><p><strong>What this Prime does not claim</strong></p>
+    <p>This Prime does not claim that chaotic systems are simple, tame, or predictable in detail, that sensitivity is merely apparent, or that chaos and randomness are the same thing. Nor does it claim that chaotic systems are always controllable. It claims something narrower: deterministic chaos limits pointwise forecasting beyond a finite precision horizon while preserving invariant or statistical structure — attractors, invariant measures, conserved or constrained quantities, recurrent sets, or long-run statistical regularities — so the disciplined move is to predict the right target and report the horizon, not to declare structure absent.</p></td>
+    </tr>
+    </tbody>
+    </table>
+    <p><strong>2. Chaos in Kernel Terms</strong></p>
+    <p>UCT’s kernel provides a clean grammar for talking about chaos without metaphysics. Given a structured possibility space Ω and active constraint set K, the constraint-conditioned collapse operator selects a realized outcome and writes its records:</p>
+    <p>Cᴷₜ : Ω → (xₜ*, Rₜ, Sₜ, Ωₜ₊₁)</p>
+    <p>The resolution xₜ* writes records Rₜ, leaves residue Sₜ, advances record-time T, and yields an updated possibility space Ωₜ₊₁; the update map gives Kₜ₊₁ = U(Kₜ, xₜ*, Rₜ, Sₜ). Here collapse names the operation (Cᴷₜ) and resolution names its achieved result (xₜ*); the two roles are reserved and never interchanged. Record-time T is not a separate output of the operator but the cumulative record depth: the count or depth of accumulated record layers, not a numerical sum of their contents.</p>
+    <p>Operationally, a system is “chaotic” (in the sense relevant to this Prime) when, under a specified constraint regime K, it exhibits:</p>
+    <ul>
+    <li><p><strong>Deterministic evolution:</strong> given a full microstate, the evolution is fixed by K.</p></li>
+    <li><p><strong>Sensitive dependence:</strong> small state uncertainty grows rapidly, often exponentially.</p></li>
+    <li><p><strong>Persistent invariant or statistical structure:</strong> trajectories remain organized by some stable object — an attractor, invariant measure, recurrent set, constrained energy surface, mixed phase space, conserved quantity, or stable long-run statistic. The exact object varies by regime; the common point is that pointwise sensitivity does not imply absence of structure.</p></li>
+    </ul>
+    <p>In kernel language: Cᴷₜ can generate outcomes xₜ* whose fine-grained details depend strongly on unresolved micro-differences (so point forecasts fail), while the record layer Rₜ still exhibits stable, compressible structure (attractor geometry; stationary distributions; conserved or constrained quantities).</p>
+    <table style="width:100%;">
+    <colgroup>
+    <col style="width: 99%" />
+    </colgroup>
+    <tbody>
+    <tr>
+    <td><p><strong>Scope note: dissipative and Hamiltonian chaos</strong></p>
+    <p>The relevant invariant object depends on the regime. In dissipative systems, chaotic structure often appears as a strange attractor with an invariant measure. In Hamiltonian or volume-preserving systems, the relevant structure may instead be an energy surface, invariant volume, mixed phase space, KAM remnants, or long-run transport statistics. Prime 2 does not require all chaotic systems to share the same invariant object; it claims only that sensitivity does not erase invariant or statistical structure.</p></td>
+    </tr>
+    </tbody>
+    </table>
+    <p><strong>3. Precision Horizon vs. Ensemble Predictability</strong></p>
+    <p>The key distinction is between (a) predicting a specific trajectory and (b) predicting the distribution of outcomes. In chaotic systems, (a) can fail quickly while (b) remains stable. For a positive largest Lyapunov exponent λ<sub>max</sub>, and for an initial uncertainty ε growing approximately exponentially until it reaches usable tolerance Δ (with ε &lt; Δ), a back-of-the-envelope point-prediction horizon is:</p>
+    <p>τ<sub>pred</sub> ∼ (1 / λ<sub>max</sub>) × ln(Δ / ε)</p>
+    <p>where ε is effective uncertainty in the initial state (measurement + modeling), Δ is a typical scale of the attractor (or acceptable tolerance), and λ<sub>max</sub> is the largest Lyapunov exponent (a growth rate for small perturbations). The important point is not the exact formula; it is the structural message: pointwise skill is finite and explicitly precision-relative. Beyond τ<sub>pred</sub>, the correct move is not to say “nothing is predictable.” It is to shift targets:</p>
+    <ul>
+    <li><p><strong>Short-horizon:</strong> point forecasts (trajectory-level) can be meaningful.</p></li>
+    <li><p><strong>Medium / long-horizon:</strong> ensemble forecasts (distributional) can be meaningful.</p></li>
+    <li><p><strong>Very long-horizon:</strong> invariant statistics (means, variances, extremes under a fixed regime) can be meaningful.</p></li>
+    </ul>
+    <p>This is the weather-versus-climate distinction stated structurally: under a stated forcing regime, weather is trajectory-level; climate is measure-level.</p>
+    <p><strong>Chaos Reporting Standard (CRS)</strong></p>
+    <p>Minimum disclosure when you (a) label a system “chaotic” or (b) report forecasts in a chaotic regime:</p>
+    <ul>
+    <li><p><strong>System and regime (K).</strong> State the system, state variables, and the constraint regime assumed fixed; note any drift in K (regime shifts).</p></li>
+    <li><p><strong>K-drift note.</strong> If K is drifting, report that separately; do not attribute K-drift unpredictability to chaos.</p></li>
+    <li><p><strong>Predictand.</strong> Say exactly what you are predicting: a single trajectory, an ensemble distribution, or an invariant statistic. Do not mix levels without warning.</p></li>
+    <li><p><strong>Instability metric.</strong> Report an estimate of dominant sensitivity (e.g., λ<sub>max</sub> or a proxy) and the estimation method / uncertainty.</p></li>
+    <li><p><strong>Precision horizon (τ<sub>pred</sub>).</strong> Report the usable point-forecast horizon implied by effective initial / state uncertainty ε, tolerance or attractor scale Δ, and estimated λ<sub>max</sub>.</p></li>
+    <li><p><strong>Ensemble protocol (if used).</strong> State how the ensemble is generated (perturbation model, size) and how skill is evaluated (calibration plus a proper scoring rule).</p></li>
+    <li><p><strong>Data adequacy.</strong> Report whether the series is long enough, finely enough sampled, and accurately enough measured to support the claimed instability metric or invariant statistic — Lyapunov, embedding, and invariant-measure estimates are fragile on short or noisy data.</p></li>
+    <li><p><strong>Invariants and stable structure.</strong> Report what remains stable beyond τ<sub>pred</sub> (attractors, invariant measures, conserved quantities, long-run averages, extreme-rate estimates) and give confidence bands.</p></li>
+    <li><p><strong>Chaos vs. noise hygiene.</strong> Declare whether your model includes explicit stochastic forcing. If claiming deterministic chaos, provide evidence distinguishing chaos from noise — sensitivity plus invariant, recurrent, or constrained phase-space structure — or label the uncertainty source as stochastic / unknown.</p></li>
+    </ul>
+    <p><em>CRS keeps “chaos” from becoming a rhetorical escape hatch: it forces clarity about what is predictable, for how long, and in what form.</em></p>
+    <p><strong>4. What Counts as “Structure” in Chaos</strong></p>
+    <p>Chaos is not patternlessness. The mature content of chaos theory is not a declaration of disorder, but a catalog of invariant, statistical, geometric, and scaling structures that survive sensitivity. Common examples:</p>
+    <ul>
+    <li><p><strong>Attractors:</strong> the long-run set of states actually visited (often fractal).</p></li>
+    <li><p><strong>Invariant measures:</strong> stable long-run frequencies over regions of the attractor (ergodic averages).</p></li>
+    <li><p><strong>Lyapunov spectrum:</strong> quantitative instability (how fast uncertainty grows; which directions expand / contract).</p></li>
+    <li><p><strong>Scaling laws / universality:</strong> repeated quantitative patterns across systems (e.g., period-doubling routes).</p></li>
+    <li><p><strong>Conserved constraints:</strong> even when angles or phases “look random,” energy, momentum, or other invariants may strongly structure the motion.</p></li>
+    </ul>
+    <p>A chaos-first reader sees the loss of a single trajectory and concludes “disorder.” A structure-first reader asks: what invariant portrait does the trajectory paint as it wanders?</p>
+    <p><strong>5. Chaos vs. Noise: A Common Misread</strong></p>
+    <p>Chaotic signals can look noisy; noisy signals can masquerade as chaos. But the concepts differ:</p>
+    <ul>
+    <li><p><strong>Deterministic chaos:</strong> law-governed evolution under K, with sensitivity and stable invariant structure.</p></li>
+    <li><p><strong>Stochastic noise:</strong> explicit randomness in the model (or unresolved forcing treated as random) that injects variability not recoverable by refining initial state alone.</p></li>
+    </ul>
+    <p>Prime-appropriate takeaway: do not use “chaos” as a synonym for “messy.” If you care, treat “chaotic” as a claim you earn by showing sensitivity plus invariant, recurrent, or constrained phase-space structure (e.g., via recurrence patterns, estimated λ<sub>max</sub>, or stable stationary statistics), not as a vibe.</p>
+    <p><strong>6. Control Levers: “Sensitive” Does Not Mean “Uncontrollable”</strong></p>
+    <p>A second chaos-first error is fatalism: “if small differences explode, we cannot steer outcomes.” In many chaotic systems, the opposite is true: there are structured levers.</p>
+    <ul>
+    <li><p>Chaotic attractors often contain many unstable periodic orbits (a structured “skeleton”).</p></li>
+    <li><p>Small, well-timed perturbations can stabilize a desired orbit or steer the system between regions of the attractor (the controlling-chaos idea).</p></li>
+    <li><p>This is not magic. It is a consequence of constraint geometry: sensitivity creates amplification, and amplification can be used deliberately.</p></li>
+    </ul>
+    <p>Prime-appropriate moral: chaos is a regime where tiny interventions can matter a lot — but in systematic, constraint-shaped ways. Control claims depend on access to the relevant state variables and on perturbations small relative to the regime; not every chaotic system is practically controllable.</p>
+    <p><strong>7. How to Use This Prime in the Stack</strong></p>
+    <p>Prime 2 does not add new law-level claims. It prevents a misread. Cite it when you want to block a specific interpretive move: treating chaotic dynamics as evidence against coherence or as a license for explanatory nihilism.</p>
+    <p>The division of labor across the library: WPs state domain claims and tests; Structural-X companions (e.g., Structural Physics) provide domain method — how to analyze dynamics under the law; and Primes provide conceptual hygiene — how not to misread the law or the method. Technical recipes (embedding, Lyapunov estimation, surrogate tests) belong in Structural Physics or in a WP appendix, not in the body of a Prime.</p>
+    <p><strong>8. One-Line Carryforward</strong></p>
+    <p><strong>Chaos limits long-horizon point prediction, not structure: predict invariant sets and distributions, and report your precision horizon.</strong></p>
+    <p><strong>On the Prime Series</strong></p>
+    <p>This is one of five Prime papers. Each clears a single term that minds and frameworks routinely compress in the same way — flattening a structured thing into a primitive and then treating the primitive as bedrock. The five catches are: coherence read as something added rather than constraint made visible (Prime 0); randomness read as irreducible chance rather than a provisional label for unmodeled structure (Prime 1); chaos read as disorder rather than structured unpredictability (Prime 2); intelligence read as essence or mystical agency rather than adaptive constraint-navigation (Prime 3); and nothingness read as an explanatory ground rather than a structured state mislabeled as absence (Prime 4).</p>
+    <p>Each Prime is free-standing. It asks no commitment to Universal Collapse Theory, because the cleared term is one the reader already holds and can judge on its own ground. Together, the five form the program’s hygiene layer: guardrails against compression, keeping concepts from being mistakenly elevated into primitives — whether by an outside reader meeting the term cold or by a builder working inside UCT. The guardrail serves on both sides of that line: it helps any reasoner about to flatten a term, and it keeps the corpus from drifting on its own vocabulary.</p>
+    <p>These clarifications are held in the same mode they ask of the reader: provisional, methodological, and open to revision — never final claims about what the cleared term ultimately is.</p>
+    <p><strong>Appendix A. Micro Examples: Structured Unpredictability</strong></p>
+    <p>These are intentionally small. Their only job is to make the distinction concrete: trajectory-level unpredictability can coexist with stable invariant structure.</p>
+    <p><strong>A1. Weather vs. climate (Lorenz-style lesson)</strong></p>
+    <ul>
+    <li><p><strong>Pointwise:</strong> small initial uncertainty ε grows roughly like exp(λ<sub>max</sub> × t), so beyond τ<sub>pred</sub> forecasts decorrelate.</p></li>
+    <li><p><strong>Ensemble:</strong> under a fixed or stated forcing regime, the long-run distribution over states stabilizes (an invariant measure). Climate statements live here (frequencies, extremes, trends); if the forcing regime changes, the measure itself may shift.</p></li>
+    </ul>
+    <p><strong>A2. Double pendulum (deterministic unpredictability)</strong></p>
+    <ul>
+    <li><p>Trajectories diverge rapidly from tiny differences; long-horizon angle prediction is futile at ordinary measurement precision.</p></li>
+    <li><p>Yet motion is strongly structured by constraints: in an ideal undamped model energy is conserved, configurations are bounded, and coarse statistics (e.g., energy partition, typical angular velocities) can be stable in a fixed regime.</p></li>
+    </ul>
+    <p><strong>A3. Logistic map (simple equation, rich structure)</strong></p>
+    <ul>
+    <li><p>At fully chaotic parameter values, iterates look random, but the map is fully deterministic (other parameter values give periodic windows).</p></li>
+    <li><p>The long-run behavior has sharp structure: an invariant density (for fully chaotic regimes) and universal scaling in the period-doubling route to chaos.</p></li>
+    <li><p>Tiny perturbations can steer behavior (illustrating that sensitivity can be a control lever, not only a prediction barrier).</p></li>
+    </ul>
+    <p><strong>References (Selected)</strong></p>
+    <p>Lorenz, E. N. (1963). Deterministic nonperiodic flow. Journal of the Atmospheric Sciences, 20(2), 130–141.</p>
+    <p>Eckmann, J.-P., &amp; Ruelle, D. (1985). Ergodic theory of chaos and strange attractors. Reviews of Modern Physics, 57(3), 617–656.</p>
+    <p>Ott, E., Grebogi, C., &amp; Yorke, J. A. (1990). Controlling chaos. Physical Review Letters, 64(11), 1196–1199.</p>
+    <p>Takens, F. (1981). Detecting strange attractors in turbulence. In Dynamical Systems and Turbulence (Warwick 1980), Lecture Notes in Mathematics 898, 366–381. Springer.</p>
+    <p>Ott, E. (2002). Chaos in Dynamical Systems (2nd ed.). Cambridge University Press.</p>
+    <p>Kantz, H., &amp; Schreiber, T. (2004). Nonlinear Time Series Analysis (2nd ed.). Cambridge University Press. (Empirical chaos detection, embedding, and Lyapunov estimation.)</p>
+    <p><em>This paper is part of the Universal Collapse Theory library. For a reading guide and full architecture, visit universalcollapse.com/roadmap.</em></p>
+    <p><strong>AI Disclosure.</strong> AI tools were used to assist with manuscript preparation. The underlying theory, arguments, and interpretive claims are the author’s own, and the author takes full responsibility for the manuscript.</p>
+    <p><strong>Citation:</strong> Jones, J. C. (2026). Against Chaos-First: Chaos as Structured Unpredictability (Not Disorder). Prime 2 (Structural Clarifier). HoldingLight LLC. https://doi.org/10.17605/OSF.IO/A6EJN</p>
+    <p><strong>Series:</strong> Universal Collapse Theory — T30: Ground-Clearing (Prime Papers)</p>
+
+    <a href="#top" class="backtotop">&uarr; Back to top</a>
+  </article>
+
+</div>
+
+<script>
+(function () {
+  var bar = document.getElementById('progress');
+  function onScroll() {
+    var h = document.documentElement;
+    var pct = h.scrollTop / (h.scrollHeight - h.clientHeight);
+    bar.style.width = (pct * 100).toFixed(1) + '%';
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav.toc a'));
+  var targets = links.map(function (a) {
+    return document.getElementById(decodeURIComponent(a.getAttribute('href')).slice(1));
+  });
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      var i = targets.indexOf(e.target);
+      if (i < 0) return;
+      links.forEach(function (l) { l.classList.remove('active'); });
+      links[i].classList.add('active');
+    });
+  }, { rootMargin: '-10% 0px -80% 0px' });
+  targets.forEach(function (t) { if (t) obs.observe(t); });
+
+  var btn = document.getElementById('toc-toggle');
+  var nav = document.getElementById('toc');
+  btn.addEventListener('click', function () {
+    var c = nav.getAttribute('data-collapsed') === 'true';
+    nav.setAttribute('data-collapsed', String(!c));
+    btn.setAttribute('aria-expanded', String(c));
+    btn.textContent = c ? 'Hide contents' : 'Show contents';
+  });
+
+  document.querySelectorAll('article section[id] > h1, article section[id] > h2').forEach(function (h) {
+    var a = document.createElement('a');
+    a.className = 'anchor';
+    a.href = '#' + h.parentNode.id;
+    a.textContent = '#';
+    a.setAttribute('aria-label', 'Link to this section');
+    h.appendChild(a);
+  });
+})();
+</script>
+
+</body>
+</html>

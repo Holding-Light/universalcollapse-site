@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Objectivity from Records: An Exponential Consensus Bound — Universal Collapse Theory</title>
+  <meta name="description" content="The S1 bound, proved: when an outcome is redundantly recorded in conditionally independent fragments, observers converge exponentially in the number of fragments read.">
+
+  <!-- Full-text reading copy. The citable record is the landing page;
+       canonical points there so Scholar and search consolidate on one URL. -->
+  <link rel="canonical" href="https://universalcollapse.com/read/tn_s1">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Objectivity from Records: An Exponential Consensus Bound — Universal Collapse Theory">
+  <meta property="og:description" content="The S1 bound, proved: when an outcome is redundantly recorded in conditionally independent fragments, observers converge exponentially in the number of fragments read.">
+  <meta property="og:url" content="https://universalcollapse.com/read/tn_s1">
+  <meta property="og:site_name" content="Universal Collapse Theory">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@300;400&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg-deep: #08090c;
+      --bg-surface: #0e1017;
+      --bg-elevated: #161820;
+      --text-primary: #e8e6e1;
+      --text-secondary: #9b978f;
+      --text-tertiary: #5e5b54;
+      --accent: #c9a96e;
+      --accent-dim: #8a7245;
+      --rule: rgba(201, 169, 110, 0.12);
+      --serif: 'EB Garamond', Georgia, serif;
+      --sans: 'Outfit', system-ui, sans-serif;
+      --mono: 'JetBrains Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg-deep);
+      color: var(--text-primary);
+      font-family: var(--sans);
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    #progress {
+      position: fixed; top: 0; left: 0; height: 2px; width: 0%;
+      background: var(--accent); z-index: 100; transition: width 0.1s linear;
+    }
+
+    .topbar {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(8, 9, 12, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--rule);
+      padding: 0.75rem 1.5rem;
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 0.8rem;
+    }
+    .topbar a { color: var(--text-secondary); text-decoration: none; }
+    .topbar a:hover { color: var(--accent); }
+    .topbar .cite { color: var(--text-tertiary); font-family: var(--mono); font-size: 0.7rem; }
+
+    .shell {
+      max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem 6rem;
+      display: grid; grid-template-columns: minmax(0, 220px) minmax(0, 1fr); gap: 3rem;
+    }
+
+    nav.toc {
+      position: sticky; top: 5rem; align-self: start;
+      max-height: calc(100vh - 8rem); overflow-y: auto;
+      font-size: 0.8rem; line-height: 1.6;
+    }
+    nav.toc > p {
+      color: var(--text-tertiary); text-transform: uppercase;
+      letter-spacing: 0.12em; font-size: 0.65rem; margin-bottom: 0.75rem;
+    }
+    nav.toc ul { list-style: none; }
+    nav.toc ul ul { padding-left: 0.85rem; }
+    nav.toc li { margin: 0.3rem 0; }
+    nav.toc a {
+      color: var(--text-secondary); text-decoration: none;
+      display: block; padding-left: 0.6rem;
+      border-left: 1px solid transparent;
+    }
+    nav.toc a:hover { color: var(--text-primary); }
+    nav.toc a.active { color: var(--accent); border-left-color: var(--accent); }
+
+    article { min-width: 0; }
+
+    .paper-head { border-bottom: 1px solid var(--rule); padding-bottom: 1.75rem; margin-bottom: 2.5rem; }
+    .paper-head .tier {
+      font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.15em;
+      color: var(--accent-dim); text-transform: uppercase;
+    }
+    .paper-head h1 {
+      font-family: var(--serif); font-weight: 500; font-size: 2.1rem;
+      line-height: 1.2; margin: 0.75rem 0 0.5rem; color: var(--text-primary);
+    }
+    .paper-head .sub { font-family: var(--serif); font-style: italic; color: var(--text-secondary); font-size: 1.05rem; }
+    .paper-head .meta { margin-top: 1.1rem; font-size: 0.78rem; color: var(--text-tertiary); }
+    .paper-head .meta a { color: var(--accent-dim); text-decoration: none; }
+
+    article h1, article h2, article h3 {
+      font-family: var(--serif); font-weight: 600; line-height: 1.3;
+      color: var(--text-primary); scroll-margin-top: 5rem;
+    }
+    article h1 { font-size: 1.5rem; margin: 3rem 0 1rem; }
+    article h2 { font-size: 1.2rem; margin: 2rem 0 0.75rem; color: var(--text-secondary); }
+    article h3 { font-size: 1.05rem; margin: 1.5rem 0 0.5rem; color: var(--text-secondary); }
+
+    article h1 .anchor, article h2 .anchor {
+      opacity: 0; margin-left: 0.5rem; color: var(--accent-dim);
+      text-decoration: none; font-size: 0.7em; font-family: var(--sans);
+    }
+    article h1:hover .anchor, article h2:hover .anchor { opacity: 1; }
+
+    article p {
+      font-family: var(--serif); font-size: 1.12rem; font-weight: 400;
+      line-height: 1.75; margin: 0 0 1.15rem; color: var(--text-primary);
+    }
+    article ul, article ol { font-family: var(--serif); font-size: 1.12rem; margin: 0 0 1.15rem 1.5rem; }
+    article li { margin-bottom: 0.4rem; }
+    article strong { font-weight: 600; color: var(--text-primary); }
+    article em { font-style: italic; }
+    article a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--rule); }
+    article blockquote {
+      border-left: 2px solid var(--accent-dim); padding-left: 1.25rem;
+      margin: 1.5rem 0; color: var(--text-secondary); font-style: italic;
+      border-radius: 0;
+    }
+
+    math { font-size: 1.05em; color: var(--text-primary); }
+
+    .backtotop {
+      display: inline-block; margin-top: 3rem; padding-top: 1.5rem;
+      border-top: 1px solid var(--rule); width: 100%;
+      font-size: 0.8rem; color: var(--text-tertiary); text-decoration: none;
+    }
+    .backtotop:hover { color: var(--accent); }
+
+    #toc-toggle { display: none; }
+
+    @media (max-width: 820px) {
+      .shell { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; padding: 1.25rem 1.1rem 4rem; }
+      nav.toc {
+        position: static; max-height: none; order: -1;
+        border: 1px solid var(--rule); border-radius: 6px; padding: 0.9rem 1rem;
+      }
+      nav.toc[data-collapsed="true"] ul { display: none; }
+      #toc-toggle { display: block; background: none; border: none; color: var(--text-secondary);
+        font-family: var(--sans); font-size: 0.75rem; cursor: pointer; padding: 0; }
+      .paper-head h1 { font-size: 1.6rem; }
+      article p, article ul, article ol { font-size: 1.08rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<div class="topbar">
+  <a href="https://universalcollapse.com/tn_s1">&larr; Objectivity from Records</a>
+  <span class="cite">10.17605/OSF.IO/6M7N3</span>
+</div>
+
+<div class="shell">
+
+  <nav class="toc" id="toc" data-collapsed="false">
+    <p>Contents</p>
+    <button id="toc-toggle" aria-expanded="true">Hide contents</button>
+    
+  </nav>
+
+  <article>
+    <header class="paper-head">
+      <span class="tier">Methods &amp; Theoretical Notes</span>
+      <h1>Objectivity from Records: An Exponential Consensus Bound</h1>
+      <p class="sub">A Technical Note on the S1 Signature</p>
+      <p class="meta">
+        Jeremy C. Jones &middot; HoldingLight LLC &middot; 2026/05 &middot; CC BY 4.0<br>
+        Cite as <a href="https://doi.org/10.17605/OSF.IO/6M7N3">10.17605/OSF.IO/6M7N3</a>
+        
+      </p>
+    </header>
+
+    <p><strong>Objectivity from Records: An Exponential Consensus Bound</strong></p>
+    <p><em>A Technical Note on the S₁ Signature</em></p>
+    <p><strong>Jeremy C. Jones</strong></p>
+    <p>HoldingLight LLC — ORCID 0009-0007-2515-3774 — universalcollapse.com</p>
+    <p>Series: Universal Collapse Theory — Technical Note • Version v1.0 • 2026-05 • CC BY 4.0</p>
+    <p><strong>Abstract</strong></p>
+    <p><strong>Principle.</strong> If macroscopic regularities arise from constraint-guided collapse and become objective through redundant records, then independent informative records should force inter-observer agreement at a quantifiable rate. <strong>Result.</strong> We formalize the simplest case as a binary hypothesis test: a realized outcome <em>X</em> is redundantly recorded in conditionally independent fragments <em>Y₁, …, Yₖ</em>. Under positive Chernoff information per fragment, the optimal estimator’s error — and hence pairwise observer disagreement — decays exponentially in <em>k</em>. This yields a cross-domain agreement curve that is testable in any setting with redundant readouts. Heterogeneous, correlated, and non-binary cases are noted as remarks rather than formalized. The result is conditional on the stated independence and discriminability assumptions; it is operational, not philosophical.</p>
+    <p><strong>Review target</strong></p>
+    <blockquote>
+    <p>This technical note does not ask the reader to accept Universal Collapse Theory as a metaphysical system or to accept a complete theory of objectivity. It asks whether one core <em>S₁</em> claim can be formalized: if a realized outcome is redundantly encoded in conditionally independent, discriminable record fragments, then optimal observers using those fragments converge exponentially fast. The note should be accepted only as a conditional bound. It should be revised or rejected if the independence or discriminability assumptions are misstated, if the exponential bound is mathematically incorrect, or if the empirical agreement-curve protocol fails to distinguish genuine independent redundancy from correlated pseudo-redundancy.</p>
+    </blockquote>
+    <p><strong>Stack placement</strong></p>
+    <p>This note is a formal support document for the Records–SoE–UIS layer of the Universal Collapse Theory library. <em>Records Across Nature, Life, and Mind</em> (Jones, 2026a) defines records as the persistence layer and states <em>S₁</em> (“redundancy → consensus”) as a portable empirical signature. <em>The Structuralization of Empiricism</em> (Jones, 2026b) uses <em>S₁</em> to describe how redundant records stabilize objectivity and empirical convergence. The <em>Update Integrity Standard</em> (UIS v1.0; Jones, 2026c) supplies the independence-audit and <em>k</em><sub>eff</sub> reporting discipline. The present note proves the simplest binary case: independent informative records imply an exponential consensus curve. Operational pair: Methods-S₁ (<em>Auditing Independence in Multi-Channel Measurement</em>). Together they constitute the <em>S₁</em> formal–protocol pair — this Technical Note proves the formal bound; the paired Methods Paper translates it into a deployable audit protocol. It is a citable lemma for downstream <em>S₁</em> empirical demonstrations, not a standard.</p>
+    <p><strong>1. Setup and definitions</strong></p>
+    <p><strong>Outcome.</strong> A realized binary variable <em>X ∈ {0, 1}</em> with equal priors. Generalizations to finite |<em>X</em>| &gt; 2 are noted in §3.</p>
+    <p><strong>Fragments.</strong> Each observer reads <em>k</em> records <em>Y₁, …, Yₖ</em> taking values in a measurable space. Conditional on <em>X = x</em>, each <em>Y<sub>i</sub></em> has density <em>p<sub>x</sub></em> with respect to a common dominating measure <em>μ</em>.</p>
+    <p><strong>Assumption A (conditional independence).</strong> <em>Y₁, …, Yₖ</em> are conditionally independent given <em>X</em>.</p>
+    <p><strong>Assumption B (discriminability).</strong> The pair {<em>p₀, p₁</em>} has Chernoff information at least <em>c₀</em> &gt; 0:</p>
+    <p><em>C(p₀, p₁) := sup_{0 ≤ s ≤ 1} [ −log ∫ p₀(y)ˢ p₁(y)¹⁻ˢ dμ(y) ] ≥ c₀ &gt; 0.</em></p>
+    <p>Equivalently, <em>C(p₀, p₁) = −log inf</em> of the integral over <em>s ∈ [0, 1]</em>. At the endpoints <em>s = 0</em> and <em>s = 1</em> the integral equals 1, contributing zero to the negated log; the supremum is therefore achieved on the interior, where the integrand can be strictly less than 1.</p>
+    <p><strong>Estimator.</strong> Each observer applies the Bayes-optimal (MAP) rule on its <em>k</em>-fragment sample.</p>
+    <p><strong>Disagreement.</strong> Two observers read disjoint conditionally independent <em>k</em>-fragment samples and report <em>X̂</em><sup>(1)</sup><em>ₖ</em>, <em>X̂</em><sup>(2)</sup><em>ₖ</em>.</p>
+    <p><strong>2. Theorem 1 (iid binary case)</strong></p>
+    <blockquote>
+    <p><strong>Theorem 1 (Redundancy ⇒ Exponential Consensus).</strong> Let <em>X ∈ {0, 1}</em> with equal priors. Conditional on <em>X = x</em>, let <em>Y₁, …, Yₖ</em> be iid with density <em>p<sub>x</sub></em>. Suppose <em>C(p₀, p₁) ≥ c₀ &gt; 0</em> (Assumption B). Then:</p>
+    <p>(a) The MAP error satisfies <em>P<sub>e</sub>(k) = Pr[ X̂ₖ ≠ X ] ≤ ½ e</em><sup>−kc₀</sup>.</p>
+    <p>(b) For two observers reading disjoint conditionally independent <em>k</em>-fragment samples, pairwise disagreement satisfies</p>
+    </blockquote>
+    <p><em>Pr[ X̂⁽¹⁾ₖ ≠ X̂⁽²⁾ₖ ] ≤ e⁻ᵏᴄ₀.</em></p>
+    <blockquote>
+    <p><strong>(c) Sample complexity.</strong> To drive pairwise disagreement below <em>δ ∈ (0, 1)</em>, it suffices that <em>k ≥ (1 / c₀) log(1 / δ)</em>.</p>
+    </blockquote>
+    <p><strong>Proof.</strong></p>
+    <p>The log-likelihood ratio <em>Λₖ = Σ<sub>i</sub></em> log[<em>p₁(Y<sub>i</sub>) / p₀(Y<sub>i</sub>)</em>] is a sum of <em>k</em> iid random variables under either hypothesis. Chernoff’s bound for binary hypothesis testing with equal priors gives <em>P<sub>e</sub>(k) ≤ ½ exp(−kC)</em>, where <em>C = C(p₀, p₁) ≥ c₀</em> by Assumption B (Chernoff 1952; Cover &amp; Thomas 2006, Ch. 11). The pairwise-disagreement bound follows from a union bound over the two independent MAP decisions:</p>
+    <p><em>Pr[ X̂⁽¹⁾ ≠ X̂⁽²⁾ ] ≤ Pr[ X̂⁽¹⁾ ≠ X ] + Pr[ X̂⁽²⁾ ≠ X ] ≤ 2 P_e(k) ≤ e⁻ᵏᴄ₀. ∎</em></p>
+    <p><strong>3. Remarks and extensions</strong></p>
+    <p><strong>Heterogeneous fragments (Bhattacharyya form).</strong> If fragment <em>i</em> has its own density <em>p<sub>i,x</sub></em>, choosing <em>s = ½</em> gives the looser but additive Bhattacharyya bound</p>
+    <p><em>P_e(k) ≤ ½ exp( −Σᵢ Bᵢ ), where Bᵢ = −log ∫√( pᵢ,₀(y) pᵢ,₁(y) ) dμᵢ(y).</em></p>
+    <p>If each <em>B<sub>i</sub> ≥ b₀ &gt; 0</em>, exponential decay in <em>k</em> is recovered with rate <em>b₀</em>. A tighter heterogeneous bound uses a common <em>s</em> optimized across fragments; we omit the formal statement.</p>
+    <p><strong>Beyond binary outcomes.</strong> For finite |<em>X</em>| &gt; 2, applying the bound to each pair of classes gives exponential decay at the worst pairwise rate. The empirical signature is unchanged in form.</p>
+    <p><strong>Correlated fragments.</strong> Under some weak-dependence regimes (e.g., summable <em>α</em>-mixing), an effective sample size <em>k</em><sub>eff</sub> <em>≤ k</em> can often model the degradation from correlation, and exponential-like decay may persist over the audited range. A rigorous bound requires domain-specific dependence assumptions; in practice, <em>k</em><sub>eff</sub> should be audited per UIS protocols, not assumed. This is the boundary at which “independent redundancy” must be distinguished from “correlated pseudo-redundancy.”</p>
+    <p><strong>Quantum readouts.</strong> When records are obtained as classical readouts from environmental fragments of a quantum system (the Quantum Darwinism setting; Zurek 2009), the present theorem applies to the readouts. A fully quantum version would replace the classical Chernoff information with the quantum Chernoff bound; we do not pursue that here.</p>
+    <p><strong>4. Empirical signature (agreement curve)</strong></p>
+    <p><strong>Prediction.</strong> In any system where a single latent outcome <em>X</em> is redundantly recorded in conditionally independent fragments, pairwise observer disagreement decays approximately as <em>ae</em><sup>−bk</sup>.</p>
+    <p><strong>Protocol.</strong> Vary <em>k</em>. Report the independence audit and <em>k</em><sub>eff</sub> per UIS conventions. Fit Pr[disagree] vs <em>k</em> (or <em>k</em><sub>eff</sub>) to <em>ae</em><sup>−bk</sup>; report the exponent <em>b</em> with confidence intervals.</p>
+    <p><strong>Failure condition.</strong> <em>S₁</em> fails locally if disagreement does not decay with independently audited <em>k</em><sub>eff</sub>, or if the curve saturates earlier than the audited <em>k</em><sub>eff</sub> predicts. The latter is the operational diagnostic for correlated fragments masquerading as independent.</p>
+    <p><strong>Domains.</strong> Multi-detector physics readouts; quantum-Darwinism–style experiments; ensemble sensors with disjoint sample shards; human annotation tasks with non-overlapping evidence shards.</p>
+    <p><img src="media/611180c4f706ab8c27ad1fe7c89be6adf39d2429.png" style="width:5.625in;height:3.54167in" /></p>
+    <blockquote>
+    <p><strong>Figure 1.</strong> Agreement curve from a binary symmetric channel simulation. A latent outcome <em>X ∈ {0, 1}</em> has equal priors. Each fragment <em>Y<sub>i</sub></em> is a noisy bit with crossover probability <em>p</em>, conditionally independent given <em>X</em>. Two observers each read a disjoint set of <em>k</em> fragments and apply MAP (= majority vote for this channel). Points are empirical pairwise disagreement rates over 20,000 trials per <em>k</em>; dashed lines are the theoretical Chernoff bound <em>e<sup>−kC</sup></em> with <em>C</em> = −log[2√(<em>p</em>(1−<em>p</em>))]. The finite-sample bound is loose for small <em>k</em>, while the Chernoff exponent captures the asymptotic decay rate as <em>k</em> grows. Reproduction code in Appendix A.</p>
+    </blockquote>
+    <p><strong>5. Minimal framework hook</strong></p>
+    <p>We model realization as collapse under constraints: a constraint set <em>K</em> selects admissible outcomes from <em>Ω</em> via a map <em>C</em><sup>K</sup>. Records <em>R</em> are durable, informative, non-destructively readable traces that can constrain later updates. Redundancy means many conditionally independent records of the same <em>X</em>. Theorem 1 shows that redundancy forces consensus at a quantifiable exponential rate — an operational bridge from records to objectivity.</p>
+    <p>This is <em>operational</em> objectivity: agreement between optimal observers on a shared latent outcome, given independent redundant records of it. It is not a claim that observers cannot disagree, that records cannot be corrupted, or that all redundancy is genuine. The independence audit — not the bound itself — is what does the work in any real domain.</p>
+    <p><strong>6. Limitations</strong></p>
+    <p>The result is conditional on Assumptions A and B. Independence is the demanding assumption; discriminability is usually the easier one. The bound is operational, not philosophical: it characterizes inter-observer agreement under MAP decisions, not “objectivity” in any broader sense. For quantum systems, the theorem applies to classical readouts; the fully quantum case requires the quantum Chernoff bound. Heterogeneous and correlated extensions are noted but not formalized; rigorous treatment is left to domain-specific work and to the future T16 empirical demonstration that this note supports.</p>
+    <p><strong>Appendix A. Reproduction code</strong></p>
+    <p>The following Python script reproduces Figure 1 (binary symmetric channel; equal priors; for the plotted values <em>p &lt; ½</em>, MAP reduces to majority vote with random tie-break for even <em>k</em>; 20,000 trials per <em>k</em>). Dependencies: NumPy and Matplotlib only.</p>
+    <blockquote>
+    <p>import numpy as np</p>
+    <p>import matplotlib.pyplot as plt</p>
+    <p>def disagreement_rate(k, p, n_trials=20000, seed=0):</p>
+    <p>rng = np.random.default_rng(seed + k * 7919)</p>
+    <p>X = rng.integers(0, 2, size=n_trials)</p>
+    <p>flips1 = (rng.random((n_trials, k)) &lt; p).astype(int)</p>
+    <p>flips2 = (rng.random((n_trials, k)) &lt; p).astype(int)</p>
+    <p>Y1 = X[:, None] ^ flips1</p>
+    <p>Y2 = X[:, None] ^ flips2</p>
+    <p>half = k / 2.0</p>
+    <p>Xhat1 = (Y1.sum(axis=1) &gt; half).astype(int)</p>
+    <p>Xhat2 = (Y2.sum(axis=1) &gt; half).astype(int)</p>
+    <p># random tie-break for even k</p>
+    <p>tie1 = (Y1.sum(axis=1) == half)</p>
+    <p>tie2 = (Y2.sum(axis=1) == half)</p>
+    <p>if tie1.any(): Xhat1[tie1] = rng.integers(0, 2, size=tie1.sum())</p>
+    <p>if tie2.any(): Xhat2[tie2] = rng.integers(0, 2, size=tie2.sum())</p>
+    <p>return (Xhat1 != Xhat2).mean()</p>
+    <p>def C_bsc(p):</p>
+    <p># Chernoff information for the binary symmetric channel:</p>
+    <p># C = -log[ 2 * sqrt(p*(1-p)) ]</p>
+    <p>return -np.log(2 * np.sqrt(p * (1 - p)))</p>
+    <p>ks = list(range(1, 81, 2))</p>
+    <p>for p in [0.45, 0.40, 0.35]:</p>
+    <p>rates = [disagreement_rate(k, p) for k in ks]</p>
+    <p>plt.semilogy(ks, rates, "o", label=f"p={p}")</p>
+    <p>C = C_bsc(p)</p>
+    <p>plt.semilogy(ks, np.exp(-np.array(ks) * C), "--", alpha=0.5)</p>
+    <p>plt.xlabel("k"); plt.ylabel("Pr[disagree]"); plt.legend(); plt.show()</p>
+    </blockquote>
+    <p><strong>References</strong></p>
+    <p>Chernoff, H. (1952). A measure of asymptotic efficiency for tests of a hypothesis based on the sum of observations. <em>The Annals of Mathematical Statistics, 23</em>(4), 493–507. https://doi.org/10.1214/aoms/1177729330</p>
+    <p>Cover, T. M., &amp; Thomas, J. A. (2006). <em>Elements of Information Theory</em> (2nd ed.). Wiley.</p>
+    <p>Jones, J. C. (2026a). <em>Records Across Nature, Life, and Mind</em>. HoldingLight LLC. https://doi.org/10.17605/OSF.IO/7H6DY</p>
+    <p>Jones, J. C. (2026b). <em>The Structuralization of Empiricism</em>. HoldingLight LLC. https://doi.org/10.17605/OSF.IO/J4GZ9</p>
+    <p>Jones, J. C. (2026c). <em>Update Integrity Standard (UIS v1.0)</em>. HoldingLight LLC. https://doi.org/10.17605/OSF.IO/DWM29</p>
+    <p>Zurek, W. H. (2009). Quantum Darwinism. <em>Nature Physics, 5</em>, 181–188. https://doi.org/10.1038/nphys1202</p>
+    <p>This paper is part of the Universal Collapse Theory library. For a reading guide and full architecture, visit <em>universalcollapse.com/roadmap</em>.</p>
+    <p><strong>AI Disclosure</strong></p>
+    <p>AI tools were used to assist with manuscript preparation. The underlying theory, arguments, and interpretive claims are the author’s own, and the author takes full responsibility for the content.</p>
+    <p><strong>Citation</strong></p>
+    <p>Jones, J. C. (2026). <em>Objectivity from Records: An Exponential Consensus Bound</em> (UCT Technical Note v1.0). HoldingLight LLC.</p>
+
+    <a href="#top" class="backtotop">&uarr; Back to top</a>
+  </article>
+
+</div>
+
+<script>
+(function () {
+  var bar = document.getElementById('progress');
+  function onScroll() {
+    var h = document.documentElement;
+    var pct = h.scrollTop / (h.scrollHeight - h.clientHeight);
+    bar.style.width = (pct * 100).toFixed(1) + '%';
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav.toc a'));
+  var targets = links.map(function (a) {
+    return document.getElementById(decodeURIComponent(a.getAttribute('href')).slice(1));
+  });
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      var i = targets.indexOf(e.target);
+      if (i < 0) return;
+      links.forEach(function (l) { l.classList.remove('active'); });
+      links[i].classList.add('active');
+    });
+  }, { rootMargin: '-10% 0px -80% 0px' });
+  targets.forEach(function (t) { if (t) obs.observe(t); });
+
+  var btn = document.getElementById('toc-toggle');
+  var nav = document.getElementById('toc');
+  btn.addEventListener('click', function () {
+    var c = nav.getAttribute('data-collapsed') === 'true';
+    nav.setAttribute('data-collapsed', String(!c));
+    btn.setAttribute('aria-expanded', String(c));
+    btn.textContent = c ? 'Hide contents' : 'Show contents';
+  });
+
+  document.querySelectorAll('article section[id] > h1, article section[id] > h2').forEach(function (h) {
+    var a = document.createElement('a');
+    a.className = 'anchor';
+    a.href = '#' + h.parentNode.id;
+    a.textContent = '#';
+    a.setAttribute('aria-label', 'Link to this section');
+    h.appendChild(a);
+  });
+})();
+</script>
+
+</body>
+</html>

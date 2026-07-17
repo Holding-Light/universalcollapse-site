@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Auditing Record State in Constraint-Sweep Hysteresis Tests — Universal Collapse Theory</title>
+  <meta name="description" content="How to tell record-driven path dependence from rate lag — a loop-scaling audit against an independently measured record state.">
+
+  <!-- Full-text reading copy. The citable record is the landing page;
+       canonical points there so Scholar and search consolidate on one URL. -->
+  <link rel="canonical" href="https://universalcollapse.com/read/methods_s3">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Auditing Record State in Constraint-Sweep Hysteresis Tests — Universal Collapse Theory">
+  <meta property="og:description" content="How to tell record-driven path dependence from rate lag — a loop-scaling audit against an independently measured record state.">
+  <meta property="og:url" content="https://universalcollapse.com/read/methods_s3">
+  <meta property="og:site_name" content="Universal Collapse Theory">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@300;400&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg-deep: #08090c;
+      --bg-surface: #0e1017;
+      --bg-elevated: #161820;
+      --text-primary: #e8e6e1;
+      --text-secondary: #9b978f;
+      --text-tertiary: #5e5b54;
+      --accent: #c9a96e;
+      --accent-dim: #8a7245;
+      --rule: rgba(201, 169, 110, 0.12);
+      --serif: 'EB Garamond', Georgia, serif;
+      --sans: 'Outfit', system-ui, sans-serif;
+      --mono: 'JetBrains Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg-deep);
+      color: var(--text-primary);
+      font-family: var(--sans);
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    #progress {
+      position: fixed; top: 0; left: 0; height: 2px; width: 0%;
+      background: var(--accent); z-index: 100; transition: width 0.1s linear;
+    }
+
+    .topbar {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(8, 9, 12, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--rule);
+      padding: 0.75rem 1.5rem;
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 0.8rem;
+    }
+    .topbar a { color: var(--text-secondary); text-decoration: none; }
+    .topbar a:hover { color: var(--accent); }
+    .topbar .cite { color: var(--text-tertiary); font-family: var(--mono); font-size: 0.7rem; }
+
+    .shell {
+      max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem 6rem;
+      display: grid; grid-template-columns: minmax(0, 220px) minmax(0, 1fr); gap: 3rem;
+    }
+
+    nav.toc {
+      position: sticky; top: 5rem; align-self: start;
+      max-height: calc(100vh - 8rem); overflow-y: auto;
+      font-size: 0.8rem; line-height: 1.6;
+    }
+    nav.toc > p {
+      color: var(--text-tertiary); text-transform: uppercase;
+      letter-spacing: 0.12em; font-size: 0.65rem; margin-bottom: 0.75rem;
+    }
+    nav.toc ul { list-style: none; }
+    nav.toc ul ul { padding-left: 0.85rem; }
+    nav.toc li { margin: 0.3rem 0; }
+    nav.toc a {
+      color: var(--text-secondary); text-decoration: none;
+      display: block; padding-left: 0.6rem;
+      border-left: 1px solid transparent;
+    }
+    nav.toc a:hover { color: var(--text-primary); }
+    nav.toc a.active { color: var(--accent); border-left-color: var(--accent); }
+
+    article { min-width: 0; }
+
+    .paper-head { border-bottom: 1px solid var(--rule); padding-bottom: 1.75rem; margin-bottom: 2.5rem; }
+    .paper-head .tier {
+      font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.15em;
+      color: var(--accent-dim); text-transform: uppercase;
+    }
+    .paper-head h1 {
+      font-family: var(--serif); font-weight: 500; font-size: 2.1rem;
+      line-height: 1.2; margin: 0.75rem 0 0.5rem; color: var(--text-primary);
+    }
+    .paper-head .sub { font-family: var(--serif); font-style: italic; color: var(--text-secondary); font-size: 1.05rem; }
+    .paper-head .meta { margin-top: 1.1rem; font-size: 0.78rem; color: var(--text-tertiary); }
+    .paper-head .meta a { color: var(--accent-dim); text-decoration: none; }
+
+    article h1, article h2, article h3 {
+      font-family: var(--serif); font-weight: 600; line-height: 1.3;
+      color: var(--text-primary); scroll-margin-top: 5rem;
+    }
+    article h1 { font-size: 1.5rem; margin: 3rem 0 1rem; }
+    article h2 { font-size: 1.2rem; margin: 2rem 0 0.75rem; color: var(--text-secondary); }
+    article h3 { font-size: 1.05rem; margin: 1.5rem 0 0.5rem; color: var(--text-secondary); }
+
+    article h1 .anchor, article h2 .anchor {
+      opacity: 0; margin-left: 0.5rem; color: var(--accent-dim);
+      text-decoration: none; font-size: 0.7em; font-family: var(--sans);
+    }
+    article h1:hover .anchor, article h2:hover .anchor { opacity: 1; }
+
+    article p {
+      font-family: var(--serif); font-size: 1.12rem; font-weight: 400;
+      line-height: 1.75; margin: 0 0 1.15rem; color: var(--text-primary);
+    }
+    article ul, article ol { font-family: var(--serif); font-size: 1.12rem; margin: 0 0 1.15rem 1.5rem; }
+    article li { margin-bottom: 0.4rem; }
+    article strong { font-weight: 600; color: var(--text-primary); }
+    article em { font-style: italic; }
+    article a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--rule); }
+    article blockquote {
+      border-left: 2px solid var(--accent-dim); padding-left: 1.25rem;
+      margin: 1.5rem 0; color: var(--text-secondary); font-style: italic;
+      border-radius: 0;
+    }
+
+    math { font-size: 1.05em; color: var(--text-primary); }
+
+    .backtotop {
+      display: inline-block; margin-top: 3rem; padding-top: 1.5rem;
+      border-top: 1px solid var(--rule); width: 100%;
+      font-size: 0.8rem; color: var(--text-tertiary); text-decoration: none;
+    }
+    .backtotop:hover { color: var(--accent); }
+
+    #toc-toggle { display: none; }
+
+    @media (max-width: 820px) {
+      .shell { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; padding: 1.25rem 1.1rem 4rem; }
+      nav.toc {
+        position: static; max-height: none; order: -1;
+        border: 1px solid var(--rule); border-radius: 6px; padding: 0.9rem 1rem;
+      }
+      nav.toc[data-collapsed="true"] ul { display: none; }
+      #toc-toggle { display: block; background: none; border: none; color: var(--text-secondary);
+        font-family: var(--sans); font-size: 0.75rem; cursor: pointer; padding: 0; }
+      .paper-head h1 { font-size: 1.6rem; }
+      article p, article ul, article ol { font-size: 1.08rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<div class="topbar">
+  <a href="https://universalcollapse.com/methods_s3">&larr; Auditing Record State in Constraint-Sweep Hysteresis Tests</a>
+  <span class="cite">10.17605/OSF.IO/CQGTD</span>
+</div>
+
+<div class="shell">
+
+  <nav class="toc" id="toc" data-collapsed="false">
+    <p>Contents</p>
+    <button id="toc-toggle" aria-expanded="true">Hide contents</button>
+    <ul>
+    <li><a href="#abstract" id="toc-abstract">Abstract</a></li>
+    <li><a href="#review-target" id="toc-review-target">Review target</a>
+    <ul>
+    <li><a href="#specification-acceptance" id="toc-specification-acceptance">Specification acceptance</a></li>
+    <li><a href="#performance-acceptance" id="toc-performance-acceptance">Performance acceptance</a></li>
+    <li><a href="#rejection-criterion" id="toc-rejection-criterion">Rejection criterion</a></li>
+    </ul></li>
+    <li><a href="#stack-placement" id="toc-stack-placement">Stack placement</a></li>
+    <li><a href="#introduction" id="toc-introduction">1. Introduction</a></li>
+    <li><a href="#theory-loop-area-curves-in-two-regimes" id="toc-theory-loop-area-curves-in-two-regimes">2. Theory: loop-area curves in two regimes</a>
+    <ul>
+    <li><a href="#discrete-state-regime-record-shifted-thresholds-imply-linear-scaling" id="toc-discrete-state-regime-record-shifted-thresholds-imply-linear-scaling">2.1 Discrete-state regime: record-shifted thresholds imply linear scaling</a></li>
+    <li><a href="#continuous-state-regime-rate-extrapolated-quasi-static-loop-scaling" id="toc-continuous-state-regime-rate-extrapolated-quasi-static-loop-scaling">2.2 Continuous-state regime: rate-extrapolated quasi-static loop scaling</a></li>
+    <li><a href="#the-circular-r-trap-and-the-circular-projection-trap" id="toc-the-circular-r-trap-and-the-circular-projection-trap">2.3 The circular-R trap and the circular-projection trap</a></li>
+    <li><a href="#diagnostic-comparison" id="toc-diagnostic-comparison">2.4 Diagnostic comparison</a></li>
+    </ul></li>
+    <li><a href="#the-protocol" id="toc-the-protocol">3. The protocol</a>
+    <ul>
+    <li><a href="#step-1-independent-record-state-characterization" id="toc-step-1-independent-record-state-characterization">3.1 Step 1: Independent record-state characterization</a></li>
+    <li><a href="#step-2-response-coordinate-declaration-and-loop-area-curve-construction" id="toc-step-2-response-coordinate-declaration-and-loop-area-curve-construction">3.2 Step 2: Response-coordinate declaration and loop-area curve construction</a></li>
+    <li><a href="#step-3-sweep-rate-audit-and-major-loop-verification" id="toc-step-3-sweep-rate-audit-and-major-loop-verification">3.3 Step 3: Sweep-rate audit and major-loop verification</a></li>
+    <li><a href="#step-4-falsifier-comparison" id="toc-step-4-falsifier-comparison">3.4 Step 4: Falsifier comparison</a></li>
+    </ul></li>
+    <li><a href="#synthetic-demonstrations" id="toc-synthetic-demonstrations">4. Synthetic demonstrations</a>
+    <ul>
+    <li><a href="#discrete-state-regime-single-hysteron-with-five-confound-structures" id="toc-discrete-state-regime-single-hysteron-with-five-confound-structures">4.1 Discrete-state regime: single hysteron with five confound structures</a></li>
+    <li><a href="#continuous-state-regime-bistable-system-with-three-confound-structures" id="toc-continuous-state-regime-bistable-system-with-three-confound-structures">4.2 Continuous-state regime: bistable system with three confound structures</a></li>
+    </ul></li>
+    <li><a href="#application-rice-transcriptome-heat-stressrecovery-continuous-state-regime-step-response-application-target" id="toc-application-rice-transcriptome-heat-stressrecovery-continuous-state-regime-step-response-application-target">5. Application: rice transcriptome heat-stress/recovery (continuous-state regime, step-response application target)</a></li>
+    <li><a href="#discussion" id="toc-discussion">6. Discussion</a>
+    <ul>
+    <li><a href="#domains" id="toc-domains">6.1 Domains</a></li>
+    <li><a href="#the-independence-audit-as-the-load-bearing-step" id="toc-the-independence-audit-as-the-load-bearing-step">6.2 The independence audit as the load-bearing step</a></li>
+    <li><a href="#comparison-to-alternative-diagnostics" id="toc-comparison-to-alternative-diagnostics">6.3 Comparison to alternative diagnostics</a></li>
+    </ul></li>
+    <li><a href="#limitations" id="toc-limitations">7. Limitations</a></li>
+    <li><a href="#reporting-template" id="toc-reporting-template">8. Reporting template</a></li>
+    <li><a href="#broader-context" id="toc-broader-context">9. Broader context</a></li>
+    <li><a href="#appendix-a.-reproduction-code" id="toc-appendix-a.-reproduction-code">Appendix A. Reproduction code</a></li>
+    <li><a href="#references" id="toc-references">References</a></li>
+    <li><a href="#ai-disclosure" id="toc-ai-disclosure">AI Disclosure</a></li>
+    <li><a href="#citation" id="toc-citation">Citation</a></li>
+    </ul>
+  </nav>
+
+  <article>
+    <header class="paper-head">
+      <span class="tier">Methods &amp; Theoretical Notes</span>
+      <h1>Auditing Record State in Constraint-Sweep Hysteresis Tests</h1>
+      <p class="sub">A Loop-Scaling Diagnostic for Record-Driven versus Confound-Induced Path Dependence</p>
+      <p class="meta">
+        Jeremy C. Jones &middot; HoldingLight LLC &middot; 2026/05 &middot; CC BY 4.0<br>
+        Cite as <a href="https://doi.org/10.17605/OSF.IO/CQGTD">10.17605/OSF.IO/CQGTD</a>
+        
+      </p>
+    </header>
+
+    <p><strong>Jeremy C. Jones</strong></p>
+    <p>HoldingLight LLC — ORCID 0009-0007-2515-3774 — universalcollapse.com</p>
+    <p><em>Series: Universal Collapse Theory — Methods Paper • Version v1.0 • 2026-05 • CC BY 4.0</em></p>
+    <section id="abstract" class="level1">
+    <h1>Abstract</h1>
+    <p><strong>Principle.</strong> Constraint-sweep hysteresis is observed across the biological, physical, and social sciences. The Universal Collapse Theory library treats loop area scaling with audited record state R as the S3 stabilization signature, with the single-hysteron base case A(R) = 4θ₀ + 4αR proved in Jones 2026e. The S3 claim is specifically about the rate-independent component of loop area; rate-driven contributions, including record-modulated rate lag (loops whose width depends on sweep rate via R-coupled relaxation), are real but distinct phenomena and require a different diagnostic. Standard hysteresis-summary statistics describe the loop's geometry but do not by themselves test whether observed path dependence has a record-driven quasi-static component.</p>
+    <p><strong>Result.</strong> We propose a loop-scaling diagnostic in two regimes. In discrete-state systems admitting a single-hysteron or Preisach-density description, independently audited R is compared against the model-predicted loop-area curve, with dA/dR = 4α in the single-hysteron base case. In continuous-state systems, the diagnostic uses a predeclared scalar response coordinate y = f(x) and a sweep-rate audit to estimate the quasi-static loop area A_qs(R) := lim_{ν→0} A(R, ν). An S3-positive result requires A_qs(R) to match an independently specified R-dependent prediction A_pred(R) within declared tolerance; positive but R-independent A_qs indicates intrinsic static hysteresis without audited record coupling, and A_qs ≈ 0 with positive finite-rate area indicates rate lag or record-modulated rate lag (a real but distinct phenomenon for which a different diagnostic, on the fitted τ(R) curve, would be appropriate). In both regimes, the diagnostic is valid only when R, the response coordinate, the formalism, and the predicted slope or curve are specified without circular use of the loop area being explained. The protocol is demonstrated on five synthetic discrete-state regimes (genuine, rate-driven, instrument hysteresis, minor-loop violation, circular-R) and three synthetic continuous-state regimes (genuine bistable, pure rate lag as negative control, combined record-coupling and rate lag). The rice transcriptome heat-stress/recovery dataset (Jones 2026h, GEO GSE74793) is specified as a step-response-loop application target for which Steps 1, 2, and 4 of the protocol are executable but Step 3 (sweep-rate audit) is not, since the dataset uses a fixed temperature-jump protocol rather than varied ramp rates.</p>
+    <p><em>Keywords: hysteresis; path dependence; Preisach model; record state; loop area; viscoelastic response; sweep-rate extrapolation; circular inference; double dipping; scalar response coordinate; reproducibility.</em></p>
+    </section>
+    <section id="review-target" class="level1">
+    <h1>Review target</h1>
+    <p>The review target is split into two acceptance levels, paralleling the structure of Auditing Independence (Jones 2026f) and Auditing Constraint Asymmetry (Jones 2026g).</p>
+    <section id="specification-acceptance" class="level2">
+    <h2>Specification acceptance</h2>
+    <p>Acceptance of v1.0 means the proposed audit structure is well-defined: independently specify R from non-loop channels with explicit feature-disjointness rules in omics settings; predeclare the formalism (single hysteron, Preisach density, continuous Preisach analog, bistable basin-geometry / Kramers-type model) and the scalar response coordinate y = f(x) before loop area is computed; estimate the predicted slope c (or, in the continuous regime, the predicted A_static curve) from independent calibration, mechanistic parameter estimates, simulation truth, or a held-out training loop family disjoint from the test loop family; verify major-loop validity from pretest threshold calibration or held-out switching measurements rather than from the loop being tested; report sweep rate(s) and the rate-extrapolated quasi-static loop area where applicable; compare the audited-R loop-area curve A_qs(R) (continuous regime) or A(R) (discrete regime) against the predicted slope or curve. The structural specification can be accepted independently of whether the diagnostic outperforms standard hysteresis-summary statistics on any specific dataset.</p>
+    </section>
+    <section id="performance-acceptance" class="level2">
+    <h2>Performance acceptance</h2>
+    <p>Acceptance of the protocol's performance — a stronger claim than acceptance of the specification — requires the frozen synthetic demonstrations of §4 and a downstream real-data application that satisfies the dataset prerequisites listed in §5. v1.0 presents the synthetic demonstrations at release quality. Real-data execution against the rice transcriptome heat-stress/recovery dataset (Jones 2026h, GSE74793) is the work of a future T16 demonstration paper, with the limitation that the rate audit (Step 3) is not executable on that dataset.</p>
+    </section>
+    <section id="rejection-criterion" class="level2">
+    <h2>Rejection criterion</h2>
+    <p>The protocol should be revised or rejected if R, the formalism choice, the response coordinate y, or the predicted curve A_pred cannot be specified without circular use of the loop being explained; if controlled synthetic cases fail to distinguish record-driven hysteresis from the named confounds (rate-driven apparent loops, instrument hysteresis, minor-loop violation, circular R-fit, additive offset confounds, record-modulated rate lag); if the response coordinate used to compute loop area is selected from the same data used to test loop-area scaling, unless a held-out validation design is used; or if the continuous-regime formulation cannot detect record-modulated rate lag (a system with positive finite-rate loop area but A_qs(R) = 0) when sweep-rate extrapolation is available. Acceptance does not require that all confounds be disambiguated from a single sweep alone; some require multi-rate sweeps, external R proxies, or external response-coordinate calibration, and the protocol's sharpness is conditional on those external channels being available.</p>
+    </section>
+    </section>
+    <section id="stack-placement" class="level1">
+    <h1>Stack placement</h1>
+    <p><em>Readers outside the UCT project may skip this paragraph; the methodological claim begins in §1.</em></p>
+    <p>This paper is a Universal Collapse Theory Methods Paper for S3 applications. Records Across Nature, Life, and Mind (Jones 2026a) defines records as the persistence layer and states the loop-area signature S3 as a portable empirical claim. The Structuralization of Empiricism (Jones 2026b) treats S3 as the stabilization signature for path-dependent regimes in which prior resolutions persist as constraints on later updates. The Update Integrity Standard (Jones 2026c) requires an independence audit before S3 loop scaling can support a Level 3 claim. Records Amplify Hysteresis (TN-S3; Jones 2026e) supplies the formal lemma. Auditing Independence (Jones 2026f) and Auditing Constraint Asymmetry (Jones 2026g) are the parallel S1 and S2 Methods Papers this paper takes as architectural template. The present paper translates the S3 commitments into a field-deployable loop-scaling diagnostic. Formal pair: TN-S₃ (Records Amplify Hysteresis). Together they constitute the S₃ formal–protocol pair — the paired Technical Note proves the formal bound; this Methods Paper translates it into a deployable audit protocol. It is a Methods Paper, not a standard.</p>
+    </section>
+    <section id="introduction" class="level1">
+    <h1>1. Introduction</h1>
+    <p>Path-dependent response under bidirectional constraint sweeps is a recurring observable in the biological, physical, and social sciences. Soft tissue exhibits stress–recovery loops in cyclic loading (Fung 1967; Zhang, Chen &amp; Kassab 2007); ecosystems shift between alternative stable states with different forward and reverse thresholds (Scheffer et al. 2001; Beisner, Haydon &amp; Cuddington 2003); developmental fate commitment can be irreversible under cue reversal (Pájaro et al. 2019); institutional and policy systems lock in once thresholds are crossed (Arthur 1989; Pierson 2000); ferromagnetic and ferroelectric materials trace Preisach-form hysteresis loops under field reversal (Mayergoyz 2003); and rate-dependent viscoelastic and thixotropic systems trace loops whose area depends on sweep rate rather than on accumulated history (Wang &amp; Ewoldt 2023). The qualitative regularity — observed path dependence under sweep reversal — is what the Universal Collapse Theory library calls the S3 stabilization signature.</p>
+    <p>Standard practice for reporting hysteresis is well established: loop area, coercive field, remanence, energy dissipation per cycle, return-point memory checks (Sethna et al. 1993), and Preisach density estimation (Mayergoyz 2003; Brokate &amp; Sprekels 1996). These statistics describe the loop's geometry and dissipation. They are appropriate for material characterization, model description, and within-system comparison. They are not, by themselves, a test of an external record-state claim: loop area at a single condition cannot serve as evidence that accumulated records, rather than rate lag, instrument hysteresis, or another confound, produced the rate-independent component of the path dependence.</p>
+    <p>This is more than a technicality. Distinct generating processes can produce nearly identical hysteresis loops at a single sweep condition. (i) Genuine record-coupled hysteresis: as R varies across an audited range, the rate-independent component of loop area scales with R at a rate predicted by the formalism. (ii) Confound-induced apparent record coupling: rate-dependent dynamics, instrument hysteresis, minor-loop violations, or circular R or response-coordinate construction can produce loops that mimic record-driven scaling at a single condition but fail to scale with audited R, scale tautologically, or saturate prematurely. (iii) Record-modulated rate lag: a real but distinct phenomenon in which the relaxation timescale couples to R, producing positive R-scaling at finite sweep rate but zero quasi-static residual loop area; this is not the same claim as record-driven persistence. Single-condition loop-area summaries can be matched across these regimes; they differ in how loop area scales with audited R, how the scaling depends on sweep rate in the quasi-static limit, whether the sweep extends past both switching thresholds, and whether R and the response coordinate are constructed independently of the loop being tested.</p>
+    <p>The diagnostic proposed here is a comparison of the observed quasi-static loop-area-versus-R curve A_qs(R) (in the continuous regime) or the rate-independent loop-area-versus-R curve A(R) (in the discrete regime) against the scaling law predicted by an independently audited record-state proxy and an independently specified formalism, together with a sweep-rate audit (where executable), a major-loop validity check, and a feature-disjointness check between R and the response coordinate y = f(x) used to compute loop area in high-dimensional systems.</p>
+    <p>The contribution of this paper is methodological. The single sentence the protocol is built around: a loop-area statistic becomes evidence for record-driven path dependence only when R, the response coordinate, the formalism, the predicted scaling law, the sweep bounds, and the rate audit are specified independently of the loop area being explained.</p>
+    <p>(1) A loop-scaling protocol applicable in both discrete-state and continuous-state regimes, with the same four-step structure used in Auditing Independence (Jones 2026f) for S1 and Auditing Constraint Asymmetry (Jones 2026g) for S2.</p>
+    <p>(2) A sweep-rate audit (where executable) that separates record-driven static components from rate-driven contributions to loop area via quasi-static extrapolation, with explicit handling of the case where the rate audit is not executable on a given dataset.</p>
+    <p>(3) A sharp model-conditional falsifier: comparison of the fitted A_qs(R) or A(R) curve against the model-predicted curve A_pred(R), where the prediction is computed from sources independent of the loop being tested. Sharpness is conditional on the formalism choice, the R-source, and the response-coordinate construction; if any of these is wrong or circular, the falsifier is still informative but no longer sharp.</p>
+    <p>The sharpness comes from comparison against a prediction computed without using the loop area being explained. This breaks the circularity that affects diagnostics calibrated against the same loop they are supposed to validate — the failure mode TN-S3 explicitly flags as the central S3 vulnerability (Jones 2026e §7), and the structural problem Kriegeskorte et al. (2009) identify as "double dipping" in a neuroimaging context. The methodological problem is structurally similar to the one Bland and Altman (1986) flagged for method-comparison correlation in clinical measurement and the one Varma and Simon (2006) flagged for cross-validation under model selection: a goodness-of-fit summary computed on the same data the model was tuned to is not evidence about the data-generating process.</p>
+    <p>The paper is organized as follows. Section 2 states the formal results — discrete-state (§2.1) and continuous-state (§2.2) regimes, the circular-R and circular-projection traps (§2.3), and a diagnostic comparison (§2.4). Section 3 specifies the protocol with per-step checklists. Section 4 demonstrates it on synthetic cases in both regimes. Section 5 specifies the application to the rice transcriptome heat-stress/recovery dataset (Jones 2026h; GEO GSE74793; Wilkins et al. 2016) as a time-course application target with the rate audit marked not executable on that dataset. Sections 6–7 discuss applicable domains and limitations. Section 8 provides a reporting template. Section 9 places the protocol in the broader UCT context. Appendix A provides reproduction code via the companion script methods_s3_v10_figures.py.</p>
+    </section>
+    <section id="theory-loop-area-curves-in-two-regimes" class="level1">
+    <h1>2. Theory: loop-area curves in two regimes</h1>
+    <section id="discrete-state-regime-record-shifted-thresholds-imply-linear-scaling" class="level2">
+    <h2>2.1 Discrete-state regime: record-shifted thresholds imply linear scaling</h2>
+    <p><strong>Setup.</strong> Let x_t ∈ {−1, +1} be a binary state evolving under a continuous constraint signal K_t ∈ ℝ. Let R ≥ 0 be a scalar summary of accumulated record state, held fixed during a single sweep; multi-sweep regimes in which R updates as records accumulate are out of scope for this protocol (Jones 2026e §3). Let θ₀ ≥ 0 and α ≥ 0 be parameters with θ₀ + αR &gt; 0 in the nondegenerate case. The state evolves under the switching rule x_{t+} = +1 if K_t ≥ θ_+(R) := θ₀ + αR; x_{t+} = −1 if K_t ≤ θ_−(R) := −θ₀ − αR; x_{t+} = x_t otherwise. The interval [θ_−(R), θ_+(R)] is the memory zone. A closed major sweep is a quasi-static trajectory in which K increases monotonically from K_min ≤ θ_−(R) to K_max ≥ θ_+(R), then decreases monotonically back to K_min, with initial state x(0) = −1 and no additional reversals. The loop area is A(R) := |∮ x dK| under such a sweep.</p>
+    <p><strong>Theorem 1 (Jones 2026e).</strong> Under the setup above with θ₀ ≥ 0, α ≥ 0, R ≥ 0, and any closed major sweep K(t) with initial state x(0) = −1, the absolute loop area satisfies A(R) = 4θ₀ + 4αR, with slope dA/dR = 4α, strictly positive whenever α &gt; 0. In the limit θ₀ = 0 and αR = 0, the memory zone collapses and A = 0, recovering reversible response. The (K, x) trajectory traces a counterclockwise rectangle of horizontal extent 2θ₀ + 2αR and vertical extent 2; the absolute enclosed area is 4θ₀ + 4αR. Full geometric and signed-integral derivation is in Jones 2026e §2.</p>
+    <p><strong>Two identifiable objects.</strong> Two parameters organize the discrete-regime diagnostic. The intrinsic loop area A₀ := 4θ₀ fixes the loop area at zero record state. The record-coupling slope c := 4α = dA/dR fixes the rate at which loop area grows with audited R. The discrete-state falsifier compares an empirical fit ĉ from A(R) ≈ Â₀ + ĉR over the audited R range against an independently determined c — from mechanistic calibration, simulation truth, or a held-out training loop family disjoint from the test loop family. Slope-independence rules are specified in §3.4. The intrinsic-area object Â₀ is reported alongside ĉ but is not itself the falsifier; a fitted Â₀ that disagrees with an independent estimate of 4θ₀ is informative as a consistency check but does not by itself reject record coupling, since Â₀ also absorbs additive instrument-hysteresis offsets and rate-driven contributions at the nominal sweep rate (§4.1 regimes B and C).</p>
+    <p><strong>Heterogeneous and Preisach extensions.</strong> The single-hysteron lemma is the base case for the general Preisach model (Mayergoyz 2003; Brokate &amp; Sprekels 1996), which represents a system as a weighted superposition of independent hysterons indexed by threshold pair (θ_+, θ_−) against a Preisach density ρ(θ_+, θ_−). Under nonnegative density and a record update that monotonically widens active threshold gaps within the swept range, aggregate loop area inherits monotone growth from the single-hysteron case, and the predicted slope is obtained by integrating against ρ. Arbitrary translations, scalings, or asymmetric reweightings of the density need not preserve monotonicity without further assumptions. In the Preisach case the diagnostic compares ĉ against the density-integrated predicted slope, not against 4α; the principle is identical, the predicted scalar differs.</p>
+    <p><strong>Out-of-scope regimes.</strong> Critical-disorder and avalanche regimes — random-field Ising model near critical disorder (Dahmen &amp; Sethna 1996), crackling-noise systems (Sethna, Dahmen &amp; Myers 2001) — produce power-law avalanche distributions and scaling behavior in which loop area does not satisfy a linear lemma; the discrete-state diagnostic does not apply unmodified. Return-point memory (Sethna et al. 1993) is consistent with the discrete-state lemma but neither implies it nor is implied by it; the diagnostic does not require a return-point-memory check, and many continuous-state systems exhibit S3 without exhibiting return-point memory in any strict form.</p>
+    </section>
+    <section id="continuous-state-regime-rate-extrapolated-quasi-static-loop-scaling" class="level2">
+    <h2>2.2 Continuous-state regime: rate-extrapolated quasi-static loop scaling</h2>
+    <p><strong>Setup.</strong> Let x(t) ∈ ℝ^p be a continuous (possibly high-dimensional) state evolving under a continuous constraint signal K(t) ∈ ℝ. Let ν &gt; 0 denote the sweep rate (operationally ν := |dK/dt| for a triangular sweep, or any operationally defined rate parameter for the chosen sweep family). Let R ≥ 0 be a scalar summary of accumulated record state, fixed during a single sweep.</p>
+    <p><strong>Response coordinate.</strong> For p &gt; 1, the line integral ∮ x dK is vector-valued and does not admit a scalar loop-area interpretation directly. The protocol therefore requires a predeclared scalar response coordinate y(t) := f(x(t)) ∈ ℝ, with f fixed before the loop-area test is executed. The scalar loop area is then A(R, ν) := |∮ y dK| under a closed sweep at rate ν. Construction rules for f are in §2.3 (admissibility) and §3.2 (declaration); two-dimensional embedding alternatives (e.g., area in a predeclared (PC₁, PC₂) plane) are noted as scope-limited extensions.</p>
+    <p><strong>Decomposition.</strong> The protocol assumes the loop area admits a static-plus-dynamic decomposition</p>
+    <p><em>A(R, ν) = A_static(R) + D(R, ν), with lim_{ν→0} D(R, ν) = 0,</em></p>
+    <p>where A_static(R) is the rate-independent component of the loop area, identified with the record-driven contribution under the chosen formalism, and D(R, ν) collects all rate-driven contributions, including both record-independent rate lag (e.g., a system with constant relaxation timescale) and record-modulated rate lag (e.g., a system with R-coupled relaxation timescale τ(R)). The S3 diagnostic is specifically a claim about A_static(R), operational via the quasi-static extrapolation A_qs(R) := lim_{ν→0} A(R, ν). Where the decomposition holds, A_qs(R) → A_static(R) as the sweep is slowed.</p>
+    <p><strong>Important caveat — record-modulated rate lag is a separate phenomenon.</strong> A system in which the relaxation timescale couples to record state, τ(R), can produce loop area at finite sweep rate that scales with R, but with A_static(R) = 0. This is record-modulated rate lag — a real and meaningful phenomenon, but structurally distinct from the persistent threshold structure that the S3 lemma describes. The S3 diagnostic treats record-modulated rate lag as a negative control (zero quasi-static residual) and is intentionally insensitive to it. A diagnostic for record-modulated rate lag would test the fitted τ(R) curve against an independent prediction; that is a different protocol and not the subject of this paper.</p>
+    <p><strong>Limit caveat.</strong> The quasi-static limit may fail to exist in some systems (e.g., glassy relaxation with no rate-independent endpoint) or may contain a non-record rate-independent contribution (e.g., topological hysteresis from boundary geometry). In such cases the correct outcome is "protocol not applicable" or "record-coupling model rejected for this system," not automatic S3 failure.</p>
+    <p><strong>Three model classes for A_static(R).</strong> Three model classes supply candidate predicted curves A_pred(R) = A_static(R) under genuine record coupling, each appropriate for a different domain. The diagnostic compares A_qs(R) against A_pred(R) under the class committed to before the test.</p>
+    <p><strong>(i) Continuous-state Preisach analog.</strong> For systems with a continuous distribution of bistable elements indexed by threshold pair (θ_+, θ_−), the aggregate quasi-static loop area is the integral of single-hysteron contributions against a Preisach density ρ(θ_+, θ_−; R) that may itself depend on accumulated record state. Under R-coupled density shift (e.g., density translation or width modulation with R) within a fixed swept range, A_static(R) inherits the integral structure of the discrete case and admits a model-predicted slope obtained by integrating dρ/dR weighted by the per-hysteron loop contribution. The discrete-state lemma A_static ∝ 4α is recovered when ρ is concentrated on a single hysteron pair.</p>
+    <p><strong>(ii) Bistable basin-geometry model (Kramers / first-passage-time class).</strong> For systems where state transitions are escape events from metastable basins (continuous bistable gene regulation, Pájaro et al. 2019; chemical reactions in the Kramers regime; cellular fate commitment), record coupling enters as basin-geometry modification with R. In the deterministic quasi-static limit, the system tracks the stable branch until the saddle-node bifurcation, where the metastable branch vanishes; A_static(R) follows from the R-dependence of the bifurcation thresholds θ_±(R). With branch separation normalized to 2 in symmetric cases, A_static(R) = 2[θ_+(R) − θ_−(R)]; for the symmetric form θ_±(R) = ±(θ₀ + αR), this reduces to 4(θ₀ + αR), recovering the discrete-hysteron base case. With finite noise or finite sweep rate, Kramers / mean-first-passage-time corrections (Hänggi, Talkner &amp; Borkovec 1990) shift the effective switching points away from the deterministic bifurcation thresholds. These corrections vanish only in the deterministic, zero-noise quasi-static limit; at finite noise, slow sweeps can still produce pre-bifurcation escape, so deterministic-quasi-static and finite-noise-quasi-static are not the same regime and the protocol's A_qs estimate tracks whichever is realized in the data. This class is the natural framing for the rice transcriptome target in §5.</p>
+    <p><strong>(iii) Soft bistable continuous-state model.</strong> For systems where x(t) is a continuous variable in a bistable potential V(x; K, R) with R-coupled threshold structure, a closed sweep traces a smooth version of the discrete-hysteron loop. In the limit of fast intra-branch relaxation, A_static(R) → 4(θ₀ + αR), recovering the discrete lemma. This class is used as the genuine synthetic case in §4.2.</p>
+    <p><strong>Confound class — pure linear viscoelastic relaxation with possibly R-coupled τ.</strong> A linear viscoelastic system with relaxation dy/dt = −(y − K)/τ(R) has zero quasi-static loop area at every R, regardless of whether τ depends on R. Such a system produces finite loop area at finite sweep rate and can show R-dependence in that finite-rate area when τ depends on R, but A_qs(R) = 0. This is record-modulated rate lag, not S3, and is used as the negative-control synthetic case in §4.2.</p>
+    <p><strong>Falsifier.</strong> Under the decomposition above and an independently specified A_pred(R) from one of the three model classes (or a domain-specific alternative), the falsifier is A_qs(R) ≉ A_pred(R) within declared tolerance. Class commitment must be made before the test; comparing a single dataset against the best-fitting class chosen post hoc is descriptive, not falsificatory. A separate negative-control falsifier is A_qs(R) ≈ 0 with positive finite-rate loop area — this rejects S3 in favor of record-modulated rate lag or pure rate lag, regardless of class choice.</p>
+    </section>
+    <section id="the-circular-r-trap-and-the-circular-projection-trap" class="level2">
+    <h2>2.3 The circular-R trap and the circular-projection trap</h2>
+    <p>Two structurally similar circularity failures threaten the diagnostic. Both are instances of the general "double dipping" problem (Kriegeskorte et al. 2009): using the same data for variable selection and selective analysis distorts descriptive statistics and invalidates inference.</p>
+    <p><em>Circular-R failures (inadmissible R constructions):</em></p>
+    <p>(a) R := A_observed / 4α — defining R as a function of the loop area being tested produces tautological linear scaling with no falsification content.</p>
+    <p>(b) R := coercive field, remanence, or any other geometric feature derived from the same loop — same failure mode.</p>
+    <p>(c) R := PC₁ score fit on the same genes and samples used to compute the loop coordinate y — the omics version of the same trap. Even if the gene panel is ostensibly different, leakage through correlated samples reproduces the failure.</p>
+    <p>(d) R := latent variable inferred from the same loop family being tested — without a held-out family, this is exploratory rather than confirmatory.</p>
+    <p><em>Admissible R constructions:</em></p>
+    <p>(a) Prior-exposure logs, environmental history, intervention history — events that occurred before the loop being tested and were recorded outside the loop measurement system.</p>
+    <p>(b) Predeclared molecular marker panels — gene sets, protein sets, or metabolite sets named in advance from prior literature, with feature-disjointness from the response coordinate y.</p>
+    <p>(c) Independent phenotype measurements — physiological, morphological, or behavioral measures collected before, after, or during the sweep but not used to construct y.</p>
+    <p>(d) Tissue-history or cell-history markers measured on disjoint samples or disjoint feature sets.</p>
+    <p>(e) Simulation truth (in synthetic demonstrations) — the ground-truth R is known by construction and is independent of any observed quantity.</p>
+    <p>(f) Pretest threshold calibration on a held-out sweep family — relevant for discrete-state systems where θ_±(R) is needed for major-loop verification.</p>
+    <p><em>Circular-projection failures (inadmissible y constructions):</em></p>
+    <p>When state x is high-dimensional, the response coordinate y = f(x) is itself a modeling choice that can be circularly tuned. The same family of failures applies: (a) y selected to maximize the observed loop area on the test family; (b) y selected as a discriminant between high-R and low-R samples in the test family; (c) y selected by post-hoc feature inspection of the test loops. Admissible y constructions: predeclared scalar (e.g., "sum of heat-shock-protein expression"); predeclared linear projection from prior literature; PC₁ or other unsupervised summary fit on a training family disjoint from the test family; held-out validation design with explicit train/test split documented.</p>
+    <p>Feature disjointness in omics settings. When R is also derived from molecular features (e.g., a tissue-history marker panel) and y is derived from molecular features (e.g., a heat-shock response sum), the two feature sets must be disjoint. If they are not disjoint, an explicit leakage analysis must be reported showing that the shared features do not drive the observed scaling.</p>
+    <p>Why this section is load-bearing. The rest of the protocol assumes R, y, and the predicted slope are independent of the loop area being explained. Without operational rules for that independence, the protocol degrades into descriptive curve fitting and provides no falsification content. §3 implements these rules as checklist items; §5 demonstrates them in a real-data setting with explicit feature-disjointness reporting.</p>
+    </section>
+    <section id="diagnostic-comparison" class="level2">
+    <h2>2.4 Diagnostic comparison</h2>
+    <p>Table 1 summarizes the parallel structure across regimes. The choice of regime is determined by state-variable structure, not by framework or preference; discrete-regime statistics do not generalize directly to continuous-state data, and continuous-regime statistics do not generalize directly to discrete switching systems.</p>
+    <table>
+    <colgroup>
+    <col style="width: 20%" />
+    <col style="width: 20%" />
+    <col style="width: 20%" />
+    <col style="width: 20%" />
+    <col style="width: 20%" />
+    </colgroup>
+    <thead>
+    <tr>
+    <th><strong>Regime</strong></th>
+    <th><strong>State / formalism</strong></th>
+    <th><strong>Statistic</strong></th>
+    <th><strong>Predicted scaling</strong></th>
+    <th><strong>Failure signature</strong></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>Discrete, single hysteron</td>
+    <td>x ∈ {−1, +1}, θ_±(R) = ±(θ₀ + αR)</td>
+    <td>A(R) = |∮ x dK|</td>
+    <td>A(R) = A₀ + cR, c = 4α</td>
+    <td>ĉ ≪ 4α; saturation; rate-driven Â₀</td>
+    </tr>
+    <tr>
+    <td>Discrete, Preisach density</td>
+    <td>Aggregate over (θ_+, θ_−); ρ(·; R)</td>
+    <td>A(R) integrated over ρ</td>
+    <td>model-predicted slope from ρ(·; R)</td>
+    <td>ĉ ≠ ρ-integrated slope; ρ-fit circularity</td>
+    </tr>
+    <tr>
+    <td>Continuous, quasi-static</td>
+    <td>x ∈ ℝ^p; predeclared y = f(x); ν → 0</td>
+    <td>A_qs(R) = lim_{ν→0} A(R, ν)</td>
+    <td>A_pred(R) from §2.2 model class</td>
+    <td>A_qs(R) ≈ 0 (rate-modulated only); limit ill-defined</td>
+    </tr>
+    <tr>
+    <td>Continuous, fixed-rate</td>
+    <td>x ∈ ℝ^p; y = f(x); single ν*</td>
+    <td>A(R, ν*)</td>
+    <td>A_static(R) plus rate-driven offset</td>
+    <td>rate-driven contribution unaudited</td>
+    </tr>
+    </tbody>
+    </table>
+    <p><em>Table 1. Diagnostic comparison across regimes. The discrete-regime falsifier is the fitted slope ĉ versus 4α (single hysteron) or ρ-integrated slope (Preisach); the continuous-regime falsifier is A_qs(R) versus A_pred(R) under one of the three model classes of §2.2, with A_qs(R) ≈ 0 at positive finite-rate area as a separate negative-control rejection (record-modulated rate lag). Mixing regime statistics is a category error analogous to Jones 2026f's classification-versus-continuous warning.</em></p>
+    </section>
+    </section>
+    <section id="the-protocol" class="level1">
+    <h1>3. The protocol</h1>
+    <p>The protocol consists of four steps, with regime-specific instantiations at Steps 1, 2, and 4. Each step is specified to be auditable independently of the loop-area data the protocol tests. Where a step is not executable on a given dataset (most commonly Step 3 on fixed-protocol time-course data), the protocol must report the step as "not executable" and specify which confound classes therefore remain unaudited. The per-step checklists below are the minimum reporting requirements; §8 provides a consolidated reporting template.</p>
+    <section id="step-1-independent-record-state-characterization" class="level2">
+    <h2>3.1 Step 1: Independent record-state characterization</h2>
+    <p>Specify R from non-loop channels. Acceptable inputs are listed in §2.3 (admissible R constructions). The audit must not use any feature of the loop being tested and must satisfy feature-disjointness from the response coordinate y in omics settings. Multi-sweep accumulation regimes (Jones 2026e §3) require a separate model and are out of scope for this protocol.</p>
+    <p><strong>Step 1 reporting checklist.</strong> (a) R-source (admissible category from §2.3); (b) measurement timing relative to the test sweep; (c) scalar / vector / categorical structure of R; (d) independence relation to the loop statistic and to y; (e) leakage controls; (f) missingness rule; (g) confirmation that R is fixed during each test sweep.</p>
+    </section>
+    <section id="step-2-response-coordinate-declaration-and-loop-area-curve-construction" class="level2">
+    <h2>3.2 Step 2: Response-coordinate declaration and loop-area curve construction</h2>
+    <p>(2a) Declare the response coordinate y = f(x). For p = 1, f is the identity. For p &gt; 1, f must be specified before loop area is computed and must satisfy the admissibility rules in §2.3 (predeclared, prior-literature-fit, training-family-fit, or held-out validation). The declaration must be documented and timestamped before §3.2(b) is executed.</p>
+    <p>(2b) Construct the loop-area curve. Drive closed major sweeps at multiple values of audited R. Compute A(R) := |∮ y dK| at each R. For continuous-state systems, sweep at multiple rates ν where the dataset permits and report A(R, ν) at each rate.</p>
+    <p><strong>Step 2 reporting checklist.</strong> (a) loop statistic (signed line integral, absolute value, or RMS); (b) scalar response coordinate f and source (predeclared / prior-literature / training-fit / held-out); (c) sweep bounds K_min, K_max; (d) sweep direction and closure rule (see §5 for the open-trajectory closure convention); (e) interpolation method between samples; (f) numerical integration method (trapezoid, Simpson, Green's-theorem area); (g) replicate-aggregation rule; (h) per-R uncertainty estimate (bootstrap with stated unit, parametric, or replicate-based).</p>
+    </section>
+    <section id="step-3-sweep-rate-audit-and-major-loop-verification" class="level2">
+    <h2>3.3 Step 3: Sweep-rate audit and major-loop verification</h2>
+    <p>Sweep-rate audit (where executable). Vary ν at fixed R and report A(R, ν); extrapolate to the quasi-static limit ν → 0 to obtain A_qs(R) under the §2.2 decomposition. The convergence criterion is that the relative change between the two slowest rates falls below a declared tolerance (default ε = 0.05); if convergence is not achieved, the rate audit is reported as "partial" with the achieved tolerance stated.</p>
+    <p>Where the rate audit is not executable (single fixed protocol, time-course data with no rate variation, or a dataset where rate cannot be operationally defined), the step is reported as "not executable on this dataset" and the analysis explicitly names which confound classes therefore remain unaudited (record-modulated rate lag, record-independent rate lag, thixotropic recovery, frequency-dependent dissipation).</p>
+    <p>Major-loop verification independence. If thresholds θ_±(R) (discrete-state) or saturation extents (continuous-state) are needed for the major-loop check, they must be obtained from pretest threshold calibration, independent switching measurements, or a held-out sweep family. If they are inferred from the same loop-area curve being tested, the verification must be reported as internal consistency rather than an independent audit.</p>
+    <p><strong>Step 3 reporting checklist.</strong> (a) sweep-rate values ν₁ &lt; ν₂ &lt; … (or "not executable"); (b) extrapolation model (linear in ν, polynomial, exponential, model-class-specific); (c) quasi-static convergence criterion and achieved tolerance; (d) executability label per step (executable / partially-executable / not-executable) with named unaudited confound classes if not executable; (e) major-loop verification source (pretest calibration, held-out family, or internal-consistency-only flag).</p>
+    </section>
+    <section id="step-4-falsifier-comparison" class="level2">
+    <h2>3.4 Step 4: Falsifier comparison</h2>
+    <p><strong>Slope-independence rule.</strong> The predicted slope c (or, in continuous regime, the predicted curve A_pred(R)) must be obtained from independent calibration, mechanistic parameter estimates, simulation truth, or a training loop family disjoint from the test loop family. If α (single-hysteron case), the Preisach density (superposition case), or the continuous-state model class (continuous case) is fit from the same A(R) curve being tested, the comparison is descriptive only and cannot serve as the sharp falsifier.</p>
+    <p>Discrete-state. Fit A(R) ≈ A₀ + cR over the audited R range; compare fitted slope ĉ against predicted 4α (single hysteron) or model-predicted slope (Preisach density).</p>
+    <p>Continuous-state. Compare A_qs(R) (where the rate audit was executable) or A(R) at the slowest available sweep rate (where it was not) against A_pred(R).</p>
+    <p><strong>Fixed-rate caveat.</strong> When Step 3 is not executable, comparison of A(R) at the slowest or only available sweep rate is conditional or exploratory unless independent evidence rules out rate-driven confounds (record-modulated rate lag, record-independent rate lag, thixotropic-analog dynamics, frequency-dependent dissipation). Such a result may be reported as S3-consistent under stated caveats — naming the specific unaudited confound classes — but not as a full rate-audited S3-positive result. The protocol does not permit a confirmatory S3-positive claim from a fixed-rate dataset alone.</p>
+    <p><strong>Tolerance band — synthetic demonstrations.</strong> When the predicted slope c_pred is simulation truth, the default decision rule is |ĉ − c_pred| &lt; Z·SE(ĉ) for declared Z (Z = 1.96 for two-sided 95% CI), or analogous in the continuous regime. This is the rule used in §4.</p>
+    <p><strong>Tolerance band — empirical applications.</strong> When the predicted slope or curve is obtained from independent calibration, mechanistic estimates, or a held-out training family, the SE-only rule is generally insufficient: a large standard error can let almost any ĉ pass, and a small standard error can flag substantively trivial discrepancies as failures. The empirical rule must combine statistical uncertainty with a pre-declared substantive equivalence tolerance δ:</p>
+    <p><em>|ĉ − c_pred| &lt; max(δ, Z·SE(ĉ)),</em></p>
+    <p>or, more conservatively, |ĉ − c_pred| &lt; δ with the confidence interval reported separately. Pre-registration of δ, Z, and SE construction (bootstrap with stated resampling unit, profile-likelihood, or analytic) is required for the decision to count as confirmatory. The choice of δ is domain-specific and must be justified in terms of what discrepancy from c_pred would be substantively meaningful for the claim being tested; it is not a free parameter to be tuned to the observed ĉ.</p>
+    <p><strong>Step 4 reporting checklist.</strong> (a) predicted curve A_pred(R) (or scalar c) with derivation source; (b) fitted curve and confidence interval (bootstrap with stated resampling unit, profile-likelihood, or analytic); (c) tolerance band (synthetic-demo SE rule, or empirical max(δ, Z·SE) rule, with declared values of δ and Z); (d) decision rule (accept / reject / exploratory); (e) named confound signature where deviation is observed; (f) sensitivity analysis across alternative admissible model classes from §2.2 (continuous regime) or alternative Preisach-density specifications (discrete-Preisach regime).</p>
+    </section>
+    </section>
+    <section id="synthetic-demonstrations" class="level1">
+    <h1>4. Synthetic demonstrations</h1>
+    <p>The protocol is demonstrated on synthetic cases in both regimes. Frozen simulator code is archived as the companion file methods_s3_v10_figures.py; numerical outputs and figures are reproduced exactly from that script with random seed 0 (discrete) and seed 1 (continuous bootstrap).</p>
+    <p><strong>Statistical definitions used throughout §4.</strong> (i) Bootstrap resampling unit: R-levels are resampled with replacement (n = 2,000 resamples); for each resample the slope ĉ is refit and the 95% CI is the [2.5, 97.5] percentile of the bootstrap slope distribution. The predicted slope c_pred is treated as known by construction in these synthetic cases. (ii) rate-dep statistic: for each R, compute (max_ν A − min_ν A) / mean_ν A across the audited rate range; report the mean of this normalized range over R. A rate-dep value near zero indicates rate-independent loop area; values near one or larger indicate strongly rate-driven loops. (iii) Tolerance band (synthetic-demonstration rule only): a regime is labeled PASS if |ĉ − c_pred| &lt; 1.96·SE(ĉ) in the discrete case, or |c_qs − c_pred| &lt; 1.96·SE(c_qs) in the continuous case (where SE is the bootstrap standard deviation). REJECT decisions use the same threshold. This synthetic-only rule is appropriate here because c_pred is simulation truth; empirical applications must use the equivalence rule of §3.4 with a pre-declared substantive tolerance δ.</p>
+    <section id="discrete-state-regime-single-hysteron-with-five-confound-structures" class="level2">
+    <h2>4.1 Discrete-state regime: single hysteron with five confound structures</h2>
+    <p>Five regimes are simulated with θ₀ = 0.4, α = 1.0, K_max = 2.0 (for non-minor-loop cases), R ∈ [0, 1] in nine increments, sweep rates ν ∈ {0.5, 1.0, 2.0, 4.0}, and 2,000 bootstrap resamples for slope CIs. (A) Genuine: θ_±(R) = ±(θ₀ + αR), rate-independent. (B) Rate-driven: θ_±(R) = ±(θ₀ + γν) with γ = 0.20 — the rate-driven increment vanishes as ν → 0, leaving the intrinsic baseline A = 4θ₀ at quasi-static, with no R-coupling at any rate. (C) Instrument hysteresis: θ_± = ±θ₀ fixed, no R-coupling, no rate dependence. (D) Minor-loop violation: same as (A) but K_max = 0.7 &lt; θ_+(R) for R &gt; 0.3. (E) Circular-R: same dynamics as (A), but R is operationally defined as A_observed / 4.</p>
+    <table>
+    <colgroup>
+    <col style="width: 16%" />
+    <col style="width: 16%" />
+    <col style="width: 16%" />
+    <col style="width: 16%" />
+    <col style="width: 16%" />
+    <col style="width: 16%" />
+    </colgroup>
+    <thead>
+    <tr>
+    <th><strong>Regime</strong></th>
+    <th><strong>Predicted A(R)</strong></th>
+    <th><strong>ĉ ± 95% CI</strong></th>
+    <th><strong>Â₀</strong></th>
+    <th><strong>rate-dep.</strong></th>
+    <th><strong>Decision</strong></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>(A) Genuine</td>
+    <td>linear, slope 4α = 4.000</td>
+    <td>4.002 (+3.997, +4.007)</td>
+    <td>1.599</td>
+    <td>0.000</td>
+    <td>PASS</td>
+    </tr>
+    <tr>
+    <td>(B) Rate-driven</td>
+    <td>slope ≈ 0; ν-dependent area</td>
+    <td>0.000 (-0.000, +0.000)</td>
+    <td>2.401</td>
+    <td>0.903</td>
+    <td>REJECT (rate)</td>
+    </tr>
+    <tr>
+    <td>(C) Instrument hyst.</td>
+    <td>fixed offset; slope ≈ 0</td>
+    <td>0.000 (-0.000, +0.000)</td>
+    <td>1.601</td>
+    <td>0.000</td>
+    <td>REJECT (instr.)</td>
+    </tr>
+    <tr>
+    <td>(D) Minor-loop</td>
+    <td>saturation/truncation at high R</td>
+    <td>-2.387 (-4.160, +0.000)</td>
+    <td>1.893</td>
+    <td>0.000</td>
+    <td>INVALID (major-loop)</td>
+    </tr>
+    <tr>
+    <td>(E) Circular R</td>
+    <td>tautological by construction</td>
+    <td>4.000 (+4.000, +4.000)</td>
+    <td>-0.000</td>
+    <td>0.000</td>
+    <td>INADM.</td>
+    </tr>
+    </tbody>
+    </table>
+    <p><em>Table 2. §4.1 discrete-regime results. Predicted slope is 4α = 4.000; predicted intrinsic area is 4θ₀ = 1.600. Regime (A) recovers both within tight CI. Regime (B) shows zero R-slope with high rate-dep statistic; the rate-driven increment grows with ν and vanishes as ν → 0, leaving the intrinsic baseline 4θ₀ at quasi-static. Â₀ for regime (B) is 4(θ₀ + γν) at ν = 1, reported as a consistency check; the predicted Â₀ = 4θ₀ at ν → 0 is recovered by extrapolation in the continuous regime but not directly tested here. Regime (C) shows zero R-slope with no rate dependence and Â₀ matching 4θ₀, the diagnostic signature of instrument hysteresis with no record coupling. Regime (D) shows saturation at high R: the fit slope is dominated by the truncated high-R points where the sweep cannot reach θ_+(R), invalidating the major-loop assumption rather than the lemma. Regime (E) gives a perfect slope by construction but the test is tautological since R was derived from A; INADM. = inadmissible by §2.3.</em></p>
+    <p><img src="media/image1.png" title="Two-panel figure. Left panel: loop area A versus audited record state R for four" style="width:6.5in;height:2.6in" alt="Two-panel figure. Left panel: loop area A versus audited record state R for four discrete-regime synthetic cases. Genuine record-coupling (blue) tracks the predicted line A = 4 theta0 + 4 alpha R from R = 0 to R = 1. Rate-driven case (orange) is flat at A = 2.4 across all R. Instrument hysteresis (green) is flat at A = 1.6 across all R. Minor-loop violation (red) rises until R approximately 0.3 then drops to zero. Right panel: mean loop area across R versus sweep rate nu on log scale. Regime A is constant; regime B grows from 2.0 at nu = 0.5 to 4.8 at nu = 4.0; regimes C and D are constant." /></p>
+    <p><em>Figure 1. §4.1 discrete-regime demonstration. Left: A(R) at nominal sweep rate ν = 1, with predicted line from Theorem 1. Regime A tracks the prediction; regimes B and C are flat in R (no R-coupling); regime D rises until K_max &lt; θ_+(R), then collapses. Right: rate-dependence at fixed R range. Regime A is rate-independent (record-driven); regime B shows growing loop area with ν (rate lag, vanishing as ν → 0); regimes C and D are rate-independent but flat in R. Generated by methods_s3_v10_figures.py.</em></p>
+    </section>
+    <section id="continuous-state-regime-bistable-system-with-three-confound-structures" class="level2">
+    <h2>4.2 Continuous-state regime: bistable system with three confound structures</h2>
+    <p>Three regimes are simulated with θ₀ = 0.4, α = 1.0, K_max = 2.0, R ∈ [0, 1] in seven increments, and sweep rates ν ∈ {0.05, 0.1, 0.2, 0.5, 1.0}. A_qs(R) is estimated by linear extrapolation in ν over the three slowest rates. (A) Genuine bistable + small fixed lag: y(t) relaxes with timescale τ_A = 0.02 toward a hysteron-target switching at θ_±(R) = ±(θ₀ + αR). The static loop area is 4(θ₀ + αR) by §2.2 model class (iii), recovered as ν → 0. (B) Pure rate lag (negative control): no hysteron; dy/dt = (K − y)/τ(R) with τ(R) = τ₀ + λR (τ₀ = 0.05, λ = 0.25). Quasi-static loop area is zero at every R. (C) Combined: hysteron-target as in (A), but with R-coupled relaxation timescale τ_C(R) = τ_A + δR (δ = 0.10). Both A_static(R) &gt; 0 and an additional R-coupled rate-lag contribution are present.</p>
+    <table style="width:100%;">
+    <colgroup>
+    <col style="width: 14%" />
+    <col style="width: 14%" />
+    <col style="width: 14%" />
+    <col style="width: 14%" />
+    <col style="width: 14%" />
+    <col style="width: 14%" />
+    <col style="width: 14%" />
+    </colgroup>
+    <thead>
+    <tr>
+    <th><strong>Regime</strong></th>
+    <th><strong>Predicted A_static(R)</strong></th>
+    <th><strong>A_qs(0)</strong></th>
+    <th><strong>A_qs(1)</strong></th>
+    <th><strong>ĉ_qs ± 95% CI</strong></th>
+    <th><strong>rate-dep.</strong></th>
+    <th><strong>Decision</strong></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>(A) Genuine</td>
+    <td>4(θ₀ + αR), slope 4.000</td>
+    <td>1.600</td>
+    <td>5.601</td>
+    <td>4.000 (+3.999, +4.002)</td>
+    <td>0.025</td>
+    <td>PASS</td>
+    </tr>
+    <tr>
+    <td>(B) Pure rate lag</td>
+    <td>0 at all R</td>
+    <td>0.000</td>
+    <td>0.003</td>
+    <td>0.003 (+0.002, +0.004)</td>
+    <td>2.506</td>
+    <td>REJECT (rate-mod.)</td>
+    </tr>
+    <tr>
+    <td>(C) Combined</td>
+    <td>4(θ₀ + αR), slope 4.000</td>
+    <td>1.600</td>
+    <td>5.601</td>
+    <td>4.000 (+3.999, +4.002)</td>
+    <td>0.068</td>
+    <td>PASS + rate flag</td>
+    </tr>
+    </tbody>
+    </table>
+    <p><em>Table 3. §4.2 continuous-regime results. Quasi-static loop area A_qs(R) is obtained by linear ν → 0 extrapolation from the three slowest rates. Regime (A) recovers A_static(R) = 4(θ₀ + αR) within tight CI on the slope and at both endpoints, with very small rate-dep statistic — a clean PASS for genuine record-driven static residual. Regime (B), the negative control, shows A_qs ≈ 0 at all R despite finite-rate loop area at higher ν (rate-dep ≈ 2.5, the dominant feature of this regime); the diagnostic correctly rejects S3 in favor of record-modulated rate lag. Regime (C) recovers the same A_static slope as (A) — record coupling is intact — but the rate-dep statistic is approximately three times larger, indicating a residual R-coupled rate-lag component on top of the static record structure. The Step-3 sweep-rate audit is what disambiguates (A) from (B) and (A) from (C).</em></p>
+    <p><img src="media/image2.png" title="Two-panel figure. Left panel: loop area A versus audited record state R in conti" style="width:6.5in;height:2.6in" alt="Two-panel figure. Left panel: loop area A versus audited record state R in continuous-state regime, showing three model classes at multiple sweep rates. Genuine bistable (blue) and Combined (green) bold curves both lie on the dashed predicted line from A = 1.6 at R = 0 to A = 5.6 at R = 1. Pure rate lag (orange) bold curve lies flat at zero across all R, while its faded finite-rate curves rise above zero. Right panel: A at R = 0.5 versus sweep rate nu. Genuine and Combined cases stay near the predicted static value of 3.6 across all rates, with star markers at nu = 0 also at 3.6. Pure rate lag grows from near zero at slow nu to 1.3 at nu = 1, with star at nu = 0 hitting zero." /></p>
+    <p><em>Figure 2. §4.2 continuous-regime demonstration. Left: A(R, ν) curves at five sweep rates per regime (faded lines), with the ν → 0 extrapolated A_qs(R) shown as bold curves with markers. Genuine (A) and Combined (C) sit on the predicted line A_static = 4(θ₀ + αR); Pure rate lag (B) sits at zero across all R despite having visible finite-rate loop area at faster sweeps. Right: sweep-rate audit at R ≈ 0.5. The genuine and combined cases have nearly rate-independent loop area near 4(θ₀ + 0.5α) = 3.6 across all rates with star (★) extrapolation hitting the predicted value. The pure-rate-lag case grows from near zero at slow ν to ~1.3 at ν = 1, with the ν → 0 extrapolation correctly returning to zero. Generated by methods_s3_v10_figures.py.</em></p>
+    </section>
+    </section>
+    <section id="application-rice-transcriptome-heat-stressrecovery-continuous-state-regime-step-response-application-target" class="level1">
+    <h1>5. Application: rice transcriptome heat-stress/recovery (continuous-state regime, step-response application target)</h1>
+    <p>The rice transcriptome heat-stress/recovery dataset (Jones 2026h; Wilkins et al. 2016; GEO GSE74793) provides a path-dependent biological system in which transcriptome state response to environmental constraint (temperature) can be measured along a time course of heat exposure and recovery. The dataset comprises rice leaf transcriptome measurements sampled every 15 minutes during a near-instantaneous 30 → 40 °C heat shock and the subsequent recovery period, across biological replicates and conditions. Critically, the dataset uses a fixed temperature-jump protocol rather than varied temperature ramp rates; the sweep-rate audit (§3.3) is therefore not executable on this dataset. Steps 1, 2, and 4 are executable subject to the constraints below.</p>
+    <p><strong>Step 1 (R characterization).</strong> Candidate R variables must be separated into record proxies and stratification covariates. Prior heat-shock exposure history (recorded experimentally, not inferred from the test loop) is a record-proxy candidate. Developmental stage, cultivar, tissue identity, batch, and circadian timing are stratification covariates or blocking variables — they index biological context rather than accumulated record state, and should be modeled as covariates rather than folded into R unless an explicit accumulated-record interpretation is justified. v1.0 will commit to a primary R and a covariate set, with feature-disjointness from §3.2's response coordinate verified explicitly.</p>
+    <p><strong>Step 2 (response coordinate and loop-area curve).</strong> The response coordinate y = f(x) must be predeclared. Three candidate forms, in increasing order of leakage risk: (i) a literature-defined heat-shock-response gene panel scored as a weighted sum (lowest leakage if R is also literature-defined and the two panels are disjoint); (ii) PC₁ from a held-out training set of biological replicates not used in the test loop family; (iii) an unsupervised summary fit on the test family with explicit leakage analysis. v1.0 will commit to one. Loop area is computed as |∮ y dK| under the temperature trajectory.</p>
+    <p><strong>Step-response geometry (not a smooth sweep).</strong> Because GSE74793 uses a step-change protocol — temperature transferred near-instantaneously from 30 °C to 40 °C, held, then transferred back to 30 °C — rather than a continuous up/down ramp, |∮ y dK| is interpreted here as a step-response loop statistic, not as a smooth sweep-area statistic. The integral receives contributions only at the temperature transitions; during the fixed-temperature plateaus dK = 0 and the integrand contributes nothing, even though y(t) continues to evolve. Recovery dynamics during plateaus are represented implicitly through the response values y reached just before each return transition, and explicitly through the separately reported endpoint gap (closure convention paragraph below). A continuous-ramp S3 test — one in which the sweep-rate audit of Step 3 is executable — would require a different dataset with controlled ramp-rate variation; GSE74793 cannot supply that audit, and any S3-consistent result on this dataset is therefore a step-response-geometry result under stated rate-confound caveats, not a full rate-audited S3-positive result.</p>
+    <p><strong>Step-transition convention for the loop integral.</strong> Because the temperature trajectory K(t) is piecewise-constant with discontinuous jumps, the integral ∮ y dK is not strictly defined without a convention pairing each K-jump with a y value. The default convention for this protocol is left-continuous in y: each K-jump is paired with the response value y(t⁻) measured immediately before the transition. Right-continuous (y(t⁺)) and midpoint ((y(t⁻) + y(t⁺))/2) conventions are admissible alternatives but must be predeclared with an independent justification (e.g., a calibrated instantaneous-response correction). Whichever convention is chosen, it must be applied uniformly across all R levels and reported in the integration-method field of the Step 2 reporting checklist (§3.2). For 15-minute-sampled time-series data such as GSE74793, the practical effect of convention choice is small but nonzero, and the convention should be reported regardless.</p>
+    <p><strong>Closure convention for open trajectories.</strong> When K(T) = K(0) but y(T) ≠ y(0) — i.e., temperature returns to baseline but transcriptome state does not — the (K, y) trajectory is not closed. The protocol imposes closure by appending a vertical segment at fixed K = K(0) connecting y(T) back to y(0). Because this vertical segment contributes zero to ∫ y dK, the loop-area statistic is unaffected by the choice. The endpoint gap Δy := |y(T) − y(0)| is reported separately as a non-closure diagnostic; large Δy indicates incomplete recovery and may itself carry record-state information orthogonal to the loop area. This convention applies to any time-course application of the protocol where the response coordinate does not return to its starting value within the measurement window.</p>
+    <p><strong>Step 3 (rate audit).</strong> Not executable on GSE74793. The dataset uses a single fixed temperature-jump protocol; ramp rate is not varied. Confound classes that therefore remain unaudited: record-modulated rate lag (transcriptional relaxation timescale coupling to R), record-independent rate lag, thixotropic-analog recovery dynamics, and frequency-dependent dissipation in transcriptome-state trajectory. Any S3-consistent result on this dataset is therefore conditional on rate-driven confounds being ruled out by other means (e.g., independent literature, auxiliary single-cell time-course data, or biological-mechanism arguments). Per the §3.4 fixed-rate caveat, the result is reported as S3-consistent under stated caveats, not as a confirmatory S3-positive result.</p>
+    <p><strong>Step 4 (falsifier comparison).</strong> Compare fitted A(R) against the predicted curve A_pred(R) under the chosen formalism — the bistable basin-geometry / Kramers class of §2.2(ii) is the natural framing for transcriptional commitment dynamics. The predicted curve must be obtained independently, from prior literature on heat-shock response or mechanistic models of transcriptional commitment, not fit from the test family.</p>
+    <p>v1.0 will name the primary R, the response coordinate, the formalism, and the predicted-slope source explicitly. Numerical execution against the existing T16 analysis is the subject of a companion empirical paper.</p>
+    </section>
+    <section id="discussion" class="level1">
+    <h1>6. Discussion</h1>
+    <section id="domains" class="level2">
+    <h2>6.1 Domains</h2>
+    <p>Direct applications: stress–recovery in soft tissue (Fung 1967; Zhang et al. 2007); ecosystem regime shifts (Scheffer et al. 2001; Beisner et al. 2003); developmental fate commitment under cue reversal (Pájaro et al. 2019); institutional and policy lock-in (Arthur 1989; Pierson 2000); ferromagnetic and ferroelectric Preisach systems (Mayergoyz 2003); rate-dependent viscoelastic and thixotropic systems (Wang &amp; Ewoldt 2023, useful as a comparison case where the rate audit is the primary diagnostic and the protocol's negative-control regime is the relevant outcome); memory and belief systems where prior commitments alter response to subsequent evidence (Lord, Ross &amp; Lepper 1979). Choice of regime — discrete or continuous — is determined by state-variable structure, not framework preference.</p>
+    </section>
+    <section id="the-independence-audit-as-the-load-bearing-step" class="level2">
+    <h2>6.2 The independence audit as the load-bearing step</h2>
+    <p>Neither the single-hysteron lemma nor the static-plus-dynamic decomposition is novel in itself. What this protocol contributes is the pairing of these textbook predictions with an independently audited R proxy, an independently declared response coordinate, and a sweep-rate audit (where executable) that distinguishes static record-driven structure from rate-driven contributions including record-modulated rate lag. The audit converts a descriptive loop-area statistic into a falsifiable record-state claim. Without independent R, independent y, and independent slope, the protocol can verify the form of loop scaling (linear, sublinear) but not whether the scaling is record-driven.</p>
+    </section>
+    <section id="comparison-to-alternative-diagnostics" class="level2">
+    <h2>6.3 Comparison to alternative diagnostics</h2>
+    <p>Standard hysteresis-summary statistics — loop area, coercive field, remanence, energy dissipation per cycle (Mayergoyz 2003) — are single-condition descriptive summaries. They share the limitation, structurally similar to the one Bland and Altman (1986) flagged for method-comparison correlation in clinical measurement, that genuine record-coupling and rate-driven apparent hysteresis can produce indistinguishable single-condition values under plausible parameter substitutions. The agreement-curve approach of Auditing Independence (Jones 2026f) and the latency-curve approach of Auditing Constraint Asymmetry (Jones 2026g) addressed the same structural problem — comparing observed scaling against an independently specified prediction — for S1 and S2 respectively; the present protocol is the S3 analog.</p>
+    <p>Preisach density estimation (Mayergoyz 2003; Brokate &amp; Sprekels 1996) is more diagnostic in principle but is typically calibrated against the same loop family being audited, reproducing the circular-fit failure mode (Varma &amp; Simon 2006). The protocol of §3 differs in requiring the predicted slope or curve to come from a non-test source. Where a Preisach density is genuinely available from independent calibration (mechanistic micromagnetics, separate validation experiments), the protocol incorporates it as the predicted slope in §3.4.</p>
+    <p>Return-point memory tests (Sethna et al. 1993) are complementary but address a different signature; the present protocol does not require a return-point-memory check, since many continuous-state systems exhibit S3 without exhibiting return-point memory in any strict form. Avalanche-scaling diagnostics (Dahmen &amp; Sethna 1996; Sethna, Dahmen &amp; Myers 2001) apply to a different regime — critical disorder — where the linear lemma does not hold and a separate scaling-form diagnostic is appropriate.</p>
+    <p>Rheology-aware diagnostics for thixotropic and viscoelastic systems (Wang &amp; Ewoldt 2023) overlap most directly with the rate-audit component of this protocol and are complementary in continuous-state physical systems. The present protocol's contribution is the pairing of a rate audit with an independently audited R-scaling check, allowing record-coupling claims to be separated from record-modulated rate lag in systems that may exhibit both.</p>
+    <p>Where the protocol is most useful: settings with multiple R levels, an independently constructible record-state proxy, and either a multi-rate sweep design or external grounds for ruling out rate-driven contributions. Where it is least useful: single-condition material characterization, systems where record state is intrinsically inferable only from loop geometry, and critical-disorder regimes where the linear lemma does not apply.</p>
+    </section>
+    </section>
+    <section id="limitations" class="level1">
+    <h1>7. Limitations</h1>
+    <p>Eight limitations are stated explicitly:</p>
+    <p>(1) Loop scaling does not prove metaphysical record persistence. The protocol tests whether observed scaling is consistent with a stated record-coupling model; it cannot establish record persistence as a property of the world.</p>
+    <p>(2) The slope c (or curve A_pred) is model-relative. Single-hysteron 4α, Preisach-density predictions, and continuous-state model class predictions yield different predicted scalings; sensitivity analysis across plausible formalisms is essential.</p>
+    <p>(3) Continuous-state systems require sweep-rate extrapolation, not just R-variation. Mixing classification-style discrete-regime statistics with continuous-state data is a category error analogous to the warning in Jones 2026f.</p>
+    <p>(4) Multi-sweep R accumulation (Jones 2026e §3) requires a separate model and is not implied by the linear lemma. The protocol assumes R fixed during each sweep.</p>
+    <p>(5) Shared environmental history across audited R values can dominate apparent R-scaling. The audit must include the full exposure chain, not only the immediate pretest history.</p>
+    <p>(6) A fitted slope mismatch can reject a record-coupling model but cannot by itself identify the exact confound. Identification requires further audit (independent residual analysis, simulation injection tests, mechanistic ablations).</p>
+    <p>(7) Projection dependence. In high-dimensional systems, loop area depends on the chosen response coordinate y = f(x). Different f choices can yield different loop-area curves on the same dataset; the protocol's sharpness is conditional on f being predeclared and admissible per §2.3. Sensitivity analysis across alternative admissible f choices is recommended.</p>
+    <p>(8) Dataset eligibility. Some datasets exhibit path dependence but cannot support the full audit because they lack independent R, multiple R levels, valid major-loop coverage, or sweep-rate variation. The rice transcriptome target (§5) is one such case: Steps 1, 2, and 4 are executable but Step 3 is not. Honest reporting of which steps are executable on a given dataset is part of the protocol.</p>
+    </section>
+    <section id="reporting-template" class="level1">
+    <h1>8. Reporting template</h1>
+    <p>The following template specifies the minimum information that should accompany any use of the protocol. The format is modeled on the reporting templates of Auditing Independence (Jones 2026f) and Auditing Constraint Asymmetry (Jones 2026g), consolidated with the per-step checklists of §3.</p>
+    <table>
+    <colgroup>
+    <col style="width: 50%" />
+    <col style="width: 50%" />
+    </colgroup>
+    <thead>
+    <tr>
+    <th><strong>Field</strong></th>
+    <th><strong>Specification</strong></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>Latent record state</td>
+    <td>What accumulated history is hypothesized to drive path dependence?</td>
+    </tr>
+    <tr>
+    <td>Channel / sample units</td>
+    <td>What counts as a sweep? (specimen, condition, replicate, run)</td>
+    </tr>
+    <tr>
+    <td>Regime</td>
+    <td>Discrete-state (single hysteron / Preisach) or continuous-state</td>
+    </tr>
+    <tr>
+    <td>Loop statistic</td>
+    <td>A = |∮ y dK|, signed, RMS, or other</td>
+    </tr>
+    <tr>
+    <td>Response coordinate y and source</td>
+    <td>Identity (p = 1) or predeclared f(x); source per §3.2(2a)</td>
+    </tr>
+    <tr>
+    <td>Formalism</td>
+    <td>Single hysteron, Preisach density, continuous Preisach, bistable basin / Kramers, soft bistable continuous (§2.2)</td>
+    </tr>
+    <tr>
+    <td>Predicted scaling A_pred(R) or c</td>
+    <td>Functional form and source (independent of test loop)</td>
+    </tr>
+    <tr>
+    <td>R-source</td>
+    <td>Record proxy vs. stratification covariate; admissibility class (§2.3)</td>
+    </tr>
+    <tr>
+    <td>Feature disjointness (omics)</td>
+    <td>R features ∩ y features = ∅, or leakage analysis reported</td>
+    </tr>
+    <tr>
+    <td>Sweep bounds</td>
+    <td>K_min, K_max; major-loop verification source</td>
+    </tr>
+    <tr>
+    <td>Closure convention</td>
+    <td>Closed by construction; or vertical-segment closure with reported endpoint gap (§5)</td>
+    </tr>
+    <tr>
+    <td>Sweep rate(s)</td>
+    <td>ν₁, …, ν_k or "single fixed rate"</td>
+    </tr>
+    <tr>
+    <td>Rate-audit executability</td>
+    <td>Executable / partial / not-executable; named unaudited confounds</td>
+    </tr>
+    <tr>
+    <td>Quasi-static convergence</td>
+    <td>Achieved tolerance ε between two slowest rates (continuous regime)</td>
+    </tr>
+    <tr>
+    <td>Replicate count</td>
+    <td>Independent-units estimate per R level</td>
+    </tr>
+    <tr>
+    <td>Reference baseline</td>
+    <td>Simulation truth, leave-one-out, model expectation</td>
+    </tr>
+    <tr>
+    <td>Falsifier statistic</td>
+    <td>ĉ vs. c_pred, or A_qs(R) vs. A_pred(R)</td>
+    </tr>
+    <tr>
+    <td>Confidence interval</td>
+    <td>Bootstrap (resampling unit specified), profile-likelihood, or analytic</td>
+    </tr>
+    <tr>
+    <td>Tolerance band</td>
+    <td>Synthetic-demo SE rule, or empirical max(δ, Z·SE) rule with δ pre-declared</td>
+    </tr>
+    <tr>
+    <td>Decision</td>
+    <td>Pass / reject / exploratory / inadmissible / not-applicable</td>
+    </tr>
+    <tr>
+    <td>Confound signature</td>
+    <td>Named confound class consistent with observed deviation</td>
+    </tr>
+    <tr>
+    <td>Sensitivity analysis</td>
+    <td>Across alternative f, formalism, ρ, or noise model</td>
+    </tr>
+    <tr>
+    <td>Claim level</td>
+    <td>Method demo / Level 3 empirical (UIS terminology)</td>
+    </tr>
+    <tr>
+    <td>UIS ledger link</td>
+    <td>Independence-audit ledger entry</td>
+    </tr>
+    </tbody>
+    </table>
+    <p><em>Table 4. Reporting template for the loop-scaling protocol. Every entry should be filled before the diagnostic is treated as informative.</em></p>
+    </section>
+    <section id="broader-context" class="level1">
+    <h1>9. Broader context</h1>
+    <p>This protocol was developed within a structural framework on records and constraint-guided collapse (Jones 2026a, 2026b, 2026c, 2026e) as a falsifier for the loop-area S3 signature. The methods contribution stands independently: an audit for record-coupled hysteresis claims in any domain where loop area can be measured against an externally audited record-state proxy. The internal framework is one motivating context; the protocol's correctness and applicability do not depend on adopting it.</p>
+    </section>
+    <section id="appendix-a.-reproduction-code" class="level1">
+    <h1>Appendix A. Reproduction code</h1>
+    <p>The companion script methods_s3_v10_figures.py reproduces the results of §4 and Figures 1 and 2 exactly, with random seed 0 (discrete) and seed 1 (continuous bootstrap), and dependencies NumPy and Matplotlib only. The script is archived alongside this Methods Paper. The minimal core of the discrete-state simulator is reproduced below for inspection; the continuous-state simulator and figure code are in the companion file.</p>
+    <p>import numpy as np<br />
+    <br />
+    # NumPy 1.x / 2.x compatibility: np.trapezoid was added in NumPy 2.0,<br />
+    # replacing the deprecated np.trapz. The companion script uses this shim.<br />
+    try:<br />
+    integrate_trapezoid = np.trapezoid<br />
+    except AttributeError:<br />
+    integrate_trapezoid = np.trapz<br />
+    <br />
+    THETA0, ALPHA = 0.4, 1.0<br />
+    <br />
+    def hysteron_sweep(K, theta_p, theta_m, x_init=-1):<br />
+    x = np.empty(len(K)); state = x_init<br />
+    for i, k in enumerate(K):<br />
+    if k &gt;= theta_p: state = 1<br />
+    elif k &lt;= theta_m: state = -1<br />
+    x[i] = state<br />
+    return x<br />
+    <br />
+    def loop_area(K, x):<br />
+    return abs(integrate_trapezoid(x, K))<br />
+    <br />
+    def major_sweep(K_max, n=4000):<br />
+    up = np.linspace(-K_max, K_max, n // 2)<br />
+    dn = np.linspace(K_max, -K_max, n // 2)<br />
+    return np.concatenate([up, dn])<br />
+    <br />
+    # Regime A (genuine): A(R) = 4*theta0 + 4*alpha*R<br />
+    for R in np.linspace(0, 1, 9):<br />
+    K = major_sweep(K_max=2.0)<br />
+    tp = THETA0 + ALPHA * R<br />
+    A = loop_area(K, hysteron_sweep(K, tp, -tp))<br />
+    print(f'R={R:.2f} A={A:.4f} predicted={4*THETA0 + 4*ALPHA*R:.4f}')</p>
+    </section>
+    <section id="references" class="level1">
+    <h1>References</h1>
+    <p>Arthur, W. B. (1989). Competing technologies, increasing returns, and lock-in by historical events. The Economic Journal, 99(394), 116–131. <a href="https://doi.org/10.2307/2234208"><u>https://doi.org/10.2307/2234208</u></a></p>
+    <p>Beisner, B. E., Haydon, D. T., &amp; Cuddington, K. (2003). Alternative stable states in ecology. Frontiers in Ecology and the Environment, 1(7), 376–382. <a href="https://doi.org/10.1890/1540-9295(2003)001[0376:ASSIE]2.0.CO;2"><u>https://doi.org/10.1890/1540-9295(2003)001[0376:ASSIE]2.0.CO;2</u></a></p>
+    <p>Bland, J. M., &amp; Altman, D. G. (1986). Statistical methods for assessing agreement between two methods of clinical measurement. The Lancet, 327(8476), 307–310. <a href="https://doi.org/10.1016/S0140-6736(86)90837-8"><u>https://doi.org/10.1016/S0140-6736(86)90837-8</u></a></p>
+    <p>Brokate, M., &amp; Sprekels, J. (1996). Hysteresis and Phase Transitions. Springer. <a href="https://doi.org/10.1007/978-1-4612-4048-8"><u>https://doi.org/10.1007/978-1-4612-4048-8</u></a></p>
+    <p>Dahmen, K., &amp; Sethna, J. P. (1996). Hysteresis, avalanches, and disorder-induced critical scaling: A renormalization-group approach. Physical Review B, 53(22), 14872–14905. <a href="https://doi.org/10.1103/PhysRevB.53.14872"><u>https://doi.org/10.1103/PhysRevB.53.14872</u></a></p>
+    <p>Fung, Y. C. (1967). Elasticity of soft tissues in simple elongation. American Journal of Physiology, 213(6), 1532–1544. <a href="https://doi.org/10.1152/ajplegacy.1967.213.6.1532"><u>https://doi.org/10.1152/ajplegacy.1967.213.6.1532</u></a></p>
+    <p>Hänggi, P., Talkner, P., &amp; Borkovec, M. (1990). Reaction-rate theory: fifty years after Kramers. Reviews of Modern Physics, 62(2), 251–341. <a href="https://doi.org/10.1103/RevModPhys.62.251"><u>https://doi.org/10.1103/RevModPhys.62.251</u></a></p>
+    <p>Jones, J. C. (2026a). Records Across Nature, Life, and Mind. HoldingLight LLC. <a href="https://doi.org/10.17605/OSF.IO/7H6DY"><u>https://doi.org/10.17605/OSF.IO/7H6DY</u></a></p>
+    <p>Jones, J. C. (2026b). The Structuralization of Empiricism. HoldingLight LLC. <a href="https://doi.org/10.17605/OSF.IO/J4GZ9"><u>https://doi.org/10.17605/OSF.IO/J4GZ9</u></a></p>
+    <p>Jones, J. C. (2026c). Update Integrity Standard (UIS v1.0). HoldingLight LLC. <a href="https://doi.org/10.17605/OSF.IO/DWM29"><u>https://doi.org/10.17605/OSF.IO/DWM29</u></a></p>
+    <p>Jones, J. C. (2026d). Objectivity from Records: An Exponential Consensus Bound (UCT Technical Note v1.0). HoldingLight LLC. <a href="https://doi.org/10.17605/OSF.IO/6M7N3"><u>https://doi.org/10.17605/OSF.IO/6M7N3</u></a></p>
+    <p>Jones, J. C. (2026e). Records Amplify Hysteresis: A Loop-Area Lemma (UCT Technical Note v1.0). HoldingLight LLC. <a href="https://doi.org/10.17605/OSF.IO/QJMSZ"><u>https://doi.org/10.17605/OSF.IO/QJMSZ</u></a></p>
+    <p>Jones, J. C. (2026f). Auditing Independence in Multi-Channel Measurement: An Agreement-Curve Diagnostic for Genuine versus Correlated Redundancy (UCT Methods Paper v1.0). HoldingLight LLC. <a href="https://doi.org/10.17605/OSF.IO/7U8SK"><u>https://doi.org/10.17605/OSF.IO/7U8SK</u></a></p>
+    <p>Jones, J. C. (2026g). Auditing Constraint Asymmetry in Latency-Based Resolution Tests: A Latency-Curve Diagnostic for Neutrality versus Confound-Induced Delay (UCT Methods Paper v1.0). HoldingLight LLC. <a href="https://doi.org/10.17605/OSF.IO/HRKWT"><u>https://doi.org/10.17605/OSF.IO/HRKWT</u></a></p>
+    <p>Jones, J. C. (2026h). Constraint-Sweep Hysteresis in Rice Transcriptome State During Heat Stress and Recovery: A Reproducible, Theory-Neutral Test on GEO GSE74793. HoldingLight LLC. <a href="https://doi.org/10.17605/OSF.IO/KZ8TP"><u>https://doi.org/10.17605/OSF.IO/KZ8TP</u></a></p>
+    <p>Kriegeskorte, N., Simmons, W. K., Bellgowan, P. S. F., &amp; Baker, C. I. (2009). Circular analysis in systems neuroscience: the dangers of double dipping. Nature Neuroscience, 12, 535–540. <a href="https://doi.org/10.1038/nn.2303"><u>https://doi.org/10.1038/nn.2303</u></a></p>
+    <p>Lord, C. G., Ross, L., &amp; Lepper, M. R. (1979). Biased assimilation and attitude polarization: The effects of prior theories on subsequently considered evidence. Journal of Personality and Social Psychology, 37(11), 2098–2109. <a href="https://doi.org/10.1037/0022-3514.37.11.2098"><u>https://doi.org/10.1037/0022-3514.37.11.2098</u></a></p>
+    <p>Mayergoyz, I. D. (2003). Mathematical Models of Hysteresis and Their Applications (2nd ed.). Academic Press/Elsevier. <a href="https://doi.org/10.1016/B978-0-12-480873-7.X5000-2"><u>https://doi.org/10.1016/B978-0-12-480873-7.X5000-2</u></a></p>
+    <p>NCBI GEO. Series GSE74793. Rice gene expression in heat stress and dehydration stress — time series. <a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE74793"><u>https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE74793</u></a></p>
+    <p>Pájaro, M., Otero-Muras, I., Vázquez, C., &amp; Alonso, A. A. (2019). Transient hysteresis and inherent stochasticity in gene regulatory networks. Nature Communications, 10, 4581. <a href="https://doi.org/10.1038/s41467-019-12344-w"><u>https://doi.org/10.1038/s41467-019-12344-w</u></a></p>
+    <p>Pierson, P. (2000). Increasing returns, path dependence, and the study of politics. American Political Science Review, 94(2), 251–267. <a href="https://doi.org/10.2307/2586011"><u>https://doi.org/10.2307/2586011</u></a></p>
+    <p>Scheffer, M., Carpenter, S., Foley, J. A., Folke, C., &amp; Walker, B. (2001). Catastrophic shifts in ecosystems. Nature, 413(6856), 591–596. <a href="https://doi.org/10.1038/35098000"><u>https://doi.org/10.1038/35098000</u></a></p>
+    <p>Sethna, J. P., Dahmen, K., Kartha, S., Krumhansl, J. A., Roberts, B. W., &amp; Shore, J. D. (1993). Hysteresis and hierarchies: Dynamics of disorder-driven first-order phase transformations. Physical Review Letters, 70(21), 3347–3350. <a href="https://doi.org/10.1103/PhysRevLett.70.3347"><u>https://doi.org/10.1103/PhysRevLett.70.3347</u></a></p>
+    <p>Sethna, J. P., Dahmen, K. A., &amp; Myers, C. R. (2001). Crackling noise. Nature, 410(6825), 242–250. <a href="https://doi.org/10.1038/35065675"><u>https://doi.org/10.1038/35065675</u></a></p>
+    <p>Varma, S., &amp; Simon, R. (2006). Bias in error estimation when using cross-validation for model selection. BMC Bioinformatics, 7, 91. <a href="https://doi.org/10.1186/1471-2105-7-91"><u>https://doi.org/10.1186/1471-2105-7-91</u></a></p>
+    <p>Wang, Y., &amp; Ewoldt, R. H. (2023). Thixotropy, antithixotropy, and viscoelasticity in hysteresis. Journal of Rheology, 67(6), 1199–1219. <a href="https://doi.org/10.1122/8.0000620"><u>https://doi.org/10.1122/8.0000620</u></a></p>
+    <p>Wilkins, O., Hafemeister, C., Plessis, A., et al. (2016). EGRINs (Environmental Gene Regulatory Influence Networks) in rice that function in the response to water deficit, high temperature, and agricultural environments. The Plant Cell, 28(10), 2365–2384. <a href="https://doi.org/10.1105/tpc.16.00158"><u>https://doi.org/10.1105/tpc.16.00158</u></a></p>
+    <p>Zhang, W., Chen, H. Y., &amp; Kassab, G. S. (2007). A rate-insensitive linear viscoelastic model for soft tissues. Biomaterials, 28(24), 3579–3586. <a href="https://doi.org/10.1016/j.biomaterials.2007.04.040"><u>https://doi.org/10.1016/j.biomaterials.2007.04.040</u></a></p>
+    <p><em>This paper is part of the Universal Collapse Theory library. For a reading guide and full architecture, visit universalcollapse.com/roadmap.</em></p>
+    </section>
+    <section id="ai-disclosure" class="level1">
+    <h1>AI Disclosure</h1>
+    <p>AI tools were used to assist with manuscript preparation. The underlying theory, arguments, and interpretive claims are the author's own, and the author takes full responsibility for the content.</p>
+    </section>
+    <section id="citation" class="level1">
+    <h1>Citation</h1>
+    <p>Jones, J. C. (2026). Auditing Record State in Constraint-Sweep Hysteresis Tests: A Loop-Scaling Diagnostic for Record-Driven versus Confound-Induced Path Dependence (UCT Methods Paper v1.0). HoldingLight LLC.</p>
+    </section>
+
+    <a href="#top" class="backtotop">&uarr; Back to top</a>
+  </article>
+
+</div>
+
+<script>
+(function () {
+  var bar = document.getElementById('progress');
+  function onScroll() {
+    var h = document.documentElement;
+    var pct = h.scrollTop / (h.scrollHeight - h.clientHeight);
+    bar.style.width = (pct * 100).toFixed(1) + '%';
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav.toc a'));
+  var targets = links.map(function (a) {
+    return document.getElementById(decodeURIComponent(a.getAttribute('href')).slice(1));
+  });
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      var i = targets.indexOf(e.target);
+      if (i < 0) return;
+      links.forEach(function (l) { l.classList.remove('active'); });
+      links[i].classList.add('active');
+    });
+  }, { rootMargin: '-10% 0px -80% 0px' });
+  targets.forEach(function (t) { if (t) obs.observe(t); });
+
+  var btn = document.getElementById('toc-toggle');
+  var nav = document.getElementById('toc');
+  btn.addEventListener('click', function () {
+    var c = nav.getAttribute('data-collapsed') === 'true';
+    nav.setAttribute('data-collapsed', String(!c));
+    btn.setAttribute('aria-expanded', String(c));
+    btn.textContent = c ? 'Hide contents' : 'Show contents';
+  });
+
+  document.querySelectorAll('article section[id] > h1, article section[id] > h2').forEach(function (h) {
+    var a = document.createElement('a');
+    a.className = 'anchor';
+    a.href = '#' + h.parentNode.id;
+    a.textContent = '#';
+    a.setAttribute('aria-label', 'Link to this section');
+    h.appendChild(a);
+  });
+})();
+</script>
+
+</body>
+</html>

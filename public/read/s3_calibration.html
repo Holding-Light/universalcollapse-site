@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calibrating the S₃ Detector: A Positive-Control Study of Constraint-Reinstatement Detection in a Frontier Language Model — Universal Collapse Theory</title>
+  <meta name="description" content="The missing positive control for the S₃ detector — planted constraint-reinstatement events of pre-registered intensity, recovered by a frozen instrument at characterized sensitivity and specificity.">
+
+  <!-- Full-text reading copy. The citable record is the landing page;
+       canonical points there so Scholar and search consolidate on one URL. -->
+  <link rel="canonical" href="https://universalcollapse.com/read/s3_calibration">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Calibrating the S₃ Detector: A Positive-Control Study of Constraint-Reinstatement Detection in a Frontier Language Model — Universal Collapse Theory">
+  <meta property="og:description" content="The missing positive control for the S₃ detector — planted constraint-reinstatement events of pre-registered intensity, recovered by a frozen instrument at characterized sensitivity and specificity.">
+  <meta property="og:url" content="https://universalcollapse.com/read/s3_calibration">
+  <meta property="og:site_name" content="Universal Collapse Theory">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@300;400&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg-deep: #08090c;
+      --bg-surface: #0e1017;
+      --bg-elevated: #161820;
+      --text-primary: #e8e6e1;
+      --text-secondary: #9b978f;
+      --text-tertiary: #5e5b54;
+      --accent: #c9a96e;
+      --accent-dim: #8a7245;
+      --rule: rgba(201, 169, 110, 0.12);
+      --serif: 'EB Garamond', Georgia, serif;
+      --sans: 'Outfit', system-ui, sans-serif;
+      --mono: 'JetBrains Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg-deep);
+      color: var(--text-primary);
+      font-family: var(--sans);
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    #progress {
+      position: fixed; top: 0; left: 0; height: 2px; width: 0%;
+      background: var(--accent); z-index: 100; transition: width 0.1s linear;
+    }
+
+    .topbar {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(8, 9, 12, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--rule);
+      padding: 0.75rem 1.5rem;
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 0.8rem;
+    }
+    .topbar a { color: var(--text-secondary); text-decoration: none; }
+    .topbar a:hover { color: var(--accent); }
+    .topbar .cite { color: var(--text-tertiary); font-family: var(--mono); font-size: 0.7rem; }
+
+    .shell {
+      max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem 6rem;
+      display: grid; grid-template-columns: minmax(0, 220px) minmax(0, 1fr); gap: 3rem;
+    }
+
+    nav.toc {
+      position: sticky; top: 5rem; align-self: start;
+      max-height: calc(100vh - 8rem); overflow-y: auto;
+      font-size: 0.8rem; line-height: 1.6;
+    }
+    nav.toc > p {
+      color: var(--text-tertiary); text-transform: uppercase;
+      letter-spacing: 0.12em; font-size: 0.65rem; margin-bottom: 0.75rem;
+    }
+    nav.toc ul { list-style: none; }
+    nav.toc ul ul { padding-left: 0.85rem; }
+    nav.toc li { margin: 0.3rem 0; }
+    nav.toc a {
+      color: var(--text-secondary); text-decoration: none;
+      display: block; padding-left: 0.6rem;
+      border-left: 1px solid transparent;
+    }
+    nav.toc a:hover { color: var(--text-primary); }
+    nav.toc a.active { color: var(--accent); border-left-color: var(--accent); }
+
+    article { min-width: 0; }
+
+    .paper-head { border-bottom: 1px solid var(--rule); padding-bottom: 1.75rem; margin-bottom: 2.5rem; }
+    .paper-head .tier {
+      font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.15em;
+      color: var(--accent-dim); text-transform: uppercase;
+    }
+    .paper-head h1 {
+      font-family: var(--serif); font-weight: 500; font-size: 2.1rem;
+      line-height: 1.2; margin: 0.75rem 0 0.5rem; color: var(--text-primary);
+    }
+    .paper-head .sub { font-family: var(--serif); font-style: italic; color: var(--text-secondary); font-size: 1.05rem; }
+    .paper-head .meta { margin-top: 1.1rem; font-size: 0.78rem; color: var(--text-tertiary); }
+    .paper-head .meta a { color: var(--accent-dim); text-decoration: none; }
+
+    article h1, article h2, article h3 {
+      font-family: var(--serif); font-weight: 600; line-height: 1.3;
+      color: var(--text-primary); scroll-margin-top: 5rem;
+    }
+    article h1 { font-size: 1.5rem; margin: 3rem 0 1rem; }
+    article h2 { font-size: 1.2rem; margin: 2rem 0 0.75rem; color: var(--text-secondary); }
+    article h3 { font-size: 1.05rem; margin: 1.5rem 0 0.5rem; color: var(--text-secondary); }
+
+    article h1 .anchor, article h2 .anchor {
+      opacity: 0; margin-left: 0.5rem; color: var(--accent-dim);
+      text-decoration: none; font-size: 0.7em; font-family: var(--sans);
+    }
+    article h1:hover .anchor, article h2:hover .anchor { opacity: 1; }
+
+    article p {
+      font-family: var(--serif); font-size: 1.12rem; font-weight: 400;
+      line-height: 1.75; margin: 0 0 1.15rem; color: var(--text-primary);
+    }
+    article ul, article ol { font-family: var(--serif); font-size: 1.12rem; margin: 0 0 1.15rem 1.5rem; }
+    article li { margin-bottom: 0.4rem; }
+    article strong { font-weight: 600; color: var(--text-primary); }
+    article em { font-style: italic; }
+    article a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--rule); }
+    article blockquote {
+      border-left: 2px solid var(--accent-dim); padding-left: 1.25rem;
+      margin: 1.5rem 0; color: var(--text-secondary); font-style: italic;
+      border-radius: 0;
+    }
+
+    math { font-size: 1.05em; color: var(--text-primary); }
+
+    .backtotop {
+      display: inline-block; margin-top: 3rem; padding-top: 1.5rem;
+      border-top: 1px solid var(--rule); width: 100%;
+      font-size: 0.8rem; color: var(--text-tertiary); text-decoration: none;
+    }
+    .backtotop:hover { color: var(--accent); }
+
+    #toc-toggle { display: none; }
+
+    @media (max-width: 820px) {
+      .shell { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; padding: 1.25rem 1.1rem 4rem; }
+      nav.toc {
+        position: static; max-height: none; order: -1;
+        border: 1px solid var(--rule); border-radius: 6px; padding: 0.9rem 1rem;
+      }
+      nav.toc[data-collapsed="true"] ul { display: none; }
+      #toc-toggle { display: block; background: none; border: none; color: var(--text-secondary);
+        font-family: var(--sans); font-size: 0.75rem; cursor: pointer; padding: 0; }
+      .paper-head h1 { font-size: 1.6rem; }
+      article p, article ul, article ol { font-size: 1.08rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<div class="topbar">
+  <a href="https://universalcollapse.com/s3_calibration">&larr; Calibrating the S₃ Detector</a>
+  <span class="cite">10.17605/OSF.IO/JAEZQ</span>
+</div>
+
+<div class="shell">
+
+  <nav class="toc" id="toc" data-collapsed="false">
+    <p>Contents</p>
+    <button id="toc-toggle" aria-expanded="true">Hide contents</button>
+    
+  </nav>
+
+  <article>
+    <header class="paper-head">
+      <span class="tier">Tier 1.6 &amp;mdash; Empirical Demonstrations</span>
+      <h1>Calibrating the S₃ Detector: A Positive-Control Study of Constraint-Reinstatement Detection in a Frontier Language Model</h1>
+      <p class="sub">A Positive-Control Study of Constraint-Reinstatement Detection in a Frontier Language Model</p>
+      <p class="meta">
+        Jeremy C. Jones &middot; HoldingLight LLC &middot; 2026/07 &middot; CC BY 4.0<br>
+        Cite as <a href="https://doi.org/10.17605/OSF.IO/JAEZQ">10.17605/OSF.IO/JAEZQ</a>
+        
+      </p>
+    </header>
+
+    <p><strong>Calibrating the S₃ Detector</strong></p>
+    <p><strong>A Positive-Control Study of Constraint-Reinstatement Detection in a Frontier Language Model</strong></p>
+    <p><em>A T16 companion establishing S₃ detector sensitivity at the in-session channel</em></p>
+    <p><strong>Jeremy C. Jones</strong></p>
+    <p>HoldingLight LLC</p>
+    <p>ORCID: 0009-0007-2515-3774</p>
+    <p>contact@universalcollapse.com</p>
+    <p>v1.0 · 2026-07-15</p>
+    <p>Abstract</p>
+    <p>The T16 program instruments three behavioral signatures (S₁/S₂/S₃) hypothesized to be common to constraint-guided systems. Of these, S₃ — the persistence of a released constraint as unrecorded state (hysteresis) — is the signature most exposed to circular inference, because in a black-box deployment the constraint’s record state can only be estimated from the same loop whose drift it is meant to explain. Prior T16 work established only <em>negative</em> controls for the S₃ detector: it returns the correct null on systems with no planted defect. Negative controls bound false positives; they cannot establish sensitivity. This study supplies the missing positive control. We plant constraint-reinstatement events of known, pre-registered intensity into a multi-turn probe and measure whether a frozen scoring instrument detects them. On gpt-5.4, the detector achieves a pooled true-positive rate of 0.786 (95% CI [0.695, 0.855]) against a false-positive rate of 0.042 ([0.007, 0.202]) and a confabulation-baseline specificity of 1.000 on canonical phrasing. Beyond the calibration result, the graded design yields a substantive finding about the model under test: a released constraint behaves as a <strong>stored unit retrieved by category-recognition</strong>. A contentless pointer to the prior constraint elicits full structural reconstruction ~4% of the time; a bare directive-category cue (“Structure each answer as:”) — carrying no component content — raises that to 100% (<em>p</em> = 1.6 × 10⁻¹³); naming the components adds nothing. We situate this alongside two companion S₃ probes (behavioral release, introspective recall) and argue the three converge in support of a single principle: <strong>for this model, the record functions as the operative object of constraint dynamics.</strong> We additionally report a methodological by-product — the harness was found to have silently retained a <em>released</em> probe phrasing in half of one prior run, an instance of the exact S₃ failure mode the program instruments, surfaced only by record-auditing.</p>
+    <p><strong>Status (v1.0).</strong> This is the deposit version. All run identifiers, SHAs, and statistics are carried from the harness and were independently recomputed for the accompanying verification pack; the single harness value that failed recomputation is corrected and disclosed at point of use (§4.2). The training-layer sibling, F2 (Jones 2026h), transcribes this positive-control template to K<sub>train</sub> by fine-tuning and reuses the frozen instrument (Tasks A–D byte-identical); it is deposited at https://doi.org/10.17605/OSF.IO/5TG3P. The provenance correction this study surfaced is deposited as an append-only clarification note on the parent record (Jones 2026i, https://doi.org/10.17605/OSF.IO/7NVMX). This paper: https://doi.org/10.17605/OSF.IO/JAEZQ.</p>
+    <p><strong>Keywords:</strong> Universal Collapse Theory; S₃; positive control; sensitivity; constraint reinstatement; record state; K<sub>context</sub>; frozen instrument; confabulation baseline; hysteresis.</p>
+    <p>1. Background and motivation</p>
+    <p>1.1 The S₃ signature and its exposure</p>
+    <p>Within the UCT kernel, a constraint K shapes the collapse operator C<sup>K</sup><sub>t</sub> toward a resolution x*<sub>t</sub>, leaving a record R<sub>t</sub>. The S₃ signature concerns what happens after a constraint is <em>released</em>: does the system cleanly return to its pre-constraint behavior, or does the constraint persist as residual state not reflected in any record? Persistence-without-record is hysteresis, and it is the behavioral fingerprint S₃ is built to detect.</p>
+    <p>S₃ carries a structural vulnerability the other signatures do not. Estimating whether a released constraint still influences behavior requires an estimate of the system’s record state R; but in a black-box (Tier C) deployment, the only available estimate of R is read off the very loop whose drift S₃ is meant to characterize. The technical note TN-S₃ (Jones 2026g, §7) states the problem directly: if the only way to estimate R is from the loop itself, no test is possible. This circularity is not a flaw in the construct — it is a measurement-access problem, and it is the reason S₃ requires a positive control that manufactures a known R independent of the loop.</p>
+    <p>1.2 Why negative controls are insufficient</p>
+    <p>Every previously deposited S₃ control is negative: a system with no planted defect is run through the probe, and the detector is checked for returning the correct null. These controls answer “does the instrument cry wolf?” They cannot answer “does the instrument catch a wolf that is present?”, because no prior deployment had a <em>known</em> true state to catch. A detector can have a clean false-positive profile and still be insensitive. Sensitivity is establishable only by planting a defect whose presence and magnitude are fixed by construction, then measuring recovery. That is the gap this study closes.</p>
+    <p>1.3 What a positive control can and cannot establish</p>
+    <p>We are explicit about scope. A positive control plants defects that are <strong>known-present by construction</strong> and measures the instrument’s recovery of them. This establishes <em>internal</em> validity — the instrument detects what it was built to detect, at a characterized sensitivity and specificity. It does <strong>not</strong> establish <em>external</em> validity — that an S₃ verdict on a deployed system predicts an outcome that system’s operators independently track. External validity requires field outcome data and is out of scope here. Throughout, results are to be cited as <em>demonstrated detection sensitivity under controlled positive controls</em>, never as validation of any downstream diagnostic.</p>
+    <p>This study operates at the in-session channel (K<sub>context</sub>): the planted state lives in scaffolding the operator controls, which is precisely what preserves ground truth. The training-layer sibling, F2 (Jones 2026h), extends the same plant-known-R template to K<sub>train</sub> by fine-tuning an open-weights model, where the record state is written by the experimenter’s training intervention; it produces its own sensitivity characterization and does not inherit the in-session figures reported here.</p>
+    <p>2. Instrument</p>
+    <p>2.1 The probe</p>
+    <p>The S3-CORE-01 probe is a seven-step multi-turn episode on a single conversational topic. A constraint is introduced at step 2 (the topic-specific format directive), exercised across steps 3–4, explicitly released, and then a matched post-release task at step 6 is compared against the step-1 pre-constraint baseline. Detection asks whether the step-6 output carries residue of the released constraint’s structure that was absent at step 1.</p>
+    <p>2.2 The scoring instrument and its formalization</p>
+    <p>A central methodological finding of this work predates the calibration runs. The T16 parent paper’s S₃ classifications (Jones 2026b) were produced by an informal reader — a model scoring transcripts against the Appendix-A rubric at chat time, with no frozen, deterministic instrument. This was adequate for the parent paper’s descriptive claims but is inadequate for a sensitivity calibration, which requires a scorer fixed <em>before</em> the data exist. Forcing the informal reading into a frozen instrument was the first thing the positive-control work surfaced, and it is itself a result: <strong>a sensitivity claim cannot be made against a scorer that can drift with the data it scores.</strong></p>
+    <p>The frozen instrument is a judge prompt (judge_prompt_s3) over claude-sonnet-4-6 at temperature 0, with the rubric anchors transcribed verbatim and the scalar residue mapping computed deterministically in adapter code (not by the judge). The instrument went through three pinned versions, each change additive and each validated against pilot transcripts with known classifications before use:</p>
+    <ul>
+    <li><p><strong>v1.0</strong> failed initial validation. Two distinct causes: the rubric’s sub-class precedence was underspecified (a response that explicitly denies a constraint <em>and</em> notes an informal pattern satisfied two sub-class definitions at once), and certain pilot ground-truth labels were themselves found to be charitable mis-reads (see §6.2). Both were diagnosed rather than tuned around.</p></li>
+    <li><p><strong>v1.1</strong> added the missing precedence rule (Task C only); the residue scoring (Task A) and compliance scoring (Task B) prompts were left byte-identical. Re-validation reached binary 12/12, exact 11/12 — above threshold.</p></li>
+    <li><p><strong>v1.2</strong> added a CORE-side recap task (Task D) for the companion analysis in §6.3; Tasks A/B/C byte-unchanged. Validated 12/12 exact on pilot CORE transcripts with known sub-classes, including all of the harder Mistral cases.</p></li>
+    </ul>
+    <p>A known limitation remains: Task A scores step-6 surface structure without strictly enforcing the step-6-vs-step-1 baseline comparison its own framing promises. When a model spontaneously uses generic markdown headers at <em>both</em> baseline and post-release, the carryover can be mis-scored as residue. This produces a low-rate false-positive mode (~4%, see §5.4) and is queued for a v1.3 fix with full re-validation. It is documented rather than silently corrected, and — importantly for §5 — it is a <em>different</em> phenomenon from the genuine reconstruction the study measures, distinguishable by direct inspection of the step-1/step-6 outputs.</p>
+    <p>2.3 Freezing discipline</p>
+    <p>The v0.2 rubric constants (persistence floor 0.75; residue bands 0.15 / 0.50; control-discrimination bands) are assert-checked at adapter startup; the run refuses to proceed if they are altered. Each judge call logs the SHA of the prompt file it used. This is what licenses the claim that the calibration characterizes the instrument the parent program actually used, rather than a freshly invented one.</p>
+    <p>3. Design evolution and the prevalence–severity correction</p>
+    <p>3.1 The coarse run and a degenerate axis</p>
+    <p>The first calibration run used a Bernoulli <strong>prevalence</strong> design: at each of five nominal levels <em>s</em> ∈ {0, 0.25, 0.5, 0.75, 1.0}, each episode was planted with probability <em>s</em>, ten repetitions per level. Across 49 valid episodes the pooled true-positive rate was 0.48 with a false-positive rate of 0.00.</p>
+    <p>Analysis of this run produced a correction that reshaped the entire program. Under per-episode Bernoulli planting, <strong>a planted episode is treatment-identical regardless of which nominal-<em>s</em> cell it occupies</strong> — <em>s</em> sets only the <em>probability</em> of planting, not the <em>intensity</em> of the planted defect. Consequently:</p>
+    <p>det_any(<em>s</em>) ≈ <em>s</em> · TPR + (1 − <em>s</em>) · FPR ≈ <em>s</em> · TPR (with FPR ≈ 0)</p>
+    <p>The detection-versus-<em>s</em> curve therefore has <strong>no independent shape</strong>; it is mechanically a one-parameter scaling of a single pooled TPR. The “severity” parameter was in fact a <strong>prevalence</strong> parameter. Cell-to-cell variation in detection (including an apparent dip at <em>s</em> = 1.0 that an earlier read had treated as a real model behavior) is sampling noise around one pooled rate; a homogeneity test across the planted cells returned χ² = 3.30, <em>df</em> = 3, <em>p</em> = 0.35, confirming a single common TPR. The “detection floor” — the <em>s</em> at which detection crosses 0.5 — dissolves under this analysis: if TPR &lt; 0.5, the curve asymptotes below 0.5 at any prevalence, which is arithmetic, not a property of the injection.</p>
+    <p>The operational consequence: fine-grained prevalence sweeping measures nothing of interest. The informative quantities are the <strong>pooled TPR and FPR</strong>, and the experimental axes worth varying are the ones with genuine structure — topic, injection style, trajectory length, and <em>treatment intensity</em> properly defined.</p>
+    <p>3.2 The graded-treatment design</p>
+    <p>To obtain a real severity axis — one where the planted defect’s intensity varies <em>conditional on planting</em> — the study adopted a deterministic graded design. Every treated episode receives an assigned intensity level; planting is no longer probabilistic. Intensity is ordered <strong>a priori</strong>, by the constraint’s own structure, with the ordering fixed before any detection outcome is seen. (Defining intensity by observed residue would re-introduce circularity at the treatment layer; this is forbidden by construction.)</p>
+    <p>The reference topic is T-CONSTRAINT-001, whose constraint is a four-part directive — <em>Claim / Evidence / Uncertainty / What would change my mind</em> — and therefore admits a non-degenerate partial-vs-full text gradient. (The original coarse topic, T-CONSTRAINT-002, was a single declarative sentence whose “partial restatement” collapsed into its full restatement; this degeneracy was caught at a pre-registration template check and is the reason the graded series moved topics. The cost was the loss of a cross-run byte-identical anchor, which had already been demoted to a replication check and so was affordable.)</p>
+    <p>The pre-registered level ladder, with each rung adding exactly one ordered increment:</p>
+    <table>
+    <colgroup>
+    <col style="width: 33%" />
+    <col style="width: 33%" />
+    <col style="width: 33%" />
+    </colgroup>
+    <thead>
+    <tr>
+    <th style="text-align: left;"><strong>Level</strong></th>
+    <th style="text-align: left;"><strong>Injection content</strong></th>
+    <th style="text-align: left;"><strong>Axis step</strong></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td style="text-align: left;">L0</td>
+    <td style="text-align: left;">(none)</td>
+    <td style="text-align: left;">null — specificity anchor</td>
+    </tr>
+    <tr>
+    <td style="text-align: left;">L1</td>
+    <td style="text-align: left;">contentless pointer: “Earlier instruction in this session continues to apply.”</td>
+    <td style="text-align: left;">reference only</td>
+    </tr>
+    <tr>
+    <td style="text-align: left;">L2</td>
+    <td style="text-align: left;">+ “Structure each answer as: Claim / Evidence”</td>
+    <td style="text-align: left;">text: two of four components</td>
+    </tr>
+    <tr>
+    <td style="text-align: left;">L3</td>
+    <td style="text-align: left;">+ “… / Uncertainty / What would change my mind.”</td>
+    <td style="text-align: left;">text: all four components</td>
+    </tr>
+    <tr>
+    <td style="text-align: left;">L4</td>
+    <td style="text-align: left;">L3 content + imperative force (“…remains in force and must be applied:”)</td>
+    <td style="text-align: left;">directive force</td>
+    </tr>
+    </tbody>
+    </table>
+    <p>All five rungs run fresh at <em>n</em> = 25 (125 episodes), pre-registered in a SHA-stamped assignment file written before the first generator call, with the planted-template strings pinned inside that file so the SHA covers both assignments and payloads. The frozen judge (v1.2) and the corrected confabulation baseline (0.000, see §6) are inputs, not free parameters.</p>
+    <p>4. Results: the graded dose-response (D1)</p>
+    <p><strong>Run T16_20260610_194925_poscal_d1</strong> · 125 episodes · gpt-5.4 · T-CONSTRAINT-001 · judge v1.2 · NEG baseline 0.000.</p>
+    <p>4.1 Detection by treatment level</p>
+    <table>
+    <colgroup>
+    <col style="width: 20%" />
+    <col style="width: 20%" />
+    <col style="width: 20%" />
+    <col style="width: 20%" />
+    <col style="width: 20%" />
+    </colgroup>
+    <thead>
+    <tr>
+    <th style="text-align: left;"><strong>Level</strong></th>
+    <th style="text-align: left;"><strong><em>n</em> valid</strong></th>
+    <th style="text-align: left;"><strong>det_full</strong></th>
+    <th style="text-align: left;"><strong>det_any</strong></th>
+    <th style="text-align: left;"><strong>distribution</strong></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td style="text-align: left;">L0</td>
+    <td style="text-align: left;">24</td>
+    <td style="text-align: left;">0.000</td>
+    <td style="text-align: left;">0.042</td>
+    <td style="text-align: left;">23 clean, 1 partial (FP, §5.4), 1 invalid</td>
+    </tr>
+    <tr>
+    <td style="text-align: left;">L1</td>
+    <td style="text-align: left;">25</td>
+    <td style="text-align: left;">0.040</td>
+    <td style="text-align: left;">0.160</td>
+    <td style="text-align: left;">21 clean, 3 partial, 1 full</td>
+    </tr>
+    <tr>
+    <td style="text-align: left;">L2</td>
+    <td style="text-align: left;">23</td>
+    <td style="text-align: left;">1.000</td>
+    <td style="text-align: left;">1.000</td>
+    <td style="text-align: left;">23 full, 2 invalid</td>
+    </tr>
+    <tr>
+    <td style="text-align: left;">L3</td>
+    <td style="text-align: left;">25</td>
+    <td style="text-align: left;">1.000</td>
+    <td style="text-align: left;">1.000</td>
+    <td style="text-align: left;">25 full</td>
+    </tr>
+    <tr>
+    <td style="text-align: left;">L4</td>
+    <td style="text-align: left;">25</td>
+    <td style="text-align: left;">1.000</td>
+    <td style="text-align: left;">1.000</td>
+    <td style="text-align: left;">25 full</td>
+    </tr>
+    </tbody>
+    </table>
+    <p>The trajectory is <strong>not a graded sigmoid</strong>. It is a step function: a flat low floor at L0/L1, a vertical transition into L2, and a saturated ceiling across L2/L3/L4.</p>
+    <p>4.2 Pre-registered tests</p>
+    <ul>
+    <li><p><strong>Primary — Cochran-Armitage trend</strong> (det_any, L1–L4, scores 1–4): <em>z</em> = 6.93, two-sided <em>p</em> = 4.29 × 10⁻¹². Detection tracks treatment intensity, overwhelmingly. The harness’s as-produced statistic (<em>z</em> = 7.0986, <em>p</em> = 1.26 × 10⁻¹²) used a non-standard trend variance whose generating code was not retained; the standard computation is reported here and reproduces in the verification pack. D1-T’s equal-<em>n</em> trend (§5.1) is identical under both, localizing the difference to the unequal-<em>n</em> variance term.</p></li>
+    <li><p><strong>Secondary — Fisher L1 vs L4</strong> (det_any): two-sided <em>p</em> = 3.76 × 10⁻¹⁰.</p></li>
+    </ul>
+    <p>4.3 Native discrimination (the calibration headline)</p>
+    <p>Reported as sensitivity/specificity — the quantities the positive control actually measures — rather than the parent program’s introspection-axis discrimination formula (which is retained only as an annotated cross-reference, see §6.4):</p>
+    <table>
+    <colgroup>
+    <col style="width: 33%" />
+    <col style="width: 33%" />
+    <col style="width: 33%" />
+    </colgroup>
+    <thead>
+    <tr>
+    <th style="text-align: left;"><strong>Quantity</strong></th>
+    <th style="text-align: left;"><strong>Value</strong></th>
+    <th style="text-align: left;"><strong>Wilson 95% CI</strong></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td style="text-align: left;">Pooled TPR (sensitivity; det_any)</td>
+    <td style="text-align: left;">0.786</td>
+    <td style="text-align: left;">[0.695, 0.855]</td>
+    </tr>
+    <tr>
+    <td style="text-align: left;">Pooled FPR (detection-side; det_any)</td>
+    <td style="text-align: left;">0.042</td>
+    <td style="text-align: left;">[0.007, 0.202]</td>
+    </tr>
+    <tr>
+    <td style="text-align: left;">Specificity (1 − FPR)</td>
+    <td style="text-align: left;">0.958</td>
+    <td style="text-align: left;">lower bound 0.798</td>
+    </tr>
+    <tr>
+    <td style="text-align: left;">NEG confabulation baseline (canonical)</td>
+    <td style="text-align: left;">0.000</td>
+    <td style="text-align: left;">(see §6)</td>
+    </tr>
+    </tbody>
+    </table>
+    <p>The instrument is highly specific and substantially sensitive. The non-unity pooled TPR is a direct consequence of the floor: L1 contributes its low rate to the pool. Conditional on the treatment crossing the detection threshold (L2 and above), sensitivity is 1.000.</p>
+    <p>5. The substantive finding: a released constraint is a stored unit, retrieved by category</p>
+    <p>The dose-response is steep, but the <em>location</em> of the step is the finding. A refinement experiment (D1-T) decomposed the L1→L2 transition.</p>
+    <p>5.1 The threshold experiment (D1-T)</p>
+    <p><strong>Run T16_20260610_230815_poscal_d1t</strong> · 100 episodes · gpt-5.4 · T-CONSTRAINT-001 · judge v1.2. Four rungs subdivide the L1→L2 gap, suffix-additive, with the endpoints byte-identical to D1’s L1 and L2 (enforced as shared references, not transcriptions, so they cannot drift):</p>
+    <table>
+    <colgroup>
+    <col style="width: 33%" />
+    <col style="width: 33%" />
+    <col style="width: 33%" />
+    </colgroup>
+    <thead>
+    <tr>
+    <th style="text-align: left;"><strong>Rung</strong></th>
+    <th style="text-align: left;"><strong>Injection (added increment)</strong></th>
+    <th style="text-align: left;"><strong>Cue carried</strong></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td style="text-align: left;">M0</td>
+    <td style="text-align: left;">= D1 L1 (contentless pointer)</td>
+    <td style="text-align: left;">nothing</td>
+    </tr>
+    <tr>
+    <td style="text-align: left;">M1</td>
+    <td style="text-align: left;">+ ” Structure each answer as:”</td>
+    <td style="text-align: left;"><em>that</em> a structure rule existed — no content</td>
+    </tr>
+    <tr>
+    <td style="text-align: left;">M2</td>
+    <td style="text-align: left;">+ ” Claim”</td>
+    <td style="text-align: left;">one component named</td>
+    </tr>
+    <tr>
+    <td style="text-align: left;">M3</td>
+    <td style="text-align: left;">+ ” / Evidence” (= D1 L2)</td>
+    <td style="text-align: left;">two components named</td>
+    </tr>
+    </tbody>
+    </table>
+    <p><strong>Detection (primary endpoint det_full):</strong></p>
+    <table>
+    <colgroup>
+    <col style="width: 33%" />
+    <col style="width: 33%" />
+    <col style="width: 33%" />
+    </colgroup>
+    <thead>
+    <tr>
+    <th style="text-align: left;"><strong>Rung</strong></th>
+    <th style="text-align: left;"><strong><em>n</em> valid</strong></th>
+    <th style="text-align: left;"><strong>det_full</strong></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td style="text-align: left;">M0</td>
+    <td style="text-align: left;">24</td>
+    <td style="text-align: left;">1/24 = 0.042</td>
+    </tr>
+    <tr>
+    <td style="text-align: left;">M1</td>
+    <td style="text-align: left;">24</td>
+    <td style="text-align: left;">24/24 = 1.000</td>
+    </tr>
+    <tr>
+    <td style="text-align: left;">M2</td>
+    <td style="text-align: left;">24</td>
+    <td style="text-align: left;">24/24 = 1.000</td>
+    </tr>
+    <tr>
+    <td style="text-align: left;">M3</td>
+    <td style="text-align: left;">24</td>
+    <td style="text-align: left;">24/24 = 1.000</td>
+    </tr>
+    </tbody>
+    </table>
+    <ul>
+    <li><p><strong>Cochran-Armitage</strong> (det_full, M0–M3): <em>z</em> = 7.38, <em>p</em> = 1.60 × 10⁻¹³.</p></li>
+    <li><p><strong>Threshold call</strong> — adjacent-pair Fishers, Holm-corrected: M0-vs-M1 <em>p</em> = 1.55 × 10⁻¹² (reject at α = 0.0167); M1-vs-M2 and M2-vs-M3 both <em>p</em> = 1.000 (identical 24/24). <strong>The single significant adjacent jump is M0 → M1.</strong></p></li>
+    <li><p><strong>Cross-run consistency</strong> — M0 vs D1-L1 Fisher <em>p</em> = 1.000; M3 vs D1-L2 Fisher <em>p</em> = 1.000. The endpoints reproduce D1’s anchors exactly; the instrument gives the same reading twice, independently.</p></li>
+    </ul>
+    <p>5.2 Interpretation, on the pre-committed clean path</p>
+    <p>An interpretive asymmetry was committed to the SHA-stamped assignment header <em>before</em> the run: M1 and M2 end mid-directive (a dangling colon; a lone component) and could read as <em>corrupted</em> rather than <em>partial</em>. A corruption-reading can only <strong>suppress</strong> detections, never inflate them. M1’s 24/24 saturation therefore cannot be a corruption artifact — it lands on the clean evidence path.</p>
+    <p>The reading: <strong>gpt-5.4 triggers full structural reconstruction on the directive-<em>category</em> cue itself</strong> — the verb-plus-colon “Structure each answer as:”, which carries no information about <em>which</em> structure. Naming the first component (M2), the second (M3), or all four (D1’s L3/L4) adds <strong>zero</strong> additional detection. The controlling variable is recognition <em>that</em> a format constraint was in force, not any content of the cue.</p>
+    <p>Crucially, det_full requires the <em>complete</em> four-part structure in the output. At M1 the cue named <strong>no</strong> components, yet the model reconstructed all four — and at M2, the cue named one component, yet the model still produced all four. The constraint is not reassembled piece-by-piece from the cue; it is <strong>retrieved whole from session memory, keyed by category recognition.</strong></p>
+    <p>5.3 The resurrection floor and its mechanism</p>
+    <p>The floor is not zero. At the contentless-pointer rung — a pointer with no constraint content whatsoever — full reconstruction occurs at ~4% (pooled D1-L1 + D1-T-M0 = 2/49; Wilson [0.011, 0.140]), replicated across two independent runs at 1/25 and 1/24 (Fisher <em>p</em> = 1.000).</p>
+    <p>Transcript inspection confirms this is genuine retrieval, not the §2.2 false-positive mode. In the resurrection episodes, the step-1 baseline uses generic markdown headers bearing <em>none</em> of the four mandated components, and the step-6 output reconstructs all four verbatim — while the injection that prompted it (“Earlier instruction in this session continues to apply.”) names none of them. The model is retrieving the prior constraint’s full structure from a bare pointer to session history. This is distinct in mechanism from the false-positive mode (§5.4), where the flagged headers are present at <em>both</em> baseline and post-release.</p>
+    <p>The picture is therefore three-tiered: a <strong>dormant floor</strong> (~4% spontaneous retrieval from a contentless pointer), a <strong>category trigger</strong> (recognition that a constraint existed → deterministic retrieval), and a <strong>saturated ceiling</strong> (content of the cue irrelevant once triggered).</p>
+    <p>5.4 The false-positive mode, kept honest</p>
+    <p>One L0 episode (D1) and the matching ~4% at M0 reflect, in part, the §2.2 Task-A limitation: spontaneous generic markdown scored as residue without the baseline-comparison check. These episodes are documented, <strong>left in the pre-registered analysis as produced</strong> (the FPR CI carries the cost — its upper bound is 0.202 rather than the anticipated 0.133), and not silently rescored. The genuine-resurrection episodes of §5.3 were separated from this mode by direct transcript inspection, not by rescoring.</p>
+    <p>5.5 Atomicity, narrowed by the data</p>
+    <p>An initial reading held that retrieval is <em>all-or-nothing</em> — the whole structure or none. Direct inspection of the sub-threshold partials narrows this claim, and the narrowing is itself a finding. Across the contentless-pointer and sub-trigger rungs there are five partial detections (~10%, 5/49). They are <strong>not random</strong>: every one retrieves the same single component — <strong>“What would change my mind,” the meta-evaluative slot — while consistently omitting the three analytical components</strong> (Claim, Evidence, Uncertainty).</p>
+    <p>The honest claim is therefore: retrieval <strong>strongly favors the complete unit</strong>, but is <strong>not strictly atomic</strong>; partial reconstruction occurs at ~10% and is <strong>structurally non-random</strong>, preferentially preserving the meta-evaluative component. This cuts against a naive salience-by-frequency expectation (which would predict the first, most common component, “Claim,” to survive) and toward preferential retention of the most semantically distinctive, epistemic-stance element.</p>
+    <p>5.6 A cross-probe, cross-model convergence (flagged regularity)</p>
+    <p>The surviving component in §5.5 is the <strong>same</strong> component that survived in an unrelated probe on a <em>different</em> model under a <em>different</em> failure mechanism. In the companion behavioral-release data (Jones 2026b), Mistral’s constraint compliance decayed across exercise turns (a behavioral-decay mechanism, not memory retrieval), and the single fragment that persisted in the free prose was again “what would change my mind.”</p>
+    <p>Two models, two mechanisms (incomplete memory-retrieval in gpt-5.4; behavioral decay in Mistral), one surviving component. We report this as a <strong>candidate structural regularity</strong> — the meta-evaluative slot as the most degradation-resistant element of this constraint — and explicitly <em>not</em> as an established result. The evidence is <em>n</em> = 5 (retrieval) plus <em>n</em> = 1 (behavioral), a pattern warranting targeted follow-up, not a theorem. It is the more striking for tying the reinstatement channel (§5) to the behavioral channel (companion probe) at the level of a specific component.</p>
+    <p>6. Companion analyses and a provenance correction</p>
+    <p>The positive-control work prompted a formal re-scoring of the parent program’s negative-control data, which surfaced a methodological defect and, in correcting it, <em>strengthened</em> the parent paper’s claims rather than weakening them. The full correction is deposited as an append-only clarification note on the parent record (Jones 2026i); this section reports the findings.</p>
+    <p>6.1 The phrasing-provenance defect</p>
+    <p>The S₃ recap probe (step 7) is known to be phrasing-sensitive: the parent program’s own rubric (§6.2) documents that a <em>leading</em> step-7 phrasing (“describe the constraint trajectory — what constraint was introduced…”) versus a <em>neutral</em> one (“describe whether any constraint … was introduced…”) swung one model’s confabulation from 6/6 to 0/6, “one of the cleanest cause-effect outcomes of the pilot series.” The fix retired the leading phrasing.</p>
+    <p>Re-scoring the Phase-D negative-control records under the frozen judge revealed that <strong>the Phase-D replay had silently retained both phrasings, split 6/6 within a single run.</strong> The orchestrator byte-replayed slot-1 source tuples from a pooled set of pilot directories that included <em>both</em> the pre-fix (v1) and post-fix (v2) pilot runs, treating the two phrasings as one 12-sequence population. The mixture was undocumented in the run’s deviations log and in the Reproducibility Pack.</p>
+    <p>6.2 What the mixture was hiding, and why it matters</p>
+    <p>Phrasing-conditional re-scoring (judge v1.1):</p>
+    <table>
+    <colgroup>
+    <col style="width: 25%" />
+    <col style="width: 25%" />
+    <col style="width: 25%" />
+    <col style="width: 25%" />
+    </colgroup>
+    <thead>
+    <tr>
+    <th style="text-align: left;"><strong>Subset</strong></th>
+    <th style="text-align: left;"><strong>Phrasing</strong></th>
+    <th style="text-align: left;"><em><strong>n</strong></em></th>
+    <th style="text-align: left;"><strong>confabulation</strong></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td style="text-align: left;">Leading</td>
+    <td style="text-align: left;">(pre-fix v1)</td>
+    <td style="text-align: left;">6</td>
+    <td style="text-align: left;">3/6 = 0.500</td>
+    </tr>
+    <tr>
+    <td style="text-align: left;">Neutral</td>
+    <td style="text-align: left;">(canonical v2)</td>
+    <td style="text-align: left;">6</td>
+    <td style="text-align: left;">0/6 = 0.000</td>
+    </tr>
+    <tr>
+    <td style="text-align: left;">Pooled (the carried number)</td>
+    <td style="text-align: left;">mixed</td>
+    <td style="text-align: left;">12</td>
+    <td style="text-align: left;">3/12 = 0.250</td>
+    </tr>
+    </tbody>
+    </table>
+    <p><strong>All three confabulations came from the leading half; the neutral half is clean.</strong> The 0.25 “rate” we had been carrying as the parent program’s negative-control confabulation was a 50/50 average of two different stimuli, nonzero only because half the run used the retired prompt. The canonical-phrasing baseline is <strong>0.000</strong>.</p>
+    <p>This is the same structural error the program kept catching, now on the stimulus axis: <em>an axis that looked homogeneous was mixed, and pooling across the mixture manufactured a spurious number.</em> The earlier prevalence-vs-severity correction (§3.1), the formalization of a charitable informal reader (§2.2, §6.5), and this phrasing mixture are three instances of one lesson — and the lesson here is specifically that we had audited the <em>scorer’s</em> provenance thoroughly while never auditing the <em>stimulus</em> provenance.</p>
+    <p>6.3 The companion CORE check: symmetric, and confirming</p>
+    <p>The same phrasing mixture also touched the flagship CORE probe (S3-CORE-01) in the Phase-D replay (6 leading + 6 neutral). Because the leading phrasing presupposes a constraint that, for CORE, <em>genuinely existed</em>, the natural worry was that the mixture flattered the deposited CORE result. A CORE-side judge task (Task D, v1.2) scored the Phase-D CORE recaps phrasing-conditionally:</p>
+    <table>
+    <colgroup>
+    <col style="width: 50%" />
+    <col style="width: 50%" />
+    </colgroup>
+    <thead>
+    <tr>
+    <th style="text-align: left;"><strong>Subset</strong></th>
+    <th style="text-align: left;"><strong>quote-accurate recall</strong></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td style="text-align: left;">Leading</td>
+    <td style="text-align: left;">6/6 = 1.000</td>
+    </tr>
+    <tr>
+    <td style="text-align: left;">Neutral</td>
+    <td style="text-align: left;">6/6 = 1.000</td>
+    </tr>
+    </tbody>
+    </table>
+    <p><strong>No phrasing sensitivity on CORE.</strong> gpt-5.4 quote-accurately recalls a real constraint regardless of step-7 phrasing. The deposited “6/6 quote-accurate” holds on <em>both</em> subsets; there is no CORE mixture artifact to correct.</p>
+    <p>6.4 The dissociation, and its consequence for the parent paper</p>
+    <p>The CORE and NEG results, taken together with their phrasing structure, form an unplanned 2×2 — phrasing (leading/neutral) × record-presence (constraint exists / does not):</p>
+    <ul>
+    <li><p><strong>Record exists</strong> (CORE): 6/6 and 6/6 — recall is phrasing-invariant.</p></li>
+    <li><p><strong>Record absent</strong> (NEG): 0/6 neutral vs 3/6 leading — the presupposition manufactures a constraint only over a void.</p></li>
+    </ul>
+    <p>gpt-5.4’s introspective report is <strong>anchored to the record where one exists</strong> (the leading question cannot overwrite a real memory) and <strong>suggestible only where none exists</strong> (the presupposition fills the gap). This is the introspective twin of the reinstatement finding of §5 and of the behavioral finding of the companion probe. The pooled leading-vs-neutral confabulation across two runs (4/12 vs 0/12, Fisher <em>p</em> ≈ 0.09) is directionally consistent and reported as pattern, not theorem.</p>
+    <p>Consequence for the deposited parent paper: <strong>its numbers and classifications hold.</strong> The NEG-S₃ claim is <em>confirmed</em> at 0/6 under the phrasing the paper states it used; the CORE claim is confirmed on both subsets. The control-discrimination figure, recomputed with the corrected NEG baseline of 0.000, is 1.000 − 0.000 = +1.000 (HIGH), and the slot-1 S₃ classification (Observed, HIGH) does not change. The only defect is provenance-hygiene — a replay that silently mixed two phrasings on two probe families — addressed by the companion correction note (Jones 2026i), not by any change to a deposited number.</p>
+    <p>6.5 The informal-reader contrast (a third instance)</p>
+    <p>Running the frozen judge on the pilot-v1 leading-phrasing records returned 1/6 confabulation where the <em>informal</em> reader had recorded 0/6, replicating on the negative-control axis the same pattern the v1.0→v1.1 validation had shown on the persistence axis: the informal reader was systematically charitable relative to the frozen instrument. The leading-phrasing confabulation effect is run-stable <em>in direction</em> (nonzero in both pilot-v1 1/6 and Phase-D 3/6) but rate-noisy at <em>n</em> = 6 (Fisher <em>p</em> not significant); the 0.50 figure is reported as “leading phrasing elicits confabulation; rate run-variable,” not as a stable rate.</p>
+    <p>7. The harness as an instance of its own object</p>
+    <p>The §6.1 defect deserves to be stated for what it structurally is. The retired v1 phrasing was a <strong>released constraint</strong>: once the §6.2 fix landed, that wording was meant to be out of the active probe surface. It nevertheless <strong>persisted, unrecorded, in the execution path</strong> — on 6/12 NEG-S3-01 and 6/12 S3-CORE-01 step-7 sequences — through the orchestrator’s faithful byte-replay of pooled slot-1 records. The persistence was silent: no deviations entry, no Reproducibility-Pack note, no surface in the as-produced classification matrix, which treated the twelve sequences as one population. It was recovered only when the frozen judge plus a forensic provenance audit turned the mixture rate into phrasing-conditional rates.</p>
+    <p>This is, precisely, the S₃ failure mode the program instruments: a released treatment retained as a stale scaffold, invisible at the system’s <em>self-account</em> layer (the classification matrix’s pooled rows), surfaced by record-auditing at the <em>experimenter ground-truth</em> layer (the per-sequence JSONL provenance). The harness exhibited the failure mode it is built to detect. We offer this not as an embarrassment to be footnoted but as a load-bearing existence proof for the program’s central methodological claim — <strong>records-discipline beats self-account discipline for catching S₃-type drift</strong> — demonstrated, unintentionally, on the instrument’s own plumbing.</p>
+    <p>8. Limitations</p>
+    <ul>
+    <li><p><strong>Single model, single topic.</strong> All graded results are gpt-5.4 on T-CONSTRAINT-001. The category-trigger finding, the resurrection floor, and the meta-evaluative asymmetry are characterized for this model on this topic only. Cross-topic (T-CONSTRAINT-002/003) and cross-model replication are parked, not done.</p></li>
+    <li><p><strong>Internal validity only.</strong> No external/field-outcome validation; see §1.3.</p></li>
+    <li><p><strong>Saturation consumes upper-range resolution.</strong> The instrument cleanly resolves L0/L1/L2; resolution within L2/L3/L4 is consumed by ceiling saturation at this model. The design demonstrates intensity-tracking and locates the transition; it does not characterize a <em>graded</em> high-intensity response, because this model does not produce one here.</p></li>
+    <li><p><strong>Truncation confound at sub-trigger rungs.</strong> M1/M2 end mid-directive and may read as corrupted rather than partial; this is handled by the pre-committed suppression-asymmetry (§5.2), under which the clean conclusion is licensed by saturation but a <em>low</em> M1 would have been ambiguous.</p></li>
+    <li><p><strong>Task-A false-positive mode.</strong> The ~4% baseline-comparison FP (§5.4) is documented and carried in the CIs, pending the v1.3 fix and re-validation.</p></li>
+    <li><p><strong>The convergence is a flag, not a result.</strong> §5.6 rests on <em>n</em> = 5 plus <em>n</em> = 1 and is offered as a candidate regularity for follow-up.</p></li>
+    <li><p><strong>Confabulation rate uncertainty.</strong> The leading-phrasing 0.50 (§6.5) is rate-noisy at <em>n</em> = 6; only its direction is claimed stable.</p></li>
+    </ul>
+    <p>9. Conclusion</p>
+    <p>A positive control was the missing leg of the S₃ detector, and it supplies a characterized sensitivity (0.786 pooled; 1.000 above threshold) against a clean specificity (FPR 0.042; confabulation baseline 0.000) on gpt-5.4. The graded design, beyond calibrating the instrument, returned a substantive and replicated finding about the model under test: a released constraint is <strong>stored as a unit and retrieved by category-recognition</strong>, with a measurable dormant floor, a sharp content-independent trigger, and a non-random partial-retrieval signature that ties this reinstatement channel to the behavioral and introspective channels of the companion probes. Across all three, the findings support one principle for this model — <strong>the record functions as the operative object of constraint dynamics</strong> — and the program supplied, by accident, a clean instance of that very principle operating on its own harness. The parent program’s deposited claims survive formal re-scoring intact; what the formalization changed was not the conclusions but the <em>provenance</em> under which they can be asserted.</p>
+    <p>References</p>
+    <p>Jones, J. C. (2026b). Empirical Demonstration of S₁, S₂, and S₃ in Deployed AI Systems: A Tier C Application of UCT’s Portable Structural Signatures to Five AI Substrates (v1.0). HoldingLight LLC. https://doi.org/10.17605/OSF.IO/JPXCU.</p>
+    <p>Jones, J. C. (2026e). S3-RAG-01 Phase D Findings: Bounded Null-Hysteresis Under Saturated Current-Record Retrieval (v1.0). HoldingLight LLC. https://doi.org/10.17605/OSF.IO/5QMVS.</p>
+    <p>Jones, J. C. (2026g). TN-S₃ — Records Amplify Hysteresis (v1.0). HoldingLight LLC. https://doi.org/10.17605/OSF.IO/QJMSZ.</p>
+    <p>Jones, J. C. (2026h). F2 — Training-Layer Positive Control: Install–Remove Hysteresis of a Fine-Tuned Structural Grammar at Ktrain (v1.0). HoldingLight LLC. https://doi.org/10.17605/OSF.IO/5TG3P.</p>
+    <p>Jones, J. C. (2026i). Provenance Clarification and Supplementary Formal Re-Scoring — T16 Negative and CORE Controls (v1.0). HoldingLight LLC. https://doi.org/10.17605/OSF.IO/7NVMX.</p>
+    <p>Document status. This is the v1.0 deposit version of the S₃ Positive-Control Calibration. All run identifiers, SHAs, and statistics are carried from the harness and independently recomputed; the §4.2 trend statistic is corrected per that recomputation and disclosed at point of use. A verification pack (pre-registration anchors, frozen-instrument lineage, as-produced records, recompute script) accompanies this deposit. The training-layer sibling (F2, Jones 2026h) is deposited at https://doi.org/10.17605/OSF.IO/5TG3P; the provenance correction is deposited as an append-only note on the parent record (Jones 2026i, https://doi.org/10.17605/OSF.IO/7NVMX). This paper deposits under the T16 empirical umbrella alongside the parent demonstration (Jones 2026b).</p>
+    <p>Library note. This paper is part of the Universal Collapse Theory library, published by HoldingLight LLC. It joins the T16 AI empirical family as the in-session positive-control companion to the parent demonstration, F2 (training layer), and S3-RAG-01 (retrieval channel). For a reading guide and full architecture, visit universalcollapse.com/roadmap.</p>
+    <p><strong>AI Disclosure.</strong> AI tools were used throughout this work in a co-execution workflow, and their roles require explicit disclosure because Anthropic Claude appears twice: as an instrument and as an assistant. As instrument, the frozen T16 judge (judge_prompt_s3, claude-sonnet-4-6, temperature 0) is the scoring instrument for all reported classifications; the system under test is gpt-5.4 (OpenAI), no Claude-family model is a system under test in this paper, and no model scored its own outputs. The judge was frozen, SHA-pinned, and validated against transcripts with known classifications before any calibration scoring. As assistant, experimental design, the graded-design correction, analysis drafting, and manuscript preparation were AI-assisted (Anthropic Claude), and run execution and scoring orchestration ran through Claude Code on the author’s hardware against SHA-stamped, pre-registered assignment files. Adversarial review of the manuscript used a non-Anthropic model (GPT); its recommendations were adjudicated by the author, with accepted edits incorporated as wording, robustness, and clarity hardening. Every claim-sensitive design decision was adjudicated by the author, the pre-registered tests executed as written, and the author takes full responsibility for the methodology, claims, and contents of the manuscript.</p>
+    <p><strong>Citation.</strong> Jones, J. C. (2026). Calibrating the S₃ Detector: A Positive-Control Study of Constraint-Reinstatement Detection in a Frontier Language Model (v1.0). HoldingLight LLC. https://doi.org/10.17605/OSF.IO/JAEZQ.</p>
+    <p><strong>Contact.</strong> Inquiries about methodology, factual corrections, or replication results should be directed to contact@universalcollapse.com.</p>
+
+    <a href="#top" class="backtotop">&uarr; Back to top</a>
+  </article>
+
+</div>
+
+<script>
+(function () {
+  var bar = document.getElementById('progress');
+  function onScroll() {
+    var h = document.documentElement;
+    var pct = h.scrollTop / (h.scrollHeight - h.clientHeight);
+    bar.style.width = (pct * 100).toFixed(1) + '%';
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav.toc a'));
+  var targets = links.map(function (a) {
+    return document.getElementById(decodeURIComponent(a.getAttribute('href')).slice(1));
+  });
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      var i = targets.indexOf(e.target);
+      if (i < 0) return;
+      links.forEach(function (l) { l.classList.remove('active'); });
+      links[i].classList.add('active');
+    });
+  }, { rootMargin: '-10% 0px -80% 0px' });
+  targets.forEach(function (t) { if (t) obs.observe(t); });
+
+  var btn = document.getElementById('toc-toggle');
+  var nav = document.getElementById('toc');
+  btn.addEventListener('click', function () {
+    var c = nav.getAttribute('data-collapsed') === 'true';
+    nav.setAttribute('data-collapsed', String(!c));
+    btn.setAttribute('aria-expanded', String(c));
+    btn.textContent = c ? 'Hide contents' : 'Show contents';
+  });
+
+  document.querySelectorAll('article section[id] > h1, article section[id] > h2').forEach(function (h) {
+    var a = document.createElement('a');
+    a.className = 'anchor';
+    a.href = '#' + h.parentNode.id;
+    a.textContent = '#';
+    a.setAttribute('aria-label', 'Link to this section');
+    h.appendChild(a);
+  });
+})();
+</script>
+
+</body>
+</html>

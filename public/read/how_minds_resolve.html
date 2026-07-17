@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How Minds Resolve: The Faith-Reason-Logic-Belief Cycle — Universal Collapse Theory</title>
+  <meta name="description" content="The operative layer most frameworks leave unstated — how an individual mind enters a framework, tests it under feedback, and stabilizes a position into the next cycle.">
+
+  <!-- Full-text reading copy. The citable record is the landing page;
+       canonical points there so Scholar and search consolidate on one URL. -->
+  <link rel="canonical" href="https://universalcollapse.com/read/how_minds_resolve">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="How Minds Resolve: The Faith-Reason-Logic-Belief Cycle — Universal Collapse Theory">
+  <meta property="og:description" content="The operative layer most frameworks leave unstated — how an individual mind enters a framework, tests it under feedback, and stabilizes a position into the next cycle.">
+  <meta property="og:url" content="https://universalcollapse.com/read/how_minds_resolve">
+  <meta property="og:site_name" content="Universal Collapse Theory">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@300;400&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg-deep: #08090c;
+      --bg-surface: #0e1017;
+      --bg-elevated: #161820;
+      --text-primary: #e8e6e1;
+      --text-secondary: #9b978f;
+      --text-tertiary: #5e5b54;
+      --accent: #c9a96e;
+      --accent-dim: #8a7245;
+      --rule: rgba(201, 169, 110, 0.12);
+      --serif: 'EB Garamond', Georgia, serif;
+      --sans: 'Outfit', system-ui, sans-serif;
+      --mono: 'JetBrains Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg-deep);
+      color: var(--text-primary);
+      font-family: var(--sans);
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    #progress {
+      position: fixed; top: 0; left: 0; height: 2px; width: 0%;
+      background: var(--accent); z-index: 100; transition: width 0.1s linear;
+    }
+
+    .topbar {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(8, 9, 12, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--rule);
+      padding: 0.75rem 1.5rem;
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 0.8rem;
+    }
+    .topbar a { color: var(--text-secondary); text-decoration: none; }
+    .topbar a:hover { color: var(--accent); }
+    .topbar .cite { color: var(--text-tertiary); font-family: var(--mono); font-size: 0.7rem; }
+
+    .shell {
+      max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem 6rem;
+      display: grid; grid-template-columns: minmax(0, 220px) minmax(0, 1fr); gap: 3rem;
+    }
+
+    nav.toc {
+      position: sticky; top: 5rem; align-self: start;
+      max-height: calc(100vh - 8rem); overflow-y: auto;
+      font-size: 0.8rem; line-height: 1.6;
+    }
+    nav.toc > p {
+      color: var(--text-tertiary); text-transform: uppercase;
+      letter-spacing: 0.12em; font-size: 0.65rem; margin-bottom: 0.75rem;
+    }
+    nav.toc ul { list-style: none; }
+    nav.toc ul ul { padding-left: 0.85rem; }
+    nav.toc li { margin: 0.3rem 0; }
+    nav.toc a {
+      color: var(--text-secondary); text-decoration: none;
+      display: block; padding-left: 0.6rem;
+      border-left: 1px solid transparent;
+    }
+    nav.toc a:hover { color: var(--text-primary); }
+    nav.toc a.active { color: var(--accent); border-left-color: var(--accent); }
+
+    article { min-width: 0; }
+
+    .paper-head { border-bottom: 1px solid var(--rule); padding-bottom: 1.75rem; margin-bottom: 2.5rem; }
+    .paper-head .tier {
+      font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.15em;
+      color: var(--accent-dim); text-transform: uppercase;
+    }
+    .paper-head h1 {
+      font-family: var(--serif); font-weight: 500; font-size: 2.1rem;
+      line-height: 1.2; margin: 0.75rem 0 0.5rem; color: var(--text-primary);
+    }
+    .paper-head .sub { font-family: var(--serif); font-style: italic; color: var(--text-secondary); font-size: 1.05rem; }
+    .paper-head .meta { margin-top: 1.1rem; font-size: 0.78rem; color: var(--text-tertiary); }
+    .paper-head .meta a { color: var(--accent-dim); text-decoration: none; }
+
+    article h1, article h2, article h3 {
+      font-family: var(--serif); font-weight: 600; line-height: 1.3;
+      color: var(--text-primary); scroll-margin-top: 5rem;
+    }
+    article h1 { font-size: 1.5rem; margin: 3rem 0 1rem; }
+    article h2 { font-size: 1.2rem; margin: 2rem 0 0.75rem; color: var(--text-secondary); }
+    article h3 { font-size: 1.05rem; margin: 1.5rem 0 0.5rem; color: var(--text-secondary); }
+
+    article h1 .anchor, article h2 .anchor {
+      opacity: 0; margin-left: 0.5rem; color: var(--accent-dim);
+      text-decoration: none; font-size: 0.7em; font-family: var(--sans);
+    }
+    article h1:hover .anchor, article h2:hover .anchor { opacity: 1; }
+
+    article p {
+      font-family: var(--serif); font-size: 1.12rem; font-weight: 400;
+      line-height: 1.75; margin: 0 0 1.15rem; color: var(--text-primary);
+    }
+    article ul, article ol { font-family: var(--serif); font-size: 1.12rem; margin: 0 0 1.15rem 1.5rem; }
+    article li { margin-bottom: 0.4rem; }
+    article strong { font-weight: 600; color: var(--text-primary); }
+    article em { font-style: italic; }
+    article a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--rule); }
+    article blockquote {
+      border-left: 2px solid var(--accent-dim); padding-left: 1.25rem;
+      margin: 1.5rem 0; color: var(--text-secondary); font-style: italic;
+      border-radius: 0;
+    }
+
+    math { font-size: 1.05em; color: var(--text-primary); }
+
+    .backtotop {
+      display: inline-block; margin-top: 3rem; padding-top: 1.5rem;
+      border-top: 1px solid var(--rule); width: 100%;
+      font-size: 0.8rem; color: var(--text-tertiary); text-decoration: none;
+    }
+    .backtotop:hover { color: var(--accent); }
+
+    #toc-toggle { display: none; }
+
+    @media (max-width: 820px) {
+      .shell { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; padding: 1.25rem 1.1rem 4rem; }
+      nav.toc {
+        position: static; max-height: none; order: -1;
+        border: 1px solid var(--rule); border-radius: 6px; padding: 0.9rem 1rem;
+      }
+      nav.toc[data-collapsed="true"] ul { display: none; }
+      #toc-toggle { display: block; background: none; border: none; color: var(--text-secondary);
+        font-family: var(--sans); font-size: 0.75rem; cursor: pointer; padding: 0; }
+      .paper-head h1 { font-size: 1.6rem; }
+      article p, article ul, article ol { font-size: 1.08rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<div class="topbar">
+  <a href="https://universalcollapse.com/how_minds_resolve">&larr; How Minds Resolve</a>
+  <span class="cite">10.17605/OSF.IO/92RQ5</span>
+</div>
+
+<div class="shell">
+
+  <nav class="toc" id="toc" data-collapsed="false">
+    <p>Contents</p>
+    <button id="toc-toggle" aria-expanded="true">Hide contents</button>
+    <ul>
+    <li><a href="#the-missing-hinge" id="toc-the-missing-hinge"><strong>1. The Missing Hinge</strong></a></li>
+    <li><a href="#the-cycle-stated" id="toc-the-cycle-stated"><strong>2. The Cycle, Stated</strong></a></li>
+    <li><a href="#the-four-functional-roles" id="toc-the-four-functional-roles"><strong>3. The Four Functional Roles</strong></a>
+    <ul>
+    <li><a href="#faith-starting-trust" id="toc-faith-starting-trust"><strong>3.1 Faith — Starting Trust</strong></a></li>
+    <li><a href="#reason-recursive-refinement" id="toc-reason-recursive-refinement"><strong>3.2 Reason — Recursive Refinement</strong></a></li>
+    <li><a href="#logic-the-coherence-constraint" id="toc-logic-the-coherence-constraint"><strong>3.3 Logic — The Coherence Constraint</strong></a></li>
+    <li><a href="#belief-stabilized-resolution" id="toc-belief-stabilized-resolution"><strong>3.4 Belief — Stabilized Resolution</strong></a></li>
+    </ul></li>
+    <li><a href="#the-two-loops" id="toc-the-two-loops"><strong>4. The Two Loops</strong></a>
+    <ul>
+    <li><a href="#the-generative-loop" id="toc-the-generative-loop"><strong>4.1 The Generative Loop</strong></a></li>
+    <li><a href="#the-supplanted-loop" id="toc-the-supplanted-loop"><strong>4.2 The Supplanted Loop</strong></a></li>
+    <li><a href="#one-belief-two-loops" id="toc-one-belief-two-loops"><strong>4.3 One Belief, Two Loops</strong></a></li>
+    <li><a href="#pressures-and-mechanisms-of-supplanting" id="toc-pressures-and-mechanisms-of-supplanting">4.4 Pressures and Mechanisms of Supplanting</a></li>
+    </ul></li>
+    <li><a href="#the-diagnostic" id="toc-the-diagnostic"><strong>5. The Diagnostic</strong></a>
+    <ul>
+    <li><a href="#q1-what-would-change-my-mind" id="toc-q1-what-would-change-my-mind"><strong>Q1: What would change my mind?</strong></a></li>
+    <li><a href="#q2-am-i-generating-alternatives-or-defending-a-position" id="toc-q2-am-i-generating-alternatives-or-defending-a-position"><strong>Q2: Am I generating alternatives or defending a position?</strong></a></li>
+    <li><a href="#q3-do-i-apply-the-same-evidential-rule-to-comparably-situated-claims" id="toc-q3-do-i-apply-the-same-evidential-rule-to-comparably-situated-claims"><strong>Q3: Do I apply the same evidential rule to comparably situated claims?</strong></a></li>
+    <li><a href="#q4-has-the-confidence-scope-or-formulation-of-this-belief-moved-proportionally-in-response-to-diagnostic-counterevidence" id="toc-q4-has-the-confidence-scope-or-formulation-of-this-belief-moved-proportionally-in-response-to-diagnostic-counterevidence"><strong>Q4: Has the confidence, scope, or formulation of this belief moved proportionally in response to diagnostic counterevidence?</strong></a></li>
+    </ul></li>
+    <li><a href="#where-the-cycle-operates" id="toc-where-the-cycle-operates"><strong>6. Where the Cycle Operates</strong></a>
+    <ul>
+    <li><a href="#perception" id="toc-perception"><strong>6.1 Perception</strong></a></li>
+    <li><a href="#learning-and-development" id="toc-learning-and-development"><strong>6.2 Learning and Development</strong></a></li>
+    <li><a href="#therapeutic-change" id="toc-therapeutic-change"><strong>6.3 Therapeutic Change</strong></a></li>
+    <li><a href="#scientific-inquiry" id="toc-scientific-inquiry"><strong>6.4 Scientific Inquiry</strong></a></li>
+    <li><a href="#everyday-disagreement" id="toc-everyday-disagreement"><strong>6.5 Everyday Disagreement</strong></a></li>
+    </ul></li>
+    <li><a href="#the-peircean-convergence" id="toc-the-peircean-convergence"><strong>7. The Peircean Convergence</strong></a></li>
+    <li><a href="#mapping-to-the-uct-kernel" id="toc-mapping-to-the-uct-kernel"><strong>8. Mapping to the UCT Kernel</strong></a></li>
+    <li><a href="#what-the-cycle-names" id="toc-what-the-cycle-names"><strong>9. What the Cycle Names</strong></a></li>
+    <li><a href="#references" id="toc-references"><strong>References</strong></a></li>
+    <li><a href="#companion-uct-works" id="toc-companion-uct-works"><strong>Companion UCT Works</strong></a></li>
+    <li><a href="#ai-disclosure" id="toc-ai-disclosure"><strong>AI Disclosure</strong></a></li>
+    <li><a href="#suggested-citation" id="toc-suggested-citation"><strong>Suggested Citation</strong></a></li>
+    </ul>
+  </nav>
+
+  <article>
+    <header class="paper-head">
+      <span class="tier">Tier 1.5 &amp;mdash; Bridges</span>
+      <h1>How Minds Resolve: The Faith-Reason-Logic-Belief Cycle</h1>
+      <p class="sub">The Faith-Reason-Logic-Belief Cycle</p>
+      <p class="meta">
+        Jeremy C. Jones &middot; HoldingLight LLC &middot; 2026/07 &middot; CC BY 4.0<br>
+        Cite as <a href="https://doi.org/10.17605/OSF.IO/92RQ5">10.17605/OSF.IO/92RQ5</a>
+        
+      </p>
+    </header>
+
+    <p><strong>How Minds Resolve</strong></p>
+    <p><em>The Faith–Reason–Logic–Belief Cycle</em></p>
+    <p>Jeremy C. Jones</p>
+    <p>HoldingLight LLC</p>
+    <p><a href="mailto:contact@universalcollapse.com"><u>contact@universalcollapse.com</u></a></p>
+    <p>ORCID: <a href="https://orcid.org/0009-0007-2515-3774"><u>0009-0007-2515-3774</u></a></p>
+    <p>Series: Universal Collapse Theory — T15: Interpretive Bridge Series • v1.0 • July 2026 • CC BY 4.0</p>
+    <p><strong>Abstract</strong></p>
+    <p>Most frameworks specify what exists, how knowing operates, and what follows for action. Few specify the operative mechanism by which an individual mind moves from encountering a framework to actively engaging it: how starting trust is inherited, how it is tested under feedback, and how a position stabilizes into the next cycle. This paper names that mechanism as four functional roles: Faith (cycle-relative starting trust), Reason (recursive refinement), Logic (coherence and update constraint), and Belief (resolved commitment and retained record). The architecture does not originate with human cognition: it symbolically elaborates an older biological pattern of provisional commitment under uncertainty followed by correction through feedback. Each stabilized belief normally becomes provisional starting trust for a subsequent iteration. Two operative modes are distinguished structurally: a generative loop, in which the carried-forward commitment remains revisable, and a supplanted loop, in which revisability has been revoked and inquiry retains its appearance while losing corrective capacity. The human-interface pressures that can contribute to that revocation, and the update failures that constitute it, are identified through the Human Interface Laws (Jones 2026d) and the Update Integrity Standard (Jones 2026c). A plain-language example and a four-question diagnostic make the distinction practically assessable. The cycle is presented as a structural addition to the standard ontology / epistemology / normative-content layering of frameworks: the operative mechanism by which minds enter, test, stabilize, and revise commitments.</p>
+    <p><strong>Keywords:</strong></p>
+    <p>faith; reason; logic; belief; cognitive resolution; belief revision; biological faith systems; corrigibility; predictive processing; Bayesian conditionalization; Peircean inquiry; motivated reasoning; update integrity; philosophy of mind</p>
+    <section id="the-missing-hinge" class="level1">
+    <h1><strong>1. The Missing Hinge</strong></h1>
+    <p>Most frameworks specify three things and skip a fourth. They specify what exists — the ontology of their domain. They specify how knowing operates — the epistemology that allows the framework to be tested against the world. They specify what follows for action — the normative content that gives the framework its grip on practice. What they typically do not specify is the operative mechanism by which an individual mind moves from outside the framework to engaged with it: how trust forms, how revision happens under feedback from experience, how a position stabilizes into the next starting point from which further inquiry proceeds.</p>
+    <p>This is the missing hinge of cognitive engagement. Without it, frameworks describe truth without describing the cycle by which a person comes to recognize it; describe phenomena without formalizing how a researcher updates a working model against experimental feedback; describe sacred reality without naming the operative mechanism of faith-to-belief-to-revised-faith. The gap is not philosophical neglect. It is the difficulty of formalizing what every cognitive system does so continuously that the structure becomes invisible from the inside — the cycle every mind runs whenever it forms, refines, or revises a belief, regardless of which framework happens to be held.</p>
+    <p>This paper names that cycle. It identifies four functional roles — Faith, Reason, Logic, and Belief — and one structural distinction between a loop whose carried-forward commitments remain revisable and one in which a commitment has been protected from revision. The cycle is described from observable cognition; the mechanism is given without dependence on any specific worldview's content; and the distinction between generative and supplanted modes is rendered as a diagnostic a reader can apply to a particular commitment. The intent is not a finished theory of mind. It is to name a structure operating in minds all along and to make that structure available as a tool.</p>
+    <p>Three positioning points orient what follows. First, the cycle is content-neutral: it operates equally in religious belief, scientific inquiry, perceptual updating, and everyday social cognition. No specific worldview is privileged, indicted, or evaluated. Second, the cycle is not novel as a phenomenon: neighboring structures appear in pragmatist philosophy, predictive-processing accounts, developmental work on selective trust, cognitive therapy, and research on motivated reasoning. What this paper supplies is the structural-grammar formulation: a single architecture under which those descriptions can be compared as instances of one operative cycle with portable diagnostics. Third, the paper sits within Universal Collapse Theory (UCT) as the operative-cycle counterpart to the Human Interface Laws (Jones 2026d): the laws distinguish interface invariants from modulation principles and conditional regime laws, while the cycle describes what cognition is doing within those conditions.</p>
+    <p><strong>Review Target</strong></p>
+    <p>This paper asks the reader to evaluate whether the Faith–Reason–Logic–Belief cycle usefully names the operative mechanism by which minds move from starting trust to revised belief, and whether the generative / supplanted distinction usefully discriminates between carried-forward commitments that remain revisable and those protected from revision. It does not ask the reader to accept Universal Collapse Theory as a complete framework, to adopt any religious or doctrinal sense of faith, or to treat the cycle as a finished theory of mind. The claim is structural and diagnostic: the cycle is useful if it clarifies belief formation, belief revision, and the difference between generative inquiry and defensive cognition. The paper should be revised or rejected if the cycle fails to discriminate generative from supplanted cognition under cases the reader considers paradigmatic, or if the proposed pathways and update failures discussed in Section 4.4 fail to identify the structural conditions under which revisability is reliably lost.</p>
+    </section>
+    <section id="the-cycle-stated" class="level1">
+    <h1><strong>2. The Cycle, Stated</strong></h1>
+    <p>Every act of cognitive resolution begins downstream of commitments the act itself did not derive. It tests those commitments against feedback, operates under constraints of coherence and admissibility, and produces a resolution that can shape the next act. This four-part structure is not necessarily a sequence one consciously chooses to run. It is an operative architecture of cognitive resolution — the cycle that runs whenever a mind moves from uncertainty toward provisional commitment and onward into the next uncertainty.</p>
+    <p>Name the functional roles: Faith (the starting trust received by the present act), Reason (recursive refinement against feedback), Logic (the coherence and update constraints that govern what can stabilize), and Belief (the resolved commitment retained as a record). The cycle is recursive by construction: each retained belief can enter a subsequent act as starting trust. This carry-forward is normal, not pathological. There is no need to posit a first or final cycle at the level considered here; cognition repeatedly receives, tests, stabilizes, records, and reuses commitments.</p>
+    <p>The four terms name functional roles, not four serial modules or four consciously separable stages. Faith and Belief mark cycle-relative positions; Reason names iterative testing; Logic names the distributed constraints that govern admissible stabilization and update. Reason and Logic may operate concurrently. Generative does not mean correct; it means corrigible. A generatively held belief can be false, and a supplanted belief can be true. The distinction concerns whether the process holding the commitment remains answerable to feedback.</p>
+    <p>Two asymmetries characterize every running cycle. It is asymmetric in time — earlier iterations constrain later ones through the records they leave in the mind's standing commitments. It is asymmetric in content — what counts as evidence and coherence depends partly on the starting trust currently active. A third property concerns operative mode: a carried-forward commitment can enter the next cycle as provisional starting trust, open to revision under sufficient feedback, or as a protected constraint whose revisability has been revoked. The generative / supplanted distinction is where the diagnostic work of this paper begins. Each of the four roles also carries a correlate in the formal kernel of Universal Collapse Theory; the correlates are marked as the roles are introduced in Section 3 and assembled into the full mapping in Section 8.</p>
+    </section>
+    <section id="the-four-functional-roles" class="level1">
+    <h1><strong>3. The Four Functional Roles</strong></h1>
+    <section id="faith-starting-trust" class="level2">
+    <h2><strong>3.1 Faith — Starting Trust</strong></h2>
+    <p>Faith, as the term is used here, denotes starting trust received rather than derived within the present act of cognition. It is pre-inferential relative to that act — not necessarily irrational, innate, or historically unsupported. Yesterday's carefully reasoned conclusion can function as today's Faith when a new inquiry receives it as a premise. Faith is therefore not religious belief or credulity. It names the structural fact that reasoning must begin from some commitment it does not establish within the same act. No act of reasoning can independently validate all of the premises on which that validation itself depends without regress, circularity, or a terminating commitment. Hume's analysis of induction is a canonical instance of the problem (Hume 1748/2007, sec. IV). Faith names the cycle-relative requirement disclosed by that limit.</p>
+    <p>Faith does not originate with human reasoning. Living systems already enact its minimal architecture whenever they must bias action before uncertainty is resolved and remain corrigible through feedback afterward. Biological Faith Systems formalizes this distributed, embodied pattern as older than nervous systems and explicit cognition (Jones 2026h). Conscious cognition inherits the architecture and gives it a symbolic and recursive medium: a starting commitment can now be represented, articulated, compared, contested, deliberately revised, and stabilized as belief. The structure is continuous even though the medium and capacities are transformed.</p>
+    <p>UCT uses faith at two related grains. Constitutive faith names the inherited commitment-before-certainty architecture that makes resolution possible at all; phase Faith names the specific, locatable starting-trust placement within a cycle. The present paper analyzes phase Faith while pointing down to its biological and constitutive floor. Biology supplies the inherited architecture of provisional commitment, while culture, testimony, language, authority, and prior personal cognition supply much of the content it carries at the human level. Starting trust is also projected forward: a mind acts as though an expectation will hold before confirmation is complete, and failure of that projection is one source of revision pressure. The FRLB cycle does not introduce commitment into the system; it describes what biological commitment becomes when a mind can operate on it symbolically. In kernel terms, Faith corresponds to the inherited or accepted commitment-bearing portion of the active constraint set Kₜ, not necessarily to all of Kₜ without remainder.</p>
+    </section>
+    <section id="reason-recursive-refinement" class="level2">
+    <h2><strong>3.2 Reason — Recursive Refinement</strong></h2>
+    <p>On that inherited footing, Reason searches and refines candidate interpretations against feedback. Predictions made under the starting commitment either hold or fail; alternative explanations fit better or worse; the working account coheres with new evidence or generates dissonance that demands resolution. Reason is iterative, but those iterations occur within the present act of resolution: they compare, reweight, elaborate, or eliminate candidates in the live cognitive possibility space. They do not by themselves denote the inter-cycle update map U.</p>
+    <p>The critical structural point is that Reason depends on Faith in the present cycle, not that Reason never contributed historically to the commitment now received. A mind cannot reason from nowhere; it can only test from some starting orientation. Predictive-processing models provide a prominent neural and computational analogue: perception is often modeled as prediction under priors corrected by incoming error signals (Friston 2010; Clark 2013; Hohwy 2013). In kernel terms, Reason is the generative exploration of Ωmind under current Kₜ — the candidate search and feedback-sensitive refinement the collapse operator Cᴷₜ runs before yielding the resolution xₜ*. Reason is a functional role within the collapse operation; it is neither a second operator nor the achieved resolution, and its local iterations should not be confused with U's incorporation of Rₜ into Kₜ₊₁.</p>
+    </section>
+    <section id="logic-the-coherence-constraint" class="level2">
+    <h2><strong>3.3 Logic — The Coherence Constraint</strong></h2>
+    <p>Faith and Reason alone are not sufficient to produce stabilized cognition. Without constraints on how candidate revisions are generated and admitted, anything could follow from anything: any contradiction could be tolerated and any inference accepted. Logic — used here in a broad structural sense, not only the narrow formal-deductive one — is not a final step that waits until Reason finishes. It constrains the process throughout, limiting which resolutions can coherently stabilize and how they may be carried forward.</p>
+    <p>Logic in this sense includes standing inferential rules, consistency requirements, and the admission discipline by which proposed revisions are accepted or rejected. Felt dissonance when beliefs conflict, or when a conclusion does not follow, can be a phenomenological signal of those constraints, though the feeling itself is not a guarantee of correctness. Logic constrains Reason as it runs and governs what can stabilize as Belief. In kernel terms, it is distributed: standing coherence requirements reside within Kₜ, while transition discipline is expressed through the update map U.</p>
+    </section>
+    <section id="belief-stabilized-resolution" class="level2">
+    <h2><strong>3.4 Belief — Stabilized Resolution</strong></h2>
+    <p>When Faith is refined by Reason under the constraint of Logic, the collapse operation reaches a resolution xₜ*: a commitment the mind can endorse and act from. Within the grain used in this paper, Belief names the event record Rₜ produced by that resolution. The distinction matters: xₜ* is the achieved resolution; Rₜ is the retained cognitive record through which that resolution can enter later cognition.</p>
+    <p>The next grain appears through update. When Rₜ is incorporated through U, it may sediment as standing Belief B ⊂ Kₜ₊₁: the stabilized commitment-bearing structure that guides later collapse. The carry-forward relation is therefore Rₜ → U → B ⊂ Kₜ₊₁. Event Belief is Rₜ; standing Belief is the portion of the later constraint set into which that event record has sedimented. Not all of Kₜ₊₁ is Belief, because Kₜ₊₁ also carries biological, contextual, inferential, and other constraints.</p>
+    <p>This gives the recursion its exact form. The same content can occupy several cycle-relative positions: it is achieved as resolution xₜ*, retained as event Belief Rₜ, sedimented through U as standing Belief B ⊂ K, and later drawn from that commitment-bearing structure as phase Faith. Belief becoming available as later starting trust is therefore normal, not itself supplanting. The diagnostic distinction turns on whether revisability survives the transition.</p>
+    </section>
+    </section>
+    <section id="the-two-loops" class="level1">
+    <h1><strong>4. The Two Loops</strong></h1>
+    <p>The cycle has two operative modes. Generative and supplanted name ideal-typical poles of graded, commitment-specific update integrity. Actual loops may be partially or conditionally constricted, but temporary difficulty exercising revision is not by itself supplanting; the defining condition is that a particular carried-forward commitment has been excluded from effective revision. Distinguishing the modes is the paper's most immediately useful contribution because they can produce similar phenomenology from inside while yielding very different corrective capacities over time. The unit of the distinction is the commitment-in-its-slot, not the mind. A single mind runs many loops concurrently and can be generative in one domain while supplanted in another — rigorous at the laboratory bench and defended at the dinner table. Generative and supplanted are operating conditions, not moral classes of people. Diagnosing a person is a category error; the diagnostic of Section 5 applies to loops, one commitment at a time.</p>
+    <section id="the-generative-loop" class="level2">
+    <h2><strong>4.1 The Generative Loop</strong></h2>
+    <p>In the generative loop, the cycle runs with all four roles intact. Faith is held provisionally: the starting trust is taken as the working position for now, with recognition that sufficient feedback could revise its confidence, scope, or content. Reason is genuine inquiry: it searches for what is the case rather than only for what confirms the starting commitment. Logic is applied by declared standards that remain answerable across outcomes. The resulting Belief can stabilize strongly and still remain available to a later iteration.</p>
+    <p>The generative loop is not perpetual uncertainty and does not require visible change after every challenge. A belief may remain unchanged because the available evidence is weak, non-diagnostic, or genuinely supports it. What makes the loop generative is that the evidence is permitted to matter proportionally. The mind running a generative loop has positions, takes actions, and makes decisions, but it does so in a mode where another pass through the cycle could in principle produce revision. In kernel terms, the loop retains update integrity: records remain available, evidential redundancy is not counterfeited, and U remains sensitive to legitimate diagnostic pressure. For the commitment at issue, revision remains within U's effective domain.</p>
+    </section>
+    <section id="the-supplanted-loop" class="level2">
+    <h2><strong>4.2 The Supplanted Loop</strong></h2>
+    <p>In the supplanted loop, a carried-forward commitment occupies the cycle's starting position with its revisability revoked. That occupancy is normal: an event Belief Rₜ may be integrated through U as standing Belief B ⊂ Kₜ₊₁, from which later phase Faith may be drawn. What marks supplanting is the property lost on entry: rather than functioning as provisional trust subject to revision, the commitment has been removed from the effective domain of update. Reason can then run as defense rather than inquiry, producing arguments that preserve the starting position. Logic can become selectively rigorous: demanding when applied to threats and permissive when applied to confirmations. In kernel terms, the defining signature appears at the update seam: for the protected commitment, U is effectively insensitive to relevant Rₜ even while the rest of the cycle continues to run.</p>
+    <p>The supplanted loop produces the appearance of inquiry without its corrective substance. The mind is still active, evidence is still considered, and conclusions are still reached, but the starting commitment is no longer among the things the cycle is permitted to revise. A belief that should have re-entered as provisional starting trust has instead re-entered as a protected constraint. Reason may become lawyer-like rather than exploratory: its intelligence is used to preserve the verdict already selected.</p>
+    <p>The supplanted loop is not a sign of low intelligence. It can run in highly capable people and may produce sophisticated defensive reasoning. The structural property is independent of cognitive capacity and independent of whether the protected belief happens to be true. What determines whether a loop is generative or supplanted is not whether Belief appears in the next cycle's input — every recursive loop does that — but whether the carried-forward commitment remains answerable to feedback.</p>
+    </section>
+    <section id="one-belief-two-loops" class="level2">
+    <h2><strong>4.3 One Belief, Two Loops</strong></h2>
+    <p>Suppose a person believes that Route A is the fastest way to work. The belief was formed through earlier trips, so on Monday it becomes the starting point for another decision: the person takes Route A again. Nothing has gone wrong. A prior belief becoming the next cycle's starting trust is how the cycle normally works.</p>
+    <p>In a generative loop, the person treats 'Route A is fastest' as a working position. After several unusually slow trips, the person compares Route B, checks whether construction or departure time explains the difference, and applies comparable standards to the performance of both routes. The person may conclude that Route A is still usually fastest, or may revise the belief and begin taking Route B. The loop is generative not because the person necessarily changes position, but because the evidence is allowed to change confidence, scope, or conclusion.</p>
+    <p>In a supplanted loop, the person may still appear to reason. A slow trip on Route A is dismissed as bad luck. A faster trip on Route B is treated as a fluke. Repeated comparisons favoring Route B are rejected because the navigation application must be inaccurate. Each result is interpreted in a way that preserves the starting conclusion. The prior belief has not merely entered the next cycle as starting trust; it has entered with its revisability removed.</p>
+    <p>The person might even be correct that Route A is fastest. The distinction is not between a true belief and a false one, an intelligent person and an unintelligent one, or a good person and a bad one. In plain language, Faith is what the person starts from; Reason is the checking of routes and explanations; Logic is the use of comparable standards; and Belief is the conclusion retained. What separates the two loops is whether the next round of experience is allowed to matter.</p>
+    </section>
+    <section id="pressures-and-mechanisms-of-supplanting" class="level2">
+    <h2>4.4 Pressures and Mechanisms of Supplanting</h2>
+    <p>How does a normally revisable commitment become protected? The cycle does not lose corrigibility for no reason, but neither does every pressure against revision amount to supplanting. In human cognition, the Human Interface Laws identify three pressures that can increase the likelihood or persistence of protection: identity binding, signal scarcity, and repair-window constriction. The Update Integrity Standard identifies procedural failures that compromise the update loop itself. None of the three interface pressures is individually necessary or sufficient. A pressure becomes a mechanism of supplanting only where the relevant commitment is excluded from effective revision.</p>
+    <p>The first pressure is identity binding. When a belief becomes bound to the holder's identity — no longer merely something the mind holds but something experienced as load-bearing to the self — disconfirming evidence can be processed as a threat to self-continuity, belonging, or status rather than as neutral information. Revising the belief may then appear to require revising the self or severing a valued group bond. Identity-fusion research provides an external theoretical analogue for the personal–group case (Swann et al. 2012), while work on ideologically motivated cognition shows that reflective capacity can be recruited in identity-congruent directions rather than automatically correcting them (Kahan 2013). Human Interface Law 4 names the broader pressure: identity protects its constraints (Jones 2026d). Identity binding raises the cost of revision; it becomes supplanting only when that cost is converted into effective exclusion from update.</p>
+    <p>The second pressure is signal scarcity. When external signal is weak, ambiguous, inaccessible, or correlated, resolution may be delayed and multiple resolutions may remain viable. When commitment nevertheless occurs, social consequences can carry increased selection weight: belonging, identity-signaling, and coalitional cost may organize which commitments are adopted and retained. Social verification may produce convergence within a group even while groups diverge, and convergence need not increase accuracy (Hardin and Higgins 1996; Lorenz et al. 2011). Human Interface Law 6 names the conditional regime: weak external signal permits divergence, while shared independent records and intact update rules favor convergence (Jones 2026d). Signal scarcity does not itself revoke revisability. It contributes to supplanting only when non-evidential pressures do more than influence or delay resolution and instead disable the commitment's answerability to later evidence.</p>
+    <p>The third pressure is repair-window constriction. As threat approaches or exceeds a system's tolerance limits, its capacity for integrated revision generally decreases. Acute stress commonly impairs working memory and cognitive flexibility, and can attenuate flexible updating in aversive learning, although effects vary by function, context, and person (Shields, Sazma, and Yonelinas 2016; Raio et al. 2017). Protection, compliance, or abrupt replacement may become more available than durable incorporation. A constricted window does not itself revoke revisability; it can prevent revisability from being exercised. If safe-enough conditions rarely occur, however, a commitment can remain effectively protected over time even without conscious freezing. Human Interface Law 8 names this directional condition: integrated repair requires a safe-enough window (Jones 2026d).</p>
+    <p>A fourth route is update-loop corruption. The Update Integrity Standard identifies failures across the record, redundancy, and update interfaces: record falsification, pseudo-redundancy, constraint freezing, selective update rules, coercive agreement, discriminator-free coherence, and identity binding (Jones 2026c). Some corrupt R, some counterfeit the independence of supporting records, and others make U frozen or asymmetric. Each can prevent diagnostic pressure from modifying the relevant portion of K. Unlike the first three pressures, UIS corruptors describe defects in the update architecture itself. A particular supplanted loop may involve one or several pressures and corruptors operating together.</p>
+    <p>Human Interface Law 7 names the resulting phenotype rather than a fifth independent cause. When disconfirming contact is persistently excluded, discredited, or translated into further confirmation, the loop may remain internally coherent while losing external answerability. In HMR terms, that is what a fully supplanted commitment looks like from the interface: Reason and Logic can continue functioning, but no relevant record is permitted to count against the protected conclusion (Jones 2026d). Stable confidence is not enough to establish this phenotype; the defining feature is coherence maintained through loss of revisability.</p>
+    <p>Scope matters. Identity binding, socially structured signal scarcity, repair-window constriction, and contact-sensitive self-sealing are human-interface claims. The FRLB cycle may have analogues in artificial, institutional, or biological systems, but these pressures should not be exported by name without domain-specific operational definitions. UIS-style failures of records, redundancy, and update rules carry the broader architectural claim; any nonhuman analogue of the HIL pressures must be demonstrated rather than assumed.</p>
+    <p>What unifies these routes is not a shared surface cause but one property lost at the update seam: the revisability of a selected commitment. Identity binding, weak signal, or threat may be present while a loop remains generative; their presence alone does not decide the mode. Supplanting begins when the carried-forward commitment is no longer among the things the cycle is permitted to revise. The cycle then preserves the appearance of ordinary cognition while removing its corrective substance. This is why it can feel from inside like normal cognition, and why diagnosis must attend to structural features rather than surface phenomenology. Section 8 derives the partial invisibility more exactly: the defining signature is expressed at the seam between iterations, while introspection ordinarily samples what is happening within an iteration.</p>
+    <p>One apparent counterexample deserves direct treatment because it applies to this framework itself. Lakatos's methodology of scientific research programmes holds that a programme rationally protects a hard core while directing local refutation toward a protective belt (Lakatos 1970). A programme is not therefore supplanted merely because its core is protected during ordinary tests. Lakatos evaluates programmes through trajectories: whether changes yield novel corroborated content or degenerate into post hoc accommodation, and how the programme performs relative to alternatives. A programme remains generative when protection is methodologically scoped and programme-level abandonment or displacement remains possible. Supplanting begins when no scale of revision remains — when every failure can be assimilated without cost and no progressive / degenerating distinction can count against the programme. Q1 at the programme level may therefore be answered not by a single decisive falsifier but by a sustained pattern of degeneration, failed novel prediction, and superior rival performance. The Review Target at the head of this paper is this framework answering the question its own diagnostic asks.</p>
+    <p>A complementary point concerns not why a cycle fails to update but when integrated revision occurs at all. Revision is not spontaneous. It is typically triggered by a coherence violation entering awareness: a predictive failure, an internal contradiction among standing commitments, or the appearance of a better-fitting alternative. Absent such a violation, even a generative loop may carry its Faith forward unchanged — not because it is supplanted, but because nothing diagnostic has challenged it. Three conditions jointly support integrated revision: the commitment must remain revisable; a relevant conflict must surface and be admitted as contact; and conditions must be safe enough for the alternative to be held, tested, and incorporated. Supplanting removes the first. Ordinary absence of conflict or contact removes the second. Threat can constrict or temporarily remove the third. Only loss of the first defines a supplanted loop; failure of the second or third can prevent revision while leaving generative capacity intact.</p>
+    </section>
+    </section>
+    <section id="the-diagnostic" class="level1">
+    <h1><strong>5. The Diagnostic</strong></h1>
+    <p>The generative and supplanted loops can be distinguished by attention to four structural features. These are not questions about personality and do not produce a verdict on which beliefs are true. 'Diagnostic' is used here in an architectural sense — the questions are a structured heuristic, not a clinical or psychometric instrument — and they ask whether the loop holding one particular commitment remains capable of revision. They can be applied to one's own loops and, more cautiously, to observable patterns in the loops of others. Self-application degrades exactly where supplanting is most active because the probe then meets the defensive structure it is built to detect.</p>
+    <p>Aperture position and FRLB mode are related but not identical. In the Human Interface Laws, aperture describes the interface's present stance toward a target — whether the target is permitted to exceed the current representation of it. FRLB mode asks a narrower diachronic question: whether one carried-forward commitment remains revisable across iterations. A closed aperture can be temporary without establishing supplanting, and an open-sounding stance does not prove that U can revise the commitment when diagnostic pressure arrives. The Aperture Check reads the present position; Q1–Q4 audit the loop that carries it forward (Jones 2026d).</p>
+    <section id="q1-what-would-change-my-mind" class="level2">
+    <h2><strong>Q1: What would change my mind?</strong></h2>
+    <p>In a generative loop, this question has a concrete answer: some evidence, argument, observation, or longer-run trajectory that would proportionally shift confidence, scope, or conclusion. Naming such a condition does not guarantee that revision will occur, but it establishes that revision remains intelligible. In a supplanted loop, the question produces silence, redirection, or conditions that recede whenever they are met. The structural feature is whether any relevant state of affairs is still allowed to count against the commitment. Q1 is a seam probe: it asks whether U can act on this constraint at all.</p>
+    </section>
+    <section id="q2-am-i-generating-alternatives-or-defending-a-position" class="level2">
+    <h2><strong>Q2: Am I generating alternatives or defending a position?</strong></h2>
+    <p>Reason in the generative loop searches: it asks what else could explain the evidence, what other accounts fit the data, and what the strongest version of an opposing view would look like. Reason in the supplanted loop defends: it asks primarily why the current position is correct, what is wrong with opposing views, or how challenges can be deflected. The direction of search is the diagnostic. The relevant evidence is not a momentary feeling but the pattern of questions, comparisons, and alternatives the loop actually generates. A bandwidth caveat is necessary: low available capacity can reduce alternative generation in either mode, especially under time pressure, fatigue, or threat. Failure to produce many alternatives in one constricted moment is not by itself defensive cognition. The relevant pattern is whether the capacity that is available is used to test the position or selectively preserve it across comparable opportunities (Jones 2026d).</p>
+    </section>
+    <section id="q3-do-i-apply-the-same-evidential-rule-to-comparably-situated-claims" class="level2">
+    <h2><strong>Q3: Do I apply the same evidential rule to comparably situated claims?</strong></h2>
+    <p>Logic need not impose numerically identical thresholds in every context. Differences in source reliability, base rates, burdens of proof, and asymmetric error costs can justify different standards. The diagnostic question is whether an asymmetry can be stated in advance and justified without referring to which conclusion one prefers. When evidence supporting the held commitment is admitted permissively while comparable evidence challenging it must meet exacting standards, Logic is being used rhetorically rather than structurally. Biased-assimilation research provides an empirical analogue for this selective scrutiny (Lord, Ross, and Lepper 1979).</p>
+    </section>
+    <section id="q4-has-the-confidence-scope-or-formulation-of-this-belief-moved-proportionally-in-response-to-diagnostic-counterevidence" class="level2">
+    <h2><strong>Q4: Has the confidence, scope, or formulation of this belief moved proportionally in response to diagnostic counterevidence?</strong></h2>
+    <p>Generative commitments have an update history. Movement may take the form of reduced confidence, narrower scope, revised conditions, or occasional reversal; it need not mean abandoning the belief. An unchanged belief is not thereby supplanted if the encountered evidence was weak, irrelevant, or genuinely compatible with it. The operative signature is survival without proportional movement despite genuinely diagnostic counterevidence. The historical record matters because it shows what the loop has actually permitted, not only what its holder says it would permit. Q4 is the seam probe in historical form: where Q1 asks whether U can act, Q4 asks whether it has acted when relevant pressure arrived.</p>
+    <p>The loops are not personality types, and nothing in the architecture confines a person to one of them. A scientist may run a generative loop in the laboratory and a supplanted one about family; a therapist may follow evidence in clinical work and refuse it in politics; a believer may revise theology while defending identity; a skeptic may question every institution except skepticism itself. The diagnostic does not sort people. It locates, domain by domain, where correction is still alive — and the first mind any reader can turn it on is their own.</p>
+    <p>The four questions can be self-applied, but self-report is weakest precisely where the protected commitment organizes the answers. In harder cases, external feedback becomes necessary: trusted others, transparent records, preregistered standards, or other structures capable of showing what the loop cannot see from inside. Even then, the diagnostic should be used to inspect an update process rather than to label a whole person.</p>
+    </section>
+    </section>
+    <section id="where-the-cycle-operates" class="level1">
+    <h1><strong>6. Where the Cycle Operates</strong></h1>
+    <p>The FRLB cycle is proposed as a shared structural pattern across several forms of cognitive resolution rather than as a claim that all of them are identical mechanisms. Perception, development, scientific method, therapeutic change, and everyday belief revision are described under different vocabularies and operate at different scales. The comparison is useful where the same abstract relations recur: a starting constraint, testing under feedback, admissibility conditions, a stabilized record, and recursive carry-forward.</p>
+    <section id="perception" class="level2">
+    <h2><strong>6.1 Perception</strong></h2>
+    <p>Predictive-processing accounts provide a close neural and computational analogue. A predicted percept functions like starting trust; incoming sensory discrepancy supplies feedback; spatial, temporal, and model-based constraints govern admissible interpretation; and a stabilized percept shapes subsequent prediction (Friston 2010; Clark 2013; Hohwy 2013). At this level of abstraction, perception can be read as an FRLB-like cycle running at short timescales. The mapping suggests a testable expectation rather than an accomplished identification: systems in which selected priors become less revisable should show correspondingly reduced adaptation to diagnostic surprise, other factors held constant.</p>
+    </section>
+    <section id="learning-and-development" class="level2">
+    <h2><strong>6.2 Learning and Development</strong></h2>
+    <p>Children learn extensively through testimony before independent verification is possible, but that trust is not simply indiscriminate. Preschoolers distinguish knowledgeable from ignorant informants, and by age four they preferentially learn from previously accurate speakers (Koenig and Harris 2005). Development therefore illustrates both sides of Faith: starting trust is structurally necessary, while feedback can progressively refine whom and what the child treats as credible. The generative / supplanted distinction raises a developmental question rather than settling one: whether inherited trust remains open to correction or becomes organized around defense under particular social and threat conditions.</p>
+    </section>
+    <section id="therapeutic-change" class="level2">
+    <h2><strong>6.3 Therapeutic Change</strong></h2>
+    <p>Some cognitive-behavioral interventions can be interpreted as restoring revisability to rigid appraisals. Foundational cognitive therapy explicitly identifies, tests, and restructures maladaptive cognitions through evidence, alternative interpretations, and behavioral experience (Beck et al. 1979). In FRLB terms, the therapeutic work can reopen a protected starting commitment to another pass through Reason and Logic so that a revised Belief may stabilize. This is an interpretive mapping, not a claim that all therapy reduces to FRLB or that every stable belief is pathological.</p>
+    </section>
+    <section id="scientific-inquiry" class="level2">
+    <h2><strong>6.4 Scientific Inquiry</strong></h2>
+    <p>Every experiment begins with assumptions not all under test at once: trust in instruments, mathematics, background theory, and the lawfulness of the domain. These function as phase-Faith commitments for the experiment. Experimental inquiry supplies Reason; inferential frameworks constrain admissibility as Logic; accepted findings become Belief-records that shape subsequent work. A scientific paradigm may exhibit supplanted-loop behavior when anomalies are systematically re-described or excluded so that no programme-level revision remains possible. Kuhn's history of paradigm change provides a broad historical analogue, but not every defended paradigm or delayed revision is thereby supplanted (Kuhn 1962).</p>
+    </section>
+    <section id="everyday-disagreement" class="level2">
+    <h2><strong>6.5 Everyday Disagreement</strong></h2>
+    <p>Some persistent disagreements are sustained not only by competing evidence but by different update conditions. Research on biased assimilation and motivated reasoning shows that the same evidence can be evaluated differently depending on prior commitments and identity relevance (Lord, Ross, and Lepper 1979; Kahan 2013). When one loop remains revisable and another protects its starting commitment, additional evidence alone is unlikely to produce convergence because the evidence is not entering equivalent update procedures. The FRLB framing does not decide which side is true. It clarifies a prior question: whether both sides are still running processes in which diagnostic feedback is permitted to matter.</p>
+    </section>
+    </section>
+    <section id="the-peircean-convergence" class="level1">
+    <h1><strong>7. The Peircean Convergence</strong></h1>
+    <p>The structural account developed here converges with several strands of Charles Sanders Peirce's work, though the comparison should not be treated as proof by resemblance or as a claim of wholly independent discovery. Peirce supplies a major philosophical antecedent: inquiry begins in the irritation of doubt, seeks settled belief, and remains answerable to a reality not fixed by individual preference. FRLB reorganizes parts of that picture in update-architectural vocabulary and adds a diagnostic emphasis on what happens when revisability is lost.</p>
+    <p>The most direct antecedent is 'The Fixation of Belief.' Peirce distinguished four methods by which doubt can be settled: tenacity, authority, the a priori method, and science (Peirce 1877). The first three can stabilize belief while insulating it, to different degrees, from recalcitrant experience or public correction; the scientific method is distinguished by appeal to something external to what an individual or community merely wishes to hold. Peirce therefore did not assume that all belief fixation is good-faith inquiry. What FRLB adds is a specific localization of noncorrective fixation: the carried-forward commitment has been protected at the update seam, and the resulting loss of revisability can be probed through Q1–Q4.</p>
+    <p>Peirce's semiotic triad — sign, object, interpretant — supplies a second point of contact. A sign stands for an object to an interpretant, and the interpretant can become a further sign in continuing semiosis. The mapping to FRLB is partial rather than one-to-one: a prior cognitive record can function as a sign entering a new act; the object constrains what the sign is answerable to; and the interpretant is the updated cognitive effect that can be carried into another iteration. Peircean semiosis thus anticipates the recursive movement by which records of prior resolution become material for later interpretation.</p>
+    <p>Peirce's division of inference into deduction, induction, and abduction supplies a parallel connection. Abduction begins from a surprising observation and proposes a hypothesis under which the observation would no longer be surprising (Peirce 1903). In FRLB terms, abduction operates near the seam where a failed expectation creates pressure for a replacement commitment. It does not by itself complete the update: it generates a candidate that Reason can refine, Logic can constrain, and Belief can record if the candidate survives. This placement reconciles abduction as commitment-before-certainty with abduction as a reasoned hypothesis-generating move.</p>
+    <p>Pragmatism more broadly anticipated the emphasis on belief as stabilized resolution rather than static possession. Peirce described truth as 'the opinion which is fated to be ultimately agreed to by all who investigate' (Peirce 1878, 300). Whatever qualifications later Peircean scholarship places on 'fated,' the formulation ties truth to an indefinitely extendable community of inquiry rather than to present certainty. In the same essay, Peirce described belief as at once 'a stopping-place' and 'a new starting-place for thought' (Peirce 1878) — the present paper does not discover that carry-forward; it decomposes it into functional roles and distinguishes its revisable from its revision-protected forms. The FRLB generative loop is structurally compatible with that orientation: stabilized commitment remains answerable to further inquiry instead of being removed from it.</p>
+    <p>What FRLB adds to the Peircean picture can be stated without minimizing that antecedent. First, it names cycle-relative functional roles and distinguishes a commitment's ordinary carry-forward from the revocation of its revisability. Second, it locates the defining signature of supplanting at the update seam U — insensitivity of the protected commitment to diagnostic pressure — and derives why that signature may remain difficult to see from within an iteration. Third, it organizes four portable probes and connects them to the S₁/S₂/S₃ methods stack. These are additions of formalization, localization, and operational use — not the discovery that inquiry can become noncorrective, which Peirce already treated through his analysis of methods of fixation.</p>
+    <p>The Peircean route is not the only formal analogue. Standard Bayesian conditionalization supplies a precise limiting case. A contingent proposition assigned prior probability zero or one cannot be moved by ordinary conditionalization, which is why Cromwell's rule counsels against extremal priors for contingent claims (Lindley 1985). This is a limiting-case analogue of the supplanted loop: the starting commitment lies beyond the reach of the update rule. Practical freezing can also arise without literal extrema — through overwhelming precision, selective likelihood construction, evidence exclusion, or asymmetric updating — so the Bayesian analogy illuminates the failure without exhausting it. Peircean inquiry and Bayesian conditionalization converge on the narrower structural point: a corrective process requires starting commitments that remain reachable by revision.</p>
+    <p>A third formal analogue comes from belief-revision theory. The AGM framework formalizes rational transitions between belief states, and its entrenchment orderings capture graded protection: some commitments are rationally harder to give up than others (Alchourrón, Gärdenfors, and Makinson 1985). What entrenchment does not mark is the distinction drawn here. An entrenchment so absolute that no admissible input can dislodge a contingent commitment is, in FRLB terms, the supplanted limiting case — protection that has become revocation of revisability. AGM supplies the logic of revision; FRLB names the functional architecture within which revision is performed, withheld, or disabled.</p>
+    </section>
+    <section id="mapping-to-the-uct-kernel" class="level1">
+    <h1><strong>8. Mapping to the UCT Kernel</strong></h1>
+    <p>The FRLB cycle is a specific mind-phase decomposition of the more general kernel of constraint-guided collapse formalized in Universal Collapse Theory (Jones 2025a). WP01 introduced the cycle in coarse shorthand, as a factorization of the mind-phase constraint architecture; the present section supplies the finer event-level mapping, with the four roles’ primary loci distributed across Kₜ, Cᴷₜ, Rₜ, and U rather than compressed into K alone. The mapping is not offered merely as translation. It yields three consequences developed below: why the cycle recurs, why the defining signature of supplanting is partly hidden from within an iteration, and why the four-question diagnostic works. Figure 1 summarizes the mapping before those consequences are drawn.</p>
+    <p>The canonical law-level step is the constraint-conditioned collapse operation Cᴷₜ: Ω → xₜ*, Rₜ, Sₜ, Ωₜ₊₁, followed by the constraint update Kₜ₊₁ = U(Kₜ, xₜ*, Rₜ, Sₜ). Collapse is the operation Cᴷₜ; the resolution xₜ* is its achieved result. The same collapse also produces records Rₜ, residue Sₜ, and the updated possibility space Ωₜ₊₁. In the present cognitive mapping, residue is not materially active, so the licensed shorthand Kₜ₊₁ = U(Kₜ, xₜ*, Rₜ) is used below. Figure 1 likewise suppresses Sₜ and the explicit Ωₜ₊₁ output.</p>
+    <p>The four FRLB functional roles map to primary loci within this step, not to four serial kernel nodes. Phase Faith is the inherited or accepted commitment-bearing portion of Kₜ under which the present act evaluates possibilities; it is not all of Kₜ. Reason is the generative exploration of Ωmind under Kₜ — the candidate search the collapse operator Cᴷₜ runs before resolution. Logic spans standing admissibility constraints in Kₜ and the integration discipline expressed through U. Event Belief is Rₜ, the cognitive record of resolution xₜ*. When incorporated through U, that record may sediment as standing Belief B ⊂ Kₜ₊₁ and later supply phase Faith.</p>
+    <p><img src="media/image2.png" style="width:6.35in;height:2.39675in" alt="Diagram mapping the four FRLB functional roles to the UCT mind-phase kernel. Faith is a phase starting-trust placement within the commitment-bearing portion of K t. Reason is generative search over the mind possibility space under K t within collapse operator C superscript K subscript t, which yields resolution x t star. Event Belief is record R t. At update seam U, R t may sediment as standing Belief B, a subset of K t plus 1, and later supply phase Faith. Logic spans admissibility constraints in K t and integration discipline through U. Generative update preserves revisability; supplanted update excludes a selected commitment from effective revision." /></p>
+    <p><strong>Figure 1.</strong> FRLB functional roles mapped to their primary loci in the UCT mind-phase kernel. Collapse is the operation Cᴷₜ; xₜ* is the resolution; event Belief is the record Rₜ. Through U, Rₜ may sediment as standing Belief B ⊂ Kₜ₊₁ and later supply phase Faith. The roles are functional rather than serial modules: Reason names search within the collapse operation, while Logic spans Kₜ and U. The dashed seam marks the transition at which a carried-forward commitment remains revisable or becomes excluded from effective update. Residue Sₜ and explicit Ωₜ₊₁ are suppressed.</p>
+    <p>The mapping is deliberately asymmetric. Phase Faith is a placement within the commitment-bearing portion of Kₜ; Reason is a search-and-refinement role within the collapse operation Cᴷₜ; event Belief is Rₜ; and Logic spans Kₜ and U. Logic is the only FRLB role whose primary locus includes the transition discipline of U itself. Event Belief crosses that seam through U and may become standing Belief B ⊂ Kₜ₊₁, but Belief is not thereby identical to U or to the whole later constraint set. The asymmetry is what makes recursion possible: a record produced at one resolution can become part of the constraint architecture from which a later phase Faith is drawn.</p>
+    <p>Under this mapping, the generative loop retains update integrity and leaves the selected commitment within U's effective domain of revision. In the supplanted loop, that commitment is excluded from effective revision. The defining signature appears at the seam — diagnostic Rₜ fails to produce proportionate change in the relevant portion of Kₜ₊₁ — but the proximal failure may arise within Kₜ, within candidate search under Cᴷₜ, through corruption or exclusion of Rₜ, through counterfeit redundancy, or within U itself. Standing coherence requirements may still bind and elaborate reasoning may still occur; the cycle can therefore look active while corrective pressure never reaches or alters the protected commitment.</p>
+    <p>The diagnostic of Section 5 is best understood as a set of commitment-specific probes of effective revisability, not as a complete audit of U or of update integrity. Q1 and Q4 target the update seam: they ask whether the commitment remains within U's effective domain and whether diagnostic counterevidence recorded in Rₜ has produced proportionate change in the relevant portion of Kₜ₊₁. Q2 and Q3 probe within-cycle distortions that can prevent pressure from reaching that seam: Reason redirected from candidate search toward defense, and Logic applied asymmetrically across Kₜ and U. A failure on Q2 or Q3 does not by itself locate the defect solely in U. The full UIS audit remains broader, covering records, redundancy quality, and the update map. The methods stack (Jones 2026e, 2026f, 2026g) supplies the empirical apparatus by which related kernel-level claims can be tested in specific domains.</p>
+    <p>Two consequences of the mapping are worth noting. First, FRLB inherits the kernel's cross-domain portability where the relevant structural conditions apply: starting constraints, resolution under feedback, records, and recursive update. This helps explain why analogous cycles can be investigated in artificial learning systems, institutional decision processes, and biological development without claiming that those systems share identical mechanisms. Second, the fuller formal treatment of conscious collapse is developed in WP04: Conscious Collapse (Jones 2026i); the present paper supplies the cycle-level interface for direct cognitive use.</p>
+    </section>
+    <section id="what-the-cycle-names" class="level1">
+    <h1><strong>9. What the Cycle Names</strong></h1>
+    <p>The FRLB cycle names the operative mechanism by which an individual mind moves from starting trust to stabilized and revisable commitment. Faith is the cycle-relative starting trust made possible by an older biological architecture of commitment under uncertainty. Reason is the recursive exposure of that trust to feedback. Logic is the distributed coherence and update constraint governing what can stabilize and how it can be carried forward. Belief is born as the event record Rₜ of a resolved commitment; through U, it may sediment as standing Belief B ⊂ K and later supply new phase Faith. The cycle runs generatively when that carry-forward preserves revisability, and it runs in a supplanted mode when a selected commitment has been protected from effective update.</p>
+    <p>The diagnostic of Section 5 makes the distinction assessable in practice. The kernel mapping of Section 8 shows the cycle to be formally mappable. The cross-domain examples of Section 6 illustrate that the architecture is not being proposed in a vacuum: related structures are already described under different vocabularies across philosophy, psychology, neuroscience, development, therapy, and the philosophy of science. The FRLB contribution is to place them in one cycle while preserving the differences among their domains.</p>
+    <p>The paper's contribution is structural, not substantive. It does not tell a reader what to believe, which framework to engage, or which positions must be revised. It names the mechanism by which engagement and revision become possible, and it makes that mechanism available as a tool that can be run on the cycle's own products — including the inquiry produced by reading this paper. The FRLB cycle does not originate commitment at the level of mind; it names the symbolic, recursively revisable form taken by an older biological architecture. What a reader does with that tool is the reader's work.</p>
+    </section>
+    <section id="references" class="level1">
+    <h1><strong>References</strong></h1>
+    <p>Alchourrón, C. E., P. Gärdenfors, and D. Makinson. 1985. "On the Logic of Theory Change: Partial Meet Contraction and Revision Functions." <em>Journal of Symbolic Logic</em> 50 (2): 510–530.</p>
+    <p>Beck, A. T., A. J. Rush, B. F. Shaw, and G. Emery. 1979. <em>Cognitive Therapy of Depression</em>. New York: Guilford Press.</p>
+    <p>Clark, A. 2013. "Whatever Next? Predictive Brains, Situated Agents, and the Future of Cognitive Science." <em>Behavioral and Brain Sciences</em> 36 (3): 181–204. <a href="https://doi.org/10.1017/S0140525X12000477"><u>https://doi.org/10.1017/S0140525X12000477</u></a></p>
+    <p>Friston, K. 2010. "The Free-Energy Principle: A Unified Brain Theory?" <em>Nature Reviews Neuroscience</em> 11 (2): 127–138. <a href="https://doi.org/10.1038/nrn2787"><u>https://doi.org/10.1038/nrn2787</u></a></p>
+    <p>Hardin, C. D., and E. T. Higgins. 1996. "Shared Reality: How Social Verification Makes the Subjective Objective." In <em>Handbook of Motivation and Cognition: The Interpersonal Context</em>, vol. 3, edited by R. M. Sorrentino and E. T. Higgins, 28–84. New York: Guilford Press.</p>
+    <p>Hohwy, J. 2013. <em>The Predictive Mind</em>. Oxford: Oxford University Press.</p>
+    <p>Hume, D. 1748/2007. <em>An Enquiry Concerning Human Understanding</em>. Edited by P. Millican. Oxford: Oxford University Press.</p>
+    <p>Jones, J. C. 2025a. <em>Universal Collapse Theory — Foundations of Collapse: Latent Potential, Constraint, and Collapse as a Candidate Law of Coherence (WP01), v2.0</em>. HoldingLight LLC. <a href="https://doi.org/10.17605/OSF.IO/VZ836"><u>https://doi.org/10.17605/OSF.IO/VZ836</u></a></p>
+    <p>Jones, J. C. 2026a. <em>Records Across Nature, Life, and Mind: The Persistence Layer of Collapse in Nature, Life, and Mind, v2.0</em>. HoldingLight LLC. <a href="https://doi.org/10.17605/OSF.IO/7H6DY"><u>https://doi.org/10.17605/OSF.IO/7H6DY</u></a></p>
+    <p>Jones, J. C. 2026c. <em>Update Integrity Standard (UIS v1.0): A Structural Ethic for Preserving Corrigibility in Record-Based Systems</em>. HoldingLight LLC. <a href="https://doi.org/10.17605/OSF.IO/DWM29"><u>https://doi.org/10.17605/OSF.IO/DWM29</u></a></p>
+    <p>Jones, J. C. 2026d. <em>Human Interface Laws: A Philosophical Mechanics of Belief, Update, and Shared Reality, v1.0</em>. HoldingLight LLC. Manuscript.</p>
+    <p>Jones, J. C. 2026e. <em>Auditing Independence in Multi-Channel Measurement, v1.0</em>. HoldingLight LLC. <a href="https://doi.org/10.17605/OSF.IO/7U8SK"><u>https://doi.org/10.17605/OSF.IO/7U8SK</u></a></p>
+    <p>Jones, J. C. 2026f. <em>Auditing Constraint Asymmetry in Latency-Based Resolution Tests, v1.0</em>. HoldingLight LLC. <a href="https://doi.org/10.17605/OSF.IO/HRKWT"><u>https://doi.org/10.17605/OSF.IO/HRKWT</u></a></p>
+    <p>Jones, J. C. 2026g. <em>Auditing Record State in Constraint-Sweep Hysteresis Tests, v1.0</em>. HoldingLight LLC. <a href="https://doi.org/10.17605/OSF.IO/CQGTD"><u>https://doi.org/10.17605/OSF.IO/CQGTD</u></a></p>
+    <p>Jones, J. C. 2026h. <em>Biological Faith Systems: How Living Systems Commit Before Certainty, v1.0</em>. HoldingLight LLC. <a href="https://doi.org/10.17605/OSF.IO/D37Q5"><u>https://doi.org/10.17605/OSF.IO/D37Q5</u></a></p>
+    <p>Jones, J. C. 2026i. <em>Universal Collapse Theory — Conscious Collapse: Mind as a Phase of Constraint-Guided Collapse (WP04), v1.0</em>. HoldingLight LLC. Manuscript.</p>
+    <p>Kahan, D. M. 2013. "Ideology, Motivated Reasoning, and Cognitive Reflection." <em>Judgment and Decision Making</em> 8 (4): 407–424. <a href="https://doi.org/10.1017/S1930297500005271"><u>https://doi.org/10.1017/S1930297500005271</u></a></p>
+    <p>Koenig, M. A., and P. L. Harris. 2005. "Preschoolers Mistrust Ignorant and Inaccurate Speakers." <em>Child Development</em> 76 (6): 1261–1277. <a href="https://doi.org/10.1111/j.1467-8624.2005.00849.x"><u>https://doi.org/10.1111/j.1467-8624.2005.00849.x</u></a></p>
+    <p>Kuhn, T. S. 1962. <em>The Structure of Scientific Revolutions</em>. Chicago: University of Chicago Press.</p>
+    <p>Lakatos, I. 1970. "Falsification and the Methodology of Scientific Research Programmes." In <em>Criticism and the Growth of Knowledge</em>, edited by I. Lakatos and A. Musgrave, 91–196. Cambridge: Cambridge University Press.</p>
+    <p>Lindley, D. V. 1985. <em>Making Decisions</em>. 2nd ed. London: Wiley.</p>
+    <p>Lord, C. G., L. Ross, and M. R. Lepper. 1979. "Biased Assimilation and Attitude Polarization: The Effects of Prior Theories on Subsequently Considered Evidence." <em>Journal of Personality and Social Psychology</em> 37 (11): 2098–2109. <a href="https://doi.org/10.1037/0022-3514.37.11.2098"><u>https://doi.org/10.1037/0022-3514.37.11.2098</u></a></p>
+    <p>Lorenz, J., H. Rauhut, F. Schweitzer, and D. Helbing. 2011. "How Social Influence Can Undermine the Wisdom of Crowd Effect." <em>Proceedings of the National Academy of Sciences</em> 108 (22): 9020–9025. https://doi.org/10.1073/pnas.1008636108</p>
+    <p>Peirce, C. S. 1877. "The Fixation of Belief." <em>Popular Science Monthly</em> 12 (1): 1–15.</p>
+    <p>Peirce, C. S. 1878. "How to Make Our Ideas Clear." <em>Popular Science Monthly</em> 12 (January): 286–302.</p>
+    <p>Peirce, C. S. 1903. "Pragmatism as the Logic of Abduction." In <em>The Essential Peirce</em>, vol. 2, edited by the Peirce Edition Project, 226–241. Bloomington: Indiana University Press, 1998.</p>
+    <p>Raio, C. M., C. A. Hartley, T. A. Orederu, J. Li, and E. A. Phelps. 2017. "Stress Attenuates the Flexible Updating of Aversive Value." <em>Proceedings of the National Academy of Sciences</em> 114 (42): 11241–11246. https://doi.org/10.1073/pnas.1702565114</p>
+    <p>Shields, G. S., M. A. Sazma, and A. P. Yonelinas. 2016. "The Effects of Acute Stress on Core Executive Functions: A Meta-Analysis and Comparison with Cortisol." <em>Neuroscience &amp; Biobehavioral Reviews</em> 68: 651–668. https://doi.org/10.1016/j.neubiorev.2016.06.038</p>
+    <p>Swann, W. B., Jr., J. Jetten, Á. Gómez, H. Whitehouse, and B. Bastian. 2012. "When Group Membership Gets Personal: A Theory of Identity Fusion." <em>Psychological Review</em> 119 (3): 441–456. <a href="https://doi.org/10.1037/a0028589"><u>https://doi.org/10.1037/a0028589</u></a></p>
+    </section>
+    <section id="companion-uct-works" class="level1">
+    <h1><strong>Companion UCT Works</strong></h1>
+    <p>The following Universal Collapse Theory papers are not cited inline above but provide adjacent corpus context for the present paper's placement and downstream development.</p>
+    <p>Jones, J. C. 2026b. <em>The Structuralization of Empiricism: Formalizing the Structural Conditions Under Which Empiricism Stabilizes Knowledge, v1.0</em>. HoldingLight LLC. <a href="https://doi.org/10.17605/OSF.IO/J4GZ9"><u>https://doi.org/10.17605/OSF.IO/J4GZ9</u></a></p>
+    <p>This paper is part of the Universal Collapse Theory library. For a reading guide and full architecture, visit <a href="https://universalcollapse.com/roadmap"><u>universalcollapse.com/roadmap</u></a>.</p>
+    </section>
+    <section id="ai-disclosure" class="level1">
+    <h1><strong>AI Disclosure</strong></h1>
+    <p>AI tools were used to assist with manuscript preparation, drafting, organization, and editorial refinement. The underlying theory, structural decisions, analysis, and conclusions are the author's own.</p>
+    </section>
+    <section id="suggested-citation" class="level1">
+    <h1><strong>Suggested Citation</strong></h1>
+    <p>Jones, J. C. (2026). How Minds Resolve: The Faith–Reason–Logic–Belief Cycle (v1.0). HoldingLight LLC.</p>
+    </section>
+
+    <a href="#top" class="backtotop">&uarr; Back to top</a>
+  </article>
+
+</div>
+
+<script>
+(function () {
+  var bar = document.getElementById('progress');
+  function onScroll() {
+    var h = document.documentElement;
+    var pct = h.scrollTop / (h.scrollHeight - h.clientHeight);
+    bar.style.width = (pct * 100).toFixed(1) + '%';
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav.toc a'));
+  var targets = links.map(function (a) {
+    return document.getElementById(decodeURIComponent(a.getAttribute('href')).slice(1));
+  });
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      var i = targets.indexOf(e.target);
+      if (i < 0) return;
+      links.forEach(function (l) { l.classList.remove('active'); });
+      links[i].classList.add('active');
+    });
+  }, { rootMargin: '-10% 0px -80% 0px' });
+  targets.forEach(function (t) { if (t) obs.observe(t); });
+
+  var btn = document.getElementById('toc-toggle');
+  var nav = document.getElementById('toc');
+  btn.addEventListener('click', function () {
+    var c = nav.getAttribute('data-collapsed') === 'true';
+    nav.setAttribute('data-collapsed', String(!c));
+    btn.setAttribute('aria-expanded', String(c));
+    btn.textContent = c ? 'Hide contents' : 'Show contents';
+  });
+
+  document.querySelectorAll('article section[id] > h1, article section[id] > h2').forEach(function (h) {
+    var a = document.createElement('a');
+    a.className = 'anchor';
+    a.href = '#' + h.parentNode.id;
+    a.textContent = '#';
+    a.setAttribute('aria-label', 'Link to this section');
+    h.appendChild(a);
+  });
+})();
+</script>
+
+</body>
+</html>

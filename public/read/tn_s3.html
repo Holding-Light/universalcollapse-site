@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Records Amplify Hysteresis: A Loop-Area Lemma — Universal Collapse Theory</title>
+  <meta name="description" content="The S3 lemma, proved: hysteresis loop area grows linearly with accumulated record state — and its sharpest point is what it denies.">
+
+  <!-- Full-text reading copy. The citable record is the landing page;
+       canonical points there so Scholar and search consolidate on one URL. -->
+  <link rel="canonical" href="https://universalcollapse.com/read/tn_s3">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Records Amplify Hysteresis: A Loop-Area Lemma — Universal Collapse Theory">
+  <meta property="og:description" content="The S3 lemma, proved: hysteresis loop area grows linearly with accumulated record state — and its sharpest point is what it denies.">
+  <meta property="og:url" content="https://universalcollapse.com/read/tn_s3">
+  <meta property="og:site_name" content="Universal Collapse Theory">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@300;400&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg-deep: #08090c;
+      --bg-surface: #0e1017;
+      --bg-elevated: #161820;
+      --text-primary: #e8e6e1;
+      --text-secondary: #9b978f;
+      --text-tertiary: #5e5b54;
+      --accent: #c9a96e;
+      --accent-dim: #8a7245;
+      --rule: rgba(201, 169, 110, 0.12);
+      --serif: 'EB Garamond', Georgia, serif;
+      --sans: 'Outfit', system-ui, sans-serif;
+      --mono: 'JetBrains Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg-deep);
+      color: var(--text-primary);
+      font-family: var(--sans);
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    #progress {
+      position: fixed; top: 0; left: 0; height: 2px; width: 0%;
+      background: var(--accent); z-index: 100; transition: width 0.1s linear;
+    }
+
+    .topbar {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(8, 9, 12, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--rule);
+      padding: 0.75rem 1.5rem;
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 0.8rem;
+    }
+    .topbar a { color: var(--text-secondary); text-decoration: none; }
+    .topbar a:hover { color: var(--accent); }
+    .topbar .cite { color: var(--text-tertiary); font-family: var(--mono); font-size: 0.7rem; }
+
+    .shell {
+      max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem 6rem;
+      display: grid; grid-template-columns: minmax(0, 220px) minmax(0, 1fr); gap: 3rem;
+    }
+
+    nav.toc {
+      position: sticky; top: 5rem; align-self: start;
+      max-height: calc(100vh - 8rem); overflow-y: auto;
+      font-size: 0.8rem; line-height: 1.6;
+    }
+    nav.toc > p {
+      color: var(--text-tertiary); text-transform: uppercase;
+      letter-spacing: 0.12em; font-size: 0.65rem; margin-bottom: 0.75rem;
+    }
+    nav.toc ul { list-style: none; }
+    nav.toc ul ul { padding-left: 0.85rem; }
+    nav.toc li { margin: 0.3rem 0; }
+    nav.toc a {
+      color: var(--text-secondary); text-decoration: none;
+      display: block; padding-left: 0.6rem;
+      border-left: 1px solid transparent;
+    }
+    nav.toc a:hover { color: var(--text-primary); }
+    nav.toc a.active { color: var(--accent); border-left-color: var(--accent); }
+
+    article { min-width: 0; }
+
+    .paper-head { border-bottom: 1px solid var(--rule); padding-bottom: 1.75rem; margin-bottom: 2.5rem; }
+    .paper-head .tier {
+      font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.15em;
+      color: var(--accent-dim); text-transform: uppercase;
+    }
+    .paper-head h1 {
+      font-family: var(--serif); font-weight: 500; font-size: 2.1rem;
+      line-height: 1.2; margin: 0.75rem 0 0.5rem; color: var(--text-primary);
+    }
+    .paper-head .sub { font-family: var(--serif); font-style: italic; color: var(--text-secondary); font-size: 1.05rem; }
+    .paper-head .meta { margin-top: 1.1rem; font-size: 0.78rem; color: var(--text-tertiary); }
+    .paper-head .meta a { color: var(--accent-dim); text-decoration: none; }
+
+    article h1, article h2, article h3 {
+      font-family: var(--serif); font-weight: 600; line-height: 1.3;
+      color: var(--text-primary); scroll-margin-top: 5rem;
+    }
+    article h1 { font-size: 1.5rem; margin: 3rem 0 1rem; }
+    article h2 { font-size: 1.2rem; margin: 2rem 0 0.75rem; color: var(--text-secondary); }
+    article h3 { font-size: 1.05rem; margin: 1.5rem 0 0.5rem; color: var(--text-secondary); }
+
+    article h1 .anchor, article h2 .anchor {
+      opacity: 0; margin-left: 0.5rem; color: var(--accent-dim);
+      text-decoration: none; font-size: 0.7em; font-family: var(--sans);
+    }
+    article h1:hover .anchor, article h2:hover .anchor { opacity: 1; }
+
+    article p {
+      font-family: var(--serif); font-size: 1.12rem; font-weight: 400;
+      line-height: 1.75; margin: 0 0 1.15rem; color: var(--text-primary);
+    }
+    article ul, article ol { font-family: var(--serif); font-size: 1.12rem; margin: 0 0 1.15rem 1.5rem; }
+    article li { margin-bottom: 0.4rem; }
+    article strong { font-weight: 600; color: var(--text-primary); }
+    article em { font-style: italic; }
+    article a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--rule); }
+    article blockquote {
+      border-left: 2px solid var(--accent-dim); padding-left: 1.25rem;
+      margin: 1.5rem 0; color: var(--text-secondary); font-style: italic;
+      border-radius: 0;
+    }
+
+    math { font-size: 1.05em; color: var(--text-primary); }
+
+    .backtotop {
+      display: inline-block; margin-top: 3rem; padding-top: 1.5rem;
+      border-top: 1px solid var(--rule); width: 100%;
+      font-size: 0.8rem; color: var(--text-tertiary); text-decoration: none;
+    }
+    .backtotop:hover { color: var(--accent); }
+
+    #toc-toggle { display: none; }
+
+    @media (max-width: 820px) {
+      .shell { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; padding: 1.25rem 1.1rem 4rem; }
+      nav.toc {
+        position: static; max-height: none; order: -1;
+        border: 1px solid var(--rule); border-radius: 6px; padding: 0.9rem 1rem;
+      }
+      nav.toc[data-collapsed="true"] ul { display: none; }
+      #toc-toggle { display: block; background: none; border: none; color: var(--text-secondary);
+        font-family: var(--sans); font-size: 0.75rem; cursor: pointer; padding: 0; }
+      .paper-head h1 { font-size: 1.6rem; }
+      article p, article ul, article ol { font-size: 1.08rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<div class="topbar">
+  <a href="https://universalcollapse.com/tn_s3">&larr; Records Amplify Hysteresis</a>
+  <span class="cite">10.17605/OSF.IO/QJMSZ</span>
+</div>
+
+<div class="shell">
+
+  <nav class="toc" id="toc" data-collapsed="false">
+    <p>Contents</p>
+    <button id="toc-toggle" aria-expanded="true">Hide contents</button>
+    
+  </nav>
+
+  <article>
+    <header class="paper-head">
+      <span class="tier">Methods &amp; Theoretical Notes</span>
+      <h1>Records Amplify Hysteresis: A Loop-Area Lemma</h1>
+      <p class="sub">A Technical Note on the S3 Signature</p>
+      <p class="meta">
+        Jeremy C. Jones &middot; HoldingLight LLC &middot; 2026/05 &middot; CC BY 4.0<br>
+        Cite as <a href="https://doi.org/10.17605/OSF.IO/QJMSZ">10.17605/OSF.IO/QJMSZ</a>
+        
+      </p>
+    </header>
+
+    <p><strong>Records Amplify Hysteresis: A Loop-Area Lemma</strong></p>
+    <p><em>A Technical Note on the S₃ Signature</em></p>
+    <p><strong>Jeremy C. Jones</strong></p>
+    <p>HoldingLight LLC — ORCID 0009-0007-2515-3774 — universalcollapse.com</p>
+    <p>Series: Universal Collapse Theory — Technical Note • <em>Version v1.0 • 2026-05 • CC BY 4.0</em></p>
+    <p><strong>Abstract</strong></p>
+    <p><em>Plain-language bridge. In this note, a record is a durable history variable R, a constraint sweep is an up-and-down change in an input K, and hysteresis means that the system’s response on the return path differs from its response on the outward path.</em></p>
+    <p><strong>Principle.</strong> If macroscopic regularities arise from constraint-guided collapse and stabilization signatures organize the rate at which they resolve, then accumulated records that update future constraints should produce path-dependent state response under constraint sweeps. <strong>Result.</strong> We formalize the simplest case as a binary-state hysteron with switching thresholds shifted by accumulated record state R. Under a closed major sweep of the constraint K (one monotone up-sweep, one monotone down-sweep, R fixed), the absolute loop area satisfies A(R) = 4θ₀ + 4αR, where θ₀ is the intrinsic threshold gap and α is the record-threshold coupling. Loop area is therefore strictly increasing in R whenever α &gt; 0, with dA/dR = 4α. Records do not produce hysteresis from nothing — when α = 0 the loop area is the intrinsic 4θ₀ — they amplify it. Preisach superposition, return-point memory, and avalanche regimes are noted as scope-limited extensions. The result is conditional on the chosen formalism and is operational, not philosophical.</p>
+    <p><strong>Review target</strong></p>
+    <blockquote>
+    <p>This technical note does not ask the reader to accept Universal Collapse Theory as a metaphysical system or to accept a complete theory of path-dependent dynamics. It asks whether one core <em>S₃</em> claim can be formalized: under single-hysteron, quasi-static, major-loop assumptions, record-shifted thresholds imply absolute loop area A(R) = 4θ₀ + 4αR. Acceptance of this note means only the following: the closed-form holds within the stated formalism; an independently audited record state R can be used as a candidate empirical covariate for loop-area growth; and the note supplies a formal base case for S₃, not evidence that Universal Collapse Theory is correct. The note should be revised or rejected if the major-loop assumptions are insufficiently stated, the absolute-area calculation is wrong, the single-hysteron model is too structurally narrow for the intended portability claim, or the empirical protocol cannot separate record-driven hysteresis from rate lag, instrument hysteresis, asymmetric noise, or circular measurement of R.</p>
+    </blockquote>
+    <p><strong>Stack placement</strong></p>
+    <p>Readers outside the UCT project may skip this paragraph; the formal claim begins in §1. This note is a formal support document for the Records–SoE–UIS layer of the Universal Collapse Theory library. <em>Records Across Nature, Life, and Mind</em> (Jones, 2026a) defines records as the persistence layer and names <em>S₃</em> (“constraint sweeps → hysteresis”) as a portable empirical signature. <em>The Structuralization of Empiricism</em> (Jones, 2026b) treats S₃ as the stabilization signature for path-dependent regimes in which prior resolutions persist as constraints on later updates. The <em>Update Integrity Standard</em> (UIS v1.0; Jones, 2026c) treats bounded loop area and asymmetric switching thresholds as candidate signal states for path-dependent vs. locked vs. drifting modes. The present note proves the simplest hysteron case: record-shifted thresholds imply loop area nondecreasing in R, and strictly increasing whenever α &gt; 0. Operational pair: Methods-S₃ (<em>Auditing Record State in Constraint-Sweep Hysteresis Tests</em>). Together they constitute the <em>S₃</em> formal–protocol pair — this Technical Note proves the formal bound; the paired Methods Paper translates it into a deployable audit protocol. It is a citable lemma for downstream <em>S₃</em> empirical demonstrations, not a standard.</p>
+    <p><strong>1. Setup and definitions</strong></p>
+    <p><strong>State variable.</strong> Let <em>x<sub>t</sub></em> ∈ {−1, +1} be a binary state evolving under a continuous constraint signal <em>K<sub>t</sub></em> ∈ ℝ.</p>
+    <p><strong>Record state.</strong> Let <em>R ≥ 0</em> be a scalar summary of accumulated records affecting the system’s switching architecture. In the present note <em>R</em> is held fixed during a single sweep; in domain applications <em>R</em> itself may evolve as records accumulate (multi-sweep regime).</p>
+    <p><strong>Switching thresholds.</strong> Let <em>θ₀ ≥ 0</em> and <em>α ≥ 0</em> be parameters with θ₀ + αR &gt; 0 in the nondegenerate case. The state evolves according to</p>
+    <p><em>x(t<sup>+</sup>) = +1, if K<sub>t</sub> ≥ θ₊(R) := θ₀ + αR,</em><br />
+    <em>            −1, if K<sub>t</sub> ≤ θ₋(R) := −θ₀ − αR,</em><br />
+    <em>            x(t), otherwise.</em></p>
+    <p><strong>Memory zone.</strong> The interval [<em>θ₋(R), θ₊(R)</em>] is the <em>memory zone</em>: inside it, the current state depends on history. Outside it, the constraint dictates the state.</p>
+    <p><strong>Closed major sweep.</strong> A <em>closed major sweep</em> is a quasi-static trajectory in which K increases monotonically from K<sub>min</sub> ≤ θ₋(R) to K<sub>max</sub> ≥ θ₊(R), then decreases monotonically back to K<sub>min</sub>. The record state R is held fixed during the sweep, and the initial state is x(0) = −1. No additional reversals occur within the sweep. Minor loops, repeated cycles, and trajectories that do not satisfy these conditions are outside the scope of Theorem 1.</p>
+    <p><strong>Loop area.</strong> Define</p>
+    <p><em>A(R) := | ∮ x dK | (closed major sweep, R fixed).</em></p>
+    <p><strong>2. Theorem 1 (minimal hysteron case)</strong></p>
+    <blockquote>
+    <p><strong>Theorem 1 (Record-Shifted Thresholds Amplify Loop Area Linearly in R).</strong> Let the system be governed by the switching rule above with parameters <em>θ₀ ≥ 0</em>, <em>α ≥ 0</em>, <em>R ≥ 0</em>. Under any closed major sweep <em>K(t)</em> in the sense of §1, with x(0) = −1:</p>
+    <p>(a) The absolute loop area is given in closed form by</p>
+    </blockquote>
+    <p><em>A(R) = 4θ₀ + 4αR.</em></p>
+    <blockquote>
+    <p>(b) <em>A(R)</em> is strictly increasing in <em>R</em> whenever <em>α &gt; 0</em>, with <em>dA/dR = 4α</em>.</p>
+    <p><strong>(c) Reversibility limit.</strong> If <em>θ₀ = 0</em> and <em>αR = 0</em>, the memory zone collapses and <em>A = 0</em>: the system retraces its forward path under reversal.</p>
+    </blockquote>
+    <p><strong>Proof.</strong></p>
+    <p>Under the closed major sweep of §1, the (K, x) trajectory traces a closed rectangular loop with corners <em>(θ₋(R), −1), (θ₊(R), −1), (θ₊(R), +1), (θ₋(R), +1)</em>. Traversed in the order up-sweep then down-sweep with <em>x(0) = −1</em>, the loop is counterclockwise. The horizontal extent is <em>θ₊(R) − θ₋(R) = 2θ₀ + 2αR</em> and the vertical extent is <em>(+1) − (−1) = 2</em>.</p>
+    <p>For the counterclockwise loop, the signed line integral evaluates to</p>
+    <p><em>∮ x dK = −2(θ₊(R) − θ₋(R)) = −(4θ₀ + 4αR)</em></p>
+    <p>(equivalently, by Green's theorem, the negative of the enclosed area). Therefore the absolute loop area is</p>
+    <p><em>A(R) = | ∮ x dK | = 2(θ₊(R) − θ₋(R)) = 4θ₀ + 4αR,</em></p>
+    <p>establishing (a). Statement (b) follows by direct differentiation: <em>dA/dR = 4α</em>, strictly positive whenever <em>α &gt; 0</em>. For statement (c), if <em>θ₀ + αR = 0</em> (equivalently <em>θ₀ = 0</em> and <em>αR = 0</em>), the memory zone collapses, the loop has zero horizontal extent, and the closed-form yields <em>A = 0</em> — recovering the reversible limit. ∎</p>
+    <p><strong>3. Remarks and extensions</strong></p>
+    <p><strong>Preisach superposition.</strong> The general Preisach model represents a system as a weighted superposition of independent hysterons indexed by their threshold pair <em>(θ₊, θ₋)</em> (Mayergoyz, 2003; Brokate &amp; Sprekels, 1996). Total state and total loop area are integrals of single-hysteron contributions against the Preisach density <em>ρ(θ₊, θ₋)</em>. Under nonnegative Preisach density and a record update that monotonically widens active threshold gaps within the swept range, the aggregate loop area inherits monotone growth from the single-hysteron case. Arbitrary translations, scalings, or asymmetric reweightings of the density need not be monotone in aggregate loop area without further assumptions, since they can move active hysterons into or out of the swept window. The minimal lemma of §2 is the single-hysteron base case for this construction; full Preisach extensions are out of scope for this note.</p>
+    <p><strong>Return-point memory.</strong> Many disordered systems exhibit return-point memory: after a partial sweep that turns around, the state returns to its prior value when the constraint returns to the turning point (Sethna et al., 1993). The minimal hysteron model satisfies a trivial form of this property; richer Preisach densities and the random-field Ising model satisfy nontrivial versions. The S₃ signature is consistent with return-point memory but does not require it; loop area is the more portable cross-domain observable.</p>
+    <p><strong>Avalanche regimes.</strong> In the random-field Ising model and related systems near critical disorder, sweeps produce a power-law distribution of avalanche sizes and loop area exhibits scaling behavior (Dahmen &amp; Sethna, 1996; Sethna et al., 2001). The present minimal lemma is far from this regime: it describes the smooth-loop limit where the entire system behaves as a single hysteron. Critical and avalanche-scaling regimes are downstream of the basic lemma and warrant separate treatment.</p>
+    <p><strong>Multi-sweep accumulation.</strong> If <em>R</em> itself updates as a function of sweep history (e.g., <em>R</em><sub>n+1</sub> <em>= R<sub>n</sub> + γ A(R<sub>n</sub>)</em> with feedback coefficient <em>γ</em>), the linear closed-form A(R) = 4θ₀ + 4αR yields R<sub>n+1</sub> = (1 + 4αγ)R<sub>n</sub> + 4γθ₀, which produces geometric/runaway accumulation for γ &gt; 0, α &gt; 0 — not a stable fixed point. With an additional damping term, R<sub>n+1</sub> = R<sub>n</sub> + γA(R<sub>n</sub>) − λR<sub>n</sub> = (1 + 4αγ − λ)R<sub>n</sub> + 4γθ₀, local stability of the fixed point R<sup>*</sup> = 4γθ₀/(λ − 4αγ) requires |1 + 4αγ − λ| &lt; 1, equivalently 4αγ &lt; λ &lt; 2 + 4αγ; monotone non-oscillatory convergence further requires 4αγ &lt; λ &lt; 1 + 4αγ. Otherwise a bounded or saturating update rule is needed. Multi-sweep dynamics therefore require a separate model and are not implied by Theorem 1; this regime is empirically central but lies beyond the present minimal lemma.</p>
+    <p><strong>4. Empirical signature (loop area)</strong></p>
+    <p><strong>Prediction.</strong> In any system where state response under a constraint sweep exhibits switching thresholds shifted by accumulated record state, a closed constraint sweep produces a loop with area <em>A ≈ A₀ + cR</em>, where <em>R</em> is an independently audited proxy for accumulated record state and <em>A₀</em>, <em>c</em> are domain-specific constants.</p>
+    <p><strong>Protocol.</strong> Drive the system with closed sweeps of the constraint at multiple values of <em>R</em>. Compute loop area <em>A<sub>loop</sub> := | ∮ x dK |</em> and report it against independently audited <em>R</em>. Test for monotone scaling and report any regime change (linear, sub-linear, super-linear, saturation).</p>
+    <p><strong>Failure condition.</strong> <em>S₃</em> fails locally if bidirectional constraint sweeps produce simple reversibility where the model predicts record-dependent path dependence; if measured loop area does not scale with audited <em>R</em>; or if the apparent loop is rate-dependent (transient) rather than persistent under quasi-static sweep.</p>
+    <p><strong>Domains.</strong> Biological stress–recovery systems, including soft-tissue mechanical loops (Fung, 1967; Zhang et al., 2007) and, separately, rice transcriptome heat-stress/recovery sweeps as a downstream T16 demonstration (Jones, 2026f); ecosystem regime shifts where collapse and recovery thresholds differ (Scheffer et al., 2001; Beisner et al., 2003); developmental fate commitment under reversed cues (Pájaro et al., 2019); institutional or policy lock-in where reversal of the original constraint does not restore prior state (Arthur, 1989; Pierson, 2000); memory and belief systems where prior commitments alter the response to subsequent evidence (Lord, Ross, &amp; Lepper, 1979).</p>
+    <p><img src="media/3215a105ce3306a06565ffd896659a6fac160f72.png" title="Hysteresis loops widen with accumulated record state" style="width:6.5in;height:2.6in" alt="Two-panel figure. Left panel: hysteresis loops for a binary-state hysteron under a sawtooth sweep with K from -2 to 2, plotted for three values of accumulated record state R = 0.0, 0.4, and 0.8. Loops widen visibly as R increases. Arrows indicate sweep direction (rightward on the bottom edge for up-sweep, leftward on the top edge for down-sweep). Right panel: simulated loop area plotted against record state R, sitting on top of the closed-form theoretical line A = 4 theta_0 + 4 alpha R, demonstrating linear scaling." /></p>
+    <blockquote>
+    <p><strong>Figure 1.</strong> Left: hysteresis loops for a binary-state hysteron under a sawtooth sweep K(t) ∈ [−2, 2], with switching thresholds θ₊ = θ₀ + αR, θ₋ = −θ₀ − αR, θ₀ = 0.4, α = 1, for three values of accumulated record state R ∈ {0.0, 0.4, 0.8}. Curves are vertically offset for visibility. Arrows indicate sweep direction. Right: numerically estimated loop area converges to the closed-form prediction A = 4θ₀ + 4αR (small finite-grid deviations vanish as the K-grid is refined). Reproduction code in Appendix A.</p>
+    </blockquote>
+    <p><strong>5. Minimal framework hook</strong></p>
+    <p>In the Universal Collapse Theory kernel, realization is collapse under constraints: a constraint set <em>K</em> selects admissible outcomes from <em>Ω</em> via a map <em>C</em><sup>K</sup>. When the kernel’s update rule <em>U</em> couples accumulated records back into <em>K</em> — i.e., when the constraint architecture is itself shaped by what has already collapsed — the system’s response under reversal of <em>K</em> cannot retrace the original path. The state at any constraint value depends on which side of the memory zone the system arrived from, and the size of that memory zone scales with how much has accumulated. Theorem 1 makes this quantitative in the simplest formalism.</p>
+    <p>This is <em>operational</em> S₃: a measurable monotone response of loop area to audited record state, under a stated formalism. It is not a claim that all path dependence is record-driven, that the formalism captures every domain, or that loop area is the only signature of S₃. The independence audit — whether <em>R</em> is measured cleanly rather than inferred from the loop itself — is what does the work in any real domain.</p>
+    <p><strong>6. Limitations</strong></p>
+    <p>The theorem is conditional on the binary-hysteron formalism with linear record-threshold coupling and quasi-static sweep. Real systems may exhibit continuous state variables, nonlinear or non-monotonic record coupling, rate-dependent dynamics, multi-dimensional state spaces, or critical-disorder avalanche behavior. The qualitative S₃ phenomenon (record-driven path dependence → measurable loop) is proposed to hold under broader conditions, but rigorous bounds in those settings require domain-specific analysis. The <em>formalism choice</em> itself is load-bearing: this note commits to single-hysteron Preisach as primary because it gives the cleanest one-line lemma. Preisach superposition, the random-field Ising model, return-point-memory frameworks, and avalanche-scaling theories each give richer characterizations of S₃ that are out of scope here; future work may compare bounds across multiple formalisms.</p>
+    <p><strong>7. Scope notes for future extensions</strong></p>
+    <p>The lemma proved here is deliberately narrow. Items below identify directions for follow-on work rather than gaps in the v1.0 claim itself:</p>
+    <p><strong>• Formalism choice.</strong> Single-hysteron Preisach is the primary formalism here because it gives the cleanest one-line lemma. Future work may compare bounds across a Preisach-density formulation, a return-point-memory framework, or an RFIM-based critical-scaling lemma; the choice depends on whether the cross-domain claim is meant to cover smooth-loop systems only (single hysteron sufficient) or to extend to disordered/avalanche regimes (richer formalism required).</p>
+    <p><strong>• Theorem rigor.</strong> The closed-form A(R) = 4θ₀ + 4αR is geometric and applies to the major-loop case defined in §1. Sweeps that do not extend past both thresholds form minor loops, where the closed-form breaks down and aggregate area depends on sweep history; characterizing minor-loop area under record shifts is left to follow-on work.</p>
+    <p><strong>• Domain-specific bounds.</strong> The qualitative S₃ phenomenon (record-driven path dependence → measurable loop) is proposed to hold under broader conditions, but rigorous bounds in continuous-state, nonlinear-coupling, or rate-dependent settings require domain-specific analysis. Soft-tissue mechanics (Fung, 1967; Zhang et al., 2007), ecosystem regime shifts (Scheffer et al., 2001; Beisner et al., 2003), and gene-regulatory bistability (Pájaro et al., 2019) each have well-developed literatures that downstream demonstrations can connect to.</p>
+    <p><strong>• Independence-audit specification.</strong> S₃ is more vulnerable to circular inference than S₁ or S₂ — if the only way to estimate <em>R</em> is from the loop itself, no test is possible. Downstream T16 demonstrations should specify what an <em>independent</em> audit of accumulated record state looks like in at least one canonical domain (e.g., for the rice transcriptome stress–recovery sweep of Jones 2026f, R might be operationalized via independently measured tissue-history markers).</p>
+    <p><strong>• Cross-citation.</strong> Once published, a future T16 S₃ demonstration (e.g., the rice transcriptome stress–recovery study of Jones 2026f, an ecosystem regime-shift dataset, or a developmental fate-commitment reversal experiment) cites this note as the formal lemma being tested.</p>
+    <p><strong>Appendix A. Reproduction code</strong></p>
+    <p>The following Python script reproduces Figure 1 (single hysteron with record-shifted thresholds; <em>θ₀ = 0.4</em>, <em>α = 1</em>; sawtooth sweep <em>K ∈ [−2, 2]</em>; three values of <em>R</em>). Dependencies: NumPy ≥ 2.0 (for np.trapezoid; a fallback shim for older NumPy is included) and Matplotlib.</p>
+    <blockquote>
+    <p>import numpy as np</p>
+    <p>import matplotlib.pyplot as plt</p>
+    <p># np.trapezoid added in NumPy 2.0; fallback for older environments</p>
+    <p>try:</p>
+    <p>integrate_trapezoid = np.trapezoid</p>
+    <p>except AttributeError:</p>
+    <p>integrate_trapezoid = np.trapz</p>
+    <p>def run_hysteron(K_traj, theta_plus, theta_minus, x_init=-1):</p>
+    <p>"""Evolve a binary hysteron x in {-1, +1} under K_traj."""</p>
+    <p>x = np.empty(len(K_traj), dtype=float)</p>
+    <p>state = x_init</p>
+    <p>for i, K in enumerate(K_traj):</p>
+    <p>if K &gt;= theta_plus: state = +1</p>
+    <p>elif K &lt;= theta_minus: state = -1</p>
+    <p>x[i] = state</p>
+    <p>return x</p>
+    <p>def loop_area(K, x):</p>
+    <p>"""Absolute loop area: A(R) = |closed integral of x dK|."""</p>
+    <p>return abs(integrate_trapezoid(x, K))</p>
+    <p># Major sweep: monotone up, then monotone down, K in [-2, 2]</p>
+    <p>n = 600</p>
+    <p>K_up = np.linspace(-2.0, 2.0, n)</p>
+    <p>K_dn = np.linspace(2.0, -2.0, n)</p>
+    <p>K = np.concatenate([K_up, K_dn])</p>
+    <p>theta0 = 0.4</p>
+    <p>alpha = 1.0</p>
+    <p>R_values = [0.0, 0.4, 0.8]</p>
+    <p>offsets = [-0.04, 0.0, 0.04]</p>
+    <p>colors = ["tab:green", "tab:blue", "tab:red"]</p>
+    <p>fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 4.5))</p>
+    <p># Left panel: hysteresis loops with offsets and direction arrows</p>
+    <p>areas = []</p>
+    <p>for R, dy, color in zip(R_values, offsets, colors):</p>
+    <p>tp, tm = theta0 + alpha * R, -theta0 - alpha * R</p>
+    <p>x = run_hysteron(K, tp, tm)</p>
+    <p>A = loop_area(K, x); areas.append(A)</p>
+    <p>ax1.plot(K, x + dy, color=color,</p>
+    <p>label=f"R = {R} (theta_pm = +/-{tp:.1f}, area = {A:.2f})")</p>
+    <p>i_up, i_dn = n // 2, n + n // 2</p>
+    <p>for i0, i1 in [(i_up, i_up + 30), (i_dn, i_dn + 30)]:</p>
+    <p>ax1.annotate("", xy=(K[i1], x[i1] + dy),</p>
+    <p>xytext=(K[i0], x[i0] + dy),</p>
+    <p>arrowprops=dict(arrowstyle="-&gt;", color=color))</p>
+    <p>ax1.set_xlabel("Constraint K(t)"); ax1.set_ylabel("State x")</p>
+    <p>ax1.set_title("S3: Hysteresis loops widen with accumulated record state")</p>
+    <p>ax1.set_xlim(-2.05, 2.05); ax1.set_ylim(-1.5, 1.5)</p>
+    <p>ax1.grid(True, alpha=0.3); ax1.legend(loc="lower right", fontsize=9)</p>
+    <p># Right panel: loop area vs R, with theory line</p>
+    <p>R_dense = np.linspace(0, 1.2, 100)</p>
+    <p>A_theory = 4 * theta0 + 4 * alpha * R_dense</p>
+    <p>ax2.plot(R_dense, A_theory, "-", color="crimson", lw=2,</p>
+    <p>label=r"Theory: $A = 4\theta_0 + 4\alpha R$")</p>
+    <p>ax2.scatter(R_values, areas, s=80, color="steelblue",</p>
+    <p>edgecolor="black", zorder=5, label="Simulation")</p>
+    <p>ax2.set_xlabel("Accumulated record state R")</p>
+    <p>ax2.set_ylabel(r"Loop area $A_{\rm loop}$")</p>
+    <p>ax2.set_title("Loop area scales linearly in R")</p>
+    <p>ax2.grid(True, alpha=0.3); ax2.legend(loc="upper left")</p>
+    <p>plt.tight_layout(); plt.savefig("figure1_s3.png", dpi=120); plt.show()</p>
+    </blockquote>
+    <p><strong>References</strong></p>
+    <p>Arthur, W. B. (1989). Competing technologies, increasing returns, and lock-in by historical events. <em>The Economic Journal, 99</em>(394), 116–131. <a href="https://doi.org/10.2307/2234208">https://doi.org/10.2307/2234208</a></p>
+    <p>Beisner, B. E., Haydon, D. T., &amp; Cuddington, K. (2003). Alternative stable states in ecology. <em>Frontiers in Ecology and the Environment, 1</em>(7), 376–382. <a href="https://doi.org/10.1890/1540-9295(2003)001[0376:ASSIE]2.0.CO;2">https://doi.org/10.1890/1540-9295(2003)001[0376:ASSIE]2.0.CO;2</a></p>
+    <p>Brokate, M., &amp; Sprekels, J. (1996). <em>Hysteresis and Phase Transitions</em>. Springer. <a href="https://doi.org/10.1007/978-1-4612-4048-8">https://doi.org/10.1007/978-1-4612-4048-8</a></p>
+    <p>Dahmen, K., &amp; Sethna, J. P. (1996). Hysteresis, avalanches, and disorder-induced critical scaling: A renormalization-group approach. <em>Physical Review B, 53</em>(22), 14872–14905. <a href="https://doi.org/10.1103/PhysRevB.53.14872">https://doi.org/10.1103/PhysRevB.53.14872</a></p>
+    <p>Fung, Y. C. (1967). Elasticity of soft tissues in simple elongation. <em>American Journal of Physiology, 213</em>(6), 1532–1544. <a href="https://doi.org/10.1152/ajplegacy.1967.213.6.1532">https://doi.org/10.1152/ajplegacy.1967.213.6.1532</a></p>
+    <p>Jones, J. C. (2026a). <em>Records Across Nature, Life, and Mind</em>. HoldingLight LLC. <a href="https://doi.org/10.17605/OSF.IO/7H6DY">https://doi.org/10.17605/OSF.IO/7H6DY</a></p>
+    <p>Jones, J. C. (2026b). <em>The Structuralization of Empiricism</em>. HoldingLight LLC. <a href="https://doi.org/10.17605/OSF.IO/J4GZ9">https://doi.org/10.17605/OSF.IO/J4GZ9</a></p>
+    <p>Jones, J. C. (2026c). <em>Update Integrity Standard (UIS v1.0)</em>. HoldingLight LLC. <a href="https://doi.org/10.17605/OSF.IO/DWM29">https://doi.org/10.17605/OSF.IO/DWM29</a></p>
+    <p>Jones, J. C. (2026d). <em>Objectivity from Records: An Exponential Consensus Bound</em> (UCT Technical Note v1.0). HoldingLight LLC. <a href="https://doi.org/10.17605/OSF.IO/6M7N3">https://doi.org/10.17605/OSF.IO/6M7N3</a></p>
+    <p>Jones, J. C. (2026e). <em>Neutrality Delays Resolution: An Expected Resolution-Time Bound</em> (UCT Technical Note v1.0). HoldingLight LLC. <a href="https://doi.org/10.17605/OSF.IO/6WRQV">https://doi.org/10.17605/OSF.IO/6WRQV</a></p>
+    <p>Jones, J. C. (2026f). <em>Constraint-Sweep Hysteresis in Rice Transcriptome State During Heat Stress and Recovery: A Reproducible, Theory-Neutral Test on GEO GSE74793</em>. HoldingLight LLC. <a href="https://doi.org/10.17605/OSF.IO/KZ8TP">https://doi.org/10.17605/OSF.IO/KZ8TP</a></p>
+    <p>Lord, C. G., Ross, L., &amp; Lepper, M. R. (1979). Biased assimilation and attitude polarization: The effects of prior theories on subsequently considered evidence. <em>Journal of Personality and Social Psychology, 37</em>(11), 2098–2109. <a href="https://doi.org/10.1037/0022-3514.37.11.2098">https://doi.org/10.1037/0022-3514.37.11.2098</a></p>
+    <p>Mayergoyz, I. D. (2003). <em>Mathematical Models of Hysteresis and Their Applications</em> (2nd ed.). Academic Press/Elsevier. <a href="https://doi.org/10.1016/B978-0-12-480873-7.X5000-2">https://doi.org/10.1016/B978-0-12-480873-7.X5000-2</a></p>
+    <p>Pájaro, M., Otero-Muras, I., Vázquez, C., &amp; Alonso, A. A. (2019). Transient hysteresis and inherent stochasticity in gene regulatory networks. <em>Nature Communications, 10</em>, 4581. <a href="https://doi.org/10.1038/s41467-019-12344-w">https://doi.org/10.1038/s41467-019-12344-w</a></p>
+    <p>Pierson, P. (2000). Increasing returns, path dependence, and the study of politics. <em>American Political Science Review, 94</em>(2), 251–267. <a href="https://doi.org/10.2307/2586011">https://doi.org/10.2307/2586011</a></p>
+    <p>Scheffer, M., Carpenter, S., Foley, J. A., Folke, C., &amp; Walker, B. (2001). Catastrophic shifts in ecosystems. <em>Nature, 413</em>(6856), 591–596. <a href="https://doi.org/10.1038/35098000">https://doi.org/10.1038/35098000</a></p>
+    <p>Sethna, J. P., Dahmen, K., Kartha, S., Krumhansl, J. A., Roberts, B. W., &amp; Shore, J. D. (1993). Hysteresis and hierarchies: Dynamics of disorder-driven first-order phase transformations. <em>Physical Review Letters, 70</em>(21), 3347–3350. <a href="https://doi.org/10.1103/PhysRevLett.70.3347">https://doi.org/10.1103/PhysRevLett.70.3347</a></p>
+    <p>Sethna, J. P., Dahmen, K. A., &amp; Myers, C. R. (2001). Crackling noise. <em>Nature, 410</em>(6825), 242–250. <a href="https://doi.org/10.1038/35065675">https://doi.org/10.1038/35065675</a></p>
+    <p>Zhang, W., Chen, H. Y., &amp; Kassab, G. S. (2007). A rate-insensitive linear viscoelastic model for soft tissues. <em>Biomaterials, 28</em>(24), 3579–3586. <a href="https://doi.org/10.1016/j.biomaterials.2007.04.040">https://doi.org/10.1016/j.biomaterials.2007.04.040</a></p>
+    <p>This paper is part of the Universal Collapse Theory library. For a reading guide and full architecture, visit <em>universalcollapse.com/roadmap</em>.</p>
+    <p><strong>AI Disclosure</strong></p>
+    <p>AI tools were used to assist with manuscript preparation. The underlying theory, arguments, and interpretive claims are the author’s own, and the author takes full responsibility for the content.</p>
+    <p><strong>Citation</strong></p>
+    <p>Jones, J. C. (2026). <em>Records Amplify Hysteresis: A Loop-Area Lemma</em> (UCT Technical Note v1.0). HoldingLight LLC.</p>
+
+    <a href="#top" class="backtotop">&uarr; Back to top</a>
+  </article>
+
+</div>
+
+<script>
+(function () {
+  var bar = document.getElementById('progress');
+  function onScroll() {
+    var h = document.documentElement;
+    var pct = h.scrollTop / (h.scrollHeight - h.clientHeight);
+    bar.style.width = (pct * 100).toFixed(1) + '%';
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav.toc a'));
+  var targets = links.map(function (a) {
+    return document.getElementById(decodeURIComponent(a.getAttribute('href')).slice(1));
+  });
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      var i = targets.indexOf(e.target);
+      if (i < 0) return;
+      links.forEach(function (l) { l.classList.remove('active'); });
+      links[i].classList.add('active');
+    });
+  }, { rootMargin: '-10% 0px -80% 0px' });
+  targets.forEach(function (t) { if (t) obs.observe(t); });
+
+  var btn = document.getElementById('toc-toggle');
+  var nav = document.getElementById('toc');
+  btn.addEventListener('click', function () {
+    var c = nav.getAttribute('data-collapsed') === 'true';
+    nav.setAttribute('data-collapsed', String(!c));
+    btn.setAttribute('aria-expanded', String(c));
+    btn.textContent = c ? 'Hide contents' : 'Show contents';
+  });
+
+  document.querySelectorAll('article section[id] > h1, article section[id] > h2').forEach(function (h) {
+    var a = document.createElement('a');
+    a.className = 'anchor';
+    a.href = '#' + h.parentNode.id;
+    a.textContent = '#';
+    a.setAttribute('aria-label', 'Link to this section');
+    h.appendChild(a);
+  });
+})();
+</script>
+
+</body>
+</html>

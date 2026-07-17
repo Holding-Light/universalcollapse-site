@@ -456,6 +456,8 @@ papers:
     pdf: false
 
   - slug: s3_rag
+    src_file: "UCT_T16_S3RAG_Phase_D_Findings_v1_0_2026_05.docx"
+    pdf_file: "UCT_T16_S3RAG_Phase_D_Findings_v1_0_2026_05.pdf"
     title: "S₃ Retrieval-Channel Hysteresis — A Controlled RAG Test (S3-RAG-01)"
     subtitle: "A Controlled RAG Test (S3-RAG-01)"
     doi: "5QMVS"
@@ -646,8 +648,8 @@ papers:
     pdf: false
 
   - slug: sbom
-    src_file: "UCT_T20_Structural_Biology_Operating_Manual_v1_0_2026_05.docx"
-    pdf_file: "UCT_T20_Structural_Biology_Operating_Manual_v1_0_2026_05.pdf"
+    src_file: "UCT_T20_Structural_Biology_Operating_Manual_v1.0_2026_05.docx"
+    pdf_file: "UCT_T20_Structural_Biology_Operating_Manual_v1.0_2026_05.pdf"
     title: "Structural Biology: Operating Manual"
     subtitle: "Domain Companion to UCT WP03 (Biological Collapse)"
     doi: "CPKNX"
