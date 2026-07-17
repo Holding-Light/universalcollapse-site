@@ -342,6 +342,45 @@ papers:
 # Not emitted to sitemap/llms.txt (nothing to link). Promote by moving up
 # with built: true once the landing is generated.
 # ---------------------------------------------------------------------------
+
+  - slug: program_map
+    src_file: "UCT_AG_Program_Map_v1_0_2026_06.docx"
+    pdf_file: "UCT_AG_Program_Map_v1.0.pdf"
+    title: "Program Map: Universal Collapse Theory as a Coherence-First Research Program"
+    subtitle: "Architecture, Claims, and Falsification"
+    doi: "CFASB"
+    tier: "Architecture &mdash; Governance"
+    version: "1.0"
+    philarchive: null
+    desc: "What the program is — every layer placed, claim levels stated, falsification entry points identified. Read after Kernel First."
+    built: true
+    read: false
+
+  - slug: falsification_standards
+    src_file: "UCT_AG_Falsification_Standards_v1_0_2026_06.docx"
+    pdf_file: "UCT_AG_Falsification_Standards_v1.0.pdf"
+    title: "Failure Modes and Falsification Standards for Universal Collapse Theory"
+    subtitle: "Where the Program Can Fail — Per Claim, Per Layer, and as a Whole"
+    doi: "TN7Z3"
+    tier: "Architecture &mdash; Governance"
+    version: "1.0"
+    philarchive: null
+    desc: "Where the program can fail — per claim, per layer, and as a whole. The consolidated falsification standard for Universal Collapse Theory."
+    built: true
+    read: false
+
+  - slug: worked_demonstrations
+    src_file: "UCT_AG_Two_Worked_Demonstrations_v1_0_2026_06.docx"
+    pdf_file: "UCT_AG_Two_Worked_Demonstrations_v1.0.pdf"
+    title: "Two Worked Demonstrations: The Research Stack and the Applied Stack"
+    subtitle: "The Research Stack and the Applied Stack, Worked — and the Line Between Them"
+    doi: "Z7HY2"
+    tier: "Architecture &mdash; Governance"
+    version: "1.0"
+    philarchive: null
+    desc: "One research-stack vertical — S2 from proved bound to live run, including a recorded failure — and one applied-stack reverse-audit, with the firewall between them stated."
+    built: true
+    read: false
 backlog:
   - { doi: 92RQ5, title: "How Minds Resolve", note: "philarchive JONHMR; registry open item" }
   - { doi: 2RC4D, title: "Entropy as Record" }
