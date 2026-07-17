@@ -92,18 +92,88 @@ def norm(u):
     return u
 
 
-def load_paper_slugs(path):
-    """Rule 3: site_data.yaml is the single source — the lint asks it which pages
-    are papers rather than guessing. Returns None if unavailable (checks all)."""
+def load_papers(path):
+    """Rule 3: site_data.yaml is the single source. The lint asks it which pages are
+    papers AND what the true doi/pdf_file are, rather than trusting what the page says
+    about itself. Returns (slugs, by_slug) — (None, None) if unavailable."""
     if not path:
-        return None
+        return None, None
     try:
         import yaml
         d = yaml.safe_load(open(path))
-        return {p["slug"] for p in d.get("papers", []) if p.get("built")}
+        ps = [p for p in d.get("papers", []) if p.get("built")]
+        return {p["slug"] for p in ps}, {p["slug"]: p for p in ps}
     except Exception as e:
-        print(f"  (note: could not read {path} — {e}; landing checks apply to all)")
-        return None
+        print(f"  (note: could not read {path} — {e}; ledger checks skipped)")
+        return None, None
+
+
+RE_META = lambda k: re.compile(rf'<meta name="{k}" content="([^"]*)"')
+RE_OG_URL = re.compile(r'<meta property="og:url" content="([^"]*)"')
+RE_CLASS_USED = re.compile(r'class="([^"]*)"')
+
+
+def check_against_ledger(name, html, paper):
+    """Hand-authored landings retype facts the ledger already holds. A generator
+    would make that impossible; a gate makes it visible. Three failures this
+    catches, all of which have actually occurred in this repo:
+
+      1. citation_doi typo -> Scholar indexes the paper under someone else's DOI.
+         Nothing else catches this: every DOI string looks fine.
+      2. canonical / og:url / citation_public_url disagreeing — one fact, typed
+         three times, in three places.
+      3. a class used with no CSS rule behind it — this is the .cta-secondary
+         purple-button bug: the rule lived on one landing and not the other
+         sixteen, because each page was written in its own session. Invisible
+         until a button rendered wrong.
+    """
+    errs, warns = [], []
+    slug = Path(name).stem
+
+    # 1 — DOI must match the ledger exactly
+    m = RE_META("citation_doi").search(html)
+    if m and paper.get("doi"):
+        want = f"10.17605/OSF.IO/{paper['doi']}"
+        if m.group(1).strip() != want:
+            errs.append(f"LEDGER: citation_doi is {m.group(1)!r} — site_data says {want!r}")
+
+    # 2 — the page's three URL fields must agree with each other
+    urls = {}
+    c = RE_CANONICAL.search(html)
+    if c:
+        urls["canonical"] = norm(c.group(1))
+    for k, rx in (("og:url", RE_OG_URL), ("citation_public_url", RE_META("citation_public_url"))):
+        mm = rx.search(html)
+        if mm:
+            urls[k] = norm(mm.group(1))
+    if len(set(urls.values())) > 1:
+        errs.append("LEDGER: page URL fields disagree — " +
+                    "; ".join(f"{k}={v}" for k, v in urls.items()))
+
+    # 3 — pdf_file, if the tag is present, must match the ledger
+    m = RE_META("citation_pdf_url").search(html)
+    if m and paper.get("pdf_file"):
+        if not m.group(1).endswith(paper["pdf_file"]):
+            errs.append(f"LEDGER: citation_pdf_url points at {m.group(1).split('/')[-1]!r} — "
+                        f"site_data says {paper['pdf_file']!r}")
+    return errs, warns
+
+
+def check_css_classes(html):
+    """Every cta-*/paper-* class used on the page must have a rule behind it.
+    Catches the .cta-secondary drift class of bug at the source."""
+    errs = []
+    style = " ".join(re.findall(r"<style>(.*?)</style>", html, re.S))
+    used = set()
+    for m in RE_CLASS_USED.finditer(html):
+        for c in m.group(1).split():
+            if c.startswith(("cta", "paper-", "cite-", "section-")):
+                used.add(c)
+    for c in sorted(used):
+        if f".{c}" not in style:
+            errs.append(f"CSS: class {c!r} used but no rule defines it "
+                        f"(browser falls back to defaults — the .cta-secondary bug)")
+    return errs
 
 
 def _is_landing(name, args):
@@ -132,8 +202,9 @@ def lint(name, html, args, sitemap_locs=None):
     # a silent conversion failure. Text-only linting cannot see this otherwise.
     if "collapse operator" in vis.lower() and not RE_CK_UNICODE_OK.search(vis) \
             and "<math" not in html:
-        warns.append("NOTATION: prose names the collapse operator but no correct "
-                      "C^K form present — verify with check_conversion.py against the docx")
+        warns.append("NOTATION: prose names the collapse operator but no correct C^K form "
+                     "present — verify with check_conversion.py against the docx. "
+                     "wp03/soai are known-clean: omml=0 at source, prose-only mention.")
 
     # 2 — encoding
     n_fffd = len(RE_FFFD.findall(html))
@@ -166,6 +237,15 @@ def lint(name, html, args, sitemap_locs=None):
             if w not in found:
                 warns.append(f"CITATION: missing citation_{w} (needs a PDF at /pdf/ first)")
 
+        # 4b — cross-check the page against the ledger it was typed from
+        paper = (args.papers_by_slug or {}).get(Path(name).stem)
+        if paper:
+            e, w = check_against_ledger(name, html, paper)
+            errors.extend(e); warns.extend(w)
+
+        # 4c — every class used must have a rule behind it
+        errors.extend(check_css_classes(html))
+
     # 5 — sitemap agreement
     if sitemap_locs is not None and canonical:
         if norm(canonical) not in {norm(x) for x in sitemap_locs}:
@@ -190,7 +270,7 @@ def main():
                          "(Rule 3: one source). Without it, falls back to excluding "
                          "index/library/architecture/roadmap.")
     a = ap.parse_args()
-    a.paper_slugs = load_paper_slugs(a.papers_from)
+    a.paper_slugs, a.papers_by_slug = load_papers(a.papers_from)
 
     if not a.files and not a.url:
         ap.print_help()
