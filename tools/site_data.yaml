@@ -47,6 +47,7 @@ papers:
   - slug: kernel_first
     src_file: "UCT_T0_Kernel_First_Collapse_Without_Reification_v1_0_2026_06.docx"
     pdf_file: "UCT_T0_Kernel_First_v1.0.pdf"
+    pdf_sha256: "e99e73754fb4f4b40f33150e18685d272c8c308e0ae520028807453fd4e56e54"
     subtitle: "What Universal Collapse Theory Is — and Is Not"
     title: "Kernel First: Collapse Without Reification"
     tier: "Tier 0 — Orientation"
@@ -64,6 +65,7 @@ papers:
 
   - slug: wp01
     pdf_file: "UCT_WP01_Foundations_of_Collapse_v2.0.pdf"
+    pdf_sha256: "aa890738cd181e8029e8b652d9be7027aeecd38943d31f39aeeb466b4df5e5ba"
     src_file: "UCT_WP01_Foundations_of_Collapse_v2.0_2025_11_11.docx"
     version: "2.0"
     subtitle: "Latent Potential, Constraint, and Collapse as a Candidate Law of Coherence"
