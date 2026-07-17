@@ -24,9 +24,18 @@ Enforces:
      citation_doi, citation_publication_date, citation_public_url  -> ERROR if absent
      citation_pdf_url                                              -> WARN if absent
      (pdf_url is what lets Scholar index the full text. 2/17 have it today.)
+     Exemption: papers whose ledger entry declares no pdf_file (code deposits —
+     the Starter Packs) are never warned. Absence there is design, not a gap.
 
   5. SITEMAP AGREEMENT (--sitemap) — canonical URLs and sitemap <loc> must match
      exactly: no .html in one and not the other, no trailing-slash drift.
+
+  6. LIBRARY CARDS (library.html only) — a DOI shown in a card's visible
+     paper-venue label must equal the ledger DOI for the paper its href
+     points at                                                     -> ERROR
+     (lint_doi_shadow checks where a link POINTS. This checks what a card
+      DISPLAYS — four Starter Pack cards once showed dead DOIs in the label
+      while every href resolved fine.)
 
 Usage:
   python3 uct_lint_html.py public/**/*.html
@@ -159,6 +168,42 @@ def check_against_ledger(name, html, paper):
     return errs, warns
 
 
+RE_CARD = re.compile(r'<a\s+href="([^"]+)"\s+class="paper-card">(.*?)</a>', re.S)
+RE_VENUE_TXT = re.compile(r'paper-venue">(.*?)</span>', re.S)
+RE_DOI_TXT = re.compile(r'10\.17605/OSF\.IO/([A-Za-z0-9]+)')
+
+
+def check_library_cards(html, by_slug):
+    """What a card DISPLAYS, not where it points. lint_doi_shadow audits hrefs;
+    four Starter Pack cards once showed dead DOIs (UWRS3 XRE7B M8S39 QCWN8) in
+    the visible paper-venue label. For each card whose href is a local paper
+    page, any DOI appearing in its venue label must equal that paper's ledger
+    DOI. Cards with no DOI in the label are fine; off-site cards (backlog
+    entries) have no ledger row and are skipped."""
+    errs = []
+    if by_slug is None:
+        return errs  # ledger unreadable — ledger checks already announced as skipped
+    for m in RE_CARD.finditer(html):
+        href, body = m.group(1), m.group(2)
+        if href.startswith(("http://", "https://")):
+            continue
+        slug = href.strip("/").split("/")[-1]
+        paper = by_slug.get(slug)
+        if not paper:
+            continue
+        vm = RE_VENUE_TXT.search(body)
+        if not vm:
+            continue
+        want = str(paper.get("doi", "")).upper()
+        for shown in RE_DOI_TXT.findall(vm.group(1)):
+            if shown.upper() != want:
+                errs.append(
+                    f"LIBRARY: card {slug!r} displays DOI 10.17605/OSF.IO/{shown} — "
+                    f"site_data says {want or '(none)'}"
+                )
+    return errs
+
+
 def check_css_classes(html):
     """Every cta-*/paper-* class used on the page must have a rule behind it.
     Catches the .cta-secondary drift class of bug at the source."""
@@ -233,18 +278,28 @@ def lint(name, html, args, sitemap_locs=None):
         for req in REQUIRED_CITATION:
             if req not in found:
                 errors.append(f"CITATION: missing required citation_{req}")
+        paper = (args.papers_by_slug or {}).get(Path(name).stem)
         for w in WARN_CITATION:
             if w not in found:
+                # A code deposit (Starter Packs) declares no pdf_file: the tag's
+                # absence is by design, not a gap. Warning on it forever is how
+                # you learn to stop reading warnings. Only skip when the ledger
+                # positively says "no PDF" — an unreadable ledger keeps the warn.
+                if paper is not None and not paper.get("pdf_file"):
+                    continue
                 warns.append(f"CITATION: missing citation_{w} (needs a PDF at /pdf/ first)")
 
         # 4b — cross-check the page against the ledger it was typed from
-        paper = (args.papers_by_slug or {}).get(Path(name).stem)
         if paper:
             e, w = check_against_ledger(name, html, paper)
             errors.extend(e); warns.extend(w)
 
         # 4c — every class used must have a rule behind it
         errors.extend(check_css_classes(html))
+
+    # 6 — library cards: displayed DOI must match the ledger
+    if Path(name).name == "library.html":
+        errors.extend(check_library_cards(html, args.papers_by_slug))
 
     # 5 — sitemap agreement
     if sitemap_locs is not None and canonical:
