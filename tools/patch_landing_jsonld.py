@@ -26,7 +26,11 @@ mislabeling runnable Python as an article would be a category error in the
 retrieval layer.
 
 SHAPE mirrors tools/uct-paper.html's block exactly, with url and
-mainEntityOfPage pointing at the landing (it is its own main entity).
+mainEntityOfPage pointing at the landing (it is its own main entity). Where a
+paper declares relations, read_first emits as isBasedOn — the one edge whose
+schema.org semantics are honest here. supports/tested_by/related are program
+edges, not citation claims; they render in the visible block and /library.json
+rather than being stretched onto citation/mentions.
 
 SAFETY:
   - dry-run by default; --apply writes. No backups: git is the backup.
@@ -105,6 +109,8 @@ def block_for(paper, site, html, slug):
             "sameAs": f"https://orcid.org/{site['orcid']}",
             "affiliation": {"@type": "Organization", "name": site["org"]},
         },
+        **({"isBasedOn": [f"{base}/{s}" for s in paper["relations"]["read_first"]]}
+           if paper.get("relations", {}).get("read_first") else {}),
         "publisher": {"@type": "Organization", "name": site["org"], "url": base},
         "isPartOf": {
             "@type": "CreativeWorkSeries",
