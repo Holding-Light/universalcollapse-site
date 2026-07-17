@@ -131,6 +131,44 @@ def live_backlog(d):
     return out
 
 
+RE_ENV_TIER = re.compile(r'^TIER="([^"]*)"', re.M)
+
+
+def check_tier_envs(d):
+    """One paper's tier is written in up to three places: site_data `tier`
+    (grouping — llms.txt section, JSON-LD series), site_data `tier_label`
+    (display badge, OPTIONAL, defaults to tier), and the env's TIER (what the
+    read-page build actually renders). They are different facts that must
+    agree by rule: env TIER == tier_label-or-tier, and a tier_label must share
+    tier's leading "Tier N" token. This is the drift class that cost
+    how_minds_resolve its DOI in llms.txt for weeks — one field, two jobs,
+    nothing comparing them. Fail loud; adjudicate; do not default."""
+    errs = []
+    for p in built_papers(d):
+        tier = p.get("tier", "")
+        label = p.get("tier_label", tier)
+        if p.get("tier_label"):
+            t_tok = " ".join(tier.split()[:2])
+            l_tok = " ".join(label.split()[:2])
+            if t_tok != l_tok:
+                errs.append(f"{p['slug']}: tier_label {label!r} does not share "
+                            f"tier's leading token {t_tok!r}")
+        env = Path(f"tools/{p['slug']}.env")
+        if not env.exists():
+            continue
+        m = RE_ENV_TIER.search(env.read_text())
+        if not m:
+            errs.append(f"{p['slug']}: env exists but declares no TIER")
+        elif m.group(1) != label:
+            errs.append(f"{p['slug']}: env TIER {m.group(1)!r} != site_data "
+                        f"tier_label-or-tier {label!r}")
+    if errs:
+        sys.exit("FAIL  tier records disagree:\n      "
+                 + "\n      ".join(errs)
+                 + "\n      Edit site_data (the source), then sync the env to match."
+                 + "\n      Do not default.")
+
+
 def sync_flags(path, d):
     """Line-level flag write-back. A pyyaml round-trip would eat the Sync Law comment."""
     lines = Path(path).read_text(encoding="utf-8").split("\n")
@@ -305,6 +343,7 @@ def main():
 
     d = load(a.data)
 
+    check_tier_envs(d)
     drift = resolve_state(d, a.out)
     if drift:
         print(f"flag drift — disk is authoritative ({len(drift)} corrected):")

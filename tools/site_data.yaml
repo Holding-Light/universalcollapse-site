@@ -1,7 +1,7 @@
 # UCT — Site Data (Rule 3 single source)
 # ---------------------------------------------------------------------------
 # Generated outputs: sitemap.xml, llms.txt  (later: library.html, landings, reads)
-# Truth upstream: UCT_DOI_Registry_v2_3_2026_07.md. This file NEVER invents a DOI.
+# Truth upstream: UCT_DOI_Registry_v2_6_2026_07.md. This file NEVER invents a DOI.
 # Verified live 2026-07-16: every `built: true` slug returns HTTP 200.
 #
 # Adding a deposit = add one entry here + rebuild. That is the whole Sync Law.
@@ -43,8 +43,14 @@ pages:
 
 # Papers. `built` = landing page live. `read` = full-text HTML live.
 # lastmod preserves existing sitemap values where present (no false-update churn).
+# `tier` = grouping (llms.txt section, JSON-LD series). `tier_label` = display
+# form (read-page badge) — OPTIONAL, defaults to `tier`. The two are different
+# facts (2026-07-17 adjudication): a badge may say "Gateway" while the grouping
+# says "Orientation". env TIER must equal tier_label-or-tier; build_site_meta
+# gates it. tier_label's leading "Tier N" token must match tier's.
 papers:
   - slug: kernel_first
+    tier_label: "Tier 0 · Gateway"
     src_file: "UCT_T0_Kernel_First_Collapse_Without_Reification_v1_0_2026_06.docx"
     pdf_file: "UCT_T0_Kernel_First_v1.0.pdf"
     pdf_sha256: "e99e73754fb4f4b40f33150e18685d272c8c308e0ae520028807453fd4e56e54"
