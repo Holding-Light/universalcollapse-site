@@ -13,6 +13,7 @@ Usage:
     python3 build_site_meta.py --data site_data.yaml --out public/ --check
 """
 import argparse
+import json
 import re
 import sys
 from pathlib import Path
@@ -271,6 +272,8 @@ def build_llms(d):
         f"Maintained by {s['author']} ({s['org']}). ORCID {s['orcid']}. Contact {s['contact']}."
     )
     L.append("")
+    L.append(f"Machine-readable index with program relationships: {base}/library.json")
+    L.append("")
     L.append(
         "Every paper below is deposited on OSF with a permanent DOI; the DOI is the "
         "citable record and the site is a view of it. Where a paper has a `/read/` "
@@ -369,6 +372,45 @@ def build_llms(d):
     return "\n".join(L)
 
 
+def build_library_json(d):
+    """The whole ledger, one GET. llms.txt is prose for agents; sitemap is URLs
+    for crawlers; this is the graph — every built paper with its DOI, URLs,
+    tier, and (where declared) relations. Emitted from the same single source
+    as everything else; a hand-maintained copy of this file would be the exact
+    disease Rule 3 exists to prevent."""
+    base = d["site"]["base"].rstrip("/")
+    out = []
+    for p in built_papers(d):
+        e = {
+            "slug": p["slug"],
+            "title": p["title"],
+            "tier": p["tier"],
+            "doi": f"10.17605/OSF.IO/{p['doi']}",
+            "url": f"{base}/{p['slug']}",
+        }
+        if p.get("short_title"):
+            e["short_title"] = p["short_title"]
+        if p.get("tier_label"):
+            e["tier_label"] = p["tier_label"]
+        if p.get("read"):
+            e["read_url"] = f"{base}/read/{p['slug']}"
+        if p.get("pdf_file"):
+            e["pdf_url"] = f"{base}/pdf/{p['pdf_file']}"
+        if p.get("philarchive"):
+            e["philarchive"] = f"https://philarchive.org/rec/{p['philarchive']}"
+        if p.get("relations"):
+            e["relations"] = p["relations"]
+        out.append(e)
+    doc = {
+        "program": d["site"]["name"],
+        "publisher": d["site"]["org"],
+        "orcid": d["site"]["orcid"],
+        "generated_from": "tools/site_data.yaml",
+        "papers": out,
+    }
+    return json.dumps(doc, indent=2, ensure_ascii=False) + "\n"
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--data", default="site_data.yaml")
@@ -416,8 +458,12 @@ def main():
     out.mkdir(parents=True, exist_ok=True)
     (out / "sitemap.xml").write_text(sm, encoding="utf-8")
     (out / "llms.txt").write_text(lm, encoding="utf-8")
+    lj = build_library_json(d)
+    (out / "library.json").write_text(lj, encoding="utf-8")
     print(f"\nwrote {out/'sitemap.xml'}  ({n_urls} URLs)")
     print(f"wrote {out/'llms.txt'}")
+    print(f"wrote {out/'library.json'}  ({len(built_papers(d))} papers, "
+          f"{sum(1 for p in built_papers(d) if p.get('relations'))} with relations)")
     return 0
 
 

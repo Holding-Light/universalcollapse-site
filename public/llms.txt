@@ -4,6 +4,8 @@
 
 Maintained by Jeremy C. Jones (HoldingLight LLC). ORCID 0009-0007-2515-3774. Contact contact@universalcollapse.com.
 
+Machine-readable index with program relationships: https://universalcollapse.com/library.json
+
 Every paper below is deposited on OSF with a permanent DOI; the DOI is the citable record and the site is a view of it. Where a paper has a `/read/` page, that page carries the full text in clean HTML and is the best source to quote. Otherwise the landing page carries the abstract and the DOI resolves to the full deposit.
 
 Content is CC BY 4.0 — quotable with attribution. Cite the DOI, not the URL.

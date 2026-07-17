@@ -1,0 +1,456 @@
+{
+  "program": "Universal Collapse Theory",
+  "publisher": "HoldingLight LLC",
+  "orcid": "0009-0007-2515-3774",
+  "generated_from": "tools/site_data.yaml",
+  "papers": [
+    {
+      "slug": "kernel_first",
+      "title": "Kernel First: Collapse Without Reification",
+      "tier": "Tier 0 — Orientation",
+      "doi": "10.17605/OSF.IO/6RZQ2",
+      "url": "https://universalcollapse.com/kernel_first",
+      "short_title": "Kernel First",
+      "tier_label": "Tier 0 · Gateway",
+      "read_url": "https://universalcollapse.com/read/kernel_first",
+      "pdf_url": "https://universalcollapse.com/pdf/UCT_T0_Kernel_First_v1.0.pdf",
+      "philarchive": "https://philarchive.org/rec/JONKFC",
+      "relations": {
+        "purpose": "Gateway paper: fixes what UCT claims and does not — collapse as constrained actualization rather than substance, kernel-first rather than primitive-first — and states the conditions under which the program would be wrong.",
+        "supports": [
+          "wp01",
+          "cim_foundational",
+          "ai_synthetic"
+        ],
+        "related": [
+          "program_map",
+          "falsification_standards"
+        ],
+        "do_not_read_as": [
+          "A claim that collapse is a substance or force",
+          "A matter-first, mind-first, or information-first metaphysics",
+          "A Theory of Everything in the usual sense"
+        ]
+      }
+    },
+    {
+      "slug": "wp01",
+      "title": "WP01 — Foundations of Collapse",
+      "tier": "Tier 1 — White Papers",
+      "doi": "10.17605/OSF.IO/VZ836",
+      "url": "https://universalcollapse.com/wp01",
+      "short_title": "WP01",
+      "read_url": "https://universalcollapse.com/read/wp01",
+      "pdf_url": "https://universalcollapse.com/pdf/UCT_WP01_Foundations_of_Collapse_v2.0.pdf",
+      "philarchive": "https://philarchive.org/rec/JONUCT-2"
+    },
+    {
+      "slug": "wp02",
+      "title": "WP02 — Collapse in Physics",
+      "tier": "Tier 1 — White Papers",
+      "doi": "10.17605/OSF.IO/3NYMP",
+      "url": "https://universalcollapse.com/wp02",
+      "read_url": "https://universalcollapse.com/read/wp02",
+      "pdf_url": "https://universalcollapse.com/pdf/UCT_WP02_Collapse_in_Physics_Coherence_as_Law_from_Cosmology_to_Matter_v1.0.pdf",
+      "philarchive": "https://philarchive.org/rec/JONUCT-3"
+    },
+    {
+      "slug": "wp03",
+      "title": "WP03 — Biological Collapse",
+      "tier": "Tier 1 — White Papers",
+      "doi": "10.17605/OSF.IO/5SZ86",
+      "url": "https://universalcollapse.com/wp03",
+      "read_url": "https://universalcollapse.com/read/wp03",
+      "pdf_url": "https://universalcollapse.com/pdf/UCT_WP03_Biological_Collapse_v1.0.pdf",
+      "philarchive": "https://philarchive.org/rec/JONUCT-4"
+    },
+    {
+      "slug": "cim_foundational",
+      "title": "Consciousness-Induced Material: A Structural Ontology of Externalized Cognition",
+      "tier": "CIM",
+      "doi": "10.17605/OSF.IO/7URMK",
+      "url": "https://universalcollapse.com/cim_foundational",
+      "short_title": "CIM Foundational",
+      "read_url": "https://universalcollapse.com/read/cim_foundational",
+      "pdf_url": "https://universalcollapse.com/pdf/UCT_T15_CIM_Foundational_v1.0.pdf",
+      "philarchive": "https://philarchive.org/rec/JONCMA-5"
+    },
+    {
+      "slug": "collapse_reframed",
+      "title": "Collapse Reframed",
+      "tier": "Tier 1.5 — Interpretive Bridges",
+      "doi": "10.17605/OSF.IO/PY5V3",
+      "url": "https://universalcollapse.com/collapse_reframed",
+      "read_url": "https://universalcollapse.com/read/collapse_reframed",
+      "pdf_url": "https://universalcollapse.com/pdf/UCT_T15_Collapse_Reframed_v1.0.pdf",
+      "philarchive": "https://philarchive.org/rec/JONCRF"
+    },
+    {
+      "slug": "schrodinger",
+      "title": "Schrödinger Reframe: Mathematical Experience",
+      "tier": "Tier 1.5 — Interpretive Bridges",
+      "doi": "10.17605/OSF.IO/GPYWJ",
+      "url": "https://universalcollapse.com/schrodinger",
+      "read_url": "https://universalcollapse.com/read/schrodinger",
+      "pdf_url": "https://universalcollapse.com/pdf/UCT_T15_Schrodinger_Mathematical_Experience_v1.0.pdf",
+      "philarchive": "https://philarchive.org/rec/JONWAN"
+    },
+    {
+      "slug": "bfs",
+      "title": "Biological Faith Systems",
+      "tier": "Tier 1.5 — Interpretive Bridges",
+      "doi": "10.17605/OSF.IO/D37Q5",
+      "url": "https://universalcollapse.com/bfs",
+      "read_url": "https://universalcollapse.com/read/bfs",
+      "pdf_url": "https://universalcollapse.com/pdf/UCT_T15_Biological_Faith_Systems_v1.0.pdf",
+      "philarchive": "https://philarchive.org/rec/JONBFS"
+    },
+    {
+      "slug": "self_ego",
+      "title": "Self, the Ego Did Not Build",
+      "tier": "Tier 1.5 — Interpretive Bridges",
+      "doi": "10.17605/OSF.IO/ZGRD4",
+      "url": "https://universalcollapse.com/self_ego",
+      "read_url": "https://universalcollapse.com/read/self_ego",
+      "pdf_url": "https://universalcollapse.com/pdf/UCT_T15_Self_the_Ego_Did_Not_Build_v1.0.pdf",
+      "philarchive": "https://philarchive.org/rec/JONTST-4"
+    },
+    {
+      "slug": "ai_synthetic",
+      "title": "AI as Synthetic Collapse",
+      "tier": "CIM",
+      "doi": "10.17605/OSF.IO/4WSYR",
+      "url": "https://universalcollapse.com/ai_synthetic",
+      "read_url": "https://universalcollapse.com/read/ai_synthetic",
+      "pdf_url": "https://universalcollapse.com/pdf/UCT_T15_AI_as_Synthetic_Collapse_v1.0.pdf",
+      "philarchive": "https://philarchive.org/rec/JONAAS-4",
+      "relations": {
+        "purpose": "Applies the UCT kernel to artificial intelligence: whether model behavior can be treated as constrained actualization, without claiming that AI is conscious.",
+        "read_first": [
+          "kernel_first",
+          "soai"
+        ],
+        "tested_by": [
+          "ai_sig_deployed",
+          "s3_rag",
+          "f2_positive_control"
+        ],
+        "related": [
+          "how_minds_resolve"
+        ],
+        "do_not_read_as": [
+          "A claim that AI is humanlike",
+          "A proof of machine consciousness",
+          "A claim that every computation is equally explanatory"
+        ]
+      }
+    },
+    {
+      "slug": "records",
+      "title": "Records Across Nature, Life, and Mind",
+      "tier": "Standards",
+      "doi": "10.17605/OSF.IO/7H6DY",
+      "url": "https://universalcollapse.com/records",
+      "short_title": "Records",
+      "read_url": "https://universalcollapse.com/read/records",
+      "pdf_url": "https://universalcollapse.com/pdf/UCT_Standards_Records_v2.0.pdf",
+      "philarchive": "https://philarchive.org/rec/JONRAN-2"
+    },
+    {
+      "slug": "soe",
+      "title": "The Structuralization of Empiricism",
+      "tier": "Standards",
+      "doi": "10.17605/OSF.IO/J4GZ9",
+      "url": "https://universalcollapse.com/soe",
+      "read_url": "https://universalcollapse.com/read/soe",
+      "pdf_url": "https://universalcollapse.com/pdf/UCT_Structuralization_of_Empiricism_v1.0.pdf",
+      "philarchive": "https://philarchive.org/rec/JONTSO-28"
+    },
+    {
+      "slug": "uis",
+      "title": "Update Integrity Standard (UIS)",
+      "tier": "Standards",
+      "doi": "10.17605/OSF.IO/DWM29",
+      "url": "https://universalcollapse.com/uis",
+      "read_url": "https://universalcollapse.com/read/uis",
+      "pdf_url": "https://universalcollapse.com/pdf/UCT_Update_Integrity_Standard_v1.0.pdf"
+    },
+    {
+      "slug": "soai",
+      "title": "The Structuralization of AI",
+      "tier": "Standards",
+      "doi": "10.17605/OSF.IO/6M7VW",
+      "url": "https://universalcollapse.com/soai",
+      "read_url": "https://universalcollapse.com/read/soai",
+      "pdf_url": "https://universalcollapse.com/pdf/UCT_T15_Structuralization_of_AI_v1.0.pdf"
+    },
+    {
+      "slug": "rice",
+      "title": "Bio Constraint Sweep (Rice)",
+      "tier": "Tier 1.6 — Empirical Demonstrations",
+      "doi": "10.17605/OSF.IO/KZ8TP",
+      "url": "https://universalcollapse.com/rice",
+      "read_url": "https://universalcollapse.com/read/rice",
+      "pdf_url": "https://universalcollapse.com/pdf/UCT_T16_Bio_Constraint_Sweep_Rice_v1.0.pdf"
+    },
+    {
+      "slug": "cogitate",
+      "title": "COGITATE — Constraint-Dependent Perceptual Resolution",
+      "tier": "Tier 1.6 — Empirical Demonstrations",
+      "doi": "10.17605/OSF.IO/MXYU2",
+      "url": "https://universalcollapse.com/cogitate",
+      "read_url": "https://universalcollapse.com/read/cogitate",
+      "pdf_url": "https://universalcollapse.com/pdf/UCT_T16_Constraint_Dependent_Perceptual_Resolution_COGITATE_v1.0.pdf"
+    },
+    {
+      "slug": "ai_sig_deployed",
+      "title": "Empirical Demonstration of S1, S2, and S3 in Deployed AI Systems",
+      "tier": "Tier 1.6 — Empirical Demonstrations",
+      "doi": "10.17605/OSF.IO/JPXCU",
+      "url": "https://universalcollapse.com/ai_sig_deployed",
+      "short_title": "S-Signatures in Deployed AI Systems",
+      "read_url": "https://universalcollapse.com/read/ai_sig_deployed",
+      "pdf_url": "https://universalcollapse.com/pdf/UCT_T16_AI_Empirical_Demo_v1.0.pdf"
+    },
+    {
+      "slug": "program_map",
+      "title": "Program Map: Universal Collapse Theory as a Coherence-First Research Program",
+      "tier": "Architecture — Governance",
+      "doi": "10.17605/OSF.IO/CFASB",
+      "url": "https://universalcollapse.com/program_map",
+      "short_title": "Program Map",
+      "read_url": "https://universalcollapse.com/read/program_map",
+      "pdf_url": "https://universalcollapse.com/pdf/UCT_AG_Program_Map_v1.0.pdf"
+    },
+    {
+      "slug": "falsification_standards",
+      "title": "Failure Modes and Falsification Standards for Universal Collapse Theory",
+      "tier": "Architecture — Governance",
+      "doi": "10.17605/OSF.IO/TN7Z3",
+      "url": "https://universalcollapse.com/falsification_standards",
+      "short_title": "Falsification Standards",
+      "read_url": "https://universalcollapse.com/read/falsification_standards",
+      "pdf_url": "https://universalcollapse.com/pdf/UCT_AG_Falsification_Standards_v1.0.pdf"
+    },
+    {
+      "slug": "worked_demonstrations",
+      "title": "Two Worked Demonstrations: The Research Stack and the Applied Stack",
+      "tier": "Architecture — Governance",
+      "doi": "10.17605/OSF.IO/Z7HY2",
+      "url": "https://universalcollapse.com/worked_demonstrations",
+      "read_url": "https://universalcollapse.com/read/worked_demonstrations",
+      "pdf_url": "https://universalcollapse.com/pdf/UCT_AG_Two_Worked_Demonstrations_v1.0.pdf"
+    },
+    {
+      "slug": "entropy_as_record",
+      "title": "Entropy as Record: A Locked-Source Shape Test of an SMBH-Dominated Cosmic Entropy Ledger Across Redshift",
+      "tier": "Tier 1.6 — Empirical Demonstrations",
+      "doi": "10.17605/OSF.IO/2RC4D",
+      "url": "https://universalcollapse.com/entropy_as_record",
+      "read_url": "https://universalcollapse.com/read/entropy_as_record",
+      "pdf_url": "https://universalcollapse.com/pdf/UCT_T16_Entropy_as_Record_v1.0.pdf"
+    },
+    {
+      "slug": "cmb_records",
+      "title": "CMB Record Consensus",
+      "tier": "Tier 1.6 — Empirical Demonstrations",
+      "doi": "10.17605/OSF.IO/PNF89",
+      "url": "https://universalcollapse.com/cmb_records",
+      "read_url": "https://universalcollapse.com/read/cmb_records",
+      "pdf_url": "https://universalcollapse.com/pdf/UCT_T16_CMB_Record_Consensus_v1.0.pdf"
+    },
+    {
+      "slug": "f2_positive_control",
+      "title": "F2 — Training-Layer Positive Control: Install–Remove Hysteresis of a Fine-Tuned Structural Grammar at K_train",
+      "tier": "Tier 1.6 — Empirical Demonstrations",
+      "doi": "10.17605/OSF.IO/5TG3P",
+      "url": "https://universalcollapse.com/f2_positive_control",
+      "short_title": "F2 — Training-Layer Positive Control",
+      "read_url": "https://universalcollapse.com/read/f2_positive_control",
+      "pdf_url": "https://universalcollapse.com/pdf/UCT_T16_F2_Training_Layer_Positive_Control_v1.0.pdf",
+      "relations": {
+        "purpose": "Positive-control study: establishes that the T16 instrument detects a known training-layer effect before harder cases are interpreted.",
+        "read_first": [
+          "soai",
+          "ai_sig_deployed"
+        ],
+        "supports": [
+          "s3_rag"
+        ],
+        "related": [
+          "s3_calibration"
+        ],
+        "do_not_read_as": [
+          "The full UCT account of AI",
+          "Consciousness in language models",
+          "General validity outside the tested conditions"
+        ]
+      }
+    },
+    {
+      "slug": "s3_calibration",
+      "title": "Calibrating the S₃ Detector: A Positive-Control Study of Constraint-Reinstatement Detection in a Frontier Language Model",
+      "tier": "Tier 1.6 — Empirical Demonstrations",
+      "doi": "10.17605/OSF.IO/JAEZQ",
+      "url": "https://universalcollapse.com/s3_calibration",
+      "short_title": "S₃ Positive-Control Calibration",
+      "read_url": "https://universalcollapse.com/read/s3_calibration",
+      "pdf_url": "https://universalcollapse.com/pdf/UCT_T16_S3_Positive_Control_Calibration_v1.0.pdf"
+    },
+    {
+      "slug": "s3_rag",
+      "title": "S₃ Retrieval-Channel Hysteresis — A Controlled RAG Test (S3-RAG-01)",
+      "tier": "Tier 1.6 — Empirical Demonstrations",
+      "doi": "10.17605/OSF.IO/5QMVS",
+      "url": "https://universalcollapse.com/s3_rag",
+      "short_title": "S3-RAG-01",
+      "read_url": "https://universalcollapse.com/read/s3_rag",
+      "pdf_url": "https://universalcollapse.com/pdf/UCT_T16_S3RAG_Phase_D_Findings_v1_0_2026_05.pdf"
+    },
+    {
+      "slug": "methods_s1",
+      "title": "Auditing Independence in Multi-Channel Measurement",
+      "tier": "Methods & Theoretical Notes",
+      "doi": "10.17605/OSF.IO/7U8SK",
+      "url": "https://universalcollapse.com/methods_s1",
+      "read_url": "https://universalcollapse.com/read/methods_s1",
+      "pdf_url": "https://universalcollapse.com/pdf/UCT_Methods_S1_Auditing_Independence_v1_0_2026_05.pdf"
+    },
+    {
+      "slug": "methods_s2",
+      "title": "Auditing Constraint Asymmetry in Latency-Based Resolution Tests",
+      "tier": "Methods & Theoretical Notes",
+      "doi": "10.17605/OSF.IO/HRKWT",
+      "url": "https://universalcollapse.com/methods_s2",
+      "read_url": "https://universalcollapse.com/read/methods_s2",
+      "pdf_url": "https://universalcollapse.com/pdf/UCT_Methods_S2_Auditing_Constraint_Asymmetry_v1_0_2026_05.pdf"
+    },
+    {
+      "slug": "methods_s3",
+      "title": "Auditing Record State in Constraint-Sweep Hysteresis Tests",
+      "tier": "Methods & Theoretical Notes",
+      "doi": "10.17605/OSF.IO/CQGTD",
+      "url": "https://universalcollapse.com/methods_s3",
+      "read_url": "https://universalcollapse.com/read/methods_s3",
+      "pdf_url": "https://universalcollapse.com/pdf/UCT_Methods_S3_Auditing_Record_State_v1_0_2026_05.pdf"
+    },
+    {
+      "slug": "tn_s1",
+      "title": "Objectivity from Records: An Exponential Consensus Bound",
+      "tier": "Methods & Theoretical Notes",
+      "doi": "10.17605/OSF.IO/6M7N3",
+      "url": "https://universalcollapse.com/tn_s1",
+      "read_url": "https://universalcollapse.com/read/tn_s1",
+      "pdf_url": "https://universalcollapse.com/pdf/UCT_TN_S1_Objectivity_from_Records_v1_0_2026_05.pdf"
+    },
+    {
+      "slug": "tn_s2",
+      "title": "Neutrality Delays Resolution: An Expected Resolution-Time Bound",
+      "tier": "Methods & Theoretical Notes",
+      "doi": "10.17605/OSF.IO/6WRQV",
+      "url": "https://universalcollapse.com/tn_s2",
+      "read_url": "https://universalcollapse.com/read/tn_s2",
+      "pdf_url": "https://universalcollapse.com/pdf/UCT_TN_S2_Neutrality_Delays_Resolution_v1_0_2026_05.pdf"
+    },
+    {
+      "slug": "tn_s3",
+      "title": "Records Amplify Hysteresis: A Loop-Area Lemma",
+      "tier": "Methods & Theoretical Notes",
+      "doi": "10.17605/OSF.IO/QJMSZ",
+      "url": "https://universalcollapse.com/tn_s3",
+      "read_url": "https://universalcollapse.com/read/tn_s3",
+      "pdf_url": "https://universalcollapse.com/pdf/UCT_TN_S3_Records_Amplify_Hysteresis_v1_0_2026_05.pdf"
+    },
+    {
+      "slug": "pr00_coherence",
+      "title": "Order as the Default Outcome Under Constraint",
+      "tier": "Tier 30 — Primes",
+      "doi": "10.17605/OSF.IO/J2XSQ",
+      "url": "https://universalcollapse.com/pr00_coherence",
+      "read_url": "https://universalcollapse.com/read/pr00_coherence",
+      "pdf_url": "https://universalcollapse.com/pdf/UCT_T30_PR00_Prime_Coherence_v1_0_2026_06.pdf",
+      "philarchive": "https://philarchive.org/rec/JONOAT-4"
+    },
+    {
+      "slug": "pr01_randomness",
+      "title": "Against Randomness-First",
+      "tier": "Tier 30 — Primes",
+      "doi": "10.17605/OSF.IO/Y678R",
+      "url": "https://universalcollapse.com/pr01_randomness",
+      "read_url": "https://universalcollapse.com/read/pr01_randomness",
+      "pdf_url": "https://universalcollapse.com/pdf/UCT_T30_PR01_Prime_Randomness_v1_0_2026_06.pdf",
+      "philarchive": "https://philarchive.org/rec/JONARP"
+    },
+    {
+      "slug": "pr02_chaos",
+      "title": "Against Chaos-First",
+      "tier": "Tier 30 — Primes",
+      "doi": "10.17605/OSF.IO/A6EJN",
+      "url": "https://universalcollapse.com/pr02_chaos",
+      "read_url": "https://universalcollapse.com/read/pr02_chaos",
+      "pdf_url": "https://universalcollapse.com/pdf/UCT_T30_PR02_Prime_Chaos_v1_0_2026_06.pdf",
+      "philarchive": "https://philarchive.org/rec/JONACW-6"
+    },
+    {
+      "slug": "pr03_intelligence",
+      "title": "Against Intelligence-First",
+      "tier": "Tier 30 — Primes",
+      "doi": "10.17605/OSF.IO/RN3TH",
+      "url": "https://universalcollapse.com/pr03_intelligence",
+      "read_url": "https://universalcollapse.com/read/pr03_intelligence",
+      "pdf_url": "https://universalcollapse.com/pdf/UCT_T30_PR03_Prime_Intelligence_v1_0_2026_06.pdf",
+      "philarchive": "https://philarchive.org/rec/JONAIX"
+    },
+    {
+      "slug": "pr04_nothingness",
+      "title": "Against Nothingness-First",
+      "tier": "Tier 30 — Primes",
+      "doi": "10.17605/OSF.IO/YHQ5F",
+      "url": "https://universalcollapse.com/pr04_nothingness",
+      "read_url": "https://universalcollapse.com/read/pr04_nothingness",
+      "pdf_url": "https://universalcollapse.com/pdf/UCT_T30_PR04_Prime_Nothingness_v1_0_2026_06.pdf",
+      "philarchive": "https://philarchive.org/rec/JONANH-2"
+    },
+    {
+      "slug": "sbom",
+      "title": "Structural Biology: Operating Manual",
+      "tier": "Tier 2 — Operating Manuals",
+      "doi": "10.17605/OSF.IO/CPKNX",
+      "url": "https://universalcollapse.com/sbom",
+      "read_url": "https://universalcollapse.com/read/sbom",
+      "pdf_url": "https://universalcollapse.com/pdf/UCT_T20_Structural_Biology_Operating_Manual_v1.0_2026_05.pdf"
+    },
+    {
+      "slug": "how_minds_resolve",
+      "title": "How Minds Resolve: The Faith-Reason-Logic-Belief Cycle",
+      "tier": "Tier 1.5 — Interpretive Bridges",
+      "doi": "10.17605/OSF.IO/92RQ5",
+      "url": "https://universalcollapse.com/how_minds_resolve",
+      "short_title": "How Minds Resolve",
+      "read_url": "https://universalcollapse.com/read/how_minds_resolve",
+      "pdf_url": "https://universalcollapse.com/pdf/UCT_T15_How_Minds_Resolve_v1_0_2026_07.pdf",
+      "philarchive": "https://philarchive.org/rec/JONHMR"
+    },
+    {
+      "slug": "starter_physics",
+      "title": "Universal Collapse Theory — Physics Starter Pack",
+      "tier": "Starter Pack — Physics",
+      "doi": "10.17605/OSF.IO/ADM6U",
+      "url": "https://universalcollapse.com/starter_physics"
+    },
+    {
+      "slug": "starter_biology",
+      "title": "Universal Collapse Theory — Biology Starter Pack",
+      "tier": "Starter Pack — Biology",
+      "doi": "10.17605/OSF.IO/F7NBY",
+      "url": "https://universalcollapse.com/starter_biology"
+    },
+    {
+      "slug": "starter_mind",
+      "title": "Universal Collapse Theory — Mind Starter Pack",
+      "tier": "Starter Pack — Mind",
+      "doi": "10.17605/OSF.IO/A25CV",
+      "url": "https://universalcollapse.com/starter_mind"
+    }
+  ]
+}
