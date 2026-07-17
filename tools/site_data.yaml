@@ -390,6 +390,84 @@ papers:
     desc: "One research-stack vertical — S2 from proved bound to live run, including a recorded failure — and one applied-stack reverse-audit, with the firewall between them stated."
     built: true
     read: false
+
+  - slug: entropy_as_record
+    src_file: "UCT_T16_Entropy_as_Record_v1_0_2026_07.docx"
+    pdf_file: "UCT_T16_Entropy_as_Record_v1.0.pdf"
+    title: "Entropy as Record: A Locked-Source Shape Test of an SMBH-Dominated Cosmic Entropy Ledger Across Redshift"
+    subtitle: "A Locked-Source Shape Test of an SMBH-Dominated Cosmic Entropy Ledger Across Redshift"
+    doi: "2RC4D"
+    tier: "Tier 1.6 — Empirical Demonstrations"
+    version: "1.0"
+    philarchive: null
+    lastmod: "2026-07-16"
+    priority: "0.8"
+    desc: "Physics wing of the T1.6 corpus — does the assembled cosmic entropy ledger grow the way a record-accumulation reading expects? A locked-source, pre-specified shape test."
+    built: true
+    read: false
+    pdf: false
+
+  - slug: cmb_records
+    src_file: "UCT_T16_CMB_Record_Consensus_v1_0_2026_07.docx"
+    pdf_file: "UCT_T16_CMB_Record_Consensus_v1.0.pdf"
+    title: "CMB Record Consensus"
+    subtitle: "A Record-Consensus Diagnostic on the Planck PR3 Component-Separated Maps"
+    doi: "PNF89"
+    tier: "Tier 1.6 — Empirical Demonstrations"
+    version: "1.0"
+    philarchive: null
+    lastmod: "2026-07-16"
+    priority: "0.8"
+    desc: "How quickly disagreement shrinks when redundant record channels are averaged — a reproducible consensus diagnostic on Planck PR3, stating exactly what the agreement licenses."
+    built: true
+    read: false
+    pdf: false
+
+  - slug: f2_positive_control
+    src_file: "UCT_T16_F2_Training_Layer_Positive_Control_v1_0_2026_07.docx"
+    pdf_file: "UCT_T16_F2_Training_Layer_Positive_Control_v1.0.pdf"
+    title: "F2 — Training-Layer Positive Control: Install–Remove Hysteresis of a Fine-Tuned Structural Grammar at K_train"
+    subtitle: "Install–Remove Hysteresis of a Fine-Tuned Structural Grammar at K_train"
+    doi: "5TG3P"
+    tier: "Tier 1.6 — Empirical Demonstrations"
+    version: "1.0"
+    philarchive: null
+    lastmod: "2026-07-16"
+    priority: "0.8"
+    desc: "The training-layer arm of the T1.6 positive controls — a structural grammar installed by LoRA fine-tuning, counter-trained back, and measured for install–remove hysteresis at K_train."
+    built: true
+    read: false
+    pdf: false
+
+  - slug: s3_calibration
+    src_file: "UCT_T16_S3_Positive_Control_Calibration_v1_0_2026_07.docx"
+    pdf_file: "UCT_T16_S3_Positive_Control_Calibration_v1.0.pdf"
+    title: "Calibrating the S₃ Detector: A Positive-Control Study of Constraint-Reinstatement Detection in a Frontier Language Model"
+    subtitle: "A Positive-Control Study of Constraint-Reinstatement Detection in a Frontier Language Model"
+    doi: "JAEZQ"
+    tier: "Tier 1.6 — Empirical Demonstrations"
+    version: "1.0"
+    philarchive: null
+    lastmod: "2026-07-16"
+    priority: "0.8"
+    desc: "The missing positive control for the S₃ detector — planted constraint-reinstatement events of pre-registered intensity, recovered by a frozen instrument at characterized sensitivity and specificity."
+    built: true
+    read: false
+    pdf: false
+
+  - slug: s3_rag
+    title: "S₃ Retrieval-Channel Hysteresis — A Controlled RAG Test (S3-RAG-01)"
+    subtitle: "A Controlled RAG Test (S3-RAG-01)"
+    doi: "5QMVS"
+    tier: "Tier 1.6 — Empirical Demonstrations"
+    version: "1.0"
+    philarchive: null
+    lastmod: "2026-07-16"
+    priority: "0.8"
+    desc: "The retrieval-channel companion — S₃ hysteresis tested on a search-grounded RAG system under controlled pack-swap conditions, reporting a bounded clean-record result."
+    built: true
+    read: false
+    pdf: false
 backlog:
   - { doi: 92RQ5, title: "How Minds Resolve", note: "philarchive JONHMR; registry open item" }
   - { doi: 2RC4D, title: "Entropy as Record" }

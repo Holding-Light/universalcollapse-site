@@ -48,6 +48,11 @@ Notation is normative: the collapse operator is **C^K_t** — K superscript, t s
 - [Bio Constraint Sweep (Rice)](https://universalcollapse.com/read/rice): Biology wing. S3 hysteresis under constraint sweep. Full text. DOI 10.17605/OSF.IO/KZ8TP
 - [COGITATE — Constraint-Dependent Perceptual Resolution](https://universalcollapse.com/read/cogitate): Mind wing. Pre-specified reanalysis of the COGITATE iEEG dataset. Full text. DOI 10.17605/OSF.IO/MXYU2
 - [Empirical Demonstration of S1, S2, and S3 in Deployed AI Systems](https://universalcollapse.com/read/ai_sig_deployed): AI wing parent demonstration. Five pre-specified substrate strata under black-box (Tier C) access. Full text. DOI 10.17605/OSF.IO/JPXCU
+- [Entropy as Record: A Locked-Source Shape Test of an SMBH-Dominated Cosmic Entropy Ledger Across Redshift](https://universalcollapse.com/entropy_as_record): Physics wing of the T1.6 corpus — does the assembled cosmic entropy ledger grow the way a record-accumulation reading expects? A locked-source, pre-specified shape test. Abstract; full text via DOI. DOI 10.17605/OSF.IO/2RC4D
+- [CMB Record Consensus](https://universalcollapse.com/cmb_records): How quickly disagreement shrinks when redundant record channels are averaged — a reproducible consensus diagnostic on Planck PR3, stating exactly what the agreement licenses. Abstract; full text via DOI. DOI 10.17605/OSF.IO/PNF89
+- [F2 — Training-Layer Positive Control: Install–Remove Hysteresis of a Fine-Tuned Structural Grammar at K_train](https://universalcollapse.com/f2_positive_control): The training-layer arm of the T1.6 positive controls — a structural grammar installed by LoRA fine-tuning, counter-trained back, and measured for install–remove hysteresis at K_train. Abstract; full text via DOI. DOI 10.17605/OSF.IO/5TG3P
+- [Calibrating the S₃ Detector: A Positive-Control Study of Constraint-Reinstatement Detection in a Frontier Language Model](https://universalcollapse.com/s3_calibration): The missing positive control for the S₃ detector — planted constraint-reinstatement events of pre-registered intensity, recovered by a frozen instrument at characterized sensitivity and specificity. Abstract; full text via DOI. DOI 10.17605/OSF.IO/JAEZQ
+- [S₃ Retrieval-Channel Hysteresis — A Controlled RAG Test (S3-RAG-01)](https://universalcollapse.com/s3_rag): The retrieval-channel companion — S₃ hysteresis tested on a search-grounded RAG system under controlled pack-swap conditions, reporting a bounded clean-record result. Abstract; full text via DOI. DOI 10.17605/OSF.IO/5QMVS
 
 ## CIM
 
@@ -72,4 +77,4 @@ Notation is normative: the collapse operator is **C^K_t** — K superscript, t s
 - Resolving a DOI: every `10.17605/OSF.IO/XXXXX` above resolves via `https://doi.org/` to the OSF deposit, which carries the full text plus reproducibility material (data, code, verification packs) not mirrored on this site.
 - PhilArchive records exist for 12 of the philosophy-facing papers at `https://philarchive.org/rec/{handle}` — handles: JONKFC, JONUCT-2, JONUCT-3, JONUCT-4, JONCMA-5, JONCRF, JONWAN, JONBFS, JONTST-4, JONAAS-4, JONRAN-2, JONTSO-28.
 
-Note: 17 of 20 papers currently have full-text `/read/` pages; the rest are being added. Additional deposited papers not yet listed here are on OSF and resolve by DOI.
+Note: 17 of 25 papers currently have full-text `/read/` pages; the rest are being added. Additional deposited papers not yet listed here are on OSF and resolve by DOI.
