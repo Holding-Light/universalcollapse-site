@@ -47,6 +47,11 @@ Enforces:
      canonical page                                                 -> ERROR
      (fix_extension_hops.py rewrites them; 167 existed on 2026-07-17.)
 
+  9. POSITION BLOCKS — a landing whose ledger entry declares `relations` must
+     render the position block and every edge as a live href      -> ERROR
+     (patch_position_blocks.py emits it; this keeps the visible graph from
+      silently drifting off the declared one.)
+
 Usage:
   python3 uct_lint_html.py public/**/*.html
   python3 uct_lint_html.py --url https://universalcollapse.com/read/kernel_first
@@ -329,6 +334,21 @@ def lint(name, html, args, sitemap_locs=None):
                 errors.append(f"JSONLD: identifier {got!r} != ledger {want!r}")
             if canonical and arts[0].get("url", "").rstrip("/") != canonical.rstrip("/"):
                 errors.append(f"JSONLD: url {arts[0].get('url')!r} != canonical {canonical!r}")
+
+    # 9 — position blocks: declared relations must be rendered
+    if args.landing and _is_landing(name, args):
+        paper9 = (args.papers_by_slug or {}).get(Path(name).stem)
+        rel = (paper9 or {}).get("relations")
+        if rel:
+            if "position: derived by patch_position_blocks.py" not in html:
+                errors.append("POSITION: relations declared in site_data but no "
+                              "position block (run patch_position_blocks.py)")
+            else:
+                for field in ("read_first", "supports", "tested_by", "related"):
+                    for edge in rel.get(field) or []:
+                        if f'href="/{edge}"' not in html:
+                            errors.append(f"POSITION: declared edge /{edge} "
+                                          f"({field}) not rendered")
 
     # 6 — library cards: displayed DOI must match the ledger
     if Path(name).name == "library.html":
