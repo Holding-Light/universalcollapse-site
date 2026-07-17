@@ -13,7 +13,7 @@ CONFIG="${1:?usage: build_paper.sh <config.env>}"
 source "$CONFIG"
 
 : "${SRC:?}" "${OUT:?}" "${TITLE:?}" "${DOI:?}" "${PUBLIC_URL:?}" "${TIER:?}" "${DATE:?}"
-TEMPLATE="${TEMPLATE:-uct-paper.html}"
+TEMPLATE="${TEMPLATE:-tools/uct-paper.html}"
 FROM="${FROM:-docx}"
 
 echo "→ $SRC"
@@ -31,6 +31,13 @@ if [[ -n "${SRC_SHA256:-}" ]]; then
   fi
   echo "  source pinned: ${SRC_SHA256:0:16}…"
 fi
+
+# ---- atomic write ---------------------------------------------------------
+# Build to a scratch path and only move it into place on a clean lint. A failed
+# lint used to leave the broken file on disk for `git add -A` to find.
+FINAL="$OUT"
+OUT="${OUT}.building"
+trap 'rm -f "$OUT"' EXIT
 
 pandoc "$SRC" \
   --from "$FROM" \
@@ -81,7 +88,7 @@ fi
 
 # ---- lint (MathML-aware) --------------------------------------------------
 python3 - "$OUT" <<'PY'
-import sys, re
+import sys, re, json
 out = sys.argv[1]
 h = open(out, encoding="utf-8").read()
 fail = 0
@@ -104,9 +111,26 @@ for ph in ("XXXX", "TKTK", "citation_pdf_url\" content=\"\""):
         print(f"  FAIL  placeholder present: {ph}"); fail = 1
 
 # Required tags
-for tag in ('rel="canonical"',):
+for tag in ('rel="canonical"', 'name="citation_doi"', 'name="citation_title"'):
     if tag not in h:
         print(f"  FAIL  missing: {tag}"); fail = 1
+
+# JSON-LD must exist and must parse. This is the attribution surface: a model
+# that retrieves the full text reads this to learn whose work it is.
+m = re.search(r'<script type="application/ld\+json">(.*?)</script>', h, re.S)
+if not m:
+    print("  FAIL  missing JSON-LD block"); fail = 1
+else:
+    try:
+        json.loads(m.group(1))
+    except Exception as e:
+        print(f"  FAIL  JSON-LD does not parse: {e}"); fail = 1
+
+# A non-UTF-8 locale turns every em-dash into three U+FFFD and STILL emits valid
+# JSON. json.loads() passes on that. This is the only check that catches it.
+if "\ufffd" in h:
+    n = h.count("\ufffd")
+    print(f"  FAIL  U+FFFD replacement char x{n} — pandoc ran without a UTF-8 locale"); fail = 1
 
 n_math = h.count("<math")
 print(f"  math blocks: {n_math}")
@@ -114,4 +138,5 @@ print("  lint: " + ("FAILED" if fail else "clean"))
 sys.exit(fail)
 PY
 
-echo "✓ $OUT  ($(wc -c < "$OUT") bytes)"
+mv "$OUT" "$FINAL"
+echo "✓ $FINAL  ($(wc -c < "$FINAL") bytes)"

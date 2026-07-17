@@ -6,15 +6,64 @@
   <title>$title$ — Universal Collapse Theory</title>
   <meta name="description" content="$description$">
 
-  <!-- Full-text reading copy. The citable record is the landing page;
-       canonical points there so Scholar and search consolidate on one URL. -->
   <link rel="canonical" href="$public_url$">
+
+  <meta name="citation_title" content="$citation_title$">
+  <meta name="citation_author" content="Jones, Jeremy C.">
+  <meta name="citation_publication_date" content="$citation_date$">
+  <meta name="citation_doi" content="$citation_doi$">
+  <meta name="citation_public_url" content="$landing_url$">
+  <meta name="citation_technical_report_institution" content="HoldingLight LLC">
+  <meta name="citation_fulltext_world_readable" content="">
+  <meta name="citation_pdf_url" content="$citation_pdf_url$">
 
   <meta property="og:type" content="article">
   <meta property="og:title" content="$title$ — Universal Collapse Theory">
   <meta property="og:description" content="$description$">
   <meta property="og:url" content="$public_url$">
   <meta property="og:site_name" content="Universal Collapse Theory">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "@id": "https://doi.org/$citation_doi$",
+  "url": "$public_url$",
+  "mainEntityOfPage": "$landing_url$",
+  "name": "$citation_title$",
+  "description": "$description$",
+  "datePublished": "$citation_date$",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "identifier": {
+    "@type": "PropertyValue",
+    "propertyID": "DOI",
+    "value": "$citation_doi$"
+  },
+  "sameAs": "https://doi.org/$citation_doi$",
+  "author": {
+    "@type": "Person",
+    "@id": "https://orcid.org/0009-0007-2515-3774",
+    "name": "Jeremy C. Jones",
+    "sameAs": "https://orcid.org/0009-0007-2515-3774",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "HoldingLight LLC"
+    }
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "HoldingLight LLC",
+    "url": "https://universalcollapse.com"
+  },
+  "isPartOf": {
+    "@type": "CreativeWork",
+    "name": "Universal Collapse Theory",
+    "url": "https://universalcollapse.com"
+  }
+}
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
