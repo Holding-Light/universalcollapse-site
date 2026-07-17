@@ -344,6 +344,7 @@ papers:
 # ---------------------------------------------------------------------------
 
   - slug: program_map
+    pdf_sha256: "ce4a1a4cd7cea5adbe130e45f9d368b9a6b1f67665481a5dfb959da48d78a669"
     lastmod: "2026-07-16"
     priority: "0.8"
     pdf: false
@@ -360,6 +361,7 @@ papers:
     read: false
 
   - slug: falsification_standards
+    pdf_sha256: "e3cba877165547d3322e760b62e04b40e2120bd9e028c075a3b43ff15c7f9c79"
     lastmod: "2026-07-16"
     priority: "0.8"
     pdf: false
@@ -376,6 +378,7 @@ papers:
     read: false
 
   - slug: worked_demonstrations
+    pdf_sha256: "a6fb47a59ab8a498cc165e40a04482a65d658039c790e40ba623badc459852b2"
     lastmod: "2026-07-16"
     priority: "0.8"
     pdf: false
@@ -392,6 +395,7 @@ papers:
     read: false
 
   - slug: entropy_as_record
+    pdf_sha256: "18d316468a611ceadf233762d0e14303295643c808e4af95888bc1ed98eed18a"
     src_file: "UCT_T16_Entropy_as_Record_v1_0_2026_07.docx"
     pdf_file: "UCT_T16_Entropy_as_Record_v1.0.pdf"
     title: "Entropy as Record: A Locked-Source Shape Test of an SMBH-Dominated Cosmic Entropy Ledger Across Redshift"
@@ -408,6 +412,7 @@ papers:
     pdf: false
 
   - slug: cmb_records
+    pdf_sha256: "701dc05d39d7a292777df1454bddef62b7851e97715fc00ca6d699ad767558ea"
     src_file: "UCT_T16_CMB_Record_Consensus_v1_0_2026_07.docx"
     pdf_file: "UCT_T16_CMB_Record_Consensus_v1.0.pdf"
     title: "CMB Record Consensus"
@@ -424,6 +429,7 @@ papers:
     pdf: false
 
   - slug: f2_positive_control
+    pdf_sha256: "ded5ef99de6d410f5a6ca522bf8649e3becb4299a8939cdd15f4368ca27f97cc"
     src_file: "UCT_T16_F2_Training_Layer_Positive_Control_v1_0_2026_07.docx"
     pdf_file: "UCT_T16_F2_Training_Layer_Positive_Control_v1.0.pdf"
     title: "F2 — Training-Layer Positive Control: Install–Remove Hysteresis of a Fine-Tuned Structural Grammar at K_train"
@@ -440,6 +446,7 @@ papers:
     pdf: false
 
   - slug: s3_calibration
+    pdf_sha256: "7652b10fdae77172bbd8baddfe37114d1a56ad6a0caac2260eb938a6667a15ee"
     src_file: "UCT_T16_S3_Positive_Control_Calibration_v1_0_2026_07.docx"
     pdf_file: "UCT_T16_S3_Positive_Control_Calibration_v1.0.pdf"
     title: "Calibrating the S₃ Detector: A Positive-Control Study of Constraint-Reinstatement Detection in a Frontier Language Model"
@@ -456,6 +463,7 @@ papers:
     pdf: false
 
   - slug: s3_rag
+    pdf_sha256: "efde8569968ffe9583ef9d67db7a9b545b4a5c069aff11f0051c76ab9baae759"
     src_file: "UCT_T16_S3RAG_Phase_D_Findings_v1_0_2026_05.docx"
     pdf_file: "UCT_T16_S3RAG_Phase_D_Findings_v1_0_2026_05.pdf"
     title: "S₃ Retrieval-Channel Hysteresis — A Controlled RAG Test (S3-RAG-01)"
@@ -472,6 +480,7 @@ papers:
     pdf: false
 
   - slug: methods_s1
+    pdf_sha256: "bd0008d7862fbe652283761dae48011a23a8de8cbff0ca36e50b41f530c416e6"
     src_file: "UCT_Methods_S1_Auditing_Independence_v1_0_2026_05.docx"
     pdf_file: "UCT_Methods_S1_Auditing_Independence_v1_0_2026_05.pdf"
     title: "Auditing Independence in Multi-Channel Measurement"
@@ -488,6 +497,7 @@ papers:
     pdf: false
 
   - slug: methods_s2
+    pdf_sha256: "eb836c842fb175bf3e0f225a9e5eedd37468b2052fc54dab59e09a50b699509f"
     src_file: "UCT_Methods_S2_Auditing_Constraint_Asymmetry_v1_0_2026_05.docx"
     pdf_file: "UCT_Methods_S2_Auditing_Constraint_Asymmetry_v1_0_2026_05.pdf"
     title: "Auditing Constraint Asymmetry in Latency-Based Resolution Tests"
@@ -504,6 +514,7 @@ papers:
     pdf: false
 
   - slug: methods_s3
+    pdf_sha256: "4a31b3ef5b65aeaf08903918bc0518ac9ddf3c5e957656078e04ce2bd25885f0"
     src_file: "UCT_Methods_S3_Auditing_Record_State_v1_0_2026_05.docx"
     pdf_file: "UCT_Methods_S3_Auditing_Record_State_v1_0_2026_05.pdf"
     title: "Auditing Record State in Constraint-Sweep Hysteresis Tests"
@@ -520,6 +531,7 @@ papers:
     pdf: false
 
   - slug: tn_s1
+    pdf_sha256: "bd6c512ce9099084c871b65244760a143fa837b04608e9f3934ecdbead610d10"
     src_file: "UCT_TN_S1_Objectivity_from_Records_v1_0_2026_05.docx"
     pdf_file: "UCT_TN_S1_Objectivity_from_Records_v1_0_2026_05.pdf"
     title: "Objectivity from Records: An Exponential Consensus Bound"
@@ -536,6 +548,7 @@ papers:
     pdf: false
 
   - slug: tn_s2
+    pdf_sha256: "8ebc221a9d17bbef0db1d81ab84e0c2aeb9e3ecaeb6a840e0d176ba4374c667e"
     src_file: "UCT_TN_S2_Neutrality_Delays_Resolution_v1_0_2026_05.docx"
     pdf_file: "UCT_TN_S2_Neutrality_Delays_Resolution_v1_0_2026_05.pdf"
     title: "Neutrality Delays Resolution: An Expected Resolution-Time Bound"
@@ -552,6 +565,7 @@ papers:
     pdf: false
 
   - slug: tn_s3
+    pdf_sha256: "4ef6641fd3ad8317ae33b64a72dd53c5fb0c43812a564c9e866435d2fe8222f5"
     src_file: "UCT_TN_S3_Records_Amplify_Hysteresis_v1_0_2026_05.docx"
     pdf_file: "UCT_TN_S3_Records_Amplify_Hysteresis_v1_0_2026_05.pdf"
     title: "Records Amplify Hysteresis: A Loop-Area Lemma"
@@ -568,6 +582,7 @@ papers:
     pdf: false
 
   - slug: pr00_coherence
+    pdf_sha256: "0ed0aa36d7c5e6173d45377a547c68fe3e67b5d3c34293113ddb334b3484e578"
     src_file: "UCT_T30_PR00_Prime_Coherence_v1_0_2026_06.docx"
     pdf_file: "UCT_T30_PR00_Prime_Coherence_v1_0_2026_06.pdf"
     title: "Order as the Default Outcome Under Constraint"
@@ -584,6 +599,7 @@ papers:
     pdf: false
 
   - slug: pr01_randomness
+    pdf_sha256: "a444478a50e2b761d0d94172c9cf5fe6cd8014bc95de53ad097055c98228f980"
     src_file: "UCT_T30_PR01_Prime_Randomness_v1_0_2026_06.docx"
     pdf_file: "UCT_T30_PR01_Prime_Randomness_v1_0_2026_06.pdf"
     title: "Against Randomness-First"
@@ -600,6 +616,7 @@ papers:
     pdf: false
 
   - slug: pr02_chaos
+    pdf_sha256: "bd0b12db0c60836a35cf3157a1e29ba73b5855bc1cc22620149c305a343288d7"
     src_file: "UCT_T30_PR02_Prime_Chaos_v1_0_2026_06.docx"
     pdf_file: "UCT_T30_PR02_Prime_Chaos_v1_0_2026_06.pdf"
     title: "Against Chaos-First"
@@ -616,6 +633,7 @@ papers:
     pdf: false
 
   - slug: pr03_intelligence
+    pdf_sha256: "2817e6c969d33875f6e71479c8af62a40caf9befd933f12d25130965d98e50fb"
     src_file: "UCT_T30_PR03_Prime_Intelligence_v1_0_2026_06.docx"
     pdf_file: "UCT_T30_PR03_Prime_Intelligence_v1_0_2026_06.pdf"
     title: "Against Intelligence-First"
@@ -632,6 +650,7 @@ papers:
     pdf: false
 
   - slug: pr04_nothingness
+    pdf_sha256: "2090f4103a72c4783e542d12ebe468c2d1b8319707fdc26d2a64577de1e23ac4"
     src_file: "UCT_T30_PR04_Prime_Nothingness_v1_0_2026_06.docx"
     pdf_file: "UCT_T30_PR04_Prime_Nothingness_v1_0_2026_06.pdf"
     title: "Against Nothingness-First"
@@ -648,6 +667,7 @@ papers:
     pdf: false
 
   - slug: sbom
+    pdf_sha256: "9d566baa8f8f4abf568b172c2527533ad2b0aaa0bceada56605bbca4c26ced96"
     src_file: "UCT_T20_Structural_Biology_Operating_Manual_v1.0_2026_05.docx"
     pdf_file: "UCT_T20_Structural_Biology_Operating_Manual_v1.0_2026_05.pdf"
     title: "Structural Biology: Operating Manual"
@@ -664,6 +684,7 @@ papers:
     pdf: false
 
   - slug: how_minds_resolve
+    pdf_sha256: "016cd32e6433af13c5547b5083aadb213e301b70d28953e6d95f9ff346fb56e4"
     src_file: "UCT_T15_How_Minds_Resolve_v1_0_2026_07.docx"
     pdf_file: "UCT_T15_How_Minds_Resolve_v1_0_2026_07.pdf"
     title: "How Minds Resolve: The Faith-Reason-Logic-Belief Cycle"
