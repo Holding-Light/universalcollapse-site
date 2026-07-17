@@ -48,9 +48,30 @@ pages:
 # facts (2026-07-17 adjudication): a badge may say "Gateway" while the grouping
 # says "Orientation". env TIER must equal tier_label-or-tier; build_site_meta
 # gates it. tier_label's leading "Tier N" token must match tier's.
+# `relations` (OPTIONAL, per paper) — the paper's local neighborhood in the
+# program. Closed schema, all fields optional: purpose (one sentence,
+# operator-adjudicated), read_first / supports / tested_by / related (lists of
+# BUILT slugs — the dangling-edge gate enforces liveness), do_not_read_as
+# (list of strings, operator-adjudicated). Rendered on the landing by
+# patch_position_blocks.py; read_first feeds JSON-LD isBasedOn; the whole
+# graph emits to /library.json. Positioning lines are claims: propose to the
+# operator, never invent.
 papers:
   - slug: kernel_first
+    short_title: "Kernel First"
     tier_label: "Tier 0 · Gateway"
+    relations:
+      purpose: >-
+        Gateway paper: fixes what UCT claims and does not — collapse as
+        constrained actualization rather than substance, kernel-first rather
+        than primitive-first — and states the conditions under which the
+        program would be wrong.
+      supports: [wp01, cim_foundational, ai_synthetic]
+      related: [program_map, falsification_standards]
+      do_not_read_as:
+        - "A claim that collapse is a substance or force"
+        - "A matter-first, mind-first, or information-first metaphysics"
+        - "A Theory of Everything in the usual sense"
     src_file: "UCT_T0_Kernel_First_Collapse_Without_Reification_v1_0_2026_06.docx"
     pdf_file: "UCT_T0_Kernel_First_v1.0.pdf"
     pdf_sha256: "e99e73754fb4f4b40f33150e18685d272c8c308e0ae520028807453fd4e56e54"
@@ -122,6 +143,7 @@ papers:
     desc: Abiogenesis, evolution, and the major transitions read as constrained collapse.
 
   - slug: cim_foundational
+    short_title: "CIM Foundational"
     pdf_sha256: "0ff98bc52b94400acefb051f1280174551f9421ac1ef5c622cb6b69e99d02d9e"
     pdf_file: "UCT_T15_CIM_Foundational_v1.0.pdf"
     src_file: "UCT_T15_CIM_Foundational_v1.0_2026_05.docx"
@@ -204,6 +226,18 @@ papers:
     desc: Identity formation through CIM-mediated experience.
 
   - slug: ai_synthetic
+    relations:
+      purpose: >-
+        Applies the UCT kernel to artificial intelligence: whether model
+        behavior can be treated as constrained actualization, without claiming
+        that AI is conscious.
+      read_first: [kernel_first, soai]
+      tested_by: [ai_sig_deployed, s3_rag, f2_positive_control]
+      related: [how_minds_resolve]
+      do_not_read_as:
+        - "A claim that AI is humanlike"
+        - "A proof of machine consciousness"
+        - "A claim that every computation is equally explanatory"
     pdf_sha256: "b6cb83fd62110cd64f809e012f97da666d6ef4cf1880868663e76f68c8675f9b"
     pdf_file: "UCT_T15_AI_as_Synthetic_Collapse_v1.0.pdf"
     src_file: "UCT_T15_AI_as_Synthetic_Collapse_v1_0_2026_06.docx"
@@ -328,6 +362,7 @@ papers:
     desc: Mind wing. Pre-specified reanalysis of the COGITATE iEEG dataset.
 
   - slug: ai_sig_deployed
+    short_title: "S-Signatures in Deployed AI Systems"
     pdf_sha256: "d35bc3839074643beed88567b9510781fd300aa0a3a2720814ebc12b989b66f9"
     pdf_file: "UCT_T16_AI_Empirical_Demo_v1.0.pdf"
     src_file: "UCT_T16_AI_Empirical_Demo_v1_0_2026_05.docx"
@@ -352,6 +387,7 @@ papers:
 # ---------------------------------------------------------------------------
 
   - slug: program_map
+    short_title: "Program Map"
     pdf_sha256: "ce4a1a4cd7cea5adbe130e45f9d368b9a6b1f67665481a5dfb959da48d78a669"
     lastmod: "2026-07-16"
     priority: "0.8"
@@ -437,6 +473,18 @@ papers:
     pdf: true
 
   - slug: f2_positive_control
+    short_title: "F2 — Training-Layer Positive Control"
+    relations:
+      purpose: >-
+        Positive-control study: establishes that the T16 instrument detects a
+        known training-layer effect before harder cases are interpreted.
+      read_first: [soai, ai_sig_deployed]
+      supports: [s3_rag]
+      related: [s3_calibration]
+      do_not_read_as:
+        - "The full UCT account of AI"
+        - "Consciousness in language models"
+        - "General validity outside the tested conditions"
     pdf_sha256: "ded5ef99de6d410f5a6ca522bf8649e3becb4299a8939cdd15f4368ca27f97cc"
     src_file: "UCT_T16_F2_Training_Layer_Positive_Control_v1_0_2026_07.docx"
     pdf_file: "UCT_T16_F2_Training_Layer_Positive_Control_v1.0.pdf"
@@ -454,6 +502,7 @@ papers:
     pdf: true
 
   - slug: s3_calibration
+    short_title: "S₃ Positive-Control Calibration"
     pdf_sha256: "7652b10fdae77172bbd8baddfe37114d1a56ad6a0caac2260eb938a6667a15ee"
     src_file: "UCT_T16_S3_Positive_Control_Calibration_v1_0_2026_07.docx"
     pdf_file: "UCT_T16_S3_Positive_Control_Calibration_v1.0.pdf"
@@ -471,6 +520,7 @@ papers:
     pdf: true
 
   - slug: s3_rag
+    short_title: "S3-RAG-01"
     pdf_sha256: "efde8569968ffe9583ef9d67db7a9b545b4a5c069aff11f0051c76ab9baae759"
     src_file: "UCT_T16_S3RAG_Phase_D_Findings_v1_0_2026_05.docx"
     pdf_file: "UCT_T16_S3RAG_Phase_D_Findings_v1_0_2026_05.pdf"

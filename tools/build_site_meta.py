@@ -169,6 +169,44 @@ def check_tier_envs(d):
                  + "\n      Do not default.")
 
 
+REL_EDGE_FIELDS = ("read_first", "supports", "tested_by", "related")
+REL_ALLOWED = set(REL_EDGE_FIELDS) | {"purpose", "do_not_read_as"}
+
+
+def check_relations(d):
+    """The dangling-edge gate. Every relations edge is a link that can rot:
+    a slug that was never built, a paper later renamed, a self-loop pasted by
+    accident. The schema is CLOSED — an unknown key is a typo'd field silently
+    carrying data nowhere, which is how graphs rot without anyone noticing.
+    Fail loud; adjudicate; do not default."""
+    built = {p["slug"] for p in built_papers(d)}
+    errs = []
+    for p in built_papers(d):
+        rel = p.get("relations")
+        if not rel:
+            continue
+        slug = p["slug"]
+        for k in rel:
+            if k not in REL_ALLOWED:
+                errs.append(f"{slug}: unknown relations field {k!r} "
+                            f"(allowed: {sorted(REL_ALLOWED)})")
+        for field in REL_EDGE_FIELDS:
+            for edge in rel.get(field, []) or []:
+                if edge == slug:
+                    errs.append(f"{slug}: {field} contains a self-loop")
+                elif edge not in built:
+                    errs.append(f"{slug}: {field} edge {edge!r} is not a built slug")
+        if "purpose" in rel and not str(rel["purpose"]).strip():
+            errs.append(f"{slug}: purpose is empty")
+        for line in rel.get("do_not_read_as", []) or []:
+            if not str(line).strip():
+                errs.append(f"{slug}: empty do_not_read_as entry")
+    if errs:
+        sys.exit("FAIL  relations graph has dead or malformed edges:\n      "
+                 + "\n      ".join(errs)
+                 + "\n      Every edge must name a built slug. Adjudicate; do not default.")
+
+
 def sync_flags(path, d):
     """Line-level flag write-back. A pyyaml round-trip would eat the Sync Law comment."""
     lines = Path(path).read_text(encoding="utf-8").split("\n")
@@ -344,6 +382,7 @@ def main():
     d = load(a.data)
 
     check_tier_envs(d)
+    check_relations(d)
     drift = resolve_state(d, a.out)
     if drift:
         print(f"flag drift — disk is authoritative ({len(drift)} corrected):")
