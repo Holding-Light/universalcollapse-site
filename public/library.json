@@ -1000,21 +1000,72 @@
       "title": "Universal Collapse Theory — Physics Starter Pack",
       "tier": "Starter Pack — Physics",
       "doi": "10.17605/OSF.IO/ADM6U",
-      "url": "https://universalcollapse.com/starter_physics"
+      "url": "https://universalcollapse.com/starter_physics",
+      "short_title": "Physics Starter Pack",
+      "relations": {
+        "purpose": "Runnable physics-framed implementation of the three portable signatures — the probes WP01 specifies, in about a minute, on your own machine. Built to fail visibly if the predictions are wrong.",
+        "read_first": [
+          "wp01"
+        ],
+        "related": [
+          "starter_biology",
+          "starter_mind",
+          "wp02"
+        ],
+        "do_not_read_as": [
+          "Evidence for the program — WP01 tags its domain probes exploratory, and the pack is built to show a null as readily as a hit",
+          "A domain result — it runs the signatures in physics framing on illustrative data; the empirical demonstrations are separate papers with their own scope",
+          "A separate model from the other two packs — all three share one signature engine, and only the framing differs"
+        ]
+      }
     },
     {
       "slug": "starter_biology",
       "title": "Universal Collapse Theory — Biology Starter Pack",
       "tier": "Starter Pack — Biology",
       "doi": "10.17605/OSF.IO/F7NBY",
-      "url": "https://universalcollapse.com/starter_biology"
+      "url": "https://universalcollapse.com/starter_biology",
+      "short_title": "Biology Starter Pack",
+      "relations": {
+        "purpose": "Runnable biology-framed implementation of the three portable signatures — the probes WP01 specifies, in about a minute, on your own machine. Built to fail visibly if the predictions are wrong.",
+        "read_first": [
+          "wp01"
+        ],
+        "related": [
+          "starter_physics",
+          "starter_mind",
+          "wp03"
+        ],
+        "do_not_read_as": [
+          "Evidence for the program — WP01 tags its domain probes exploratory, and the pack is built to show a null as readily as a hit",
+          "A domain result — it runs the signatures in biology framing on illustrative data; the empirical demonstrations are separate papers with their own scope",
+          "A separate model from the other two packs — all three share one signature engine, and only the framing differs"
+        ]
+      }
     },
     {
       "slug": "starter_mind",
       "title": "Universal Collapse Theory — Mind Starter Pack",
       "tier": "Starter Pack — Mind",
       "doi": "10.17605/OSF.IO/A25CV",
-      "url": "https://universalcollapse.com/starter_mind"
+      "url": "https://universalcollapse.com/starter_mind",
+      "short_title": "Mind Starter Pack",
+      "relations": {
+        "purpose": "Runnable mind-framed implementation of the three portable signatures — the probes WP01 specifies, in about a minute, on your own machine. Built to fail visibly if the predictions are wrong.",
+        "read_first": [
+          "wp01"
+        ],
+        "related": [
+          "starter_physics",
+          "starter_biology",
+          "self_ego"
+        ],
+        "do_not_read_as": [
+          "Evidence for the program — WP01 tags its domain probes exploratory, and the pack is built to show a null as readily as a hit",
+          "A domain result — it runs the signatures in mind framing on illustrative data; the empirical demonstrations are separate papers with their own scope",
+          "A separate model from the other two packs — all three share one signature engine, and only the framing differs"
+        ]
+      }
     }
   ]
 }

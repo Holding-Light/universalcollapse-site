@@ -148,6 +148,9 @@ export LC_ALL=en_US.UTF-8
 | `tools/uct_lint_html.py` | Rule 4 web gate (notation, encoding, canonical, citation tags, ledger cross-check, library-card DOI display, sitemap agreement) |
 | `tools/build_architecture.sh` | JSX → architecture.html (esbuild, generated static block, jsdom e2e gate) |
 | `tools/patch_*.py`, `tools/fix_*.py` | one-shot landing/library patchers — the landing mechanics pipeline. **No landing generator exists; see §6** |
+| `tools/patch_position_blocks.py` | site_data `relations` → the Position in the Program block on landings |
+| `tools/patch_llms_link.py` | `rel=alternate` → /llms.txt on all 45 authored surfaces (read pages inherit from `uct-paper.html`) |
+| `public/library.json` | the whole ledger + relations graph, one GET; emitted by `build_site_meta` |
 
 ```bash
 python3 tools/build_site_meta.py --data tools/site_data.yaml --out public/ --check
@@ -158,6 +161,18 @@ python3 tools/lint_doi_shadow.py
 
 Without `--papers-from`, the ledger cross-checks silently skip — a bare
 `--landing` run passes pages the full invocation would fail.
+
+**Relations layer (complete 2026-07-17, 41/41, 158 edges).** Schema and its one
+non-obvious rule are documented at the `papers:` block in `site_data.yaml`:
+`supports` is NOT the inverse of `read_first`. Gates: `check_relations` (dead
+edges, self-loops, unknown fields) on every `build_site_meta` invocation
+including `--check`; lint check 9 (a declared relation must render as a live
+href). Authoring rule: **positioning lines are the operator's claims — propose,
+never invent.** Every edge in the graph is traceable to a sentence in the paper
+that carries it. Two findings the graph made visible, both corpus-level and both
+the operator's to close: nothing tests SoE (which holds DC1–DC5, the canonical
+falsifiers per Falsification Standards §3), and the entire empirical contact
+surface is five `tested_by` edges across 41 papers.
 
 `site_data.yaml` never invents a DOI. Truth is `UCT_DOI_Registry_v2_6_2026_07.md`.
 All 17 entries were cross-checked against each live page's own `citation_doi` tag
@@ -255,6 +270,24 @@ Theme: bg #08090c · accent #c9a96e · EB Garamond / Outfit / JetBrains Mono
 
 Each cost real time. Same shape throughout: **a tool encoding one assumption
 about a world that has two.**
+
+- **Generate the patch against `origin/main`, not local `HEAD`.** Authoring batch N+1
+  on a working tree that still holds an unpushed batch N produces a patch carrying
+  both — 16 files where 10 were intended. `git diff origin/main` after a `git fetch`
+  is the correct form, and `git apply --check` in a pristine clone is what catches it.
+  Fetch and reset **before** authoring, not after.
+
+- **A guard that fires on the true signal is the same bug one level up.** A
+  "distinctiveness" filter meant to drop series names from a title scan — anything
+  matching >1/3 of the corpus — flagged *Records* (20/38) and *The Structuralization
+  of Empiricism* (18/38). Those are not series names; they are the two most-cited
+  papers in the program. The frequency assumption was the bug. Stripping the literal
+  series prefix was the fix.
+
+- **Citation is not an edge.** How Minds Resolve cites Methods-S₁–S₃ in one line, as
+  the apparatus for testing *related* kernel-level claims, and lists Records and SoE
+  in its references while using neither in its body. A relation is what the paper
+  *does* with a work, not that it named it. Read the sentence, not the bibliography.
 
 - **A citation scan keyed on DOIs is blind to the pre-DOI corpus.** Building the
   relations graph from `OSF.IO/<token>` matches across the read pages reported
