@@ -406,6 +406,18 @@ papers:
 
   - slug: falsification_standards
     short_title: "Falsification Standards"
+    relations:
+      purpose: >-
+        The consolidated falsification standard: gathers the failure conditions
+        distributed across the corpus into one reference — per claim, per
+        layer, and program-level — and records outcomes against them,
+        including the losses.
+      read_first: [kernel_first, program_map]
+      related: [uis, soe, worked_demonstrations]
+      do_not_read_as:
+        - "Proof that UCT survives these tests — it states where the program would fail, not that it has passed"
+        - "A single-failure kill switch — the program-level verdict is longitudinal, read off the full ledger"
+        - "A compliance checklist for applied work — applied results are not by themselves evidence for the law-level program"
     pdf_sha256: "e3cba877165547d3322e760b62e04b40e2120bd9e028c075a3b43ff15c7f9c79"
     lastmod: "2026-07-16"
     priority: "0.8"
@@ -423,6 +435,7 @@ papers:
     read: true
 
   - slug: worked_demonstrations
+    short_title: "Two Worked Demonstrations"
     pdf_sha256: "a6fb47a59ab8a498cc165e40a04482a65d658039c790e40ba623badc459852b2"
     lastmod: "2026-07-16"
     priority: "0.8"

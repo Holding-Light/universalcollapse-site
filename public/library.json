@@ -230,7 +230,24 @@
       "url": "https://universalcollapse.com/falsification_standards",
       "short_title": "Falsification Standards",
       "read_url": "https://universalcollapse.com/read/falsification_standards",
-      "pdf_url": "https://universalcollapse.com/pdf/UCT_AG_Falsification_Standards_v1.0.pdf"
+      "pdf_url": "https://universalcollapse.com/pdf/UCT_AG_Falsification_Standards_v1.0.pdf",
+      "relations": {
+        "purpose": "The consolidated falsification standard: gathers the failure conditions distributed across the corpus into one reference — per claim, per layer, and program-level — and records outcomes against them, including the losses.",
+        "read_first": [
+          "kernel_first",
+          "program_map"
+        ],
+        "related": [
+          "uis",
+          "soe",
+          "worked_demonstrations"
+        ],
+        "do_not_read_as": [
+          "Proof that UCT survives these tests — it states where the program would fail, not that it has passed",
+          "A single-failure kill switch — the program-level verdict is longitudinal, read off the full ledger",
+          "A compliance checklist for applied work — applied results are not by themselves evidence for the law-level program"
+        ]
+      }
     },
     {
       "slug": "worked_demonstrations",
@@ -238,6 +255,7 @@
       "tier": "Architecture — Governance",
       "doi": "10.17605/OSF.IO/Z7HY2",
       "url": "https://universalcollapse.com/worked_demonstrations",
+      "short_title": "Two Worked Demonstrations",
       "read_url": "https://universalcollapse.com/read/worked_demonstrations",
       "pdf_url": "https://universalcollapse.com/pdf/UCT_AG_Two_Worked_Demonstrations_v1.0.pdf"
     },

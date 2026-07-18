@@ -247,6 +247,14 @@ def build_sitemap(d):
     for p in d.get("pages", []):
         url(p["loc"], p["lastmod"], p["changefreq"], p["priority"])
 
+    # llms.txt is generated from this same ledger (build_llms); a client that
+    # does not already know the /llms.txt convention can only find it here or
+    # via <link rel="alternate"> (patch_llms_link.py). Its lastmod is the
+    # newest lastmod in the ledger — derived, never hand-declared.
+    all_lm = [p["lastmod"] for p in d.get("pages", [])] + \
+             [p["lastmod"] for p in built_papers(d)]
+    url("/llms.txt", max(all_lm), "weekly", "0.8")
+
     for p in built_papers(d):
         url(f"/{p['slug']}", p["lastmod"], "monthly", p["priority"])
         if p.get("read"):
@@ -437,7 +445,9 @@ def main():
 
     papers = built_papers(d)
     reads = [p for p in papers if p.get("read")]
-    n_urls = len(d.get("pages", [])) + len(papers) + len(reads)
+    # Derived from the artifact, not recomputed beside it — a counter that can
+    # disagree with the file it describes is a blind instrument (CLAUDE.md §10).
+    n_urls = sm.count("<loc>")
 
     print(f"pages          : {len(d.get('pages', []))}")
     print(f"papers built   : {len(papers)}")

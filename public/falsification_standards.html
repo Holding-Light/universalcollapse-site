@@ -6,6 +6,7 @@
   <title>Falsification Standards — Universal Collapse Theory</title>
   <meta name="description" content="Where the program can fail — per claim, per layer, and as a whole. The consolidated falsification standard for Universal Collapse Theory.">
   <link rel="canonical" href="https://universalcollapse.com/falsification_standards">
+  <link rel="alternate" type="text/plain" href="https://universalcollapse.com/llms.txt" title="llms.txt — corpus index for AI agents">
 
   <!-- Highwire / Google Scholar bibliographic tags -->
   <meta name="citation_title" content="Failure Modes and Falsification Standards for Universal Collapse Theory">
@@ -47,6 +48,10 @@
       "name": "HoldingLight LLC"
     }
   },
+  "isBasedOn": [
+    "https://universalcollapse.com/kernel_first",
+    "https://universalcollapse.com/program_map"
+  ],
   "publisher": {
     "@type": "Organization",
     "name": "HoldingLight LLC",
@@ -158,6 +163,16 @@
 
     .cta-secondary { color: var(--accent); background: transparent; border-color: var(--accent-dim); }
     .cta-secondary:hover { background: rgba(201,169,110,0.08); border-color: var(--accent); }
+    /* position-block: derived by patch_position_blocks.py — edit site_data, rerun */
+    .pos-block { background: var(--bg-surface); border: 1px solid var(--rule); padding: 1.5rem 1.6rem; margin-bottom: 2.5rem; }
+    .pos-purpose { font-family: var(--serif); font-size: 0.98rem; line-height: 1.75; color: var(--text-secondary); margin-bottom: 1.1rem; }
+    .pos-rels { display: grid; grid-template-columns: max-content 1fr; gap: 0.5rem 1.4rem; margin: 0; }
+    .pos-rels dt { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-secondary); opacity: 0.75; padding-top: 0.2rem; }
+    .pos-rels dd { font-family: var(--serif); font-size: 0.95rem; line-height: 1.65; color: var(--text-secondary); margin: 0; }
+    .pos-rels dd a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--rule); }
+    .pos-rels dd a:hover { border-color: var(--accent); }
+    @media (max-width: 560px) { .pos-rels { grid-template-columns: 1fr; gap: 0.2rem; } .pos-rels dd { margin-bottom: 0.6rem; } }
+    /* /position-block */
   </style>
 </head>
 <body>
@@ -203,6 +218,17 @@
 
   <section>
     <div class="container">
+      <!-- position: derived by patch_position_blocks.py from site_data relations. Edit site_data, rerun; do not hand-edit. -->
+      <div class="section-label">Position in the Program</div>
+      <div class="pos-block">
+        <p class="pos-purpose">The consolidated falsification standard: gathers the failure conditions distributed across the corpus into one reference — per claim, per layer, and program-level — and records outcomes against them, including the losses.</p>
+        <dl class="pos-rels">
+          <dt>Read first</dt><dd><a href="/kernel_first">Kernel First</a> &middot; <a href="/program_map">Program Map</a></dd>
+          <dt>Related</dt><dd><a href="/uis">Update Integrity Standard (UIS)</a> &middot; <a href="/soe">The Structuralization of Empiricism</a> &middot; <a href="/worked_demonstrations">Two Worked Demonstrations</a></dd>
+          <dt>Do not read as</dt><dd>Proof that UCT survives these tests — it states where the program would fail, not that it has passed &middot; A single-failure kill switch — the program-level verdict is longitudinal, read off the full ledger &middot; A compliance checklist for applied work — applied results are not by themselves evidence for the law-level program</dd>
+        </dl>
+      </div>
+      <!-- /position -->
       <div class="section-label">Cite</div>
       <div class="cite-box">
         <p class="cite-text">Jones, Jeremy C. (2026). <em>Failure Modes and Falsification Standards for Universal Collapse Theory</em> (v1.0). HoldingLight LLC.<br>
