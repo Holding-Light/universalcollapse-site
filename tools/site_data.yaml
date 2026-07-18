@@ -191,6 +191,18 @@ papers:
     desc: Abiogenesis, evolution, and the major transitions read as constrained collapse.
 
   - slug: cim_foundational
+    relations:
+      purpose: >-
+        Supplies the missing foundation for Consciousness-Induced Material:
+        cognition externalized into record-bearing form, then re-engaged,
+        transmitted, internalized, and recursively operated on — the category the
+        rest of the corpus had been using without developing.
+      read_first: [kernel_first]
+      related: [records, soe, uis, wp01]
+      do_not_read_as:
+        - "A theory of consciousness — it takes cognition as given and asks what happens once cognition is externalized into durable form"
+        - "A claim that interior thought is CIM — CIM originates at externalization; the pre-record phase is where it may be generated, not where it already is"
+        - "A claim that externalized structure determines thought — internalized CIM constrains future cognition, which is a different and weaker claim"
     short_title: "CIM Foundational"
     pdf_sha256: "0ff98bc52b94400acefb051f1280174551f9421ac1ef5c622cb6b69e99d02d9e"
     pdf_file: "UCT_T15_CIM_Foundational_v1.0.pdf"
@@ -444,6 +456,18 @@ papers:
       preserving corrigibility in record-based systems.
 
   - slug: soai
+    relations:
+      purpose: >-
+        Specifies the structural conditions a description of record-carrying AI
+        systems must account for if it aims to describe them as recursive
+        constraint-guided architectures — against a discourse offering only
+        deflation ("just statistics") or inflation.
+      supports: [ai_synthetic, f2_positive_control]
+      related: [cim_foundational, records, soe, uis]
+      do_not_read_as:
+        - "A settlement of the consciousness question — the contribution is architectural, and the question is left open"
+        - "An assertion of equivalence with human cognition"
+        - "A framework requiring adoption of the wider program — it specifies structural conditions that stand on their own"
     pdf_sha256: "0aa0ed409c74061f7c436b7e02d069d94f4304b7cc797fe0bab445aed371a0a0"
     pdf_file: "UCT_T15_Structuralization_of_AI_v1.0.pdf"
     src_file: "UCT_T15_Structuralization_of_AI_v1_0_2026_06.docx"
@@ -559,6 +583,19 @@ papers:
 # ---------------------------------------------------------------------------
 
   - slug: program_map
+    relations:
+      purpose: >-
+        Places every part of the corpus, states what kind of claim each part
+        makes, and shows how each could fail. A structural reference, not an
+        argument — the accountability instrument that answers what the program
+        is, once Kernel First has answered how to read it.
+      read_first: [kernel_first]
+      supports: [falsification_standards]
+      related: [worked_demonstrations]
+      do_not_read_as:
+        - "A proof of the kernel, a validation of the candidate law, or a domain result — it classifies the corpus and identifies where falsification enters"
+        - "Evidence for the program — it is an accountability instrument, except insofar as making commitments explicit is itself evidence of anything"
+        - "A first document for a casual reader — it is the first document for someone asking whether the program has a coherent architecture rather than one undifferentiated claim"
     short_title: "Program Map"
     pdf_sha256: "ce4a1a4cd7cea5adbe130e45f9d368b9a6b1f67665481a5dfb959da48d78a669"
     lastmod: "2026-07-16"
@@ -607,6 +644,18 @@ papers:
     read: true
 
   - slug: worked_demonstrations
+    relations:
+      purpose: >-
+        Runs the same machinery twice and states the line between the runs: a
+        research demonstration that counts toward the ledger, and an applied
+        diagnostic that does not unless independently audited. Pairing them
+        demonstrates the firewall the program asserts elsewhere rather than
+        merely claiming it.
+      related: [tn_s2, methods_s2, cogitate, falsification_standards]
+      do_not_read_as:
+        - "A proof of the kernel or a validation of the candidate law — Part A is one empirical run, with a failed prediction inside it"
+        - "A legal, regulatory, or fairness finding — Part B is a structural diagnostic, and its commercial-side results are not offered as evidence for the research program"
+        - "A collapse of the two stacks into one — the pairing shows how evidence and application are separated, not how they combine"
     short_title: "Two Worked Demonstrations"
     pdf_sha256: "a6fb47a59ab8a498cc165e40a04482a65d658039c790e40ba623badc459852b2"
     lastmod: "2026-07-16"
@@ -955,6 +1004,17 @@ papers:
     pdf: true
 
   - slug: pr00_coherence
+    relations:
+      purpose: >-
+        Lens reset: coherence is the ordinary signature of constraint, not
+        something added by intelligence, teleology, or luck. Defines coherence
+        operationally, separates it from intelligence, and gives a minimal audit
+        for detecting it in data.
+      related: [wp01, pr01_randomness, pr02_chaos, pr03_intelligence]
+      do_not_read_as:
+        - "A claim that all constrained systems become simple, predictable, or highly ordered"
+        - "A claim that randomness is unreal, or that chaos is merely apparent disorder"
+        - "New theory — the aim is conceptual hygiene: where to look first, before invoking intelligence, teleology, or primitive randomness"
     short_title: "Prime 0 — Coherence"
     pdf_sha256: "0ed0aa36d7c5e6173d45377a547c68fe3e67b5d3c34293113ddb334b3484e578"
     src_file: "UCT_T30_PR00_Prime_Coherence_v1_0_2026_06.docx"
@@ -973,6 +1033,17 @@ papers:
     pdf: true
 
   - slug: pr01_randomness
+    short_title: "Prime 1 — Randomness"
+    relations:
+      purpose: >-
+        Lens reset: "random" is a scoped residual label under a stated model
+        class, constraint description, dataset, protocol, and search budget — not
+        an ontological primitive and not an end-of-inquiry verdict.
+      related: [pr00_coherence, pr02_chaos]
+      do_not_read_as:
+        - "A claim that probabilistic models are illegitimate, or that all stochastic processes are secretly deterministic"
+        - "A claim that irreducible randomness is impossible"
+        - "A licence to keep searching forever — no structure found within scope is a disciplined conclusion; patternless in principle is a much stronger claim requiring a much stronger argument"
     pdf_sha256: "a444478a50e2b761d0d94172c9cf5fe6cd8014bc95de53ad097055c98228f980"
     src_file: "UCT_T30_PR01_Prime_Randomness_v1_0_2026_06.docx"
     pdf_file: "UCT_T30_PR01_Prime_Randomness_v1_0_2026_06.pdf"
@@ -990,6 +1061,18 @@ papers:
     pdf: true
 
   - slug: pr02_chaos
+    short_title: "Prime 2 — Chaos"
+    relations:
+      purpose: >-
+        Lens reset: deterministic chaos limits pointwise forecasting beyond a
+        finite precision horizon while preserving invariant and statistical
+        structure. Separates pointwise unpredictability from ensemble-level
+        structure.
+      related: [pr00_coherence, pr01_randomness]
+      do_not_read_as:
+        - "A claim that chaotic systems are simple, tame, predictable in detail, or always controllable"
+        - "A claim that sensitive dependence is merely apparent"
+        - "A claim that chaos and randomness are the same thing — the dispute is with the inference from sensitivity to disorder, not with sensitivity itself"
     pdf_sha256: "bd0b12db0c60836a35cf3157a1e29ba73b5855bc1cc22620149c305a343288d7"
     src_file: "UCT_T30_PR02_Prime_Chaos_v1_0_2026_06.docx"
     pdf_file: "UCT_T30_PR02_Prime_Chaos_v1_0_2026_06.pdf"
@@ -1007,6 +1090,18 @@ papers:
     pdf: true
 
   - slug: pr03_intelligence
+    short_title: "Prime 3 — Intelligence"
+    relations:
+      purpose: >-
+        Lens reset: intelligence is an endogenous plastic update loop that
+        improves performance across contexts — present or absent by structural
+        criteria, measurable against a non-learning baseline, rather than an
+        inner essence to be intuited.
+      related: [pr00_coherence, ai_synthetic]
+      do_not_read_as:
+        - "A claim that an intelligent system is conscious, understands its task, or has inner experience, personhood, or rich agency"
+        - "A claim that complexity, large state spaces, or optimization-shaped behavior are themselves evidence of intelligence"
+        - "A claim that intelligence is uniquely human"
     pdf_sha256: "2817e6c969d33875f6e71479c8af62a40caf9befd933f12d25130965d98e50fb"
     src_file: "UCT_T30_PR03_Prime_Intelligence_v1_0_2026_06.docx"
     pdf_file: "UCT_T30_PR03_Prime_Intelligence_v1_0_2026_06.pdf"
@@ -1024,6 +1119,18 @@ papers:
     pdf: true
 
   - slug: pr04_nothingness
+    short_title: "Prime 4 — Nothingness"
+    relations:
+      purpose: >-
+        Lens reset: in scientific work "nothing" cannot serve as an explanatory
+        ground — every working account of X-from-nothing already presupposes a
+        structured ground. Separates absolute nothingness from physics vacua and
+        formal nulls.
+      related: [pr00_coherence]
+      do_not_read_as:
+        - "A claim that the physical vacuum has been fully explained, or that nothing is a meaningless word"
+        - "A claim that absolute nothingness is metaphysically impossible"
+        - "An answer to why there is anything at all — it disciplines what nothing can mean inside an explanation, and leaves that question open"
     pdf_sha256: "2090f4103a72c4783e542d12ebe468c2d1b8319707fdc26d2a64577de1e23ac4"
     src_file: "UCT_T30_PR04_Prime_Nothingness_v1_0_2026_06.docx"
     pdf_file: "UCT_T30_PR04_Prime_Nothingness_v1_0_2026_06.pdf"

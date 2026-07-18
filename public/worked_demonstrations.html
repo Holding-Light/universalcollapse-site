@@ -159,6 +159,16 @@
 
     .cta-secondary { color: var(--accent); background: transparent; border-color: var(--accent-dim); }
     .cta-secondary:hover { background: rgba(201,169,110,0.08); border-color: var(--accent); }
+    /* position-block: derived by patch_position_blocks.py — edit site_data, rerun */
+    .pos-block { background: var(--bg-surface); border: 1px solid var(--rule); padding: 1.5rem 1.6rem; margin-bottom: 2.5rem; }
+    .pos-purpose { font-family: var(--serif); font-size: 0.98rem; line-height: 1.75; color: var(--text-secondary); margin-bottom: 1.1rem; }
+    .pos-rels { display: grid; grid-template-columns: max-content 1fr; gap: 0.5rem 1.4rem; margin: 0; }
+    .pos-rels dt { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-secondary); opacity: 0.75; padding-top: 0.2rem; }
+    .pos-rels dd { font-family: var(--serif); font-size: 0.95rem; line-height: 1.65; color: var(--text-secondary); margin: 0; }
+    .pos-rels dd a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--rule); }
+    .pos-rels dd a:hover { border-color: var(--accent); }
+    @media (max-width: 560px) { .pos-rels { grid-template-columns: 1fr; gap: 0.2rem; } .pos-rels dd { margin-bottom: 0.6rem; } }
+    /* /position-block */
   </style>
 </head>
 <body>
@@ -204,6 +214,16 @@
 
   <section>
     <div class="container">
+      <!-- position: derived by patch_position_blocks.py from site_data relations. Edit site_data, rerun; do not hand-edit. -->
+      <div class="section-label">Position in the Program</div>
+      <div class="pos-block">
+        <p class="pos-purpose">Runs the same machinery twice and states the line between the runs: a research demonstration that counts toward the ledger, and an applied diagnostic that does not unless independently audited. Pairing them demonstrates the firewall the program asserts elsewhere rather than merely claiming it.</p>
+        <dl class="pos-rels">
+          <dt>Related</dt><dd><a href="/tn_s2">TN-S₂ — Neutrality Delays Resolution</a> &middot; <a href="/methods_s2">Methods-S₂ — Auditing Constraint Asymmetry</a> &middot; <a href="/cogitate">COGITATE Reanalysis</a> &middot; <a href="/falsification_standards">Falsification Standards</a></dd>
+          <dt>Do not read as</dt><dd>A proof of the kernel or a validation of the candidate law — Part A is one empirical run, with a failed prediction inside it &middot; A legal, regulatory, or fairness finding — Part B is a structural diagnostic, and its commercial-side results are not offered as evidence for the research program &middot; A collapse of the two stacks into one — the pairing shows how evidence and application are separated, not how they combine</dd>
+        </dl>
+      </div>
+      <!-- /position -->
       <div class="section-label">Cite</div>
       <div class="cite-box">
         <p class="cite-text">Jones, Jeremy C. (2026). <em>Two Worked Demonstrations: The Research Stack and the Applied Stack</em> (v1.0). HoldingLight LLC.<br>
