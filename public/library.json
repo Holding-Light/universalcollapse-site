@@ -352,8 +352,20 @@
       "tier": "Tier 1.6 — Empirical Demonstrations",
       "doi": "10.17605/OSF.IO/KZ8TP",
       "url": "https://universalcollapse.com/rice",
+      "short_title": "Bio Constraint Sweep (Rice)",
       "read_url": "https://universalcollapse.com/read/rice",
-      "pdf_url": "https://universalcollapse.com/pdf/UCT_T16_Bio_Constraint_Sweep_Rice_v1.0.pdf"
+      "pdf_url": "https://universalcollapse.com/pdf/UCT_T16_Bio_Constraint_Sweep_Rice_v1.0.pdf",
+      "relations": {
+        "purpose": "A theory-neutral constraint-sweep hysteresis test on transcriptomic time series: quantifies the loop between stress onset and recovery as an inspectable metric against a permutation null. Heat shows strong hysteresis in two cultivars at the permutation floor; drought, the negative comparator, does not.",
+        "related": [
+          "wp03"
+        ],
+        "do_not_read_as": [
+          "A mechanistic account — the focus is a robust, inspectable geometric signature, not attribution to a biochemical, epigenetic, regulatory, or record-level cause",
+          "A test that requires the wider program — it is theory-neutral by construction, and its packet reproduces in one command without prior project context",
+          "A general result about plants under stress — heat showed the signature in two cultivars, and the drought comparator did not"
+        ]
+      }
     },
     {
       "slug": "cogitate",
@@ -363,7 +375,18 @@
       "url": "https://universalcollapse.com/cogitate",
       "short_title": "COGITATE Reanalysis",
       "read_url": "https://universalcollapse.com/read/cogitate",
-      "pdf_url": "https://universalcollapse.com/pdf/UCT_T16_Constraint_Dependent_Perceptual_Resolution_COGITATE_v1.0.pdf"
+      "pdf_url": "https://universalcollapse.com/pdf/UCT_T16_Constraint_Dependent_Perceptual_Resolution_COGITATE_v1.0.pdf",
+      "relations": {
+        "purpose": "A pre-specified reanalysis of the open COGITATE iEEG dataset testing three falsifiable predictions derived from the constraint-architecture model of perception — reported as they fell, including a failed prediction and an inconclusive one alongside the supported one.",
+        "read_first": [
+          "self_ego"
+        ],
+        "do_not_read_as": [
+          "A resolution of the IIT / GNWT debate — the claim is that neither by itself models the dimension tested here, constraint-dependent temporal dynamics",
+          "A confirmation — one prediction failed, one is inconclusive, and the comparison-level result cannot be read as evidence given the non-independence of electrodes within subjects",
+          "A theory of consciousness"
+        ]
+      }
     },
     {
       "slug": "ai_sig_deployed",
@@ -373,7 +396,26 @@
       "url": "https://universalcollapse.com/ai_sig_deployed",
       "short_title": "S-Signatures in Deployed AI Systems",
       "read_url": "https://universalcollapse.com/read/ai_sig_deployed",
-      "pdf_url": "https://universalcollapse.com/pdf/UCT_T16_AI_Empirical_Demo_v1.0.pdf"
+      "pdf_url": "https://universalcollapse.com/pdf/UCT_T16_AI_Empirical_Demo_v1.0.pdf",
+      "relations": {
+        "purpose": "Instruments the three signatures in deployed AI systems under a declared access tier — the empirical companion for the AI wing, and the substrate that stress-tests the Methods-S protocols where output is policy-shaped rather than stably measurable.",
+        "read_first": [
+          "ai_synthetic"
+        ],
+        "supports": [
+          "s3_rag"
+        ],
+        "related": [
+          "methods_s1",
+          "methods_s2",
+          "methods_s3"
+        ],
+        "do_not_read_as": [
+          "A claim of consciousness or sentience for any system — the kernel-level active phase is a named technical construct for the unresolved window during processing, and anything beyond that is explicitly out of scope",
+          "An absence result about a system as such — absent is a scope statement bounded by the access tier in force, not a claim across all possible tiers",
+          "AI policy or governance advocacy — the frame is empirical demonstration of structural signatures"
+        ]
+      }
     },
     {
       "slug": "program_map",
@@ -430,7 +472,22 @@
       "url": "https://universalcollapse.com/entropy_as_record",
       "short_title": "Entropy as Record",
       "read_url": "https://universalcollapse.com/read/entropy_as_record",
-      "pdf_url": "https://universalcollapse.com/pdf/UCT_T16_Entropy_as_Record_v1.0.pdf"
+      "pdf_url": "https://universalcollapse.com/pdf/UCT_T16_Entropy_as_Record_v1.0.pdf",
+      "relations": {
+        "purpose": "A locked-source shape test: assembles standard cosmological entropy components into a time-indexed ledger under pre-specified models and asks whether the curve grows the way a record-accumulation reading expects. It survived every pre-specified shape falsifier — and one pre-specified criterion failed and is reported as a failure.",
+        "read_first": [
+          "records",
+          "wp02"
+        ],
+        "related": [
+          "uis"
+        ],
+        "do_not_read_as": [
+          "A discrimination of the record reading from conventional thermodynamics and cosmology — any monotone, smoothly integrated growth history produces a curve of this general character",
+          "A multi-component consilience — under this construction the shape content is the supermassive-black-hole growth history, so the result stands or falls with the reconstruction it is built on",
+          "A cosmological parameter inference, a constraint on gas thermodynamic evolution, or a claim about entropy microphysics"
+        ]
+      }
     },
     {
       "slug": "cmb_records",
@@ -438,8 +495,26 @@
       "tier": "Tier 1.6 — Empirical Demonstrations",
       "doi": "10.17605/OSF.IO/PNF89",
       "url": "https://universalcollapse.com/cmb_records",
+      "short_title": "CMB Record Consensus",
       "read_url": "https://universalcollapse.com/read/cmb_records",
-      "pdf_url": "https://universalcollapse.com/pdf/UCT_T16_CMB_Record_Consensus_v1.0.pdf"
+      "pdf_url": "https://universalcollapse.com/pdf/UCT_T16_CMB_Record_Consensus_v1.0.pdf",
+      "relations": {
+        "purpose": "Treats each of the four Planck PR3 component-separated temperature maps as a redundant record channel and measures how fast disagreement falls under aggregation — a worked, digit-reproducible instance of the standards layer's consensus diagnostic, and a robustness statement about the published products.",
+        "read_first": [
+          "tn_s1",
+          "methods_s1"
+        ],
+        "related": [
+          "records",
+          "uis",
+          "ai_sig_deployed"
+        ],
+        "do_not_read_as": [
+          "Evidence of independent redundancy — at the measured correlations the ensemble carries about one effective channel, so this documents consensus among redundant records, not accumulated independent evidence; the audited-independence question is open by design and assigned to the companion protocol",
+          "A test of ΛCDM, an anomaly evaluation, a parameter constraint, or a re-analysis of the Planck likelihood",
+          "An ontological claim about the early universe — inside the program it is an operational example of redundant-record stabilization, outside it a reproducibility check, and both readings are licensed"
+        ]
+      }
     },
     {
       "slug": "f2_positive_control",
@@ -477,7 +552,23 @@
       "url": "https://universalcollapse.com/s3_calibration",
       "short_title": "S₃ Positive-Control Calibration",
       "read_url": "https://universalcollapse.com/read/s3_calibration",
-      "pdf_url": "https://universalcollapse.com/pdf/UCT_T16_S3_Positive_Control_Calibration_v1.0.pdf"
+      "pdf_url": "https://universalcollapse.com/pdf/UCT_T16_S3_Positive_Control_Calibration_v1.0.pdf",
+      "relations": {
+        "purpose": "Plants defects whose presence and magnitude are fixed by construction and measures the S₃ detector's recovery of them — characterizing the instrument's sensitivity and specificity before harder cases are interpreted.",
+        "read_first": [
+          "tn_s3"
+        ],
+        "related": [
+          "f2_positive_control",
+          "s3_rag",
+          "ai_sig_deployed"
+        ],
+        "do_not_read_as": [
+          "External validity — that an S₃ verdict on a deployed system predicts an outcome its operators independently track; that needs field outcome data and is out of scope",
+          "A general sensitivity claim — the results are to be cited as demonstrated detection sensitivity under the controlled conditions tested",
+          "A verdict on any deployed system"
+        ]
+      }
     },
     {
       "slug": "s3_rag",
@@ -487,7 +578,23 @@
       "url": "https://universalcollapse.com/s3_rag",
       "short_title": "S3-RAG-01",
       "read_url": "https://universalcollapse.com/read/s3_rag",
-      "pdf_url": "https://universalcollapse.com/pdf/UCT_T16_S3RAG_Phase_D_Findings_v1_0_2026_05.pdf"
+      "pdf_url": "https://universalcollapse.com/pdf/UCT_T16_S3RAG_Phase_D_Findings_v1_0_2026_05.pdf",
+      "relations": {
+        "purpose": "The slot-4 controlled retrieval demonstration: under saturated current-record retrieval, no detectable post-swap stale-pack hysteresis — zero of 420 swap-condition classifications matched the pre-swap pack. A bounded null, published as one.",
+        "read_first": [
+          "ai_sig_deployed"
+        ],
+        "related": [
+          "f2_positive_control",
+          "records",
+          "uis"
+        ],
+        "do_not_read_as": [
+          "A finding that the signature is absent — it establishes a bounded clean-record baseline under saturated retrieval, which is a different claim",
+          "A result covering partial retrieval, weaker source coverage, longer pre-swap exposure, ambiguous source convergence, or memory-enabled architectures — each is left to a planned stress variant",
+          "A cross-vendor result — variation of the retrieval probe across vendors is not addressed"
+        ]
+      }
     },
     {
       "slug": "methods_s1",
@@ -714,7 +821,24 @@
       "url": "https://universalcollapse.com/sbom",
       "short_title": "Structural Biology: Operating Manual",
       "read_url": "https://universalcollapse.com/read/sbom",
-      "pdf_url": "https://universalcollapse.com/pdf/UCT_T20_Structural_Biology_Operating_Manual_v1.0_2026_05.pdf"
+      "pdf_url": "https://universalcollapse.com/pdf/UCT_T20_Structural_Biology_Operating_Manual_v1.0_2026_05.pdf",
+      "relations": {
+        "purpose": "The biology-domain operating manual: translates the kernel, the persistence layer, and the signature schema into working protocols for regulation, evolution, development, and coordination. Compatible with standard biology.",
+        "read_first": [
+          "wp03"
+        ],
+        "related": [
+          "records",
+          "soe",
+          "uis",
+          "bfs"
+        ],
+        "do_not_read_as": [
+          "A competitor to WP03 or a source of new law-level claims — it is a structural reframing that runs alongside standard biology",
+          "A teleology — goal-like behavior emerges from constraint-guided feedback and selection without foresight or endpoints, and function here is retrospective, not prospective",
+          "A claim about religion — Biological Faith Systems names embodied commitment under uncertainty, and can be glossed as commitment architecture"
+        ]
+      }
     },
     {
       "slug": "how_minds_resolve",
