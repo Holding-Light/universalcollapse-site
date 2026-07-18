@@ -688,6 +688,20 @@ papers:
     pdf: true
 
   - slug: methods_s1
+    short_title: "Methods-S₁ — Auditing Independence"
+    relations:
+      purpose: >-
+        Translates the S₁ bound into a deployable audit: specify a channel model
+        from data other than the agreement being tested, build the agreement
+        curve, report effective sample size, and test the named confounds —
+        separating genuine independent redundancy from correlated pseudo-redundancy.
+      read_first: [tn_s1]
+      supports: [cmb_records]
+      related: [records, soe, uis]
+      do_not_read_as:
+        - "A standard — it is a Methods Paper"
+        - "A performance claim — that the audit structure is well-defined can be accepted independently of whether it beats standard pairwise agreement statistics on any dataset"
+        - "A diagnostic that is sharp on its own — its power is conditional on an external channel model and a k_eff audit, and some confounds cannot be separated from pairwise statistics alone"
     pdf_sha256: "bd0008d7862fbe652283761dae48011a23a8de8cbff0ca36e50b41f530c416e6"
     src_file: "UCT_Methods_S1_Auditing_Independence_v1_0_2026_05.docx"
     pdf_file: "UCT_Methods_S1_Auditing_Independence_v1_0_2026_05.pdf"
@@ -705,6 +719,18 @@ papers:
     pdf: true
 
   - slug: methods_s2
+    short_title: "Methods-S₂ — Auditing Constraint Asymmetry"
+    relations:
+      purpose: >-
+        Translates the S₂ bound into a field-deployable latency-curve
+        diagnostic, with constraint asymmetry measured independently of the
+        latency it is meant to predict.
+      read_first: [tn_s2]
+      related: [methods_s1, records, soe, uis]
+      do_not_read_as:
+        - "A standard — it is a Methods Paper"
+        - "A performance claim — the specification can be accepted independently of the protocol's power on any given dataset"
+        - "A test that neutrality caused the delay — the protocol must still exclude boundary placement, effective noise, starting-point bias, and hidden asymmetry"
     pdf_sha256: "eb836c842fb175bf3e0f225a9e5eedd37468b2052fc54dab59e09a50b699509f"
     src_file: "UCT_Methods_S2_Auditing_Constraint_Asymmetry_v1_0_2026_05.docx"
     pdf_file: "UCT_Methods_S2_Auditing_Constraint_Asymmetry_v1_0_2026_05.pdf"
@@ -722,6 +748,18 @@ papers:
     pdf: true
 
   - slug: methods_s3
+    short_title: "Methods-S₃ — Auditing Record State"
+    relations:
+      purpose: >-
+        Translates the S₃ bound into a field-deployable loop-scaling diagnostic,
+        with record state audited as an independent covariate rather than
+        inferred from the hysteresis it is meant to explain.
+      read_first: [tn_s3]
+      related: [methods_s1, methods_s2, records, soe, uis]
+      do_not_read_as:
+        - "A standard — it is a Methods Paper"
+        - "A performance claim — the specification can be accepted independently of the protocol's power on any given dataset"
+        - "A licence to read any loop area as record-driven — the audit exists precisely because rate lag and circular measurement of the record state produce the same curve"
     pdf_sha256: "4a31b3ef5b65aeaf08903918bc0518ac9ddf3c5e957656078e04ce2bd25885f0"
     src_file: "UCT_Methods_S3_Auditing_Record_State_v1_0_2026_05.docx"
     pdf_file: "UCT_Methods_S3_Auditing_Record_State_v1_0_2026_05.pdf"
@@ -739,6 +777,19 @@ papers:
     pdf: true
 
   - slug: tn_s1
+    short_title: "TN-S₁ — Objectivity from Records"
+    relations:
+      purpose: >-
+        Proves the S₁ base case: an outcome redundantly recorded in
+        conditionally independent, discriminable fragments forces optimal
+        observers to converge exponentially in the number of fragments. The
+        formal half of the S₁ formal–protocol pair.
+      supports: [methods_s1, cmb_records]
+      related: [records, soe, uis]
+      do_not_read_as:
+        - "A standard — it is a citable lemma for downstream S₁ empirical demonstrations"
+        - "A complete theory of objectivity"
+        - "An unconditional result — the bound holds only under the stated conditional-independence and discriminability assumptions, and correlated fragments are exactly where it stops"
     pdf_sha256: "bd6c512ce9099084c871b65244760a143fa837b04608e9f3934ecdbead610d10"
     src_file: "UCT_TN_S1_Objectivity_from_Records_v1_0_2026_05.docx"
     pdf_file: "UCT_TN_S1_Objectivity_from_Records_v1_0_2026_05.pdf"
@@ -756,6 +807,19 @@ papers:
     pdf: true
 
   - slug: tn_s2
+    short_title: "TN-S₂ — Neutrality Delays Resolution"
+    relations:
+      purpose: >-
+        Proves the S₂ base case: under one-dimensional drift-diffusion with
+        constant drift and noise and fixed symmetric boundaries, expected
+        first-passage time is strictly maximized at zero drift and falls
+        monotonically as bias grows. The formal half of the S₂ pair.
+      supports: [methods_s2]
+      related: [tn_s1, records, soe, uis]
+      do_not_read_as:
+        - "A standard — it is a citable conditional lemma for the S₂ signature"
+        - "A commitment to the universality of S₂ across domains — acceptance covers the stated model and nothing wider"
+        - "An empirical claim — a domain must independently justify the formalism and measure constraint asymmetry independently of latency"
     pdf_sha256: "8ebc221a9d17bbef0db1d81ab84e0c2aeb9e3ecaeb6a840e0d176ba4374c667e"
     src_file: "UCT_TN_S2_Neutrality_Delays_Resolution_v1_0_2026_05.docx"
     pdf_file: "UCT_TN_S2_Neutrality_Delays_Resolution_v1_0_2026_05.pdf"
@@ -773,6 +837,19 @@ papers:
     pdf: true
 
   - slug: tn_s3
+    short_title: "TN-S₃ — Records Amplify Hysteresis"
+    relations:
+      purpose: >-
+        Proves the S₃ base case: under single-hysteron, quasi-static, major-loop
+        assumptions, record-shifted thresholds give a closed-form loop area that
+        is nondecreasing in record state and strictly increasing whenever the
+        record coupling is positive. The formal half of the S₃ pair.
+      supports: [methods_s3]
+      related: [tn_s1, tn_s2, records, soe, uis]
+      do_not_read_as:
+        - "A standard — it is a citable lemma for downstream S₃ empirical demonstrations"
+        - "Evidence that the wider program is correct — it supplies a formal base case for S₃ and nothing more"
+        - "A demonstration that observed hysteresis is record-driven — a protocol must still separate that from rate lag, instrument hysteresis, asymmetric noise, and circular measurement of the record state"
     pdf_sha256: "4ef6641fd3ad8317ae33b64a72dd53c5fb0c43812a564c9e866435d2fe8222f5"
     src_file: "UCT_TN_S3_Records_Amplify_Hysteresis_v1_0_2026_05.docx"
     pdf_file: "UCT_TN_S3_Records_Amplify_Hysteresis_v1_0_2026_05.pdf"

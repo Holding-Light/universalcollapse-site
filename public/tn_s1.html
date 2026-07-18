@@ -159,6 +159,16 @@
 
     .cta-secondary { color: var(--accent); background: transparent; border-color: var(--accent-dim); }
     .cta-secondary:hover { background: rgba(201,169,110,0.08); border-color: var(--accent); }
+    /* position-block: derived by patch_position_blocks.py — edit site_data, rerun */
+    .pos-block { background: var(--bg-surface); border: 1px solid var(--rule); padding: 1.5rem 1.6rem; margin-bottom: 2.5rem; }
+    .pos-purpose { font-family: var(--serif); font-size: 0.98rem; line-height: 1.75; color: var(--text-secondary); margin-bottom: 1.1rem; }
+    .pos-rels { display: grid; grid-template-columns: max-content 1fr; gap: 0.5rem 1.4rem; margin: 0; }
+    .pos-rels dt { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-secondary); opacity: 0.75; padding-top: 0.2rem; }
+    .pos-rels dd { font-family: var(--serif); font-size: 0.95rem; line-height: 1.65; color: var(--text-secondary); margin: 0; }
+    .pos-rels dd a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--rule); }
+    .pos-rels dd a:hover { border-color: var(--accent); }
+    @media (max-width: 560px) { .pos-rels { grid-template-columns: 1fr; gap: 0.2rem; } .pos-rels dd { margin-bottom: 0.6rem; } }
+    /* /position-block */
   </style>
 </head>
 <body>
@@ -204,6 +214,17 @@
 
   <section>
     <div class="container">
+      <!-- position: derived by patch_position_blocks.py from site_data relations. Edit site_data, rerun; do not hand-edit. -->
+      <div class="section-label">Position in the Program</div>
+      <div class="pos-block">
+        <p class="pos-purpose">Proves the S₁ base case: an outcome redundantly recorded in conditionally independent, discriminable fragments forces optimal observers to converge exponentially in the number of fragments. The formal half of the S₁ formal–protocol pair.</p>
+        <dl class="pos-rels">
+          <dt>Supports</dt><dd><a href="/methods_s1">Methods-S₁ — Auditing Independence</a> &middot; <a href="/cmb_records">CMB Record Consensus</a></dd>
+          <dt>Related</dt><dd><a href="/records">Records</a> &middot; <a href="/soe">The Structuralization of Empiricism</a> &middot; <a href="/uis">Update Integrity Standard (UIS)</a></dd>
+          <dt>Do not read as</dt><dd>A standard — it is a citable lemma for downstream S₁ empirical demonstrations &middot; A complete theory of objectivity &middot; An unconditional result — the bound holds only under the stated conditional-independence and discriminability assumptions, and correlated fragments are exactly where it stops</dd>
+        </dl>
+      </div>
+      <!-- /position -->
       <div class="section-label">Cite</div>
       <div class="cite-box">
         <p class="cite-text">Jones, Jeremy C. (2026). <em>Objectivity from Records: An Exponential Consensus Bound</em> (v1.0). HoldingLight LLC.<br>
