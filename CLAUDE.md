@@ -268,6 +268,21 @@ about a world that has two.**
 - **A check that has never failed has never been tested.** Every new lint gets a
   doctored input that must FAIL before its PASS means anything. (Library-card
   DOI check: proven against the historical UWRS3 shape before first trust.)
+- **Idempotence is proven by a second run producing zero bytes of diff.** Not by
+  counting markers, not by "it looks right." All three marker patchers leaked +2
+  spaces of indent per apply for a full session while claiming idempotence,
+  because `RE_BLOCK` matched the marker *text* and not its leading whitespace —
+  `.sub()` left the old indent and prepended a fresh one. Anchor `^[ \t]*` under
+  `re.M`. Then: `apply; apply; git diff --stat public/` → nothing (2026-07-17).
+- **A partial read is not a read.** `head -12` of `llms.txt` plus a `grep -c`
+  returning 1 produced a whole session's plan to add content the file already
+  carried in full, ten lines below the cutoff. Before building anything into an
+  artifact, read the artifact end to end. The cost of the read is always lower
+  than the cost of the build (2026-07-17).
+- **`\n` in a single-quoted Python string is a newline, not backslash-n** — even
+  when the string is obviously a regex. Patch scripts matching `r"\n?"` need
+  `\\n` or a raw string, or the anchor silently never matches. The assert catches
+  it; without an assert it writes garbage.
 - **`grep -c` counts lines, not structure.** Read the matched lines before
   concluding — a count of 2 was once read as "the citation block exists"; both
   hits were display code.
