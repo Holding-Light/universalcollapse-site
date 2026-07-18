@@ -256,6 +256,15 @@ Theme: bg #08090c · accent #c9a96e · EB Garamond / Outfit / JetBrains Mono
 Each cost real time. Same shape throughout: **a tool encoding one assumption
 about a world that has two.**
 
+- **A citation scan keyed on DOIs is blind to the pre-DOI corpus.** Building the
+  relations graph from `OSF.IO/<token>` matches across the read pages reported
+  WP01's outbound edges as *none* — and WP01 §0 names *Collapse Reframed*,
+  *Prime 0 (Coherence)* and *Structural Physics (Axioms)* as companion notes, in
+  prose, because it predates the DOIs. The matrix was right about what it
+  measured and wrong about what it was asked. A second model reading the paper
+  cold caught it. Scan by title as well as by DOI, and treat any
+  corpus-wide grep as evidence about its own key, not about the corpus.
+
 - **Project `.docx` files in the Claude project mount are markdown with a
   `.docx` extension** — `read_text()`, never pandoc/zipfile. Real docx live in
   `~/Desktop/Papers/**/`.

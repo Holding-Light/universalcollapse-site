@@ -56,6 +56,13 @@ pages:
 # patch_position_blocks.py; read_first feeds JSON-LD isBasedOn; the whole
 # graph emits to /library.json. Positioning lines are claims: propose to the
 # operator, never invent.
+#   supports is NOT the inverse of read_first. supports = "Y is built on this";
+#   read_first = "the reader should read this before Y". They coincide often
+#   (kernel_first supports wp01 / wp01 reads kernel_first first) but not always:
+#   records, soe and uis all support falsification_standards, which consolidates
+#   them as sources while instructing the reader to start at the Program Map.
+#   Non-reciprocal edges are legal and expected — do not "fix" them, and do not
+#   gate on reciprocity.
 papers:
   - slug: kernel_first
     short_title: "Kernel First"
@@ -91,6 +98,20 @@ papers:
       constrained actualization, not substance; the Observer's Fallacy.
 
   - slug: wp01
+    relations:
+      purpose: >-
+        The formal entry point to the spine: fixes the kernel notation, states
+        the assumptions and scope conditions explicitly, and defines the three
+        S-signatures as law-level markers that the rest of the series runs
+        against data.
+      read_first: [kernel_first]
+      supports: [wp02, wp03, records]
+      related: [collapse_reframed, pr00_coherence]
+      do_not_read_as:
+        - "A finished law — constraint-guided collapse is presented as a candidate pattern, to be run against data across the series"
+        - "A current roadmap — the forward-declared WP06 and WP07 of §0.7 are a 2025 record, and §0.7 itself marks them as not required for the law-level claim"
+        - "A metaphor — the kernel is offered as a structural mechanism with consequences, not a philosophical framing"
+        - "A commitment to a microphysical collapse model — the micro-mechanism is left open, and S₁–S₃ do not depend on any particular one"
     pdf_file: "UCT_WP01_Foundations_of_Collapse_v2.0.pdf"
     pdf_sha256: "aa890738cd181e8029e8b652d9be7027aeecd38943d31f39aeeb466b4df5e5ba"
     src_file: "UCT_WP01_Foundations_of_Collapse_v2.0_2025_11_11.docx"
@@ -111,6 +132,20 @@ papers:
       S1-S3, and cross-domain probes.
 
   - slug: wp02
+    short_title: "WP02"
+    relations:
+      purpose: >-
+        Runs the kernel through physics: the CMB as a coherence baseline,
+        entropy as the residue of collapse, time as record-depth, and laws and
+        constants as stabilized residues of constraint — then states the
+        cosmological and local-physics observations that would discriminate it.
+      read_first: [wp01]
+      tested_by: [entropy_as_record]
+      related: [records]
+      do_not_read_as:
+        - "A replacement for standard physics — the empirical invariants and core data products are preserved; what changes is what they are read to mean"
+        - "New equations or a new microphysical mechanism"
+        - "A claim that constants are arbitrary — they are read as regime-bounded residues rather than metaphysical absolutes"
     pdf_sha256: "c90ba642497ddd49a25df4dd74f47cbd458c5f77559336b3dc16676bb0896368"
     pdf_file: "UCT_WP02_Collapse_in_Physics_Coherence_as_Law_from_Cosmology_to_Matter_v1.0.pdf"
     src_file: "UCT_WP02_Collapse_in_Physics_Coherence_as_Law_from_Cosmology_to_Matter_v1.0_2025_11_11.docx"
@@ -127,6 +162,19 @@ papers:
     desc: Cosmology, measurement, records, entropy, decoherence.
 
   - slug: wp03
+    short_title: "WP03"
+    relations:
+      purpose: >-
+        Reads life as a phase of collapse behavior under sustained gradients:
+        genomes as records that become constraints, evolution and development as
+        nested collapse, and proto-intent as directional bias toward viability.
+      read_first: [wp01, wp02]
+      tested_by: [rice]
+      related: [sbom, bfs]
+      do_not_read_as:
+        - "A replacement for evolutionary, developmental, or systems biology — it proposes a common grammar across them"
+        - "A claim that life is a new substance — the threshold is a phase change in collapse dynamics"
+        - "A claim that organisms have intentions — proto-intent is directional bias toward viability, explicitly without consciousness"
     pdf_sha256: "5fa2dc59ac6ad5b5805f205a6372496c4780b587f4387bc2134277f6792b99e7"
     pdf_file: "UCT_WP03_Biological_Collapse_v1.0.pdf"
     src_file: "UCT_WP03_Biological_Collapse_v1.0_2026_05.docx"
@@ -256,6 +304,20 @@ papers:
       externalized cognition.
 
   - slug: records
+    relations:
+      purpose: >-
+        Isolates the persistence layer: records are what make collapse
+        cumulative rather than punctual — the hinge that converts an outcome
+        into history, without which constraint, collapse, and update do not
+        form a cycle. Framework-agnostic: the definition and its signatures are
+        usable without accepting the wider program.
+      supports: [soe, uis, falsification_standards]
+      tested_by: [entropy_as_record, cmb_records]
+      related: [wp01]
+      do_not_read_as:
+        - "A new physical law"
+        - "A replacement for thermodynamics, evolutionary biology, or cognitive science — it names a persistence role each already relies on"
+        - "A complete theory of objectivity, evolution, or mind"
     pdf_sha256: "4078ea4a2ef3d8412096b2a0eb0c350bb7dbcae0e84157c7eaee6eb1d7da63b8"
     pdf_file: "UCT_Standards_Records_v2.0.pdf"
     src_file: "UCT_Standards_Records_v2.0_2026_04.docx"
@@ -276,6 +338,18 @@ papers:
       Framework-agnostic — useful without accepting UCT.
 
   - slug: soe
+    relations:
+      purpose: >-
+        The stabilization layer of the standards triad: specifies the structural
+        conditions under which empirical inquiry converges rather than drifting
+        into pseudo-consensus, frozen paradigm, or institutional inertia — and
+        states five divergence claims with falsifiers that expose it.
+      supports: [uis, falsification_standards]
+      related: [records]
+      do_not_read_as:
+        - "A new physics, cosmology, or theory of everything — it addresses one thing, the architecture of empirical stabilization"
+        - "A metaphysical or moral doctrine — coherence here is dynamic stabilization under constraint, not a substance, a telos, or an ethic"
+        - "A claim that stabilization implies truth"
     pdf_sha256: "e12a1b71e0576613d3f71901bf8c5606adec4a4afa62b545d2090b658f7bddff"
     pdf_file: "UCT_Structuralization_of_Empiricism_v1.0.pdf"
     src_file: "UCT_Structuralization_of_Empiricism_v1.0_2026_04.docx"
@@ -292,6 +366,19 @@ papers:
     desc: The structural conditions under which empiricism stabilizes knowledge.
 
   - slug: uis
+    relations:
+      purpose: >-
+        The governance layer of the standards triad: names the corruptors that
+        break an update loop — record falsification, pseudo-redundancy,
+        constraint freezing, selective update, coercive agreement,
+        discriminator-free coherence, identity binding — and gives each an
+        indicator, a repair protocol, and a disclosure requirement.
+      supports: [falsification_standards]
+      related: [records, soe]
+      do_not_read_as:
+        - "A certification that a belief, model, policy, or institution is correct — it discloses whether the update loop has specified its records, redundancy, discriminators, and update rule"
+        - "A field-ratified compliance standard — it is a versioned internal standard of the program, published for critique"
+        - "A social virtue code — the requirement is structural, not a prescription to be nice"
     pdf_sha256: "0565bdfb2f0cf41d3ce39a4f0a19a6eee12d583900c61382aa31270328fe0195"
     pdf_file: "UCT_Update_Integrity_Standard_v1.0.pdf"
     src_file: "UCT_Update_Integrity_Standard_v1.0_2026_04.docx"
@@ -453,6 +540,7 @@ papers:
     read: true
 
   - slug: entropy_as_record
+    short_title: "Entropy as Record"
     pdf_sha256: "18d316468a611ceadf233762d0e14303295643c808e4af95888bc1ed98eed18a"
     src_file: "UCT_T16_Entropy_as_Record_v1_0_2026_07.docx"
     pdf_file: "UCT_T16_Entropy_as_Record_v1.0.pdf"
@@ -654,6 +742,7 @@ papers:
     pdf: true
 
   - slug: pr00_coherence
+    short_title: "Prime 0 — Coherence"
     pdf_sha256: "0ed0aa36d7c5e6173d45377a547c68fe3e67b5d3c34293113ddb334b3484e578"
     src_file: "UCT_T30_PR00_Prime_Coherence_v1_0_2026_06.docx"
     pdf_file: "UCT_T30_PR00_Prime_Coherence_v1_0_2026_06.pdf"
@@ -739,6 +828,7 @@ papers:
     pdf: true
 
   - slug: sbom
+    short_title: "Structural Biology: Operating Manual"
     pdf_sha256: "9d566baa8f8f4abf568b172c2527533ad2b0aaa0bceada56605bbca4c26ced96"
     src_file: "UCT_T20_Structural_Biology_Operating_Manual_v1.0_2026_05.docx"
     pdf_file: "UCT_T20_Structural_Biology_Operating_Manual_v1.0_2026_05.pdf"

@@ -42,7 +42,28 @@
       "short_title": "WP01",
       "read_url": "https://universalcollapse.com/read/wp01",
       "pdf_url": "https://universalcollapse.com/pdf/UCT_WP01_Foundations_of_Collapse_v2.0.pdf",
-      "philarchive": "https://philarchive.org/rec/JONUCT-2"
+      "philarchive": "https://philarchive.org/rec/JONUCT-2",
+      "relations": {
+        "purpose": "The formal entry point to the spine: fixes the kernel notation, states the assumptions and scope conditions explicitly, and defines the three S-signatures as law-level markers that the rest of the series runs against data.",
+        "read_first": [
+          "kernel_first"
+        ],
+        "supports": [
+          "wp02",
+          "wp03",
+          "records"
+        ],
+        "related": [
+          "collapse_reframed",
+          "pr00_coherence"
+        ],
+        "do_not_read_as": [
+          "A finished law — constraint-guided collapse is presented as a candidate pattern, to be run against data across the series",
+          "A current roadmap — the forward-declared WP06 and WP07 of §0.7 are a 2025 record, and §0.7 itself marks them as not required for the law-level claim",
+          "A metaphor — the kernel is offered as a structural mechanism with consequences, not a philosophical framing",
+          "A commitment to a microphysical collapse model — the micro-mechanism is left open, and S₁–S₃ do not depend on any particular one"
+        ]
+      }
     },
     {
       "slug": "wp02",
@@ -50,9 +71,27 @@
       "tier": "Tier 1 — White Papers",
       "doi": "10.17605/OSF.IO/3NYMP",
       "url": "https://universalcollapse.com/wp02",
+      "short_title": "WP02",
       "read_url": "https://universalcollapse.com/read/wp02",
       "pdf_url": "https://universalcollapse.com/pdf/UCT_WP02_Collapse_in_Physics_Coherence_as_Law_from_Cosmology_to_Matter_v1.0.pdf",
-      "philarchive": "https://philarchive.org/rec/JONUCT-3"
+      "philarchive": "https://philarchive.org/rec/JONUCT-3",
+      "relations": {
+        "purpose": "Runs the kernel through physics: the CMB as a coherence baseline, entropy as the residue of collapse, time as record-depth, and laws and constants as stabilized residues of constraint — then states the cosmological and local-physics observations that would discriminate it.",
+        "read_first": [
+          "wp01"
+        ],
+        "tested_by": [
+          "entropy_as_record"
+        ],
+        "related": [
+          "records"
+        ],
+        "do_not_read_as": [
+          "A replacement for standard physics — the empirical invariants and core data products are preserved; what changes is what they are read to mean",
+          "New equations or a new microphysical mechanism",
+          "A claim that constants are arbitrary — they are read as regime-bounded residues rather than metaphysical absolutes"
+        ]
+      }
     },
     {
       "slug": "wp03",
@@ -60,9 +99,29 @@
       "tier": "Tier 1 — White Papers",
       "doi": "10.17605/OSF.IO/5SZ86",
       "url": "https://universalcollapse.com/wp03",
+      "short_title": "WP03",
       "read_url": "https://universalcollapse.com/read/wp03",
       "pdf_url": "https://universalcollapse.com/pdf/UCT_WP03_Biological_Collapse_v1.0.pdf",
-      "philarchive": "https://philarchive.org/rec/JONUCT-4"
+      "philarchive": "https://philarchive.org/rec/JONUCT-4",
+      "relations": {
+        "purpose": "Reads life as a phase of collapse behavior under sustained gradients: genomes as records that become constraints, evolution and development as nested collapse, and proto-intent as directional bias toward viability.",
+        "read_first": [
+          "wp01",
+          "wp02"
+        ],
+        "tested_by": [
+          "rice"
+        ],
+        "related": [
+          "sbom",
+          "bfs"
+        ],
+        "do_not_read_as": [
+          "A replacement for evolutionary, developmental, or systems biology — it proposes a common grammar across them",
+          "A claim that life is a new substance — the threshold is a phase change in collapse dynamics",
+          "A claim that organisms have intentions — proto-intent is directional bias toward viability, explicitly without consciousness"
+        ]
+      }
     },
     {
       "slug": "cim_foundational",
@@ -154,7 +213,27 @@
       "short_title": "Records",
       "read_url": "https://universalcollapse.com/read/records",
       "pdf_url": "https://universalcollapse.com/pdf/UCT_Standards_Records_v2.0.pdf",
-      "philarchive": "https://philarchive.org/rec/JONRAN-2"
+      "philarchive": "https://philarchive.org/rec/JONRAN-2",
+      "relations": {
+        "purpose": "Isolates the persistence layer: records are what make collapse cumulative rather than punctual — the hinge that converts an outcome into history, without which constraint, collapse, and update do not form a cycle. Framework-agnostic: the definition and its signatures are usable without accepting the wider program.",
+        "supports": [
+          "soe",
+          "uis",
+          "falsification_standards"
+        ],
+        "tested_by": [
+          "entropy_as_record",
+          "cmb_records"
+        ],
+        "related": [
+          "wp01"
+        ],
+        "do_not_read_as": [
+          "A new physical law",
+          "A replacement for thermodynamics, evolutionary biology, or cognitive science — it names a persistence role each already relies on",
+          "A complete theory of objectivity, evolution, or mind"
+        ]
+      }
     },
     {
       "slug": "soe",
@@ -164,7 +243,22 @@
       "url": "https://universalcollapse.com/soe",
       "read_url": "https://universalcollapse.com/read/soe",
       "pdf_url": "https://universalcollapse.com/pdf/UCT_Structuralization_of_Empiricism_v1.0.pdf",
-      "philarchive": "https://philarchive.org/rec/JONTSO-28"
+      "philarchive": "https://philarchive.org/rec/JONTSO-28",
+      "relations": {
+        "purpose": "The stabilization layer of the standards triad: specifies the structural conditions under which empirical inquiry converges rather than drifting into pseudo-consensus, frozen paradigm, or institutional inertia — and states five divergence claims with falsifiers that expose it.",
+        "supports": [
+          "uis",
+          "falsification_standards"
+        ],
+        "related": [
+          "records"
+        ],
+        "do_not_read_as": [
+          "A new physics, cosmology, or theory of everything — it addresses one thing, the architecture of empirical stabilization",
+          "A metaphysical or moral doctrine — coherence here is dynamic stabilization under constraint, not a substance, a telos, or an ethic",
+          "A claim that stabilization implies truth"
+        ]
+      }
     },
     {
       "slug": "uis",
@@ -173,7 +267,22 @@
       "doi": "10.17605/OSF.IO/DWM29",
       "url": "https://universalcollapse.com/uis",
       "read_url": "https://universalcollapse.com/read/uis",
-      "pdf_url": "https://universalcollapse.com/pdf/UCT_Update_Integrity_Standard_v1.0.pdf"
+      "pdf_url": "https://universalcollapse.com/pdf/UCT_Update_Integrity_Standard_v1.0.pdf",
+      "relations": {
+        "purpose": "The governance layer of the standards triad: names the corruptors that break an update loop — record falsification, pseudo-redundancy, constraint freezing, selective update, coercive agreement, discriminator-free coherence, identity binding — and gives each an indicator, a repair protocol, and a disclosure requirement.",
+        "supports": [
+          "falsification_standards"
+        ],
+        "related": [
+          "records",
+          "soe"
+        ],
+        "do_not_read_as": [
+          "A certification that a belief, model, policy, or institution is correct — it discloses whether the update loop has specified its records, redundancy, discriminators, and update rule",
+          "A field-ratified compliance standard — it is a versioned internal standard of the program, published for critique",
+          "A social virtue code — the requirement is structural, not a prescription to be nice"
+        ]
+      }
     },
     {
       "slug": "soai",
@@ -265,6 +374,7 @@
       "tier": "Tier 1.6 — Empirical Demonstrations",
       "doi": "10.17605/OSF.IO/2RC4D",
       "url": "https://universalcollapse.com/entropy_as_record",
+      "short_title": "Entropy as Record",
       "read_url": "https://universalcollapse.com/read/entropy_as_record",
       "pdf_url": "https://universalcollapse.com/pdf/UCT_T16_Entropy_as_Record_v1.0.pdf"
     },
@@ -385,6 +495,7 @@
       "tier": "Tier 30 — Primes",
       "doi": "10.17605/OSF.IO/J2XSQ",
       "url": "https://universalcollapse.com/pr00_coherence",
+      "short_title": "Prime 0 — Coherence",
       "read_url": "https://universalcollapse.com/read/pr00_coherence",
       "pdf_url": "https://universalcollapse.com/pdf/UCT_T30_PR00_Prime_Coherence_v1_0_2026_06.pdf",
       "philarchive": "https://philarchive.org/rec/JONOAT-4"
@@ -435,6 +546,7 @@
       "tier": "Tier 2 — Operating Manuals",
       "doi": "10.17605/OSF.IO/CPKNX",
       "url": "https://universalcollapse.com/sbom",
+      "short_title": "Structural Biology: Operating Manual",
       "read_url": "https://universalcollapse.com/read/sbom",
       "pdf_url": "https://universalcollapse.com/pdf/UCT_T20_Structural_Biology_Operating_Manual_v1.0_2026_05.pdf"
     },
