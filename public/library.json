@@ -142,7 +142,19 @@
       "url": "https://universalcollapse.com/collapse_reframed",
       "read_url": "https://universalcollapse.com/read/collapse_reframed",
       "pdf_url": "https://universalcollapse.com/pdf/UCT_T15_Collapse_Reframed_v1.0.pdf",
-      "philarchive": "https://philarchive.org/rec/JONCRF"
+      "philarchive": "https://philarchive.org/rec/JONCRF",
+      "relations": {
+        "purpose": "The physics entry ramp: reframes collapse as actualization under constraint rather than destructive reduction, with decoherence as the record-embedding prelude that prepares the step but does not perform it. The mathematics is left intact; the contribution is interpretive.",
+        "related": [
+          "wp01",
+          "wp02"
+        ],
+        "do_not_read_as": [
+          "An objective-collapse model in the GRW/CSL sense — no new stochastic dynamics, and no modification to unitary evolution between events",
+          "A hidden-variable proposal — the Schrödinger equation, the Born rule, and no-signaling constraints all remain intact",
+          "An epistemic reframing in the QBism sense — collapse here is an ontic actualization event in the world, not a belief update by the observer"
+        ]
+      }
     },
     {
       "slug": "schrodinger",
@@ -150,9 +162,22 @@
       "tier": "Tier 1.5 — Interpretive Bridges",
       "doi": "10.17605/OSF.IO/GPYWJ",
       "url": "https://universalcollapse.com/schrodinger",
+      "short_title": "Schrödinger Reframe",
       "read_url": "https://universalcollapse.com/read/schrodinger",
       "pdf_url": "https://universalcollapse.com/pdf/UCT_T15_Schrodinger_Mathematical_Experience_v1.0.pdf",
-      "philarchive": "https://philarchive.org/rec/JONWAN"
+      "philarchive": "https://philarchive.org/rec/JONWAN",
+      "relations": {
+        "purpose": "Locates the measurement paradox in a category error: superposition is a property of the representational layer relative to what has not yet been recorded, not a property of the macroscopic system. A single interpretive claim, not a dynamical one.",
+        "related": [
+          "wp01",
+          "wp02"
+        ],
+        "do_not_read_as": [
+          "A modification to quantum mechanics — the Schrödinger equation and the Born rule remain intact, and no hidden variables or new dynamics are introduced",
+          "A denial that quantum probability is nonclassical — the interference structure is real and empirically distinct from classical ignorance over definite states",
+          "An argument requiring the wider program — it sits inside it, but is evaluable entirely on its own terms"
+        ]
+      }
     },
     {
       "slug": "bfs",
@@ -162,7 +187,21 @@
       "url": "https://universalcollapse.com/bfs",
       "read_url": "https://universalcollapse.com/read/bfs",
       "pdf_url": "https://universalcollapse.com/pdf/UCT_T15_Biological_Faith_Systems_v1.0.pdf",
-      "philarchive": "https://philarchive.org/rec/JONBFS"
+      "philarchive": "https://philarchive.org/rec/JONBFS",
+      "relations": {
+        "purpose": "Names commitment under uncertainty as a recurrent structural requirement of viability rather than one adaptive strategy among many — the distributed, embodied, feedback-corrigible architecture by which living systems proceed when proof arrives too late.",
+        "supports": [
+          "how_minds_resolve"
+        ],
+        "related": [
+          "wp03"
+        ],
+        "do_not_read_as": [
+          "A religious or metaphysical claim — the term marks the structural fact that action must precede justification in systems that cannot afford to wait",
+          "A claim about cognition — the commitment architectures it describes run below cognition and nervous systems",
+          "A replacement for active inference, autopoiesis, or allostasis — it names the shared pattern those literatures already describe in domain-local terms"
+        ]
+      }
     },
     {
       "slug": "self_ego",
@@ -172,7 +211,21 @@
       "url": "https://universalcollapse.com/self_ego",
       "read_url": "https://universalcollapse.com/read/self_ego",
       "pdf_url": "https://universalcollapse.com/pdf/UCT_T15_Self_the_Ego_Did_Not_Build_v1.0.pdf",
-      "philarchive": "https://philarchive.org/rec/JONTST-4"
+      "philarchive": "https://philarchive.org/rec/JONTST-4",
+      "relations": {
+        "purpose": "Reads perception as a bidirectional channel between the accumulated self and the ego: the accumulated self is not a filter behind perception but the constraint structure perception operates under, classifying and routing signal before the ego receives anything at all.",
+        "tested_by": [
+          "cogitate"
+        ],
+        "related": [
+          "how_minds_resolve"
+        ],
+        "do_not_read_as": [
+          "A theory of consciousness, of neuroscience, or a comprehensive treatment of the self",
+          "A replacement for existing accounts of predictive processing, salience, or self-modeling — the relationship is integration, not displacement",
+          "An argument requiring the wider program — where its vocabulary appears it is explained locally, and the argument is self-contained"
+        ]
+      }
     },
     {
       "slug": "ai_synthetic",
@@ -308,6 +361,7 @@
       "tier": "Tier 1.6 — Empirical Demonstrations",
       "doi": "10.17605/OSF.IO/MXYU2",
       "url": "https://universalcollapse.com/cogitate",
+      "short_title": "COGITATE Reanalysis",
       "read_url": "https://universalcollapse.com/read/cogitate",
       "pdf_url": "https://universalcollapse.com/pdf/UCT_T16_Constraint_Dependent_Perceptual_Resolution_COGITATE_v1.0.pdf"
     },
@@ -559,7 +613,20 @@
       "short_title": "How Minds Resolve",
       "read_url": "https://universalcollapse.com/read/how_minds_resolve",
       "pdf_url": "https://universalcollapse.com/pdf/UCT_T15_How_Minds_Resolve_v1_0_2026_07.pdf",
-      "philarchive": "https://philarchive.org/rec/JONHMR"
+      "philarchive": "https://philarchive.org/rec/JONHMR",
+      "relations": {
+        "purpose": "Names the operative mechanism most frameworks leave unstated: how a mind inherits starting trust, tests it under feedback, and stabilizes a position into the next cycle — and distinguishes a loop whose commitments stay revisable from one where revisability has been revoked.",
+        "related": [
+          "wp01",
+          "bfs",
+          "uis"
+        ],
+        "do_not_read_as": [
+          "A finished theory of mind — the claim is structural and diagnostic",
+          "A religious or doctrinal sense of faith — Faith here is cycle-relative starting trust, and the cycle is content-neutral across religious belief, scientific inquiry, and everyday cognition",
+          "A claim that generative means correct — it means corrigible; a generatively held belief can be false, and a supplanted one can be true"
+        ]
+      }
     },
     {
       "slug": "starter_physics",

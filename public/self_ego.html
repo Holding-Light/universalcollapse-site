@@ -158,6 +158,16 @@
 
     .cta-secondary { color: var(--accent); background: transparent; border-color: var(--accent-dim); }
     .cta-secondary:hover { background: rgba(201, 169, 110, 0.08); border-color: var(--accent); }
+    /* position-block: derived by patch_position_blocks.py — edit site_data, rerun */
+    .pos-block { background: var(--bg-surface); border: 1px solid var(--rule); padding: 1.5rem 1.6rem; margin-bottom: 2.5rem; }
+    .pos-purpose { font-family: var(--serif); font-size: 0.98rem; line-height: 1.75; color: var(--text-secondary); margin-bottom: 1.1rem; }
+    .pos-rels { display: grid; grid-template-columns: max-content 1fr; gap: 0.5rem 1.4rem; margin: 0; }
+    .pos-rels dt { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-secondary); opacity: 0.75; padding-top: 0.2rem; }
+    .pos-rels dd { font-family: var(--serif); font-size: 0.95rem; line-height: 1.65; color: var(--text-secondary); margin: 0; }
+    .pos-rels dd a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--rule); }
+    .pos-rels dd a:hover { border-color: var(--accent); }
+    @media (max-width: 560px) { .pos-rels { grid-template-columns: 1fr; gap: 0.2rem; } .pos-rels dd { margin-bottom: 0.6rem; } }
+    /* /position-block */
 </style>
 </head>
 <body>
@@ -203,6 +213,17 @@
 
   <section>
     <div class="container">
+      <!-- position: derived by patch_position_blocks.py from site_data relations. Edit site_data, rerun; do not hand-edit. -->
+      <div class="section-label">Position in the Program</div>
+      <div class="pos-block">
+        <p class="pos-purpose">Reads perception as a bidirectional channel between the accumulated self and the ego: the accumulated self is not a filter behind perception but the constraint structure perception operates under, classifying and routing signal before the ego receives anything at all.</p>
+        <dl class="pos-rels">
+          <dt>Tested by</dt><dd><a href="/cogitate">COGITATE Reanalysis</a></dd>
+          <dt>Related</dt><dd><a href="/how_minds_resolve">How Minds Resolve</a></dd>
+          <dt>Do not read as</dt><dd>A theory of consciousness, of neuroscience, or a comprehensive treatment of the self &middot; A replacement for existing accounts of predictive processing, salience, or self-modeling — the relationship is integration, not displacement &middot; An argument requiring the wider program — where its vocabulary appears it is explained locally, and the argument is self-contained</dd>
+        </dl>
+      </div>
+      <!-- /position -->
       <div class="section-label">Cite</div>
       <div class="cite-box">
         <p class="cite-text">Jones, Jeremy C. (2026). <em>The Self the Ego Did Not Build: What Decides Before You Decide</em> (v1.0). HoldingLight LLC.<br>

@@ -210,6 +210,17 @@ papers:
       environments mind builds. The substrate-independence claim.
 
   - slug: collapse_reframed
+    relations:
+      purpose: >-
+        The physics entry ramp: reframes collapse as actualization under
+        constraint rather than destructive reduction, with decoherence as the
+        record-embedding prelude that prepares the step but does not perform it.
+        The mathematics is left intact; the contribution is interpretive.
+      related: [wp01, wp02]
+      do_not_read_as:
+        - "An objective-collapse model in the GRW/CSL sense — no new stochastic dynamics, and no modification to unitary evolution between events"
+        - "A hidden-variable proposal — the Schrödinger equation, the Born rule, and no-signaling constraints all remain intact"
+        - "An epistemic reframing in the QBism sense — collapse here is an ontic actualization event in the world, not a belief update by the observer"
     pdf_sha256: "32737760c5004be3d334e6fcda29bbbdbaecf663b5b2968afe5f5e6803762199"
     pdf_file: "UCT_T15_Collapse_Reframed_v1.0.pdf"
     src_file: "UCT_T15_Collapse_Reframed_v1.0_2026-02-12.docx"
@@ -226,6 +237,18 @@ papers:
     desc: Quantum structural reinterpretation. The physics entry ramp.
 
   - slug: schrodinger
+    relations:
+      purpose: >-
+        Locates the measurement paradox in a category error: superposition is a
+        property of the representational layer relative to what has not yet been
+        recorded, not a property of the macroscopic system. A single interpretive
+        claim, not a dynamical one.
+      related: [wp01, wp02]
+      do_not_read_as:
+        - "A modification to quantum mechanics — the Schrödinger equation and the Born rule remain intact, and no hidden variables or new dynamics are introduced"
+        - "A denial that quantum probability is nonclassical — the interference structure is real and empirically distinct from classical ignorance over definite states"
+        - "An argument requiring the wider program — it sits inside it, but is evaluable entirely on its own terms"
+    short_title: "Schrödinger Reframe"
     pdf_sha256: "db57597b3bb2b726354ea7ec9e50766f1c0f6da6a635ac06c63bcabd5765bf1c"
     pdf_file: "UCT_T15_Schrodinger_Mathematical_Experience_v1.0.pdf"
     src_file: "UCT_T15_Schrodinger_Mathematical_Experience_v1.0_2026_02.docx"
@@ -242,6 +265,18 @@ papers:
     desc: Mathematics as record-bearing formal system rather than substrate.
 
   - slug: bfs
+    relations:
+      purpose: >-
+        Names commitment under uncertainty as a recurrent structural requirement
+        of viability rather than one adaptive strategy among many — the
+        distributed, embodied, feedback-corrigible architecture by which living
+        systems proceed when proof arrives too late.
+      supports: [how_minds_resolve]
+      related: [wp03]
+      do_not_read_as:
+        - "A religious or metaphysical claim — the term marks the structural fact that action must precede justification in systems that cannot afford to wait"
+        - "A claim about cognition — the commitment architectures it describes run below cognition and nervous systems"
+        - "A replacement for active inference, autopoiesis, or allostasis — it names the shared pattern those literatures already describe in domain-local terms"
     pdf_sha256: "5dbb4a5a3c89594cfe8015cc3b6c364ac7e156462056ae8e0620a3ed00c8c7aa"
     pdf_file: "UCT_T15_Biological_Faith_Systems_v1.0.pdf"
     src_file: "UCT_T15_Biological_Faith_Systems_v1.0_2026_04.docx"
@@ -258,6 +293,18 @@ papers:
     desc: Commitment under uncertainty in biology.
 
   - slug: self_ego
+    relations:
+      purpose: >-
+        Reads perception as a bidirectional channel between the accumulated self
+        and the ego: the accumulated self is not a filter behind perception but
+        the constraint structure perception operates under, classifying and
+        routing signal before the ego receives anything at all.
+      tested_by: [cogitate]
+      related: [how_minds_resolve]
+      do_not_read_as:
+        - "A theory of consciousness, of neuroscience, or a comprehensive treatment of the self"
+        - "A replacement for existing accounts of predictive processing, salience, or self-modeling — the relationship is integration, not displacement"
+        - "An argument requiring the wider program — where its vocabulary appears it is explained locally, and the argument is self-contained"
     pdf_sha256: "ef489da660311809580045a23965f20317935117df02ee0c52ddf466bce362b7"
     pdf_file: "UCT_T15_Self_the_Ego_Did_Not_Build_v1.0.pdf"
     src_file: "UCT_T15_Self_the_Ego_Did_Not_Build_v1.0_2026_03.docx"
@@ -432,6 +479,7 @@ papers:
     desc: Biology wing. S3 hysteresis under constraint sweep.
 
   - slug: cogitate
+    short_title: "COGITATE Reanalysis"
     pdf_sha256: "b60deb0b11c032da4dbb5b4e5fc5e4a05c3aa4b55b0322ab02e7bd32fc0fe206"
     pdf_file: "UCT_T16_Constraint_Dependent_Perceptual_Resolution_COGITATE_v1.0.pdf"
     date: "2026/04"
@@ -846,6 +894,17 @@ papers:
     pdf: true
 
   - slug: how_minds_resolve
+    relations:
+      purpose: >-
+        Names the operative mechanism most frameworks leave unstated: how a mind
+        inherits starting trust, tests it under feedback, and stabilizes a
+        position into the next cycle — and distinguishes a loop whose commitments
+        stay revisable from one where revisability has been revoked.
+      related: [wp01, bfs, uis]
+      do_not_read_as:
+        - "A finished theory of mind — the claim is structural and diagnostic"
+        - "A religious or doctrinal sense of faith — Faith here is cycle-relative starting trust, and the cycle is content-neutral across religious belief, scientific inquiry, and everyday cognition"
+        - "A claim that generative means correct — it means corrigible; a generatively held belief can be false, and a supplanted one can be true"
     short_title: "How Minds Resolve"
     pdf_sha256: "016cd32e6433af13c5547b5083aadb213e301b70d28953e6d95f9ff346fb56e4"
     src_file: "UCT_T15_How_Minds_Resolve_v1_0_2026_07.docx"
