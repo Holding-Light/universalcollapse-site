@@ -1216,8 +1216,9 @@ papers:
       related: [bfs, how_minds_resolve, wp01, records, uis, soe]
       do_not_read_as:
         - "A defense of fideism — the paper is its refusal: the floor stays revisable, not protected"
-        - "A religious or doctrinal claim — faith names a process posture, commitment under incomplete resolution, content-neutral across inquiry"
-        - "A claim that the floor is constitutive bedrock — the constitutive grain belongs to the spine (WP04, forthcoming); this paper names the elected, program-level floor"
+        - "Religious belief, revelation, credulity, or assent against evidence — faith here is a restricted structural term: an explicit, action-guiding commitment under public conditions of correction"
+        - "A refutation of foundationalism, coherentism, infinitism, or externalist accounts of warrant — the claim is deliberately small, and starting points do not all have equal standing"
+        - "A license for the content-floor to borrow the access-floor’s standing — the seam between them is the point; blurring it would be crowning"
     short_title: "Faith Without Fideism"
     tier_label: "Tier 0 · Gateway"
     pdf_sha256: "93c54f37645d690130cd25143ef629f4869145979fc80de1223a8158a08e6bee"
