@@ -996,6 +996,94 @@
       }
     },
     {
+      "slug": "faith_without_fideism",
+      "title": "Faith Without Fideism: The Named Floor of Open Inquiry",
+      "tier": "Tier 0 — Orientation",
+      "doi": "10.17605/OSF.IO/PF5RZ",
+      "url": "https://universalcollapse.com/faith_without_fideism",
+      "short_title": "Faith Without Fideism",
+      "tier_label": "Tier 0 · Gateway",
+      "read_url": "https://universalcollapse.com/read/faith_without_fideism",
+      "pdf_url": "https://universalcollapse.com/pdf/UCT_T0_Faith_Without_Fideism_Named_Floor_v1_0_2026_07.pdf",
+      "philarchive": "https://philarchive.org/rec/JONFWF",
+      "relations": {
+        "purpose": "Every enacted inquiry relies on commitments it cannot fully vindicate  from within; UCT names its floor as an elected, corrigible commitment  and refuses to crown it.",
+        "read_first": [
+          "kernel_first"
+        ],
+        "related": [
+          "bfs",
+          "how_minds_resolve",
+          "wp01",
+          "records",
+          "uis",
+          "soe"
+        ],
+        "do_not_read_as": [
+          "A defense of fideism — the paper is its refusal: the floor stays revisable, not protected",
+          "A religious or doctrinal claim — faith names a process posture, commitment under incomplete resolution, content-neutral across inquiry",
+          "A claim that the floor is constitutive bedrock — the constitutive grain belongs to the spine (WP04, forthcoming); this paper names the elected, program-level floor"
+        ]
+      }
+    },
+    {
+      "slug": "human_interface_laws",
+      "title": "Human Interface Laws: A Philosophical Mechanics of Belief, Update, and Shared Reality",
+      "tier": "Tier 1.5 — Interpretive Bridges",
+      "doi": "10.17605/OSF.IO/437HX",
+      "url": "https://universalcollapse.com/human_interface_laws",
+      "short_title": "Human Interface Laws",
+      "read_url": "https://universalcollapse.com/read/human_interface_laws",
+      "pdf_url": "https://universalcollapse.com/pdf/UCT_T15_Human_Interface_Laws_v1_0_2026_07.pdf",
+      "philarchive": "https://philarchive.org/rec/JONHIL",
+      "relations": {
+        "purpose": "Eight regularities of the human interface — how cognition begins from  starting trust, allocates bandwidth, weights feeling, protects identity,  retains records, responds to signal regimes, risks self-sealing, and  reopens revision — the kernel as lived from the inside.",
+        "read_first": [
+          "how_minds_resolve"
+        ],
+        "related": [
+          "wp01",
+          "bfs",
+          "self_ego",
+          "records",
+          "cim_foundational",
+          "uis"
+        ],
+        "do_not_read_as": [
+          "Kernel laws — these are interface laws: regularities of a human subsystem at its own surface",
+          "Exceptionless regularities — the regime laws are conditional and directional",
+          "A claim that positional love and hate are emotions — they are aperture orientations, and the Aperture Check is the reflective heuristic"
+        ]
+      }
+    },
+    {
+      "slug": "ai_meaning_layer",
+      "title": "AI in the Meaning Layer: The Channel Made Visible",
+      "tier": "Tier 1.5 — Interpretive Bridges",
+      "doi": "10.17605/OSF.IO/Z3SKB",
+      "url": "https://universalcollapse.com/ai_meaning_layer",
+      "short_title": "AI in the Meaning Layer",
+      "read_url": "https://universalcollapse.com/read/ai_meaning_layer",
+      "pdf_url": "https://universalcollapse.com/pdf/UCT_T15_AI_in_the_Meaning_Layer_v1_0_2026_05.pdf",
+      "relations": {
+        "purpose": "Locates the AI encounter inside the meaning-layer — CIM met from the  first-person side of the channel. Foundation models are the first  sustained, open-domain synthetic source operating inside that layer; the  felt dissonance is the layer itself becoming visible.",
+        "read_first": [
+          "cim_foundational"
+        ],
+        "related": [
+          "soai",
+          "ai_synthetic",
+          "self_ego",
+          "wp01"
+        ],
+        "do_not_read_as": [
+          "A claim that AI is conscious — the gap between surface signature and underlying structure is itself the phenomenon",
+          "A claim that users are confused or that AI is 'just a tool' — mind-recognition heuristics fire on a genuine surface signature",
+          "A forecast — the long-run dynamics of AI outputs entering the layer as records remain open"
+        ]
+      }
+    },
+    {
       "slug": "starter_physics",
       "title": "Universal Collapse Theory — Physics Starter Pack",
       "tier": "Starter Pack — Physics",

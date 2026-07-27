@@ -1206,6 +1206,95 @@ papers:
     read: true
     pdf: true
 
+  - slug: faith_without_fideism
+    relations:
+      purpose: >-
+        Every enacted inquiry relies on commitments it cannot fully vindicate 
+        from within; UCT names its floor as an elected, corrigible commitment 
+        and refuses to crown it.
+      read_first: [kernel_first]
+      related: [bfs, how_minds_resolve, wp01, records, uis, soe]
+      do_not_read_as:
+        - "A defense of fideism — the paper is its refusal: the floor stays revisable, not protected"
+        - "A religious or doctrinal claim — faith names a process posture, commitment under incomplete resolution, content-neutral across inquiry"
+        - "A claim that the floor is constitutive bedrock — the constitutive grain belongs to the spine (WP04, forthcoming); this paper names the elected, program-level floor"
+    short_title: "Faith Without Fideism"
+    tier_label: "Tier 0 · Gateway"
+    pdf_sha256: "93c54f37645d690130cd25143ef629f4869145979fc80de1223a8158a08e6bee"
+    src_file: "UCT_T0_Faith_Without_Fideism_Named_Floor_v1_0_2026_07.docx"
+    pdf_file: "UCT_T0_Faith_Without_Fideism_Named_Floor_v1_0_2026_07.pdf"
+    title: "Faith Without Fideism: The Named Floor of Open Inquiry"
+    subtitle: "The Named Floor of Open Inquiry"
+    doi: "PF5RZ"
+    tier: "Tier 0 — Orientation"
+    version: "1.0"
+    philarchive: "JONFWF"
+    lastmod: "2026-07-27"
+    priority: "0.9"
+    desc: "Every enacted inquiry relies on commitments it cannot fully vindicate from within. This paper names UCT's floor as an elected, corrigible commitment — and refuses to crown it."
+    built: true
+    read: true
+    pdf: true
+
+  - slug: human_interface_laws
+    relations:
+      purpose: >-
+        Eight regularities of the human interface — how cognition begins from 
+        starting trust, allocates bandwidth, weights feeling, protects identity, 
+        retains records, responds to signal regimes, risks self-sealing, and 
+        reopens revision — the kernel as lived from the inside.
+      read_first: [how_minds_resolve]
+      related: [wp01, bfs, self_ego, records, cim_foundational, uis]
+      do_not_read_as:
+        - "Kernel laws — these are interface laws: regularities of a human subsystem at its own surface"
+        - "Exceptionless regularities — the regime laws are conditional and directional"
+        - "A claim that positional love and hate are emotions — they are aperture orientations, and the Aperture Check is the reflective heuristic"
+    short_title: "Human Interface Laws"
+    pdf_sha256: "69b92cf5d54c9a00211ccd9d0dacfa809c611df495e16851f2c14ca6282498db"
+    src_file: "UCT_T15_Human_Interface_Laws_v1_0_2026_07.docx"
+    pdf_file: "UCT_T15_Human_Interface_Laws_v1_0_2026_07.pdf"
+    title: "Human Interface Laws: A Philosophical Mechanics of Belief, Update, and Shared Reality"
+    subtitle: "A Philosophical Mechanics of Belief, Update, and Shared Reality"
+    doi: "437HX"
+    tier: "Tier 1.5 — Interpretive Bridges"
+    version: "1.0"
+    philarchive: "JONHIL"
+    lastmod: "2026-07-27"
+    priority: "0.8"
+    desc: "Eight regularities of the human interface — starting trust, bandwidth, gain-control, identity, records, signal regimes, self-sealing, and repair — the kernel as lived from the inside."
+    built: true
+    read: true
+    pdf: true
+
+  - slug: ai_meaning_layer
+    relations:
+      purpose: >-
+        Locates the AI encounter inside the meaning-layer — CIM met from the 
+        first-person side of the channel. Foundation models are the first 
+        sustained, open-domain synthetic source operating inside that layer; the 
+        felt dissonance is the layer itself becoming visible.
+      read_first: [cim_foundational]
+      related: [soai, ai_synthetic, self_ego, wp01]
+      do_not_read_as:
+        - "A claim that AI is conscious — the gap between surface signature and underlying structure is itself the phenomenon"
+        - "A claim that users are confused or that AI is 'just a tool' — mind-recognition heuristics fire on a genuine surface signature"
+        - "A forecast — the long-run dynamics of AI outputs entering the layer as records remain open"
+    short_title: "AI in the Meaning Layer"
+    pdf_sha256: "3862509796eae90bcfa237e36dcb8a062e3ab3dbb8338bf274e30a10fc577584"
+    src_file: "UCT_T15_AI_in_the_Meaning_Layer_v1_0_2026_05.docx"
+    pdf_file: "UCT_T15_AI_in_the_Meaning_Layer_v1_0_2026_05.pdf"
+    title: "AI in the Meaning Layer: The Channel Made Visible"
+    subtitle: "The Channel Made Visible"
+    doi: "Z3SKB"
+    tier: "Tier 1.5 — Interpretive Bridges"
+    version: "1.0"
+    lastmod: "2026-07-27"
+    priority: "0.8"
+    desc: "Locates the AI encounter inside the meaning-layer — CIM met from the first-person side of the channel — and reads the felt dissonance as the layer itself becoming visible."
+    built: true
+    read: true
+    pdf: true
+
   - slug: starter_physics
     short_title: "Physics Starter Pack"
     relations:

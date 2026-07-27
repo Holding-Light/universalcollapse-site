@@ -31,6 +31,7 @@ Notation is normative: the collapse operator is **C^K_t** — K superscript, t s
 ## Tier 0 — Orientation
 
 - [Kernel First: Collapse Without Reification](https://universalcollapse.com/read/kernel_first): The gateway paper. What UCT claims, what it does not, and the conditions under which it would be wrong. Kernel-first not primitive-first; collapse as constrained actualization, not substance; the Observer's Fallacy. Full text. DOI 10.17605/OSF.IO/6RZQ2
+- [Faith Without Fideism: The Named Floor of Open Inquiry](https://universalcollapse.com/read/faith_without_fideism): Every enacted inquiry relies on commitments it cannot fully vindicate from within. This paper names UCT's floor as an elected, corrigible commitment — and refuses to crown it. Full text. DOI 10.17605/OSF.IO/PF5RZ
 
 ## Tier 1 — White Papers
 
@@ -45,6 +46,8 @@ Notation is normative: the collapse operator is **C^K_t** — K superscript, t s
 - [Biological Faith Systems](https://universalcollapse.com/read/bfs): Commitment under uncertainty in biology. Full text. DOI 10.17605/OSF.IO/D37Q5
 - [Self, the Ego Did Not Build](https://universalcollapse.com/read/self_ego): Identity formation through CIM-mediated experience. Full text. DOI 10.17605/OSF.IO/ZGRD4
 - [How Minds Resolve: The Faith-Reason-Logic-Belief Cycle](https://universalcollapse.com/read/how_minds_resolve): The operative layer most frameworks leave unstated — how an individual mind enters a framework, tests it under feedback, and stabilizes a position into the next cycle. Full text. DOI 10.17605/OSF.IO/92RQ5
+- [Human Interface Laws: A Philosophical Mechanics of Belief, Update, and Shared Reality](https://universalcollapse.com/read/human_interface_laws): Eight regularities of the human interface — starting trust, bandwidth, gain-control, identity, records, signal regimes, self-sealing, and repair — the kernel as lived from the inside. Full text. DOI 10.17605/OSF.IO/437HX
+- [AI in the Meaning Layer: The Channel Made Visible](https://universalcollapse.com/read/ai_meaning_layer): Locates the AI encounter inside the meaning-layer — CIM met from the first-person side of the channel — and reads the felt dissonance as the layer itself becoming visible. Full text. DOI 10.17605/OSF.IO/Z3SKB
 
 ## Tier 1.6 — Empirical Demonstrations
 
@@ -111,6 +114,6 @@ Notation is normative: the collapse operator is **C^K_t** — K superscript, t s
 ## Optional
 
 - Resolving a DOI: every `10.17605/OSF.IO/XXXXX` above resolves via `https://doi.org/` to the OSF deposit, which carries the full text plus reproducibility material (data, code, verification packs) not mirrored on this site.
-- PhilArchive records exist for 18 of the philosophy-facing papers at `https://philarchive.org/rec/{handle}` — handles: JONKFC, JONUCT-2, JONUCT-3, JONUCT-4, JONCMA-5, JONCRF, JONWAN, JONBFS, JONTST-4, JONAAS-4, JONRAN-2, JONTSO-28, JONOAT-4, JONARP, JONACW-6, JONAIX, JONANH-2, JONHMR.
+- PhilArchive records exist for 20 of the philosophy-facing papers at `https://philarchive.org/rec/{handle}` — handles: JONKFC, JONUCT-2, JONUCT-3, JONUCT-4, JONCMA-5, JONCRF, JONWAN, JONBFS, JONTST-4, JONAAS-4, JONRAN-2, JONTSO-28, JONOAT-4, JONARP, JONACW-6, JONAIX, JONANH-2, JONHMR, JONFWF, JONHIL.
 
-Note: 38 of 41 papers currently have full-text `/read/` pages; the rest are being added. Additional deposited papers not yet listed here are on OSF and resolve by DOI.
+Note: 41 of 44 papers currently have full-text `/read/` pages; the rest are being added. Additional deposited papers not yet listed here are on OSF and resolve by DOI.
