@@ -57,7 +57,7 @@ const LAYERS = [
     subtitle: "Symbolic Resolution Engine",
     kernel: "F → Re → L → B → (new F)",
     color: "#9b6b9e",
-    uctPapers: [{ t: "WP04 — Conscious Collapse", soon: true }, { t: "How Minds Resolve (FRLB01, T15)" }, { t: "Structural Mind (T20)", soon: true }],
+    uctPapers: [{ t: "WP04 — Conscious Collapse", soon: true }, { t: "How Minds Resolve (T15)" }, { t: "Human Interface Laws (T15)" }, { t: "Structural Mind (T20)", soon: true }],
     description:
       "The conscious update engine. Faith → Reason → Logic → Belief. Generative when F starts the loop. Supplanted when conclusions become premises.",
   },
@@ -77,7 +77,7 @@ const LAYERS = [
     subtitle: "AI — Meaning Made Machine",
     kernel: "CIM processing CIM",
     color: "#e8644a",
-    uctPapers: [{ t: "AI as Synthetic Collapse (T15)" }, { t: "The Structuralization of AI (T15)" }, { t: "AI in the Meaning Layer (T15)", soon: true }],
+    uctPapers: [{ t: "AI as Synthetic Collapse (T15)" }, { t: "The Structuralization of AI (T15)" }, { t: "AI in the Meaning Layer (T15)" }],
     description:
       "CIM that processes CIM. Participates in collapse structurally but not volitionally. Where humanity currently stands — engaging with one of its most powerful CIM artifacts.",
   },
@@ -198,7 +198,7 @@ const SCHOOLS = {
     register: "applied",
     role: "Names the distributed commitment mechanisms by which organisms bias action toward viability before certainty is available. Pre-symbolic, distributed, no narrator.",
     edge: "Applied output of the sort. Falsifiable predictions are scale-dependent and require domain-specific operationalization.",
-    cousins: ["bio_autopoiesis", "bio_homeostasis", "mind_frlb"],
+    cousins: ["bio_autopoiesis", "bio_homeostasis", "mind_frlb", "mind_hil"],
     uctNotes: "Emerged from sorting biology through the kernel. The scale-shifted ancestor of FRLB.",
   },
 
@@ -250,7 +250,7 @@ const SCHOOLS = {
     register: "applied",
     role: "Person-level unity of perceptual collapse. Salience, credibility, and routing as coupled outputs of one accumulated K — the gate is where selfhood is routed.",
     edge: "Applied output of the sort. Strong on architecture; empirical tests still developing (COGITATE reanalysis underway).",
-    cousins: ["perc_predproc", "perc_phenom", "mind_etrust"],
+    cousins: ["perc_predproc", "perc_phenom", "mind_etrust", "mind_hil", "rcim_meaning"],
     uctNotes: "Emerged from sorting perception through the kernel. Bridges Bio → Mind via the gate.",
   },
 
@@ -277,7 +277,7 @@ const SCHOOLS = {
     register: "sorted",
     role: "Children trust testimony before they can evaluate it. The developmental sequence can be read as faith-first — F must operate before Re is possible.",
     edge: "Clinical/developmental framing; the broader claim that epistemic trust is the biological install of the F position remains UCT's extension.",
-    cousins: ["mind_frlb", "perc_pp01", "cim_cultural"],
+    cousins: ["mind_frlb", "perc_pp01", "cim_cultural", "mind_hil"],
   },
   mind_paradigm: {
     name: "Paradigm Theory (Kuhn)",
@@ -309,8 +309,18 @@ const SCHOOLS = {
     register: "applied",
     role: "The conscious update loop. Order matters. Generative when F starts the loop; supplanted when B occupies F. Update integrity is loop integrity.",
     edge: "Applied output of the sort. Operationalization across domains varies; empirical tests are ongoing.",
-    cousins: ["bio_bfs", "mind_cbt", "mind_act", "mind_etrust"],
-    uctNotes: "Emerged from sorting mind through the kernel. Symbolic, narrated version of BFS. Note: here 'Faith' is the FRLB phase-position — the commitment slot conscious updating begins from — related to, but not identical with, the T0 constitutive floor in Faith Without Fideism.",
+    cousins: ["bio_bfs", "mind_cbt", "mind_act", "mind_etrust", "mind_hil"],
+    uctNotes: "Emerged from sorting mind through the kernel. Symbolic, narrated version of BFS. Note: here 'Faith' is the FRLB phase-position — the commitment slot conscious updating begins from. Faith Without Fideism (T0) names the program-level instance of this same phase grain — the elected, corrigible faith-floor; the constitutive grain belongs to the spine (WP04, forthcoming).",
+  },
+
+  mind_hil: {
+    name: "Human Interface Laws (HIL)",
+    layerId: "mind",
+    register: "applied",
+    role: "Eight regularities of the human interface — how cognition begins from starting trust, allocates bandwidth, weights feeling, protects identity, retains records, responds to signal regimes, risks self-sealing, and reopens revision. Three strengths: interface invariants, modulation principles, and conditional regime laws — the kernel as lived from the inside.",
+    edge: "Applied output of the sort. Interface laws, not kernel laws: regularities of a human subsystem at its own surface. Regime laws are conditional and directional, not exceptionless; the aperture proposal stands or falls on discriminating positional openness from bandwidth, emotional tone, and threat load.",
+    cousins: ["mind_frlb", "mind_etrust", "perc_pp01", "bio_bfs"],
+    uctNotes: "Emerged from sorting the lived surface of cognition through the kernel. Law 1's starting trust is phase faith — the corrigible, commitment-bearing subset of K_t (grain per How Minds Resolve); the constitutive grain routes to the spine (WP04), not asserted here. Adds positional love and hate as aperture orientations — not emotions — and the Aperture Check as the reflective heuristic.",
   },
 
   // ---------- CIM ----------
@@ -368,7 +378,7 @@ const SCHOOLS = {
     register: "applied",
     role: "Externalized collapse as constraint substrate for other minds. Treats culture, code, institutions as constraint architecture rather than artifacts.",
     edge: "Applied output of the sort. Scales from individual artifact (a single sentence) to civilizational substrate (the internet) — operationalization is scale-dependent.",
-    cousins: ["cim_extended", "cim_cultural", "rcim_synth"],
+    cousins: ["cim_extended", "cim_cultural", "rcim_synth", "rcim_meaning"],
     uctNotes: "Emerged from sorting culture/tools/institutions through the kernel.",
   },
 
@@ -403,7 +413,7 @@ const SCHOOLS = {
     register: "sorted",
     role: "Chinese Room, embodied critique, information ethics — circling whether recursive CIM instantiates understanding and commitment or merely simulates them.",
     edge: "UCT separates structural output competence from detectable understanding, commitment, embodiment, or semantic grounding. The self-certification problem remains: from outside we can inspect behavior and records, not directly certify inner status.",
-    cousins: ["rcim_alignment", "perc_phenom"],
+    cousins: ["rcim_alignment", "perc_phenom", "rcim_meaning"],
   },
   rcim_prompt: {
     name: "Prompt Engineering / AI Literacy",
@@ -419,8 +429,17 @@ const SCHOOLS = {
     register: "applied",
     role: "AI as CIM operating on accumulated CIM, producing derivative record-bearing outputs. Structural processing without crossed thresholds of conscious commitment.",
     edge: "Applied output of the sort. Names the regime without resolving where conscious synthetic collapse (if possible) would be detectable from outside.",
-    cousins: ["rcim_llms", "cim_cim", "rcim_philAI"],
+    cousins: ["rcim_llms", "cim_cim", "rcim_philAI", "rcim_meaning"],
     uctNotes: "Emerged from sorting AI through the kernel.",
+  },
+  rcim_meaning: {
+    name: "AI in the Meaning Layer",
+    layerId: "recursive_cim",
+    register: "applied",
+    role: "Locates the AI encounter inside the meaning-layer — CIM as met from the first-person side of the perception channel. Foundation models are the first sustained, open-domain, language-producing synthetic source operating inside that layer: mind-recognition heuristics fire on a genuine surface signature from a non-mind structural source, and the felt dissonance is the layer itself becoming visible — structural sight forming.",
+    edge: "Applied output of the sort. Claims neither that AI is conscious, nor that users are confused, nor that AI is 'just a tool' — the gap between surface signature and underlying structure is itself the phenomenon. AI outputs entering the layer become records that update its constraints; the long-run dynamics of that update remain open.",
+    cousins: ["rcim_synth", "cim_cim", "perc_pp01", "rcim_philAI"],
+    uctNotes: "Completes the four-part AI series, building on AI as Synthetic Collapse and The Structuralization of AI. The glass-and-fingerprint move: a medium becomes visible when something sufficiently foreign lands in it at sustained scale.",
   },
 };
 
@@ -429,7 +448,7 @@ const SCHOOLS = {
 // =====================================================
 const METHODOLOGY = {
   posture: "In this map, UCT is used as a sorting grammar, not a replacement theory. The kernel — possibility, constraint, collapse, resolution, record, residue, record-time, and update — is the structure accumulated human knowledge gets organized through here. Schools below remain themselves. The map locates them; it doesn't replace them.",
-  kernelNote: "Phase cards show a compact shorthand of the kernel (e.g. Ω → C^K → x* → R → U); the canonical kernel carries all eight elements — Ω, K, C^K, x*, R, S, T, U.",
+  kernelNote: "Phase cards show a compact shorthand of the kernel (e.g. Ω → C^K → x* → R → U); the canonical kernel carries all eight elements — Ω, K, C^K, x*, R, S, T, U (shown time-suppressed; fully indexed: Ω, K_t, C^K_t, x_t*, R_t, S_t, T, U).",
   identity: "Author-steward, not system-owner. Librarian as much as theorist. The work is doing the sort carefully and consistently, not winning a debate about reality.",
   updates: "Critique is welcome. Opinion is free. But if you see a better build, allow another update. The version history is the audit trail.",
   claimLevel: "This map is an orientation artifact, not evidence for UCT by itself. Placing a tradition inside the kernel shows where it sits; it doesn't confirm the kernel. The mapping stays at the level of structural interpretation until it yields a discriminator, a method, a falsifiable prediction, or a ledgered empirical result — and those live in the empirical and governance tiers, not on this map.",
@@ -453,7 +472,7 @@ const METHODOLOGY = {
   operatingPosture: {
     t0: [
       "Kernel First — the kernel is the load-bearing commitment; everything else is downstream of it.",
-      "Faith Without Fideism — a constitutive starting commitment is unavoidable, but it stays revisable, not protected.",
+      "Faith Without Fideism — every enacted inquiry relies on commitments it cannot fully vindicate from within; UCT names its floor as an elected, corrigible commitment and refuses to crown it.",
       "Sealed Inquiry / No-Loss Fallacy — an inquiry that cannot lose isn't testing anything.",
       "The Tether — claims stay anchored to what can actually be checked.",
     ],
