@@ -335,7 +335,9 @@ entry → rebuild meta → **author** the ~290-word landing (match an existing o
 run the mechanical patchers (`patch_landing_jsonld`, `patch_position_blocks`,
 `fix_landing_read_cta`, `patch_llms_link`, `fix_extension_hops`) → lint
 (`uct_lint_html`, `lint_doi_shadow`) → render-verify → push. Library row + roadmap
-follow the same authored-then-patched shape.
+follow the same authored-then-patched shape. **The full batch sequence —
+gates, expected numbers, and per-paper checklist — is `ADDING_PAPERS.md` at
+repo root. Read it first.**
 
 ---
 
@@ -385,6 +387,50 @@ Jeremy C. Jones · HoldingLight LLC
 ORCID 0009-0007-2515-3774 · contact@universalcollapse.com
 CC BY 4.0 · © 2025–2026 HoldingLight LLC
 Theme: bg `#08090c` · accent `#c9a96e` · EB Garamond / Outfit / JetBrains Mono
+
+---
+
+## 10. Traps — a tool encoding one assumption about a world that has two
+
+Register added 2026-07-27. Each entry earned by an actual failure or near-miss;
+none is hypothetical. The shape is always the same: an instrument, template, or
+reviewer carrying one assumption about a world that turned out to have two.
+
+- **The DOI-shadow lint guards the site; nothing guards the papers' reference
+  lists.** SoE cites Records and UIS with DOIs and WP01 bare. The site's
+  identifier discipline does not propagate to the corpus's own bibliographies.
+- **A deposited abstract is a retrieval surface with its own version.** Kernel
+  drift surfaces are three — `patch_kernel_terms.TERMS`, `build_llms` prose,
+  and the PhilArchive record abstract — and nothing compares them.
+  (JONUCT-2 gained a forward pointer + DOI 2026-07-27; the trap outlives the
+  instance.)
+- **Unnamed discipline gets named by readers.** A floating acronym resolved two
+  ways across two cold reads; an everywhere-practiced, nowhere-named boundary
+  got a reader-invented scheme attributed to the project. No lint catches "the
+  corpus does this but never says so."
+- **Steering is invisible from inside.** Anonymous prompts control for
+  author-deference, not frame-following: a steered cold model elaborates the
+  offered thesis back and calls it more compelling. Only unsteered turns are
+  signal.
+- **Instruments inherit the ontology of their config.** The acceptance sweep
+  verified every URL the sitemap declares and could not see the hostname the
+  sitemap never mentions. www was dead for five months beside all-green checks.
+- **A green gate can be reading a stale artifact.** The architecture build died
+  upstream (`npm: command not found`); the operator gate and lint downstream
+  truthfully PASSED — on yesterday's page. The same week, an external
+  reviewer's cache produced a punch list of already-fixed items. Before
+  trusting a gate, confirm the artifact it read is the one you just made.
+- **Legacy configs resurrect retired bugs.** `kernelfirst.env` (pre-migration
+  era) used as a template carried `OUT=read/…` and re-created the 2026-06-29
+  split-brain. Envs are records of an era; clone the newest sibling, never the
+  oldest.
+- **TIER is a cross-checked record, not a label.** `build_site_meta` byte-
+  matches each env's TIER against the ledger's tier_label-or-tier and dies on
+  mismatch. The ledger is source; sync the env to it. Do not default.
+- **Cloned surfaces hide fields you didn't grep.** `citation_public_url`
+  survived a truncated head-dump and shipped on three landings pointing at the
+  template's URL. When cloning an authored page, diff every `citation_*`,
+  canonical, and `og:` field against the ledger — not the ones you remember.
 
 ---
 
