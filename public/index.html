@@ -365,6 +365,64 @@
       transform: translateX(4px);
     }
 
+    .card-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      margin-top: 0.9rem;
+    }
+
+    .card-links a {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--accent);
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 0.2rem;
+      transition: border-color 0.3s ease, color 0.3s ease;
+    }
+
+    .card-links a:hover {
+      border-color: var(--accent);
+      color: var(--text-primary);
+    }
+
+    .paper-card.is-static {
+      cursor: default;
+    }
+
+    .paper-card.is-static:hover {
+      background: var(--bg-deep);
+    }
+
+    .strip {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      margin-top: 1.75rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      align-items: baseline;
+    }
+
+    .strip a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+      transition: border-color 0.3s ease, color 0.3s ease;
+    }
+
+    .strip a:hover {
+      border-color: var(--accent);
+      color: var(--text-primary);
+    }
+
     /* --- About --- */
     .about-content {
       display: grid;
@@ -504,8 +562,7 @@
         A coherence-first structural framework for a reality that is still resolving. Constraint shapes collapse. Collapse writes records. Records update constraints. Whether that pattern holds everywhere structure emerges is what this program is built to test.
       </p>
       <div class="hero-cta">
-        <a href="https://www.amazon.com/Universal-Collapse-Jeremy-C-Jones-ebook/dp/B0FJLY71PV" target="_blank" rel="noopener">Get the Book</a>
-        <a href="#papers">Read the Papers</a>
+        <a href="#papers">Start Here</a>
         <a href="/library">The Library</a>
         <a href="/roadmap/">Reading Roadmap</a>
         <a href="/architecture">Architecture Map</a>
@@ -531,6 +588,10 @@
         <p class="section-text">
           UCT is not a Theory of Everything, and it does not claim that reality is made of collapse. It is a structural grammar — a way of seeing why the same pattern of collapse, persistence, and renewal recurs across scales usually studied in isolation.
         </p>
+      </div>
+      <div class="card-links" style="margin-top: 2.5rem;">
+        <a href="/wp01">Formalized in WP01 →</a>
+        <a href="/architecture">Full program architecture →</a>
       </div>
     </div>
   </section>
@@ -572,176 +633,136 @@
         <div class="section-label">The Corpus</div>
         <h2 class="section-heading">Published Work</h2>
         <p class="section-text">
-          UCT is developed as a layered research program — not a single text, but a stack of work that builds the kernel, carries it into specific debates, demonstrates it empirically, and hardens it into portable standards and explicit falsification conditions. The philosophy papers are open-access on PhilArchive; the full corpus — empirical demonstrations, standards, methods, and governance — is deposited on OSF.
+          Four entrances into the program, then the work itself, grouped by the
+          domain it addresses. Every paper is open access and carries a permanent
+          DOI; the full corpus lives in the Library.
         </p>
       </div>
 
       <div class="papers-grid reveal">
 
         <a href="/kernel_first" class="paper-card">
-          <span class="paper-number">T0</span>
+          <span class="paper-number">01</span>
           <div class="paper-info">
-            <span class="paper-title">Kernel First: Collapse Without Reification</span>
-            <span class="paper-desc">Start here — the gateway paper. What UCT is and is not, meant to be read before the white papers: collapse as constrained actualization rather than substance, and the Observer's Fallacy as the misreading it exists to prevent.</span>
+            <span class="paper-title">Start Here</span>
+            <span class="paper-desc">Kernel First: what UCT is and is not, before the white papers &mdash; collapse as constrained actualization rather than substance.</span>
           </div>
           <span class="paper-arrow">→</span>
         </a>
 
-        <a href="/faith_without_fideism" class="paper-card">
-          <span class="paper-number">T0</span>
+        <a href="#framework" class="paper-card">
+          <span class="paper-number">02</span>
           <div class="paper-info">
-            <span class="paper-title">Faith Without Fideism: The Named Floor of Open Inquiry</span>
-            <span class="paper-desc">The gateway arc’s second step — every enacted inquiry rests on commitments it cannot fully vindicate from within. Names UCT’s floor as an elected, corrigible commitment and refuses to crown it: naming a floor makes it auditable; crowning one is the structural beginning of dogma.</span>
-          </div>
-          <span class="paper-arrow">→</span>
-        </a>
-
-        <a href="https://www.amazon.com/Universal-Collapse-Jeremy-C-Jones-ebook/dp/B0FJLY71PV" target="_blank" rel="noopener" class="paper-card">
-          <span class="paper-number">BOOK</span>
-          <div class="paper-info">
-            <span class="paper-title">Universal Collapse</span>
-            <span class="paper-desc">The original book-length treatment — the complete philosophical framework in a single volume. Available on Amazon.</span>
-          </div>
-          <span class="paper-arrow">→</span>
-        </a>
-
-        <a href="/wp01" class="paper-card">
-          <span class="paper-number">WP01</span>
-          <div class="paper-info">
-            <span class="paper-title">Universal Collapse Theory: Foundations</span>
-            <span class="paper-desc">The foundational paper — introducing the Law of Coherence, the kernel notation, and the regime architecture grounding how collapse operates across physics, biology, and mind.</span>
-          </div>
-          <span class="paper-arrow">→</span>
-        </a>
-
-        <a href="/wp02" class="paper-card">
-          <span class="paper-number">WP02</span>
-          <div class="paper-info">
-            <span class="paper-title">Universal Collapse Theory: Physics</span>
-            <span class="paper-desc">Applying the UCT framework to foundational physics — reinterpreting measurement, decoherence, and the quantum-classical boundary through the lens of structural coherence.</span>
-          </div>
-          <span class="paper-arrow">→</span>
-        </a>
-
-        <a href="/wp03" class="paper-card">
-          <span class="paper-number">WP03</span>
-          <div class="paper-info">
-            <span class="paper-title">Universal Collapse Theory: Biology</span>
-            <span class="paper-desc">Applying the UCT framework to life — biology as a phase of matter's collapse behavior. Genomes function as both record and constraint; evolution, development, and ecosystems emerge as nested collapse sequences under sustained gradients.</span>
-          </div>
-          <span class="paper-arrow">→</span>
-        </a>
-
-        <a href="/collapse_reframed" class="paper-card">
-          <span class="paper-number">T15</span>
-          <div class="paper-info">
-            <span class="paper-title">Collapse Reframed</span>
-            <span class="paper-desc">A physics white paper offering an accessible entry point to UCT's reinterpretation of quantum collapse — bridging philosophy of physics with the structural grammar of coherence.</span>
-          </div>
-          <span class="paper-arrow">→</span>
-        </a>
-
-        <a href="/schrodinger" class="paper-card">
-          <span class="paper-number">T15</span>
-          <div class="paper-info">
-            <span class="paper-title">We Are Never Having a Mathematical Experience</span>
-            <span class="paper-desc">Resolving the Schrödinger confusion. The measurement paradox arises from a category error — mistaking a property of our representational layer for a property of the macroscopic world.</span>
-          </div>
-          <span class="paper-arrow">→</span>
-        </a>
-
-        <a href="/bfs" class="paper-card">
-          <span class="paper-number">T15</span>
-          <div class="paper-info">
-            <span class="paper-title">Biological Faith Systems</span>
-            <span class="paper-desc">How living systems commit before certainty. The distributed, pre-symbolic mechanisms by which organisms bias action toward viability — a bridge from autopoiesis and active inference toward proto-intent.</span>
-          </div>
-          <span class="paper-arrow">→</span>
-        </a>
-
-        <a href="/self_ego" class="paper-card">
-          <span class="paper-number">T15</span>
-          <div class="paper-info">
-            <span class="paper-title">The Self the Ego Did Not Build</span>
-            <span class="paper-desc">What decides before you decide. A structural account of the two-layer self — the accumulated self beneath the ego — and of perception as the directional channel between them.</span>
-          </div>
-          <span class="paper-arrow">→</span>
-        </a>
-
-        <a href="/cim_foundational" class="paper-card">
-          <span class="paper-number">T15</span>
-          <div class="paper-info">
-            <span class="paper-title">Consciousness-Induced Material</span>
-            <span class="paper-desc">Cognition externalized. Thought becomes speech, writing, tools, mathematics, law, and code — durable record-bearing forms that, once stabilized, shape how future minds think. The structural category for externalized cognition and the substrate of cumulative meaning.</span>
-          </div>
-          <span class="paper-arrow">→</span>
-        </a>
-
-        <a href="/ai_synthetic" class="paper-card">
-          <span class="paper-number">T15</span>
-          <div class="paper-info">
-            <span class="paper-title">AI as Synthetic Collapse</span>
-            <span class="paper-desc">What AI is, structurally — before the question of whether it's conscious. Current AI as the recursive phase of Consciousness-Induced Material: machines operating on mind's externalized record-layer and feeding derivative records back into it.</span>
-          </div>
-          <span class="paper-arrow">→</span>
-        </a>
-
-        <a href="/ai_sig_deployed" class="paper-card">
-          <span class="paper-number">EMPIRICAL</span>
-          <div class="paper-info">
-            <span class="paper-title">S-Signatures in Deployed AI Systems</span>
-            <span class="paper-desc">The framework put to the test. Its structural signatures (S₁, S₂, S₃) applied as falsifiable behavioral probes to five deployed AI substrates under black-box access — checking whether the kernel's predictions are detectable in real systems.</span>
-          </div>
-          <span class="paper-arrow">→</span>
-        </a>
-
-        <a href="/records" class="paper-card">
-          <span class="paper-number">STANDARDS</span>
-          <div class="paper-info">
-            <span class="paper-title">Records Across Nature, Life, and Mind</span>
-            <span class="paper-desc">The persistence layer of collapse. Durable, informative, non-destructively readable traces — records — are what convert isolated resolutions into cumulative history across physics, biology, and mind.</span>
-          </div>
-          <span class="paper-arrow">→</span>
-        </a>
-
-        <a href="/soe" class="paper-card">
-          <span class="paper-number">STANDARDS</span>
-          <div class="paper-info">
-            <span class="paper-title">The Structuralization of Empiricism</span>
-            <span class="paper-desc">The architecture under which empirical practice stabilizes. Independence, calibration, replication, and falsifiability are recast as structural safeguards that keep the constraint–record–update loop corrigible rather than self-sealing.</span>
-          </div>
-          <span class="paper-arrow">→</span>
-        </a>
-
-        <a href="/uis" class="paper-card">
-          <span class="paper-number">STANDARDS</span>
-          <div class="paper-info">
-            <span class="paper-title">Update Integrity Standard</span>
-            <span class="paper-desc">The governance layer. Specifies how update loops in record-bearing systems remain corrigible — through record discipline, independence audit, and symmetric standards — so they revise rather than freeze, drift, or self-seal.</span>
-          </div>
-          <span class="paper-arrow">→</span>
-        </a>
-
-        <a href="/soai" class="paper-card">
-          <span class="paper-number">STANDARDS</span>
-          <div class="paper-info">
-            <span class="paper-title">The Structuralization of AI</span>
-            <span class="paper-desc">The standards-layer account of AI systems: the minimal architecture any coherent description of record-carrying AI must contain — active phase, accumulated constraint architecture, oriented locus, and the S-signatures as cross-architecture falsifiers. Parallel to the Structuralization of Empiricism.</span>
+            <span class="paper-title">Understand the Framework</span>
+            <span class="paper-desc">The claim in one screen: the loop under test, and what the program declines to claim about it.</span>
           </div>
           <span class="paper-arrow">→</span>
         </a>
 
         <a href="/falsification_standards" class="paper-card">
-          <span class="paper-number">GOVERNANCE</span>
+          <span class="paper-number">03</span>
           <div class="paper-info">
-            <span class="paper-title">Failure Modes and Falsification Standards</span>
-            <span class="paper-desc">What would show the framework wrong. The program's own falsification conditions — local failure modes, the global portability challenge, and the standards by which any claim can be tested, revised, or retired.</span>
+            <span class="paper-title">Evidence &amp; Status</span>
+            <span class="paper-desc">Failure modes and falsification standards &mdash; the conditions under which each claim would be abandoned, stated in advance.</span>
           </div>
           <span class="paper-arrow">→</span>
         </a>
+
+        <a href="/library" class="paper-card">
+          <span class="paper-number">04</span>
+          <div class="paper-info">
+            <span class="paper-title">Explore the Library</span>
+            <span class="paper-desc">The whole corpus with DOIs, reading order, and the relation graph that connects it.</span>
+          </div>
+          <span class="paper-arrow">→</span>
+        </a>
+
       </div>
-      <div style="margin-top: 2.5rem;">
-        <a href="/library" style="font-family: var(--mono); font-size: 0.75rem; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; color: var(--accent); border-bottom: 1px solid var(--rule); padding-bottom: 0.4rem;">View the Full Library →</a>
+
+      <div class="strip reveal">Also in the gateway arc: <a href="/faith_without_fideism">Faith Without Fideism →</a></div>
+
+      <div class="papers-grid reveal" style="margin-top: 3rem;">
+
+        <div class="paper-card is-static">
+          <span class="paper-number">I</span>
+          <div class="paper-info">
+            <span class="paper-title">Physics</span>
+            <span class="paper-desc">Constraint shapes how possibility resolves into matter, and what resolves leaves records that condition what comes next.</span>
+            <div class="card-links">
+            <a href="/wp02">WP02 &mdash; Collapse in Physics</a>
+            <a href="/collapse_reframed">Collapse Reframed</a>
+            <a href="/entropy_as_record">Entropy as Record</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="paper-card is-static">
+          <span class="paper-number">II</span>
+          <div class="paper-info">
+            <span class="paper-title">Biology</span>
+            <span class="paper-desc">Living systems resolve under constraint with a memory: records accumulate, and the accumulated record is what makes the next resolution different.</span>
+            <div class="card-links">
+            <a href="/wp03">WP03 &mdash; Biological Collapse</a>
+            <a href="/bfs">Biological Faith Systems</a>
+            <a href="/rice">Bio Constraint Sweep &mdash; Rice</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="paper-card is-static">
+          <span class="paper-number">III</span>
+          <div class="paper-info">
+            <span class="paper-title">Mind</span>
+            <span class="paper-desc">Minds resolve under constraint and write records; the self is what that record layer builds, not what authors it.</span>
+            <div class="card-links">
+            <a href="/self_ego">Self, the Ego Did Not Build</a>
+            <a href="/how_minds_resolve">How Minds Resolve</a>
+            <a href="/cogitate">COGITATE &mdash; Perceptual Resolution</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="paper-card is-static">
+          <span class="paper-number">IV</span>
+          <div class="paper-info">
+            <span class="paper-title">Artificial Intelligence</span>
+            <span class="paper-desc">UCT wasn't built to explain AI. AI is the recursive phase of mind's externalized record layer &mdash; and the place the kernel's signatures can be tested directly.</span>
+            <div class="card-links">
+            <a href="/cim_foundational">Consciousness-Induced Material</a>
+            <a href="/ai_meaning_layer">AI in the Meaning Layer</a>
+            <a href="/ai_sig_deployed">S1&ndash;S3 in Deployed AI Systems</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="strip reveal">Held to standards: <a href="/records">Records</a> &middot; <a href="/soe">Structuralization of Empiricism</a> &middot; <a href="/uis">Update Integrity</a></div>
+
+      <div class="card-links reveal" style="margin-top: 3rem;">
+        <a href="/library">Full library →</a>
+        <a href="/roadmap/">Reading roadmap →</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="container"><hr class="section-rule"></div>
+
+  <!-- The Book -->
+  <section id="book">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-label">The Book</div>
+        <h2 class="section-heading">The same framework, as one continuous read.</h2>
+        <p class="section-text">
+          The papers above are open access and permanently archived &mdash; that is
+          where the program lives. <em>Universal Collapse</em> is the book-length
+          treatment for anyone who would rather have it start to finish, in a single
+          volume, than paper by paper.
+        </p>
+      </div>
+      <div class="card-links" style="margin-top: 2.5rem;">
+        <a href="https://www.amazon.com/Universal-Collapse-Jeremy-C-Jones-ebook/dp/B0FJLY71PV" target="_blank" rel="noopener">Get the book →</a>
       </div>
     </div>
   </section>
