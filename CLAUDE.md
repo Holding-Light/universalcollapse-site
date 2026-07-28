@@ -269,7 +269,7 @@ export LC_ALL=en_US.UTF-8
 | `tools/uct-paper.html` | read-page template |
 | `tools/UCT_Architecture_Map_v4.jsx` | architecture-map source of record |
 | `tools/{slug}.env` | per-paper build config |
-| `tools/site_data.yaml` | Rule 3 single source — 41 papers + 6-DOI backlog |
+| `tools/site_data.yaml` | Rule 3 single source — 44 papers + 6-DOI backlog |
 
 **Linters / gates**
 
@@ -308,7 +308,7 @@ python3 tools/status.py --queue
 ```
 
 `site_data.yaml` never invents a DOI. Truth is
-`UCT_DOI_Registry_v2_8_2026_07.md`. Cross-check each entry against its live page's
+the latest `UCT_DOI_Registry_v*`. Cross-check each entry against its live page's
 own `citation_doi` before trusting it.
 
 ---
@@ -440,6 +440,22 @@ reviewer carrying one assumption about a world that turned out to have two.
   survived a truncated head-dump and shipped on three landings pointing at the
   template's URL. When cloning an authored page, diff every `citation_*`,
   canonical, and `og:` field against the ledger — not the ones you remember.
+
+- **A verification grep dies when a class string grows.** `grep -c
+  'class="paper-card"'` returned 4 where 8 cards existed: four carried
+  `class="paper-card is-static"`, which does not contain the searched
+  string — the closing quote differs. The patcher's own post-conditions,
+  which asserted both forms separately, were right; the verification line
+  typed afterward was wrong. Verify with the assertion the tool already
+  makes, not a fresh string from memory.
+
+- **A paste block is a program in the operator's shell, not yours.** A run
+  block written with trailing `# comment` annotations was pasted into zsh,
+  where `interactive_comments` is off by default: the `#` became an
+  argument, argparse rejected it, and the dry run was silently skipped —
+  the patcher went straight to `--apply` with no review pass. The same `#`
+  swallowed both post-push verification greps. Annotations belong in the
+  tool's own output, never in a block someone else pastes.
 
 ---
 
