@@ -13,6 +13,13 @@ produces records, this one produces views of records.
 > `gen_static_block.mjs`, `verify_architecture.mjs`, `check_operator.py`). Two
 > current-state numbers (§0) still want one live `--check` to confirm they haven't
 > moved since the v7 handoff.
+>
+> **§0 refreshed 2026-07-27** — append-only correction, post FWF/HIL/AIML
+> ship. The 07-20 note above stands as written; its numbers were the
+> 41-paper era's. Current, confirmed by one live `--check` at `6d45a86`:
+> 44 papers · 41 read pages · 90 sitemap URLs · 177 edges · 134 do-not-read-as
+> · 88 pages / 0 errors / 6 warnings. The measured numbers were never
+> wrong; only the documented expectations were.
 
 ---
 
@@ -29,15 +36,17 @@ python3 tools/uct_lint_html.py public/*.html public/read/*.html --landing \
     --papers-from tools/site_data.yaml --sitemap public/sitemap.xml
 ```
 
-Want: clean status; `sitemap URLs : 84`; `read pages : 38`; `backlog: 6`;
-`no doi.org links shadowing a local page ✓`; **82 pages — 0 errors, 5 warnings**
-(the check_conversion trio + the known-clean pair — unchanged since v4).
+Want: clean status; `papers built : 44`; `read pages : 41`; `sitemap URLs : 90`;
+`backlog: 6`; `no doi.org links shadowing a local page ✓`; **88 pages — 0
+errors, 6 warnings** (the check_conversion trio + the known-clean pair +
+`read/faith_without_fideism`, pre-cleared — the structural gate reads its
+`msubsup` as lawful; only the text linter can't see it).
 
 **Trap: without `--papers-from`, every ledger cross-check silently skips** and the
 lint still prints green. The flag is what makes the gate real.
 
-Ledger fingerprint (reproducible from the committed yaml): **41 papers, 158 edges**
-(related 100 + read_first 27 + supports 23 + tested_by 8), **124 do-not-read-as**.
+Ledger fingerprint (reproducible from the committed yaml): **44 papers, 177 edges**
+(related 116 + read_first 30 + supports 23 + tested_by 8), **134 do-not-read-as**.
 `--check` validates and writes nothing; drop it to write.
 
 ---
@@ -367,7 +376,7 @@ unpushed work vs abandoned drafts. Diff and report; do not delete without sign-o
 
 | Question | File |
 |---|---|
-| DOIs, publication status | `UCT_DOI_Registry_v2_8_2026_07.md` |
+| DOIs, publication status | latest `UCT_DOI_Registry_v*` — highest version wins |
 | Notation | `UCT_Symbols_and_Formulas_Reference_v1_7_2026_07.md` |
 | Site target architecture, phases, ledger schemas | `UCT_Site_Architecture_Blueprint_v1_0_2026_07.md` |
 | OSF component structure | `UCT_OSF_Architecture_Blueprint_v3_1_2026_07.md` |
